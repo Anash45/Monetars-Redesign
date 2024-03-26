@@ -1,0 +1,2057 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+     <meta charset="utf-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1">
+     <meta name="description" content="Monetars">
+     <meta name="author" content="Monetars">
+     <meta name="generator" content="">
+     <!--  Favicons-->
+     <title>Monetars - Home</title>
+     <!-- Flickity CSS -->
+     <link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
+
+     <!-- Fontawesome Icons -->
+     <link rel="stylesheet" href="assets/fontawesome/css/all.css">
+     <!-- Slick CSS-->
+     <link rel="stylesheet" href="assets/slick/slick.css">
+     <link rel="stylesheet" href="assets/slick/slick-theme.css">
+
+     <!-- GOOGLE FONTS -->
+     <link rel="preconnect" href="https://fonts.googleapis.com">
+     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+
+     <!-- TAILWINDCSS OUTPUT -->
+     <link href="dist/output.css" rel="stylesheet">
+
+     <!-- Dark Mode Js -->
+     <script src="./darkmode.js"></script>
+
+     <!-- Flickity JavaScript -->
+     <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
+
+     <!-- Alpine JS -->
+     <script defer src="https://unpkg.com/alpinejs@3.10.5/dist/cdn.min.js"></script>
+</head>
+
+<body>
+
+     <!-- Desktop Dark Light Button -->
+     <div class="fixed z-50 bottom-32 md:bottom-10 left-1 md:left-10 w-10 h-10 bg-slate-900 hover:bg-blue-800 dark:bg-slate-50 rounded-lg hidden lg:flex items-center justify-center text-white dark:text-slate-900 transition-all duration-700 cursor-pointer"
+          x-data=""
+          @click="localStorage.theme === 'dark' ? localStorage.theme = 'light' : localStorage.theme = 'dark'; location.reload();">
+          <svg x-show="localStorage.theme === 'dark'" xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="w-7"
+               viewBox="0 0 16 16">
+               <path
+                    d="M8 11a3 3 0 1 1 0-6 3 3 0 0 1 0 6zm0 1a4 4 0 1 0 0-8 4 4 0 0 0 0 8zm.5-9.5a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0zm0 11a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0zm5-5a.5.5 0 1 1 0-1 .5.5 0 0 1 0 1zm-11 0a.5.5 0 1 1 0-1 .5.5 0 0 1 0 1zm9.743-4.036a.5.5 0 1 1-.707-.707.5.5 0 0 1 .707.707zm-7.779 7.779a.5.5 0 1 1-.707-.707.5.5 0 0 1 .707.707zm7.072 0a.5.5 0 1 1 .707-.707.5.5 0 0 1-.707.707zM3.757 4.464a.5.5 0 1 1 .707-.707.5.5 0 0 1-.707.707z" />
+          </svg>
+          <svg x-show="localStorage.theme === 'light'" xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+               fill="currentColor" class="w-7" viewBox="0 0 16 16">
+               <path
+                    d="M6 .278a.768.768 0 0 1 .08.858 7.208 7.208 0 0 0-.878 3.46c0 4.021 3.278 7.277 7.318 7.277.527 0 1.04-.055 1.533-.16a.787.787 0 0 1 .81.316.733.733 0 0 1-.031.893A8.349 8.349 0 0 1 8.344 16C3.734 16 0 12.286 0 7.71 0 4.266 2.114 1.312 5.124.06A.752.752 0 0 1 6 .278z" />
+          </svg>
+     </div>
+
+     <!--Header Starts-->
+     <header class="sticky top-0 z-50">
+          <nav
+               class="relative md:flex hidden justify-between items-center flex-wrap py-2 px-2 lg:px-8 bg-white dark:bg-slate-800 shadow-md">
+               <a class="pt-1 pb-1 mr-4 text-xl whitespace-nowrap" x-data href="index.html">
+                    <template x-if='localStorage.theme === "dark" ||
+        (!("theme" in localStorage) &&
+          window.matchMedia("(prefers-color-scheme: dark)").matches)'>
+                         <img src="assets/img/Logo-light.png" alt="Monster Logo" style="width:180px;">
+                    </template>
+                    <template x-if='localStorage.theme === "light" ||
+        (!("theme" in localStorage) &&
+          window.matchMedia("(prefers-color-scheme: light)").matches)'>
+                         <img src="assets/img/Monester-logo.png" alt="Monster Logo" style="width:180px">
+                    </template>
+               </a>
+               <button onclick="blockToggle(dropdownMenu3)" class="xl:hidden block py-1 px-3 text-xl">
+                    <span class="flex w-6 h-6 align-middle justify-center items-center ">
+                         <i class="fal fa-align-right text-blue-800 dark:text-white"></i>
+                    </span>
+               </button>
+               <div class="xl:flex hidden xl:basis-auto basis-full grow items-center" id="dropdownMenu3">
+                    <ul class="flex xl:flex-row flex-col mr-auto lg:mb-0 mb-2 ">
+                         <li class="nav-item">
+                              <a class="text-sm block py-2 px-3 text-neutral-500 hover:text-blue-800 dark:text-slate-200"
+                                   aria-current="page" href="earn.html">
+                                   <i class="fal fa-dollar-sign px-2 text-lg"></i>Earn
+                              </a>
+                         </li>
+                         <li class="nav-item">
+                              <a class="text-sm block py-2 px-3 text-neutral-500 hover:text-blue-800 dark:text-slate-200"
+                                   href="withdraw.html">
+                                   <i class="fal fa-credit-card-front px-2 text-lg"></i>Withdraw
+                              </a>
+                         </li>
+                         <li class="nav-item">
+                              <a class="text-sm block py-2 px-3 text-neutral-500 hover:text-blue-800 dark:text-slate-200"
+                                   href="leaders.html">
+                                   <i class="fal fa-star px-2 text-lg"></i>Leaderbord
+                              </a>
+                         </li>
+                         <li class="nav-item">
+                              <a class="text-sm block py-2 px-3 text-neutral-500 hover:text-blue-800 dark:text-slate-200"
+                                   href="./reward.html">
+                                   <i class="fal fa-gift px-2 text-lg"></i>Rewards
+                              </a>
+                         </li>
+                    </ul>
+                    <div class="space-x-2 items-center flex ml-2">
+                         <button x-data @click.prevent="$dispatch('login-register-modal'); $dispatch('tab', { tab: 1 })"
+                              class="inline-flex space-x-2 py-3.5 px-6 text-sm text-neutral-800 bg-indigo-200 dark:text-white dark:bg-slate-700">
+                              <svg class="w-4" viewBox="0 0 14 14" fill="currentColor"
+                                   xmlns="http://www.w3.org/2000/svg">
+                                   <path d="M9.38696 7.4933C10.0508 6.95765 10.5353 6.22311 10.7731 5.39188C11.0109 4.56065 10.9902 3.67405 10.7139 2.85544C10.4376 2.03684 9.91932 1.32692 9.23128 0.824467C8.54324 0.322012 7.71961 0.052002 6.87498 0.052002C6.03035 0.052002 5.20673 0.322012 4.51869 0.824467C3.83064 1.32692 3.3124 2.03684 3.03606 2.85544C2.75972 3.67405 2.73903 4.56065 2.97685 5.39188C3.21468 6.22311 3.6992 6.95765 4.363 7.4933C3.22556 7.96069 2.23309 8.7359 1.49142 9.7363C0.749747 10.7367 0.286666 11.9248 0.151545 13.1738C0.141764 13.265 0.149593 13.3573 0.174583 13.4454C0.199573 13.5335 0.241236 13.6157 0.297193 13.6873C0.410204 13.8318 0.574576 13.9244 0.754149 13.9447C0.933723 13.9649 1.11379 13.9112 1.25473 13.7953C1.39568 13.6794 1.48596 13.5108 1.50571 13.3266C1.65439 11.9691 2.2855 10.7154 3.27846 9.80496C4.27143 8.89453 5.55663 8.39124 6.88853 8.39124C8.22042 8.39124 9.50562 8.89453 10.4986 9.80496C11.4916 10.7154 12.1227 11.9691 12.2713 13.3266C12.2897 13.4973 12.3691 13.6549 12.4942 13.769C12.6192 13.8831 12.781 13.9457 12.9484 13.9447H13.0229C13.2004 13.9237 13.3626 13.8317 13.4742 13.6886C13.5858 13.5455 13.6378 13.363 13.6187 13.1808C13.483 11.9282 13.0174 10.737 12.2719 9.73511C11.5264 8.73318 10.5291 7.95822 9.38696 7.4933ZM6.87498 7.00025C6.33933 7.00025 5.8157 6.83734 5.37031 6.53211C4.92493 6.22688 4.5778 5.79306 4.37281 5.28548C4.16782 4.77791 4.11419 4.2194 4.21869 3.68056C4.32319 3.14173 4.58113 2.64677 4.9599 2.2583C5.33867 1.86982 5.82125 1.60526 6.34661 1.49808C6.87198 1.3909 7.41654 1.44591 7.91142 1.65615C8.4063 1.86639 8.82929 2.22243 9.12688 2.67923C9.42448 3.13603 9.58332 3.67309 9.58332 4.22248C9.58332 4.95919 9.29798 5.66573 8.79006 6.18666C8.28215 6.70759 7.59328 7.00025 6.87498 7.00025Z"
+                                        fill="param(fill)"></path>
+                              </svg>
+                              <span>Login</span>
+                         </button>
+                         <button x-data @click.prevent="$dispatch('login-register-modal'); $dispatch('tab', { tab: 2 })"
+                              class="inline-flex items-center space-x-2 py-3.5 px-6 text-sm text-white bg-blue-800 hover:bg-blue-900">
+                              <svg class="w-4" viewBox="0 0 15 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                   <path d="M2.2934 13.2501L1.80728 13.7432C1.67652 13.8739 1.49916 13.9474 1.31423 13.9474C1.1293 13.9474 0.95194 13.8739 0.821173 13.7432C0.690407 13.6124 0.616943 13.435 0.616943 13.2501C0.616943 13.0652 0.690407 12.8878 0.821173 12.7571L1.80034 11.7848L3.76562 9.81955L8.14062 5.43761C7.66689 4.71958 7.47657 3.85127 7.60651 3.00092C7.73646 2.15057 8.17744 1.37873 8.84399 0.83496C9.51054 0.291187 10.3552 0.0141972 11.2143 0.0576614C12.0735 0.101126 12.8859 0.461949 13.4941 1.07022C14.1024 1.67848 14.4632 2.49089 14.5067 3.35001C14.5501 4.20913 14.2732 5.0538 13.7294 5.72035C13.1856 6.3869 12.4138 6.82787 11.5634 6.95782C10.7131 7.08777 9.84476 6.89744 9.12673 6.42372L5.23784 10.3057L6.71701 11.7779C6.7813 11.8426 6.83221 11.9194 6.86683 12.0038C6.90145 12.0883 6.9191 12.1787 6.91878 12.2699C6.91846 12.3612 6.90017 12.4515 6.86495 12.5356C6.82974 12.6198 6.77828 12.6962 6.71353 12.7605C6.64879 12.8248 6.57201 12.8757 6.48758 12.9103C6.40316 12.945 6.31274 12.9626 6.2215 12.9623C6.13025 12.962 6.03996 12.9437 5.95578 12.9085C5.87161 12.8733 5.79519 12.8218 5.7309 12.7571L4.25867 11.2848L3.27951 12.2709L3.76562 12.7571C3.83037 12.8213 3.88182 12.8978 3.91703 12.9819C3.95225 13.0661 3.97054 13.1564 3.97087 13.2477C3.97119 13.3389 3.95353 13.4293 3.91891 13.5137C3.88429 13.5982 3.83338 13.6749 3.76909 13.7397C3.7048 13.8044 3.62838 13.8559 3.5442 13.8911C3.46003 13.9263 3.36974 13.9446 3.27849 13.9449C3.18724 13.9453 3.09683 13.9276 3.0124 13.893C2.92798 13.8584 2.8512 13.8075 2.78645 13.7432L2.2934 13.2501ZM13.1198 3.52789C13.1198 3.11584 12.9976 2.71305 12.7687 2.37045C12.5398 2.02785 12.2144 1.76082 11.8337 1.60314C11.453 1.44545 11.0341 1.4042 10.63 1.48458C10.2259 1.56497 9.85467 1.76339 9.56331 2.05475C9.27195 2.34611 9.07353 2.71732 8.99315 3.12145C8.91276 3.52557 8.95402 3.94446 9.1117 4.32514C9.26939 4.70582 9.53641 5.03119 9.87901 5.26011C10.2216 5.48903 10.6244 5.61122 11.0365 5.61122C11.589 5.61122 12.1189 5.39173 12.5096 5.00103C12.9003 4.61032 13.1198 4.08042 13.1198 3.52789Z"
+                                        fill="white"></path>
+                              </svg>
+                              <span>Register</span>
+                         </button>
+                    </div>
+               </div>
+          </nav>
+
+          <div class="md:hidden flex p-2 bg-white dark:bg-slate-900 justify-between items-center z-50">
+               <div>
+                    <div>
+                         <button onclick="flexToggle(sidebarMenu1)" class="relative mx-1 py-1 px-2 text-sm bg-white">
+                              <i class="fal fa-align-left text-xl text-blue-800"></i>
+                         </button>
+                    </div>
+               </div>
+               <div>
+                    <div class="space-x-2 items-center flex ml-2">
+                         <button x-data @click.prevent="$dispatch('login-register-modal'); $dispatch('tab', { tab: 1 })"
+                              class="inline-flex space-x-2 py-3 px-6 text-sm text-neutral-800 bg-indigo-200 dark:bg-indigo-50 dark:text-neutral-900">
+                              <svg class="w-3.5" viewBox="0 0 14 14" fill="currentColor"
+                                   xmlns="http://www.w3.org/2000/svg">
+                                   <path d="M9.38696 7.4933C10.0508 6.95765 10.5353 6.22311 10.7731 5.39188C11.0109 4.56065 10.9902 3.67405 10.7139 2.85544C10.4376 2.03684 9.91932 1.32692 9.23128 0.824467C8.54324 0.322012 7.71961 0.052002 6.87498 0.052002C6.03035 0.052002 5.20673 0.322012 4.51869 0.824467C3.83064 1.32692 3.3124 2.03684 3.03606 2.85544C2.75972 3.67405 2.73903 4.56065 2.97685 5.39188C3.21468 6.22311 3.6992 6.95765 4.363 7.4933C3.22556 7.96069 2.23309 8.7359 1.49142 9.7363C0.749747 10.7367 0.286666 11.9248 0.151545 13.1738C0.141764 13.265 0.149593 13.3573 0.174583 13.4454C0.199573 13.5335 0.241236 13.6157 0.297193 13.6873C0.410204 13.8318 0.574576 13.9244 0.754149 13.9447C0.933723 13.9649 1.11379 13.9112 1.25473 13.7953C1.39568 13.6794 1.48596 13.5108 1.50571 13.3266C1.65439 11.9691 2.2855 10.7154 3.27846 9.80496C4.27143 8.89453 5.55663 8.39124 6.88853 8.39124C8.22042 8.39124 9.50562 8.89453 10.4986 9.80496C11.4916 10.7154 12.1227 11.9691 12.2713 13.3266C12.2897 13.4973 12.3691 13.6549 12.4942 13.769C12.6192 13.8831 12.781 13.9457 12.9484 13.9447H13.0229C13.2004 13.9237 13.3626 13.8317 13.4742 13.6886C13.5858 13.5455 13.6378 13.363 13.6187 13.1808C13.483 11.9282 13.0174 10.737 12.2719 9.73511C11.5264 8.73318 10.5291 7.95822 9.38696 7.4933ZM6.87498 7.00025C6.33933 7.00025 5.8157 6.83734 5.37031 6.53211C4.92493 6.22688 4.5778 5.79306 4.37281 5.28548C4.16782 4.77791 4.11419 4.2194 4.21869 3.68056C4.32319 3.14173 4.58113 2.64677 4.9599 2.2583C5.33867 1.86982 5.82125 1.60526 6.34661 1.49808C6.87198 1.3909 7.41654 1.44591 7.91142 1.65615C8.4063 1.86639 8.82929 2.22243 9.12688 2.67923C9.42448 3.13603 9.58332 3.67309 9.58332 4.22248C9.58332 4.95919 9.29798 5.66573 8.79006 6.18666C8.28215 6.70759 7.59328 7.00025 6.87498 7.00025Z"
+                                        fill="param(fill)"></path>
+                              </svg>
+                              <span>Login</span>
+                         </button>
+                         <button x-data @click.prevent="$dispatch('login-register-modal'); $dispatch('tab', { tab: 2 })"
+                              class="inline-flex items-center space-x-2 py-3 px-6 text-sm text-white bg-blue-800 hover:bg-blue-900">
+                              <svg class="w-3.5" viewBox="0 0 15 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                   <path d="M2.2934 13.2501L1.80728 13.7432C1.67652 13.8739 1.49916 13.9474 1.31423 13.9474C1.1293 13.9474 0.95194 13.8739 0.821173 13.7432C0.690407 13.6124 0.616943 13.435 0.616943 13.2501C0.616943 13.0652 0.690407 12.8878 0.821173 12.7571L1.80034 11.7848L3.76562 9.81955L8.14062 5.43761C7.66689 4.71958 7.47657 3.85127 7.60651 3.00092C7.73646 2.15057 8.17744 1.37873 8.84399 0.83496C9.51054 0.291187 10.3552 0.0141972 11.2143 0.0576614C12.0735 0.101126 12.8859 0.461949 13.4941 1.07022C14.1024 1.67848 14.4632 2.49089 14.5067 3.35001C14.5501 4.20913 14.2732 5.0538 13.7294 5.72035C13.1856 6.3869 12.4138 6.82787 11.5634 6.95782C10.7131 7.08777 9.84476 6.89744 9.12673 6.42372L5.23784 10.3057L6.71701 11.7779C6.7813 11.8426 6.83221 11.9194 6.86683 12.0038C6.90145 12.0883 6.9191 12.1787 6.91878 12.2699C6.91846 12.3612 6.90017 12.4515 6.86495 12.5356C6.82974 12.6198 6.77828 12.6962 6.71353 12.7605C6.64879 12.8248 6.57201 12.8757 6.48758 12.9103C6.40316 12.945 6.31274 12.9626 6.2215 12.9623C6.13025 12.962 6.03996 12.9437 5.95578 12.9085C5.87161 12.8733 5.79519 12.8218 5.7309 12.7571L4.25867 11.2848L3.27951 12.2709L3.76562 12.7571C3.83037 12.8213 3.88182 12.8978 3.91703 12.9819C3.95225 13.0661 3.97054 13.1564 3.97087 13.2477C3.97119 13.3389 3.95353 13.4293 3.91891 13.5137C3.88429 13.5982 3.83338 13.6749 3.76909 13.7397C3.7048 13.8044 3.62838 13.8559 3.5442 13.8911C3.46003 13.9263 3.36974 13.9446 3.27849 13.9449C3.18724 13.9453 3.09683 13.9276 3.0124 13.893C2.92798 13.8584 2.8512 13.8075 2.78645 13.7432L2.2934 13.2501ZM13.1198 3.52789C13.1198 3.11584 12.9976 2.71305 12.7687 2.37045C12.5398 2.02785 12.2144 1.76082 11.8337 1.60314C11.453 1.44545 11.0341 1.4042 10.63 1.48458C10.2259 1.56497 9.85467 1.76339 9.56331 2.05475C9.27195 2.34611 9.07353 2.71732 8.99315 3.12145C8.91276 3.52557 8.95402 3.94446 9.1117 4.32514C9.26939 4.70582 9.53641 5.03119 9.87901 5.26011C10.2216 5.48903 10.6244 5.61122 11.0365 5.61122C11.589 5.61122 12.1189 5.39173 12.5096 5.00103C12.9003 4.61032 13.1198 4.08042 13.1198 3.52789Z"
+                                        fill="white"></path>
+                              </svg>
+                              <span>Register</span>
+                         </button>
+                    </div>
+                    <div class="my-1 hidden">
+                         <div class="relative">
+                              <button onclick="blockToggle(dropdownMenu4)"
+                                   class="flex justify-start items-center p-1 text-sm bg-indigo-200 dark:bg-indigo-50">
+                                   <div>
+                                        <span
+                                             style="border-radius: 3px; background-color: white; padding: 12px 14px;">D</span>
+                                   </div>
+                                   <div class="pl-2">
+                                        <span style="font-size: 10px;">david007</span>
+                                        <div class="bg-white"
+                                             style="padding: 0px 4px; border-radius: 3px; width: 80px !important;">
+                                             <div role="profile" id="unlock" class="block text-neutral-500"
+                                                  style="font-size: 10px;"><i class="fal fa-usd-circle mr-1"
+                                                       style="font-size: 10px;"></i>
+                                                  0.05<i class="fal fa-chevron-down ml-2" style="font-size: 9px;"></i>
+                                             </div>
+                                             <div role="profile" id="locked" class="hidden text-neutral-500"
+                                                  style="font-size: 10px;"><i class="fal fa-lock-alt mr-1"
+                                                       style="font-size: 10px;"></i>5.0<i
+                                                       class="fal fa-chevron-down ml-2" style="font-size: 9px;"></i>
+                                             </div>
+                                        </div>
+                                   </div>
+                              </button>
+                              <ul id="dropdownMenu4" class="absolute shadow-lg rounded z-[999999999999] w-full bg-white"
+                                   style="min-width: 120px !important; inset: 0px 0px auto auto; margin: 0px; transform: translate3d(0.400009px, 54px, 0px);">
+                                   <li
+                                        class="block w-full py-1 px-4 clear-both whitespace-nowrap text-sm text-neutral-500">
+                                        <div
+                                             class="flex justify-between items-center h-6 mb-1 text-sm text-neutral-500">
+                                             <div class="relative flex">
+                                                  <div id="track" class="border border-neutral-500 h-3 w-6 rounded-md">
+                                                  </div>
+                                                  <button role="profileBtn" id="unlockBtn"
+                                                       onclick="unlockToggle(lockedBtn, locked)"
+                                                       class="block w-2 h-2 bg-neutral-500 rounded-full absolute left-1 top-1/2 -translate-y-1/2"></button>
+                                                  <button role="profileBtn" id="lockedBtn"
+                                                       onclick="unlockToggle(unlockBtn, unlock)"
+                                                       class="hidden w-2 h-2 bg-white rounded-full absolute right-1 top-1/2 -translate-y-1/2"></button>
+                                             </div>
+                                             <label class="form-check-label" style="font-size: 11px;"
+                                                  for="flexSwitchCheckDefault">Lock Balance</label>
+                                        </div>
+                                   </li>
+                              </ul>
+                         </div>
+                    </div>
+               </div>
+          </div>
+
+          <!-- Slider starts-->
+          <div class="relative p-2 bg-indigo-50 dark:bg-zinc-800 flex">
+               <div class="relative inline-flex text-left mr-2" x-data="{open : false}">
+                    <div>
+                         <button type="button" @click="open = !open"
+                              class="inline-flex items-center w-full justify-center rounded-md bg-blue-800 dark:bg-slate-700 px-4 py-3 text-sm font-medium text-white dark:text-blue-500 shadow-sm hover:bg-blue-900 hover:dark:bg-gray-50"
+                              id="menu-button" aria-expanded="true" aria-haspopup="true">
+                              <svg xmlns="http://www.w3.org/2000/svg" class="w-5" fill="currentColor"
+                                   viewBox="0 0 16 16">
+                                   <path
+                                        d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm7.5-6.923c-.67.204-1.335.82-1.887 1.855-.143.268-.276.56-.395.872.705.157 1.472.257 2.282.287V1.077zM4.249 3.539c.142-.384.304-.744.481-1.078a6.7 6.7 0 0 1 .597-.933A7.01 7.01 0 0 0 3.051 3.05c.362.184.763.349 1.198.49zM3.509 7.5c.036-1.07.188-2.087.436-3.008a9.124 9.124 0 0 1-1.565-.667A6.964 6.964 0 0 0 1.018 7.5h2.49zm1.4-2.741a12.344 12.344 0 0 0-.4 2.741H7.5V5.091c-.91-.03-1.783-.145-2.591-.332zM8.5 5.09V7.5h2.99a12.342 12.342 0 0 0-.399-2.741c-.808.187-1.681.301-2.591.332zM4.51 8.5c.035.987.176 1.914.399 2.741A13.612 13.612 0 0 1 7.5 10.91V8.5H4.51zm3.99 0v2.409c.91.03 1.783.145 2.591.332.223-.827.364-1.754.4-2.741H8.5zm-3.282 3.696c.12.312.252.604.395.872.552 1.035 1.218 1.65 1.887 1.855V11.91c-.81.03-1.577.13-2.282.287zm.11 2.276a6.696 6.696 0 0 1-.598-.933 8.853 8.853 0 0 1-.481-1.079 8.38 8.38 0 0 0-1.198.49 7.01 7.01 0 0 0 2.276 1.522zm-1.383-2.964A13.36 13.36 0 0 1 3.508 8.5h-2.49a6.963 6.963 0 0 0 1.362 3.675c.47-.258.995-.482 1.565-.667zm6.728 2.964a7.009 7.009 0 0 0 2.275-1.521 8.376 8.376 0 0 0-1.197-.49 8.853 8.853 0 0 1-.481 1.078 6.688 6.688 0 0 1-.597.933zM8.5 11.909v3.014c.67-.204 1.335-.82 1.887-1.855.143-.268.276-.56.395-.872A12.63 12.63 0 0 0 8.5 11.91zm3.555-.401c.57.185 1.095.409 1.565.667A6.963 6.963 0 0 0 14.982 8.5h-2.49a13.36 13.36 0 0 1-.437 3.008zM14.982 7.5a6.963 6.963 0 0 0-1.362-3.675c-.47.258-.995.482-1.565.667.248.92.4 1.938.437 3.008h2.49zM11.27 2.461c.177.334.339.694.482 1.078a8.368 8.368 0 0 0 1.196-.49 7.01 7.01 0 0 0-2.275-1.52c.218.283.418.597.597.932zm-.488 1.343a7.765 7.765 0 0 0-.395-.872C9.835 1.897 9.17 1.282 8.5 1.077V4.09c.81-.03 1.577-.13 2.282-.287z" />
+                              </svg>
+                              <!-- Heroicon name: mini/chevron-down -->
+                              <svg class="-mr-1 ml-2 h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"
+                                   fill="currentColor" aria-hidden="true">
+                                   <path fill-rule="evenodd"
+                                        d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"
+                                        clip-rule="evenodd" />
+                              </svg>
+                         </button>
+                    </div>
+
+                    <div class="absolute left-0 z-10 mt-12 w-56 origin-top-right rounded-md bg-white dark:bg-slate-800 shadow-lg"
+                         x-show="open" x-transition @click.outside="open = false">
+                         <div class="py-3 px-2">
+                              <a href="#"
+                                   class="flex items-center space-x-2 space-y-1 px-4 py-2 text-sm leading-5 bg-blue-800 dark:bg-slate-700 text-white rounded-lg">
+                                   <svg xmlns="http://www.w3.org/2000/svg" class="w-5 dark:text-blue-500"
+                                        fill="currentColor" viewBox="0 0 16 16">
+                                        <path
+                                             d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm7.5-6.923c-.67.204-1.335.82-1.887 1.855-.143.268-.276.56-.395.872.705.157 1.472.257 2.282.287V1.077zM4.249 3.539c.142-.384.304-.744.481-1.078a6.7 6.7 0 0 1 .597-.933A7.01 7.01 0 0 0 3.051 3.05c.362.184.763.349 1.198.49zM3.509 7.5c.036-1.07.188-2.087.436-3.008a9.124 9.124 0 0 1-1.565-.667A6.964 6.964 0 0 0 1.018 7.5h2.49zm1.4-2.741a12.344 12.344 0 0 0-.4 2.741H7.5V5.091c-.91-.03-1.783-.145-2.591-.332zM8.5 5.09V7.5h2.99a12.342 12.342 0 0 0-.399-2.741c-.808.187-1.681.301-2.591.332zM4.51 8.5c.035.987.176 1.914.399 2.741A13.612 13.612 0 0 1 7.5 10.91V8.5H4.51zm3.99 0v2.409c.91.03 1.783.145 2.591.332.223-.827.364-1.754.4-2.741H8.5zm-3.282 3.696c.12.312.252.604.395.872.552 1.035 1.218 1.65 1.887 1.855V11.91c-.81.03-1.577.13-2.282.287zm.11 2.276a6.696 6.696 0 0 1-.598-.933 8.853 8.853 0 0 1-.481-1.079 8.38 8.38 0 0 0-1.198.49 7.01 7.01 0 0 0 2.276 1.522zm-1.383-2.964A13.36 13.36 0 0 1 3.508 8.5h-2.49a6.963 6.963 0 0 0 1.362 3.675c.47-.258.995-.482 1.565-.667zm6.728 2.964a7.009 7.009 0 0 0 2.275-1.521 8.376 8.376 0 0 0-1.197-.49 8.853 8.853 0 0 1-.481 1.078 6.688 6.688 0 0 1-.597.933zM8.5 11.909v3.014c.67-.204 1.335-.82 1.887-1.855.143-.268.276-.56.395-.872A12.63 12.63 0 0 0 8.5 11.91zm3.555-.401c.57.185 1.095.409 1.565.667A6.963 6.963 0 0 0 14.982 8.5h-2.49a13.36 13.36 0 0 1-.437 3.008zM14.982 7.5a6.963 6.963 0 0 0-1.362-3.675c-.47.258-.995.482-1.565.667.248.92.4 1.938.437 3.008h2.49zM11.27 2.461c.177.334.339.694.482 1.078a8.368 8.368 0 0 0 1.196-.49 7.01 7.01 0 0 0-2.275-1.52c.218.283.418.597.597.932zm-.488 1.343a7.765 7.765 0 0 0-.395-.872C9.835 1.897 9.17 1.282 8.5 1.077V4.09c.81-.03 1.577-.13 2.282-.287z" />
+                                   </svg>
+                                   <span>
+                                        Global
+                                   </span>
+                              </a>
+                              <a href="#"
+                                   class="flex items-center space-x-2 space-y-1 px-4 py-2 text-sm leading-5 hover:bg-blue-800 dark:hover:bg-slate-700 hover:text-white text-neutral-600 dark:text-slate-400 rounded-lg">
+                                   <img src="./assets/img/united-states.png" alt="" class="w-5 rounded-full">
+                                   <span>
+                                        US
+                                   </span>
+                              </a>
+                              <a href="#"
+                                   class="flex items-center space-x-2 space-y-1 px-4 py-2 text-sm leading-5 hover:bg-blue-800 dark:hover:bg-slate-700 hover:text-white text-neutral-600 dark:text-slate-400 rounded-lg">
+                                   <img src="./assets/img/germany.png" alt="" class="w-5 rounded-full">
+                                   <span>
+                                        Germany
+                                   </span>
+                              </a>
+
+                         </div>
+                    </div>
+               </div>
+               <div class="w-full overflow-hidden" x-data="" x-init=" flkty = new Flickity($refs.carousel, {
+         wrapAround: true,
+         autoPlay: 2000,
+         prevNextButtons: false,
+         pageDots: false,
+         draggable: true,
+         contain: true,
+         cellAlign: 'left'
+     });">
+                    <div class="" x-ref="carousel">
+                         <div class="w-[200px]">
+                              <div class="relative flex items-center rounded-lg mr-2 bg-blue-800 dark:bg-slate-700 p-1.5 silder-item z-auto cursor-pointer"
+                                   x-data="" x-on:click="$dispatch('user-profile-modal')"
+                                   title="Offername: Daily Bonus (Monetars); Offerwall: Monetars; Reward: 33 coins"
+                                   data-for="last-trackings-tooltip" currentitem="false"
+                                   aria-describedby="last-trackings-tooltip">
+                                   <div
+                                        class="w-8 h-8 rounded-full flex items-center justify-center bg-orange-500 dark:bg-slate-800 text-xs text-white uppercase shrink-0">
+                                        <img src="./assets/img/blog-1.jpg" alt="" class="w-8 h-8 rounded-full">
+                                   </div>
+                                   <div class="mx-1.5">
+                                        <p
+                                             class="text-[10px] leading-3 uppercase text-gray-200 dark:text-slate-400 truncate max-w-[90px]">
+                                             Monetars</p>
+                                        <p
+                                             class="text-xs leading-3 uppercase text-gray-200 dark:text-slate-300 truncate max-w-[90px]">
+                                             Thajsh
+                                        </p>
+                                   </div>
+                                   <div
+                                        class="ml-auto py-2 px-3 rounded bg-blue-600 dark:bg-slate-800 inline-flex items-center space-x-1">
+                                        <span class="text-xs text-white dark:text-blue-500">67</span>
+
+                                   </div>
+                              </div>
+                         </div>
+
+                         <div class="w-[200px]">
+                              <div class="relative flex items-center rounded-lg mr-2 bg-blue-800 dark:bg-slate-700 p-1.5 silder-item z-auto cursor-pointer"
+                                   x-data="" x-on:click="$dispatch('user-profile-modal')"
+                                   title="Offername: Daily Bonus (Monetars); Offerwall: Monetars; Reward: 33 coins"
+                                   data-for="last-trackings-tooltip" currentitem="false"
+                                   aria-describedby="last-trackings-tooltip">
+                                   <div
+                                        class="w-8 h-8 rounded-full flex items-center justify-center bg-orange-500 dark:bg-slate-800 text-xs text-white uppercase shrink-0">
+                                        <!-- <img src="./assets/img/blog-1.jpg" alt="" class="w-8 h-8 rounded-full"> -->
+                                        M
+                                   </div>
+                                   <div class="mx-1.5">
+                                        <p
+                                             class="text-[10px] leading-3 uppercase text-gray-200 dark:text-slate-400 truncate max-w-[90px]">
+                                             Monetars.com</p>
+                                        <p
+                                             class="text-xs leading-3 uppercase text-gray-200 dark:text-slate-300 truncate max-w-[90px]">
+                                             7412Thajsh</p>
+                                   </div>
+                                   <div
+                                        class="ml-auto py-2 px-3 rounded bg-blue-600 dark:bg-slate-800 inline-flex items-center space-x-1">
+                                        <span class="text-xs text-white dark:text-blue-500">118</span>
+
+                                   </div>
+                              </div>
+                         </div>
+
+                         <div class="w-[200px]">
+                              <div class="relative flex items-center rounded-lg mr-2 bg-blue-800 dark:bg-slate-700 p-1.5 silder-item z-auto cursor-pointer"
+                                   x-data="" x-on:click="$dispatch('user-profile-modal')"
+                                   title="Offername: Daily Bonus (Monetars); Offerwall: Monetars; Reward: 33 coins"
+                                   data-for="last-trackings-tooltip" currentitem="false"
+                                   aria-describedby="last-trackings-tooltip">
+                                   <div
+                                        class="w-8 h-8 rounded-full flex items-center justify-center bg-orange-500 dark:bg-slate-800 text-xs text-white uppercase shrink-0">
+                                        <img src="./assets/img/blog-1.jpg" alt="" class="w-8 h-8 rounded-full">
+                                   </div>
+                                   <div class="mx-1.5">
+                                        <p
+                                             class="text-[10px] leading-3 uppercase text-gray-200 dark:text-slate-400 truncate max-w-[90px]">
+                                             Monetars</p>
+                                        <p
+                                             class="text-xs leading-3 uppercase text-gray-200 dark:text-slate-300 truncate max-w-[90px]">
+                                             Thajsh
+                                        </p>
+                                   </div>
+                                   <div
+                                        class="ml-auto py-2 px-3 rounded bg-blue-600 dark:bg-slate-800 inline-flex items-center space-x-1">
+                                        <span class="text-xs text-white dark:text-blue-500">67</span>
+
+                                   </div>
+                              </div>
+                         </div>
+
+                         <div class="w-[200px]">
+                              <div class="relative flex items-center rounded-lg mr-2 bg-blue-800 dark:bg-slate-700 p-1.5 silder-item z-auto cursor-pointer"
+                                   x-data="" x-on:click="$dispatch('user-profile-modal')"
+                                   title="Offername: Daily Bonus (Monetars); Offerwall: Monetars; Reward: 33 coins"
+                                   data-for="last-trackings-tooltip" currentitem="false"
+                                   aria-describedby="last-trackings-tooltip">
+                                   <div
+                                        class="w-8 h-8 rounded-full flex items-center justify-center bg-orange-500 dark:bg-slate-800 text-xs text-white uppercase shrink-0">
+                                        <!-- <img src="./assets/img/blog-1.jpg" alt="" class="w-8 h-8 rounded-full"> -->
+                                        M
+                                   </div>
+                                   <div class="mx-1.5">
+                                        <p
+                                             class="text-[10px] leading-3 uppercase text-gray-200 dark:text-slate-400 truncate max-w-[90px]">
+                                             Monetars.com</p>
+                                        <p
+                                             class="text-xs leading-3 uppercase text-gray-200 dark:text-slate-300 truncate max-w-[90px]">
+                                             7412Thajsh</p>
+                                   </div>
+                                   <div
+                                        class="ml-auto py-2 px-3 rounded bg-blue-600 dark:bg-slate-800 inline-flex items-center space-x-1">
+                                        <span class="text-xs text-white dark:text-blue-500">118</span>
+
+                                   </div>
+                              </div>
+                         </div>
+
+                         <div class="w-[200px]">
+                              <div class="relative flex items-center rounded-lg mr-2 bg-blue-800 dark:bg-slate-700 p-1.5 silder-item z-auto cursor-pointer"
+                                   x-data="" x-on:click="$dispatch('user-profile-modal')"
+                                   title="Offername: Daily Bonus (Monetars); Offerwall: Monetars; Reward: 33 coins"
+                                   data-for="last-trackings-tooltip" currentitem="false"
+                                   aria-describedby="last-trackings-tooltip">
+                                   <div
+                                        class="w-8 h-8 rounded-full flex items-center justify-center bg-orange-500 dark:bg-slate-800 text-xs text-white uppercase shrink-0">
+                                        <img src="./assets/img/blog-1.jpg" alt="" class="w-8 h-8 rounded-full">
+                                   </div>
+                                   <div class="mx-1.5">
+                                        <p
+                                             class="text-[10px] leading-3 uppercase text-gray-200 dark:text-slate-400 truncate max-w-[90px]">
+                                             Monetars</p>
+                                        <p
+                                             class="text-xs leading-3 uppercase text-gray-200 dark:text-slate-300 truncate max-w-[90px]">
+                                             Thajsh
+                                        </p>
+                                   </div>
+                                   <div
+                                        class="ml-auto py-2 px-3 rounded bg-blue-600 dark:bg-slate-800 inline-flex items-center space-x-1">
+                                        <span class="text-xs text-white dark:text-blue-500">67</span>
+
+                                   </div>
+                              </div>
+                         </div>
+
+                         <div class="w-[200px]">
+                              <div class="relative flex items-center rounded-lg mr-2 bg-blue-800 dark:bg-slate-700 p-1.5 silder-item z-auto cursor-pointer"
+                                   x-data="" x-on:click="$dispatch('user-profile-modal')"
+                                   title="Offername: Daily Bonus (Monetars); Offerwall: Monetars; Reward: 33 coins"
+                                   data-for="last-trackings-tooltip" currentitem="false"
+                                   aria-describedby="last-trackings-tooltip">
+                                   <div
+                                        class="w-8 h-8 rounded-full flex items-center justify-center bg-orange-500 dark:bg-slate-800 text-xs text-white uppercase shrink-0">
+                                        <!-- <img src="./assets/img/blog-1.jpg" alt="" class="w-8 h-8 rounded-full"> -->
+                                        M
+                                   </div>
+                                   <div class="mx-1.5">
+                                        <p
+                                             class="text-[10px] leading-3 uppercase text-gray-200 dark:text-slate-400 truncate max-w-[90px]">
+                                             Monetars.com</p>
+                                        <p
+                                             class="text-xs leading-3 uppercase text-gray-200 dark:text-slate-300 truncate max-w-[90px]">
+                                             7412Thajsh</p>
+                                   </div>
+                                   <div
+                                        class="ml-auto py-2 px-3 rounded bg-blue-600 dark:bg-slate-800 inline-flex items-center space-x-1">
+                                        <span class="text-xs text-white dark:text-blue-500">118</span>
+
+                                   </div>
+                              </div>
+                         </div>
+
+                         <div class="w-[200px]">
+                              <div class="relative flex items-center rounded-lg mr-2 bg-blue-800 dark:bg-slate-700 p-1.5 silder-item z-auto cursor-pointer"
+                                   x-data="" x-on:click="$dispatch('user-profile-modal')"
+                                   title="Offername: Daily Bonus (Monetars); Offerwall: Monetars; Reward: 33 coins"
+                                   data-for="last-trackings-tooltip" currentitem="false"
+                                   aria-describedby="last-trackings-tooltip">
+                                   <div
+                                        class="w-8 h-8 rounded-full flex items-center justify-center bg-orange-500 dark:bg-slate-800 text-xs text-white uppercase shrink-0">
+                                        <img src="./assets/img/blog-1.jpg" alt="" class="w-8 h-8 rounded-full">
+                                   </div>
+                                   <div class="mx-1.5">
+                                        <p
+                                             class="text-[10px] leading-3 uppercase text-gray-200 dark:text-slate-400 truncate max-w-[90px]">
+                                             Monetars</p>
+                                        <p
+                                             class="text-xs leading-3 uppercase text-gray-200 dark:text-slate-300 truncate max-w-[90px]">
+                                             Thajsh
+                                        </p>
+                                   </div>
+                                   <div
+                                        class="ml-auto py-2 px-3 rounded bg-blue-600 dark:bg-slate-800 inline-flex items-center space-x-1">
+                                        <span class="text-xs text-white dark:text-blue-500">67</span>
+
+                                   </div>
+                              </div>
+                         </div>
+
+                         <div class="w-[200px]">
+                              <div class="relative flex items-center rounded-lg mr-2 bg-blue-800 dark:bg-slate-700 p-1.5 silder-item z-auto cursor-pointer"
+                                   x-data="" x-on:click="$dispatch('user-profile-modal')"
+                                   title="Offername: Daily Bonus (Monetars); Offerwall: Monetars; Reward: 33 coins"
+                                   data-for="last-trackings-tooltip" currentitem="false"
+                                   aria-describedby="last-trackings-tooltip">
+                                   <div
+                                        class="w-8 h-8 rounded-full flex items-center justify-center bg-orange-500 dark:bg-slate-800 text-xs text-white uppercase shrink-0">
+                                        <!-- <img src="./assets/img/blog-1.jpg" alt="" class="w-8 h-8 rounded-full"> -->
+                                        M
+                                   </div>
+                                   <div class="mx-1.5">
+                                        <p
+                                             class="text-[10px] leading-3 uppercase text-gray-200 dark:text-slate-400 truncate max-w-[90px]">
+                                             Monetars.com</p>
+                                        <p
+                                             class="text-xs leading-3 uppercase text-gray-200 dark:text-slate-300 truncate max-w-[90px]">
+                                             7412Thajsh</p>
+                                   </div>
+                                   <div
+                                        class="ml-auto py-2 px-3 rounded bg-blue-600 dark:bg-slate-800 inline-flex items-center space-x-1">
+                                        <span class="text-xs text-white dark:text-blue-500">118</span>
+
+                                   </div>
+                              </div>
+                         </div>
+
+                         <div class="w-[200px]">
+                              <div class="relative flex items-center rounded-lg mr-2 bg-blue-800 dark:bg-slate-700 p-1.5 silder-item z-auto cursor-pointer"
+                                   x-data="" x-on:click="$dispatch('user-profile-modal')"
+                                   title="Offername: Daily Bonus (Monetars); Offerwall: Monetars; Reward: 33 coins"
+                                   data-for="last-trackings-tooltip" currentitem="false"
+                                   aria-describedby="last-trackings-tooltip">
+                                   <div
+                                        class="w-8 h-8 rounded-full flex items-center justify-center bg-orange-500 dark:bg-slate-800 text-xs text-white uppercase shrink-0">
+                                        <img src="./assets/img/blog-1.jpg" alt="" class="w-8 h-8 rounded-full">
+                                   </div>
+                                   <div class="mx-1.5">
+                                        <p
+                                             class="text-[10px] leading-3 uppercase text-gray-200 dark:text-slate-400 truncate max-w-[90px]">
+                                             Monetars</p>
+                                        <p
+                                             class="text-xs leading-3 uppercase text-gray-200 dark:text-slate-300 truncate max-w-[90px]">
+                                             Thajsh
+                                        </p>
+                                   </div>
+                                   <div
+                                        class="ml-auto py-2 px-3 rounded bg-blue-600 dark:bg-slate-800 inline-flex items-center space-x-1">
+                                        <span class="text-xs text-white dark:text-blue-500">67</span>
+
+                                   </div>
+                              </div>
+                         </div>
+
+                         <div class="w-[200px]">
+                              <div class="relative flex items-center rounded-lg mr-2 bg-blue-800 dark:bg-slate-700 p-1.5 silder-item z-auto cursor-pointer"
+                                   x-data="" x-on:click="$dispatch('user-profile-modal')"
+                                   title="Offername: Daily Bonus (Monetars); Offerwall: Monetars; Reward: 33 coins"
+                                   data-for="last-trackings-tooltip" currentitem="false"
+                                   aria-describedby="last-trackings-tooltip">
+                                   <div
+                                        class="w-8 h-8 rounded-full flex items-center justify-center bg-orange-500 dark:bg-slate-800 text-xs text-white uppercase shrink-0">
+                                        <!-- <img src="./assets/img/blog-1.jpg" alt="" class="w-8 h-8 rounded-full"> -->
+                                        M
+                                   </div>
+                                   <div class="mx-1.5">
+                                        <p
+                                             class="text-[10px] leading-3 uppercase text-gray-200 dark:text-slate-400 truncate max-w-[90px]">
+                                             Monetars.com</p>
+                                        <p
+                                             class="text-xs leading-3 uppercase text-gray-200 dark:text-slate-300 truncate max-w-[90px]">
+                                             7412Thajsh</p>
+                                   </div>
+                                   <div
+                                        class="ml-auto py-2 px-3 rounded bg-blue-600 dark:bg-slate-800 inline-flex items-center space-x-1">
+                                        <span class="text-xs text-white dark:text-blue-500">118</span>
+
+                                   </div>
+                              </div>
+                         </div>
+
+                    </div>
+               </div>
+          </div>
+          <!-- Slider ends-->
+     </header>
+     <!--Header Ends-->
+
+     <!-- Profile Sidebar Starts not used -->
+     <div
+          class="fixed right-8 md:top-[136px] top-32 w-px h-px bg-white dark:bg-slate-900 rounded-bl-md rounded-tl-md shadow-md md:block hidden z-40">
+          <div class="relative w-full h-full bg-transparent">
+               <span onclick="blockToggle(profileSidebar); footerSink()"
+                    class="absolute flex visible  top-0 w-8 h-8 bg-blue-800 justify-center items-center rounded-bl-md rounded-tl-md cursor-pointer z-50"><i
+                         class="fal fa-arrow-left text-xs text-white font-bold"></i></span>
+               <span
+                    class="absolute flex invisible justify-center items-center -left-10 top-0 w-9 h-9 rounded-bl-xl rounded-tl-xl bg-blue-800 z-50"><i
+                         class="fal fa-arrow-left text-white"></i></span>
+               <div class="flex invisible justify-center items-center w-full h-11 text-center bg-blue-200">
+                    <i class="fal fa-comment-alt-lines text-blue-800 text-3xl"></i>
+               </div>
+               <div class="w-full p-2 text-center invisible">
+                    <span class="block py-2">
+                         <a onclick="blockToggle(userModal)">
+                              <img src="assets/img/Ellipse 53.png"
+                                   class="w-[50px] h-[50px] rounded-full object-fill shadow-md object-top">
+                         </a>
+                    </span>
+                    <span class="block py-2">
+                         <a href="#user-modal">
+                              <img src="assets/img/Ellipse 53.png"
+                                   class="w-[50px] h-[50px] rounded-full object-fill shadow-md object-top">
+                         </a>
+                    </span>
+                    <span class="block py-2">
+                         <a href="#user-modal">
+                              <img src="assets/img/Ellipse 53.png"
+                                   class="w-[50px] h-[50px] rounded-full object-fill shadow-md object-top">
+                         </a>
+                    </span>
+                    <span class="block py-2">
+                         <a href="#user-modal">
+                              <img src="assets/img/Ellipse 53.png"
+                                   class="w-[50px] h-[50px] rounded-full object-fill shadow-md object-top">
+                         </a>
+                    </span>
+                    <span class="block py-2">
+                         <a href="#user-modal">
+                              <img src="assets/img/Ellipse 53.png"
+                                   class="w-[50px] h-[50px] rounded-full object-fill shadow-md object-top">
+                         </a>
+                    </span>
+               </div>
+          </div>
+     </div>
+     <!-- Profile Sidebar Ends -->
+
+
+     <!-- Sections Starts -->
+     <div class="flex justify-center bg-indigo-50 dark:bg-slate-900">
+          <div class="relative w-full min-h-screen bg-indigo-50 dark:bg-slate-900">
+               <!--Main Section Starts-->
+               <div class="py-12 px-4 bg-indigo-50 dark:bg-slate-900">
+                    <!-- Cash Payout section starts-->
+                    <div class="container xl:max-w-5xl min-[2000px]:max-w-screen-2xl w-full  mx-auto">
+                         <div class="pb-4">
+                              <h4 class="font-medium text-2xl">Imprint</h4>
+                         </div>
+                         <div class="py-4">
+                              <div class="bg-white dark:bg-slate-800 rounded-xl shadow-lg py-6 px-12 contact-box">
+                                   <h4 class="py-6 text-blue-800 dark:text-blue-500 font-medium text-2xl">Heading 1</h4>
+                                   <p class="text-neutral-500 dark:text-white">Lorem Ipsum is simply dummy text of the
+                                        printing and
+                                        typesetting industry. Lorem Ipsum
+                                        has been the industry's standard dummy text ever since the 1500s, when an
+                                        unknown
+                                        printer took a galley of type and scrambled it to make a type specimen book. It
+                                        has
+                                        survived not only five centuries, but also the leap into electronic typesetting,
+                                        remaining essentially unchanged. It was popularised in the 1960s with the
+                                        release of
+                                        Letraset sheets containing Lorem Ipsum passages, and more recently with desktop
+                                        publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+                                   <h4 class="py-6 text-blue-800 dark:text-blue-500 font-medium text-2xl">Heading 2</h4>
+                                   <p class="text-neutral-500 dark:text-white">Lorem Ipsum is simply dummy text of the
+                                        printing and
+                                        typesetting industry. Lorem Ipsum
+                                        has been the industry's standard dummy text ever since the 1500s, when an
+                                        unknown
+                                        printer took a galley of type and scrambled it to make a type specimen book. It
+                                        has
+                                        survived not only five centuries, but also the leap into electronic typesetting,
+                                        remaining essentially unchanged. It was popularised in the 1960s with the
+                                        release of
+                                        Letraset sheets containing Lorem Ipsum passages, and more recently with desktop
+                                        publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+                                   <h4 class="py-6 text-blue-800 dark:text-blue-500 font-medium text-2xl">Heading 3</h4>
+                                   <p class="text-neutral-500 dark:text-white">Lorem Ipsum is simply dummy text of the
+                                        printing and
+                                        typesetting industry. Lorem Ipsum
+                                        has been the industry's standard dummy text ever since the 1500s, when an
+                                        unknown
+                                        printer took a galley of type and scrambled it to make a type specimen book. It
+                                        has
+                                        survived not only five centuries, but also the leap into electronic typesetting,
+                                        remaining essentially unchanged. It was popularised in the 1960s with the
+                                        release of
+                                        Letraset sheets containing Lorem Ipsum passages, and more recently with desktop
+                                        publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+                                   <h4 class="py-6 text-blue-800 dark:text-blue-500 font-medium text-2xl">Heading 4</h4>
+                                   <p class="text-neutral-500 dark:text-white">Lorem Ipsum is simply dummy text of the
+                                        printing and
+                                        typesetting industry. Lorem Ipsum
+                                        has been the industry's standard dummy text ever since the 1500s, when an
+                                        unknown
+                                        printer took a galley of type and scrambled it to make a type specimen book. It
+                                        has
+                                        survived not only five centuries, but also the leap into electronic typesetting,
+                                        remaining essentially unchanged. It was popularised in the 1960s with the
+                                        release of
+                                        Letraset sheets containing Lorem Ipsum passages, and more recently with desktop
+                                        publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+                                   <h4 class="py-6 text-blue-800 dark:text-blue-500 font-medium text-2xl">Heading 5</h4>
+                                   <p class="text-neutral-500 dark:text-white">Lorem Ipsum is simply dummy text of the
+                                        printing and
+                                        typesetting industry. Lorem Ipsum
+                                        has been the industry's standard dummy text ever since the 1500s, when an
+                                        unknown
+                                        printer took a galley of type and scrambled it to make a type specimen book. It
+                                        has
+                                        survived not only five centuries, but also the leap into electronic typesetting,
+                                        remaining essentially unchanged. It was popularised in the 1960s with the
+                                        release of
+                                        Letraset sheets containing Lorem Ipsum passages, and more recently with desktop
+                                        publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+                              </div>
+                         </div>
+                    </div>
+                    <!-- Cash Payout section starts-->
+               </div>
+               <!--Main Section Ends-->
+
+               <!--Footer Starts-->
+               <footer class="absolute w-full inset-x-0 bottom-0 h-10 pt-12 dark:bg-slate-900">
+                    <div class="px-2 py-12 bg-blue-800 dark:bg-slate-900">
+                         <div
+                              class="container xl:max-w-5xl min-[2000px]:max-w-screen-2xl w-full mx-auto min-[2000px]:px-2">
+                              <div class="mb-6 text-center md:text-start">
+                                   <a href="index.html" x-data>
+                                        <template x-if='localStorage.theme === "dark" ||
+                                   (!("theme" in localStorage) &&
+                                     window.matchMedia("(prefers-color-scheme: dark)").matches)'>
+                                             <img src="assets/img/Logo-light.png" alt="Monster Logo" class="h-12">
+                                        </template>
+                                        <template x-if='localStorage.theme === "light" ||
+                                   (!("theme" in localStorage) &&
+                                     window.matchMedia("(prefers-color-scheme: light)").matches)'>
+                                             <img src="assets/img/logo white.png" alt="Monster Logo" class="h-8">
+                                        </template>
+                                   </a>
+
+                              </div>
+
+                              <div class="flex flex-row flex-wrap justify-between md:space-x-8 mb-8">
+                                   <div class="md:basis-auto basis-1/2 p-3 md:p-0">
+                                        <h5 class="text-xl mb-3 font-bold text-white">Account</h5>
+                                        <ul>
+                                             <li class="mb-2">
+                                                  <a x-data
+                                                       @click.prevent="$dispatch('login-register-modal'); $dispatch('tab', { tab: 1 })"
+                                                       class="text-base text-white font-poppins"
+                                                       href="#login-modal">Sign in</a>
+                                             </li>
+                                             <li class="mb-2">
+                                                  <a x-data
+                                                       @click.prevent="$dispatch('login-register-modal'); $dispatch('tab', { tab: 1 })"
+                                                       class="text-base text-white font-poppins"
+                                                       href="#register-modal">Register</a>
+                                             </li>
+                                             <li class="mb-2">
+                                                  <a class="text-base text-white font-poppins" href="faq.html">FAQ</a>
+                                             </li>
+                                        </ul>
+                                   </div>
+                                   <div class="md:basis-auto basis-1/2 p-3 md:p-0">
+                                        <h5 class="text-xl mb-3 font-semibold text-white">Company</h5>
+                                        <ul>
+                                             <li class="mb-2">
+                                                  <a class="text-base text-white font-poppins" href="about.html">About
+                                                       us</a>
+                                             </li>
+                                             <li class="mb-2">
+                                                  <a class="text-base text-white font-poppins"
+                                                       href="blogs.html">Blog</a>
+                                             </li>
+                                             <li class="mb-2">
+                                                  <a class="text-base text-white font-poppins"
+                                                       href="contact.html">Contact</a>
+                                             </li>
+                                        </ul>
+                                   </div>
+                                   <div class="md:basis-auto basis-1/2 p-3 md:p-0">
+                                        <h5 class="text-xl mb-3 font-bold text-white font-poppins">Legal</h5>
+                                        <ul>
+                                             <li class="mb-2">
+                                                  <a class="text-base text-white font-poppins"
+                                                       href="privacy.html">Privacy
+                                                       Policy</a>
+                                             </li>
+                                             <li class="mb-2">
+                                                  <a class="text-base text-white font-poppins" href="terms.html">Terms
+                                                       of
+                                                       service</a>
+                                             </li>
+                                             <li class="mb-2">
+                                                  <a class="text-base text-white font-poppins"
+                                                       href="imprint.html">Imprint</a>
+                                             </li>
+                                        </ul>
+                                   </div>
+                                   <div class="md:basis-auto basis-1/2 p-3 md:p-0">
+                                        <h5 class="text-xl mb-3 font-bold text-white font-poppins">Social</h5>
+                                        <ul>
+                                             <li class="mb-2">
+                                                  <a class="text-base text-white font-poppins flex items-center space-x-1"
+                                                       href="https://discord.gg/rpB9hqPZs7">
+                                                       <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor"
+                                                            class="w-5" viewBox="0 0 16 16">
+                                                            <path
+                                                                 d="M13.545 2.907a13.227 13.227 0 0 0-3.257-1.011.05.05 0 0 0-.052.025c-.141.25-.297.577-.406.833a12.19 12.19 0 0 0-3.658 0 8.258 8.258 0 0 0-.412-.833.051.051 0 0 0-.052-.025c-1.125.194-2.22.534-3.257 1.011a.041.041 0 0 0-.021.018C.356 6.024-.213 9.047.066 12.032c.001.014.01.028.021.037a13.276 13.276 0 0 0 3.995 2.02.05.05 0 0 0 .056-.019c.308-.42.582-.863.818-1.329a.05.05 0 0 0-.01-.059.051.051 0 0 0-.018-.011 8.875 8.875 0 0 1-1.248-.595.05.05 0 0 1-.02-.066.051.051 0 0 1 .015-.019c.084-.063.168-.129.248-.195a.05.05 0 0 1 .051-.007c2.619 1.196 5.454 1.196 8.041 0a.052.052 0 0 1 .053.007c.08.066.164.132.248.195a.051.051 0 0 1-.004.085 8.254 8.254 0 0 1-1.249.594.05.05 0 0 0-.03.03.052.052 0 0 0 .003.041c.24.465.515.909.817 1.329a.05.05 0 0 0 .056.019 13.235 13.235 0 0 0 4.001-2.02.049.049 0 0 0 .021-.037c.334-3.451-.559-6.449-2.366-9.106a.034.034 0 0 0-.02-.019Zm-8.198 7.307c-.789 0-1.438-.724-1.438-1.612 0-.889.637-1.613 1.438-1.613.807 0 1.45.73 1.438 1.613 0 .888-.637 1.612-1.438 1.612Zm5.316 0c-.788 0-1.438-.724-1.438-1.612 0-.889.637-1.613 1.438-1.613.807 0 1.451.73 1.438 1.613 0 .888-.631 1.612-1.438 1.612Z" />
+                                                       </svg>
+                                                       <span>Discord</span>
+                                                  </a>
+                                             </li>
+                                             <li class="mb-2">
+                                                  <a class="text-base text-white font-poppins flex items-center space-x-1"
+                                                       href="https://www.instagram.com/monetarscom/">
+
+                                                       <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor"
+                                                            class="w-5" viewBox="0 0 16 16">
+                                                            <path
+                                                                 d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.917 3.917 0 0 0-1.417.923A3.927 3.927 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.916 3.916 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.926 3.926 0 0 0-.923-1.417A3.911 3.911 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0h.003zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599.28.28.453.546.598.92.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.47 2.47 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.478 2.478 0 0 1-.92-.598 2.48 2.48 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233 0-2.136.008-2.388.046-3.231.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92.28-.28.546-.453.92-.598.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045v.002zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92zm-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217zm0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334z" />
+                                                       </svg>
+
+                                                       <span>Instagram</span>
+                                                  </a>
+                                             </li>
+
+                                             <li class="mb-2">
+                                                  <a class="text-base text-white font-poppins flex items-center space-x-1"
+                                                       href="https://twitter.com/monetarscom">
+
+                                                       <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor"
+                                                            class="w-5" viewBox="0 0 16 16">
+                                                            <path
+                                                                 d="M5.026 15c6.038 0 9.341-5.003 9.341-9.334 0-.14 0-.282-.006-.422A6.685 6.685 0 0 0 16 3.542a6.658 6.658 0 0 1-1.889.518 3.301 3.301 0 0 0 1.447-1.817 6.533 6.533 0 0 1-2.087.793A3.286 3.286 0 0 0 7.875 6.03a9.325 9.325 0 0 1-6.767-3.429 3.289 3.289 0 0 0 1.018 4.382A3.323 3.323 0 0 1 .64 6.575v.045a3.288 3.288 0 0 0 2.632 3.218 3.203 3.203 0 0 1-.865.115 3.23 3.23 0 0 1-.614-.057 3.283 3.283 0 0 0 3.067 2.277A6.588 6.588 0 0 1 .78 13.58a6.32 6.32 0 0 1-.78-.045A9.344 9.344 0 0 0 5.026 15z" />
+                                                       </svg>
+
+                                                       <span>Twitter</span>
+                                                  </a>
+                                             </li>
+
+                                        </ul>
+                                   </div>
+                              </div>
+
+                              <div class="flex flex-col md:flex-row justify-between items-center pb-16 md:pb-0">
+                                   <div class="text-center mb-2">
+                                        <p class="text-white font-poppins">Monetars.com | All rights reserved</p>
+                                   </div>
+                                   <div class="text-center mb-2">
+                                        <p class="text-white font-poppins">&copy; Copyright 2020 - 2022</p>
+                                   </div>
+                              </div>
+                         </div>
+                    </div>
+
+               </footer>
+               <!--Footer Ends-->
+          </div>
+
+          <!-- Profile Sidebar Starts -->
+          <div class="bg-indigo-50 dark:bg-slate-800 hidden w-[320px]" id="profileSidebar">
+               <!--SideBox Starts -->
+               <div
+                    class="fixed right-0 bottom-24 md:bottom-0 md:w-[300px] w-full h-[calc(100%-96px)] md:h-[calc(100vh-125px)] xl:h-[calc(100vh-125px)] rounded-bl-md rounded-tl-md z-50 lg:z-40 shadow-md bg-white dark:bg-slate-800">
+                    <div class="relative w-full h-full bg-transparent">
+                         <span onclick="blockToggle(profileSidebar); footerSink()"
+                              class="absolute md:flex hidden -left-8 top-0.5 w-8 h-8 bg-blue-800 rounded-bl-md rounded-tl-md justify-center items-center cursor-pointer"
+                              id="btn-close"><i class="fal fa-arrow-right text-xs text-white font-bold"></i></span>
+                         <div
+                              class="bg-indigo-200 dark:bg-slate-800 text-center w-full flex justify-center items-center px-2 py-1">
+                              <div
+                                   class="bg-indigo-200 dark:bg-slate-800 rounded-full flex justify-center space-x-2 w-full">
+                                   <div class="relative w-1/2 md:w-full">
+                                        <button
+                                             onclick="accordionToggle(this, dropdownMenu7); blockToggle(dropdownMenu5)"
+                                             role="button"
+                                             class="bg-blue-800 text-white border dark:border-slate-800 text-center align-middle py-1.5 px-3 rounded-lg flex items-center justify-center text-sm w-full">
+                                             <i class="fal fa-globe"></i>
+                                             <span class="mx-2">General</span>
+                                             <i class="fal fa-chevron-down ms-2"></i>
+                                        </button>
+                                        <ul id="dropdownMenu5"
+                                             class="absolute hidden z-50 w-40 p-2 text-base text-left text-neutral-500 bg-white dark:bg-slate-800 rounded-md translate-y-0 shadow-md">
+                                             <li><a class="text-gray-500 text-xs block w-full py-1 px-4 whitespace-nowrap bg-white dark:bg-slate-800 dark:hover:bg-blue-800 hover:bg-blue-800 dark:text-white hover:text-white"
+                                                       href="#">
+                                                       <i class="fal fa-globe text-sm"></i><span class="ml-2">General
+                                                            (70)</span>
+                                                  </a></li>
+                                             <li><a class="text-gray-500 text-xs block w-full py-1 px-4 whitespace-nowrap bg-white dark:bg-slate-800 dark:hover:bg-blue-800 hover:bg-blue-800 dark:text-white hover:text-white"
+                                                       href=" #">
+                                                       <i class="fal fa-star text-sm"></i><span class="ml-2">VIP
+                                                            (704)</span>
+                                                  </a></li>
+                                             <li><a class="text-gray-500 text-xs w-full flex items-cente py-1 px-4 font-normal whitespace-nowrap bg-white dark:bg-slate-800 dark:hover:bg-blue-800 hover:bg-blue-800 dark:text-white hover:text-white"
+                                                       href="#">
+                                                       <img src="assets/img/germany.png"><span
+                                                            class="ml-2 inline-block">Germany
+                                                            (102)</span>
+                                                  </a></li>
+                                             <li><a class="text-gray-500 text-xs w-full py-1 px-4 font-nowrap bg-white dark:bg-slate-800 dark:hover:bg-blue-800 hover:bg-blue-800 dark:text-white hover:text-white flex items-center"
+                                                       href="#">
+                                                       <img src="assets/img/spain.png"><span class="ml-2">Spain
+                                                            (92)</span>
+                                                  </a></li>
+                                             <li><a class="text-gray-500 text-xs w-full py-1 px-4 font-nowrap bg-white dark:bg-slate-800 dark:hover:bg-blue-800 hover:bg-blue-800 dark:text-white hover:text-white flex items-center"
+                                                       href="#">
+                                                       <img src="assets/img/france.png"><span class="ml-2">France
+                                                            (74)</span>
+                                                  </a></li>
+                                             <li><a class="text-gray-500 text-xs w-full py-1 px-4 font-nowrap bg-white dark:bg-slate-800 dark:hover:bg-blue-800 hover:bg-blue-800 dark:text-white hover:text-white flex items-center"
+                                                       href="#">
+                                                       <img src="assets/img/italy.png"><span class="ml-2">Italy
+                                                            (27)</span>
+                                                  </a></li>
+                                        </ul>
+                                   </div>
+                                   <a onclick="accordionToggle(this, dropdownMenu6)" role="button"
+                                        class="bg-white dark:bg-slate-700 text-center align-middle py-1.5  px-10 rounded-lg flex items-center justify-center text-sm cursor-pointer w-1/2 md:w-auto">Support</a>
+
+                              </div>
+                         </div>
+                         <div class="pt-4 pl-4 pb-12 pr-4 dark:bg-slate-800 hidden" style="height: calc(100vh - 190px);"
+                              role="TabContent" id="dropdownMenu6">
+                              <div class="flex justify-between items-center mb-2">
+                                   <span class="text-base">@MonetarsUpoort</span>
+                                   <span class="text-sm">09:23PM</span>
+                              </div>
+                              <div class="mb-2">
+                                   <p class="text-gray-500 dark:text-white text-sm">Send us a support message at any
+                                        time and we'll
+                                        get back to you as soon as
+                                        possible!</p>
+                              </div>
+                              <div>
+                                   <p class="text-gray-500 dark:text-white text-sm">Tip: If you are missing coins,
+                                        please check the
+                                        FAQ section before contacting
+                                        support.</p>
+                              </div>
+                         </div>
+                         <div class="w-full p-2 space-y-1 overflow-y-auto bg-white dark:bg-slate-800 dark:text-white h-[calc(100vh-188px)] md:h-[calc(100vh-234px)] xl:h-[calc(100vh-244px)]"
+                              id="dropdownMenu7" role="TabContent">
+                              <div class="p-2 flex justify-between rounded-lg group">
+                                   <div class="flex justify-start items-center">
+                                        <a x-data @click.prevent="$dispatch('user-profile-modal')"
+                                             class="inline-block cursor-pointer">
+                                             <img src="assets/img/Ellipse 53.png"
+                                                  class="w-10 h-10 rounded-full object-cover object-top shadow-md">
+                                        </a>
+                                        <div class="pl-3">
+                                             <a href="#" class="flex items-center space-x-2">
+                                                  <p class="text-sm font-semibold">Rani loxe</p>
+                                                  <p
+                                                       class="text-[10px] leading-[10px] font-semibold flex items-center px-1.5 py-0.5 rounded-full text-white bg-rose-600">
+                                                       MOD</p>
+
+                                                  <p class="text-xs opacity-50 hidden group-hover:block">10:50</p>
+
+                                             </a>
+                                             <p class="text-sm block">Lorem ipsum dolor sit.</p>
+                                        </div>
+                                   </div>
+
+
+
+                              </div>
+
+                              <div class="p-2 flex justify-between rounded-lg group">
+                                   <div class="flex justify-start items-center">
+                                        <a x-data @click.prevent="$dispatch('user-profile-modal')"
+                                             class="inline-block cursor-pointer">
+                                             <img src="assets/img/Ellipse 53.png"
+                                                  class="w-10 h-10 rounded-full object-cover object-top shadow-md">
+                                        </a>
+                                        <div class="pl-3">
+                                             <a href="#" class="flex items-center space-x-2">
+                                                  <p class="text-sm font-semibold">Rani loxe</p>
+                                                  <p class="text-xs opacity-50 hidden group-hover:block">10:50</p>
+
+                                             </a>
+                                             <p class="text-sm block">Lorem ipsum dolor sit.</p>
+                                        </div>
+                                   </div>
+
+
+
+                              </div>
+
+                              <div class="p-2 flex justify-between rounded-lg group">
+                                   <div class="flex justify-start items-center">
+                                        <a x-data @click.prevent="$dispatch('user-profile-modal')"
+                                             class="inline-block cursor-pointer">
+                                             <img src="assets/img/Ellipse 53.png"
+                                                  class="w-10 h-10 rounded-full object-cover object-top shadow-md">
+                                        </a>
+                                        <div class="pl-3">
+                                             <a href="#" class="flex items-center space-x-2">
+                                                  <p class="text-sm font-semibold">Rani loxe</p>
+                                                  <p
+                                                       class="text-[10px] leading-[10px] font-semibold flex items-center px-1.5 py-0.5 rounded-full text-white bg-rose-600">
+                                                       MOD</p>
+
+                                                  <p class="text-xs opacity-50 hidden group-hover:block">10:50</p>
+
+                                             </a>
+                                             <p class="text-sm block">Lorem ipsum dolor sit.</p>
+                                        </div>
+                                   </div>
+
+
+
+                              </div>
+
+                              <div class="p-2 flex justify-between rounded-lg group">
+                                   <div class="flex justify-start items-center">
+                                        <a x-data @click.prevent="$dispatch('user-profile-modal')"
+                                             class="inline-block cursor-pointer">
+                                             <img src="assets/img/Ellipse 53.png"
+                                                  class="w-10 h-10 rounded-full object-cover object-top shadow-md">
+                                        </a>
+                                        <div class="pl-3">
+                                             <a href="#" class="flex items-center space-x-2">
+                                                  <p class="text-sm font-semibold">Rani loxe</p>
+
+                                                  <p class="text-xs opacity-50 hidden group-hover:block">10:50</p>
+
+                                             </a>
+                                             <p class="text-sm block">Lorem ipsum dolor sit.</p>
+                                        </div>
+                                   </div>
+
+
+
+                              </div>
+
+                              <div class="p-2 flex justify-between rounded-lg group">
+                                   <div class="flex justify-start items-center">
+                                        <a x-data @click.prevent="$dispatch('user-profile-modal')"
+                                             class="inline-block cursor-pointer">
+                                             <img src="assets/img/Ellipse 53.png"
+                                                  class="w-10 h-10 rounded-full object-cover object-top shadow-md">
+                                        </a>
+                                        <div class="pl-3">
+                                             <a href="#" class="flex items-center space-x-2">
+                                                  <p class="text-sm font-semibold">Rani loxe</p>
+
+                                                  <p class="text-xs opacity-50 hidden group-hover:block">10:50</p>
+
+                                             </a>
+                                             <p class="text-sm block">Lorem ipsum dolor sit.</p>
+                                        </div>
+                                   </div>
+
+
+
+                              </div>
+
+                              <div class="p-2 flex justify-between rounded-lg group">
+                                   <div class="flex justify-start items-center">
+                                        <a x-data @click.prevent="$dispatch('user-profile-modal')"
+                                             class="inline-block cursor-pointer">
+                                             <img src="assets/img/Ellipse 53.png"
+                                                  class="w-10 h-10 rounded-full object-cover object-top shadow-md">
+                                        </a>
+                                        <div class="pl-3">
+                                             <a href="#" class="flex items-center space-x-2">
+                                                  <p class="text-sm font-semibold">Rani loxe</p>
+                                                  <p
+                                                       class="text-[10px] leading-[10px] font-semibold flex items-center px-1.5 py-0.5 rounded-full text-white bg-rose-600">
+                                                       MOD</p>
+
+                                                  <p class="text-xs opacity-50 hidden group-hover:block">10:50</p>
+
+                                             </a>
+                                             <p class="text-sm block">Lorem ipsum dolor sit.</p>
+                                        </div>
+                                   </div>
+
+
+
+                              </div>
+
+                              <div class="p-2 flex justify-between rounded-lg group">
+                                   <div class="flex justify-start items-center">
+                                        <a x-data @click.prevent="$dispatch('user-profile-modal')"
+                                             class="inline-block cursor-pointer">
+                                             <img src="assets/img/Ellipse 53.png"
+                                                  class="w-10 h-10 rounded-full object-cover object-top shadow-md">
+                                        </a>
+                                        <div class="pl-3">
+                                             <a href="#" class="flex items-center space-x-2">
+                                                  <p class="text-sm font-semibold">Rani loxe</p>
+                                                  <p
+                                                       class="text-[10px] leading-[10px] font-semibold flex items-center px-1.5 py-0.5 rounded-full text-white bg-rose-600">
+                                                       MOD</p>
+
+                                                  <p class="text-xs opacity-50 hidden group-hover:block">10:50</p>
+
+                                             </a>
+                                             <p class="text-sm block">Lorem ipsum dolor sit.</p>
+                                        </div>
+                                   </div>
+
+
+
+                              </div>
+
+                              <div class="p-2 flex justify-between rounded-lg group">
+                                   <div class="flex justify-start items-center">
+                                        <a x-data @click.prevent="$dispatch('user-profile-modal')"
+                                             class="inline-block cursor-pointer">
+                                             <img src="assets/img/Ellipse 53.png"
+                                                  class="w-10 h-10 rounded-full object-cover object-top shadow-md">
+                                        </a>
+                                        <div class="pl-3">
+                                             <a href="#" class="flex items-center space-x-2">
+                                                  <p class="text-sm font-semibold">Rani loxe</p>
+                                                  <p
+                                                       class="text-[10px] leading-[10px] font-semibold flex items-center px-1.5 py-0.5 rounded-full text-white bg-rose-600">
+                                                       MOD</p>
+
+                                                  <p class="text-xs opacity-50 hidden group-hover:block">10:50</p>
+
+                                             </a>
+                                             <p class="text-sm block">Lorem ipsum dolor sit.</p>
+                                        </div>
+                                   </div>
+
+
+
+                              </div>
+
+                              <div class="p-2 flex justify-between rounded-lg group">
+                                   <div class="flex justify-start items-center">
+                                        <a x-data @click.prevent="$dispatch('user-profile-modal')"
+                                             class="inline-block cursor-pointer">
+                                             <img src="assets/img/Ellipse 53.png"
+                                                  class="w-10 h-10 rounded-full object-cover object-top shadow-md">
+                                        </a>
+                                        <div class="pl-3">
+                                             <a href="#" class="flex items-center space-x-2">
+                                                  <p class="text-sm font-semibold">Rani loxe</p>
+                                                  <p
+                                                       class="text-[10px] leading-[10px] font-semibold flex items-center px-1.5 py-0.5 rounded-full text-white bg-rose-600">
+                                                       MOD</p>
+
+                                                  <p class="text-xs opacity-50 hidden group-hover:block">10:50</p>
+
+                                             </a>
+                                             <p class="text-sm block">Lorem ipsum dolor sit.</p>
+                                        </div>
+                                   </div>
+
+
+
+                              </div>
+
+                              <div class="p-2 flex justify-between rounded-lg group">
+                                   <div class="flex justify-start items-center">
+                                        <a x-data @click.prevent="$dispatch('user-profile-modal')"
+                                             class="inline-block cursor-pointer">
+                                             <img src="assets/img/Ellipse 53.png"
+                                                  class="w-10 h-10 rounded-full object-cover object-top shadow-md">
+                                        </a>
+                                        <div class="pl-3">
+                                             <a href="#" class="flex items-center space-x-2">
+                                                  <p class="text-sm font-semibold">Rani loxe</p>
+                                                  <p
+                                                       class="text-[10px] leading-[10px] font-semibold flex items-center px-1.5 py-0.5 rounded-full text-white bg-rose-600">
+                                                       MOD</p>
+
+                                                  <p class="text-xs opacity-50 hidden group-hover:block">10:50</p>
+
+                                             </a>
+                                             <p class="text-sm block">Lorem ipsum dolor sit.</p>
+                                        </div>
+                                   </div>
+
+
+
+                              </div>
+
+                              <div class="p-2 flex justify-between rounded-lg group">
+                                   <div class="flex justify-start items-center">
+                                        <a x-data @click.prevent="$dispatch('user-profile-modal')"
+                                             class="inline-block cursor-pointer">
+                                             <img src="assets/img/Ellipse 53.png"
+                                                  class="w-10 h-10 rounded-full object-cover object-top shadow-md">
+                                        </a>
+                                        <div class="pl-3">
+                                             <a href="#" class="flex items-center space-x-2">
+                                                  <p class="text-sm font-semibold">Rani loxe</p>
+                                                  <p
+                                                       class="text-[10px] leading-[10px] font-semibold flex items-center px-1.5 py-0.5 rounded-full text-white bg-rose-600">
+                                                       MOD</p>
+
+                                                  <p class="text-xs opacity-50 hidden group-hover:block">10:50</p>
+
+                                             </a>
+                                             <p class="text-sm block">Lorem ipsum dolor sit.</p>
+                                        </div>
+                                   </div>
+
+
+
+                              </div>
+
+                         </div>
+                         <div
+                              class="absolute md:bottom-0 -bottom-5 left-0 md:px-3 px-1 w-full bg-white dark:bg-slate-800 py-2">
+                              <form autocomplete="off">
+                                   <div
+                                        class="flex justify-between items-center bg-indigo-200 dark:bg-slate-700  md:rounded-2xl">
+                                        <input
+                                             class="w-11/12 border-0 py-3 px-4 bg-transparent text-sm md:rounded-2xl focus:outline-none"
+                                             type="text" placeholder="Say Something...">
+                                        <span
+                                             class="w-[9%] mr-2 bg-transparent flex justify-center items-center text-base"><i
+                                                  class="fal fa-smile"></i></span>
+                                   </div>
+                              </form>
+                         </div>
+                    </div>
+               </div>
+               <!--SideBox Ends -->
+          </div>
+          <!-- Profile Sidebar Ends -->
+     </div>
+     <!-- Sections Ends -->
+
+     <!-- Canvas Starts -->
+     <div id="sidebarMenu1" class="fixed hidden inset-0 visible z-[60]">
+          <div class="fixed inset-0 bg-black/30 backdrop-blur-sm" onclick="flexToggle(sidebarMenu1)"></div>
+          <div class="flex flex-col w-[228px] h-screen bg-white dark:bg-slate-800 relative z-10">
+               <div class="flex justify-between items-center p-4">
+                    <div>
+                         <a class="mr-4 text-xl whitespace-nowrap" x-data href="index.html">
+                              <template x-if='localStorage.theme === "dark" ||
+(!("theme" in localStorage) &&
+window.matchMedia("(prefers-color-scheme: dark)").matches)'>
+                                   <img src="assets/img/Logo-light.png" alt="Monster Logo" style="width:180px;">
+                              </template>
+                              <template x-if='localStorage.theme === "light" ||
+(!("theme" in localStorage) &&
+window.matchMedia("(prefers-color-scheme: light)").matches)'>
+                                   <img src="assets/img/Monester-logo.png" alt="Monster Logo"
+                                        style="width:180px; height: 50px">
+                              </template>
+                         </a>
+                    </div>
+               </div>
+
+               <div class="relative flex flex-col grow p-4 h-full overflow-y-auto">
+                    <div class="w-full py-1 bg-white dark:bg-slate-800 ">
+                         <!-- when user logged-in -->
+                         <ul class="flex flex-col mx-auto mb-2">
+                              <li class="nav-item">
+                                   <a class="block py-2 px-3 text-neutral-500 dark:text-white hover:text-blue-800"
+                                        href="profile.html">
+                                        <i class="fal fa-user-alt px-2 w-9 text-center"></i>Profile
+                                   </a>
+                              </li>
+                              <li class="nav-item">
+                                   <a class="block py-2 px-3 text-neutral-500 dark:text-white hover:text-blue-800"
+                                        aria-current="page" href="earn.html">
+                                        <i class="fal fa-dollar-sign px-2 w-9 text-center"></i>Earn
+                                   </a>
+                              </li>
+                              <li class="nav-item">
+                                   <a class="block py-2 px-3 text-neutral-500 dark:text-white hover:text-blue-800"
+                                        href="withdraw.html">
+                                        <i class="fal fa-credit-card-front px-2 w-9 text-center"></i>Withdraw
+                                   </a>
+                              </li>
+                              <li class="nav-item">
+                                   <a class="block py-2 px-3 text-neutral-500 dark:text-white hover:text-blue-800"
+                                        href="leaders.html">
+                                        <i class="fal fa-star px-2 w-9 text-center"></i>Leaderbord
+                                   </a>
+                              </li>
+                              <li class="nav-item">
+                                   <a class="block py-2 px-3 text-neutral-500 dark:text-white hover:text-blue-800"
+                                        href="./reward.html">
+                                        <i class="fal fa-gift px-2 w-9 text-center"></i>Rewards
+                                   </a>
+                              </li>
+                         </ul>
+
+                         <div class="bg-slate-900 hover:bg-blue-800 dark:bg-slate-500 rounded-lg inline-flex items-center justify-center space-x-1 text-white dark:text-white transition-all duration-700 cursor-pointer px-4 py-2 ml-6 my-4"
+                              x-data=""
+                              @click="localStorage.theme === 'dark' ? localStorage.theme = 'light' : localStorage.theme = 'dark'; location.reload();">
+                              <svg x-show="localStorage.theme === 'dark'" xmlns="http://www.w3.org/2000/svg"
+                                   fill="currentColor" class="w-5" viewBox="0 0 16 16">
+                                   <path
+                                        d="M8 11a3 3 0 1 1 0-6 3 3 0 0 1 0 6zm0 1a4 4 0 1 0 0-8 4 4 0 0 0 0 8zm.5-9.5a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0zm0 11a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0zm5-5a.5.5 0 1 1 0-1 .5.5 0 0 1 0 1zm-11 0a.5.5 0 1 1 0-1 .5.5 0 0 1 0 1zm9.743-4.036a.5.5 0 1 1-.707-.707.5.5 0 0 1 .707.707zm-7.779 7.779a.5.5 0 1 1-.707-.707.5.5 0 0 1 .707.707zm7.072 0a.5.5 0 1 1 .707-.707.5.5 0 0 1-.707.707zM3.757 4.464a.5.5 0 1 1 .707-.707.5.5 0 0 1-.707.707z" />
+                              </svg>
+                              <svg x-show="localStorage.theme === 'light'" xmlns="http://www.w3.org/2000/svg" width="16"
+                                   height="16" fill="currentColor" class="w-5" viewBox="0 0 16 16">
+                                   <path
+                                        d="M6 .278a.768.768 0 0 1 .08.858 7.208 7.208 0 0 0-.878 3.46c0 4.021 3.278 7.277 7.318 7.277.527 0 1.04-.055 1.533-.16a.787.787 0 0 1 .81.316.733.733 0 0 1-.031.893A8.349 8.349 0 0 1 8.344 16C3.734 16 0 12.286 0 7.71 0 4.266 2.114 1.312 5.124.06A.752.752 0 0 1 6 .278z" />
+                              </svg>
+                              <span class="text-sm leading-5"
+                                   x-text="localStorage.theme === 'dark' ? 'Light' : 'Dark'"></span>
+                         </div>
+                    </div>
+
+                    <div class="pt-5 pb-3 pl-1 ml-5 mt-auto">
+                         <a class="inline-block py-1 px-3 text-base rounded-md bg-blue-800 text-white"
+                              href="#">Logout</a>
+                    </div>
+               </div>
+
+          </div>
+     </div>
+     <!-- Canvas Ends -->
+
+     <!-- Mobile Nav Starts-->
+     <div class="fixed md:hidden block bottom-0 left-0 p-1 w-screen h-20 bg-indigo-200 dark:bg-slate-700 z-50">
+          <div>
+               <ul class="flex justify-between bg-indigo-200 dark:bg-slate-700">
+                    <li class="w-1/5 py-2 mx-1 text-center rounded"><a class="text-sm text-neutral-500 dark:text-white"
+                              href="earn.html"><span class="block text-center"><i
+                                        class="fal fa-hands-usd text-base text-neutral-500 dark:text-white"></i></span>Earn</a>
+                    </li>
+                    <li class="w-1/5 py-2 mx-1 text-center rounded"><a class="text-sm text-neutral-500 dark:text-white"
+                              href="withdraw.html"><span class="block text-center"><i
+                                        class="fal fa-credit-card-front text-base text-neutral-500 dark:text-white"></i></span>Withdraw</a>
+                    </li>
+                    <li class="w-1/5 py-2 mx-1 text-center rounded"><a class="text-sm text-neutral-500 dark:text-white"
+                              href="leaders.html"><span class="block text-center"><i
+                                        class="fal fa-trophy text-base text-neutral-500 dark:text-white"></i></span>Leaders</a>
+                    </li>
+                    <li class="w-1/5 py-2 mx-1 text-center rounded"><a class="text-sm text-neutral-500 dark:text-white"
+                              href="reward.html"><span class="block text-center"><i
+                                        class="fal fa-gift px-2 text-base text-neutral-500 dark:text-white"></i></span>Reward</a>
+                    </li>
+                    <li class="w-1/5 py-2 mx-1 text-center rounded"><a class="text-sm text-neutral-500 dark:text-white"
+                              onclick="blockToggle(profileSidebar); footerSink()" class="btn-mobile-open"><span
+                                   class="block text-center"><i
+                                        class="fal fa-comment-alt text-base text-neutral-500 dark:text-white"></i></span>Chat</a>
+                    </li>
+               </ul>
+          </div>
+     </div>
+     <!-- Mobile Nav Ends-->
+
+
+     <!-- Login And Register Modal Start -->
+     <div class="fixed inset-0 z-50 w-full h-screen overflow-x-hidden overflow-y-auto bg-black/50"
+          x-data="{openModal: false, tab: 1}" x-show="openModal" @login-register-modal.window="openModal = true"
+          @tab.window="tab = $event.detail.tab" x-init="$watch('openModal', value =>{
+if(openModal){
+document.querySelector('body').classList.add('fixed', 'inset-0');
+document.querySelector('html').style.cssText = `
+position: fixed; 
+top: 0;
+bottom: 0;
+left: 0;
+right: 0;
+overflow: hidden;
+`;
+}else{
+document.querySelector('body').classList.remove('fixed', 'inset-0');
+document.querySelector('html').style.cssText = `
+position: static; 
+top: auto;
+bottom: auto;
+left: auto;
+right: auto;
+overflow: vissible;
+`;
+}
+})" style="display: none;">
+          <div class="relative lg:max-w-[800px] md:max-w-[500px] w-full md:my-7 lg:my-20 mx-auto z-50">
+               <div @click.outside="openModal = false"
+                    class="max-h-screen h-screen md:h-auto overflow-hidden md:rounded-xl relative bg-white dark:bg-slate-800 border border-black/20">
+                    <div class="flex shrink-0 items-center justify-between p-4 rounded-tl-md rounded-tr-md">
+                         <button @click="openModal = false" class="p-2 -mt-2 -mr-2 -mb-2 ml-auto"><i
+                                   class="text-xl text-neutral-500 dark:text-white fas fa-times"></i></button>
+                    </div>
+
+
+                    <div class="overflow-y-auto relative flex-1 p-1">
+                         <div class="w-full">
+                              <div class="flex flex-wrap py-4">
+                                   <div
+                                        class="lg:basis-1/3 basis-full px-4 border-r border-neutral-200 dark:border-neutral-500">
+                                        <div class="hidden md:flex flex-col justify-center items-center h-full" x-data>
+                                             <h4 class="font-bold mb-4 text-2xl dark:text-white">Welcome to</h4>
+                                             <template x-if='localStorage.theme === "dark" ||
+(!("theme" in localStorage) &&
+  window.matchMedia("(prefers-color-scheme: dark)").matches)'>
+                                                  <img src="assets/img/Logo-light.png" alt="Monster Logo"
+                                                       style="width:180px;">
+                                             </template>
+                                             <template x-if='localStorage.theme === "light" ||
+(!("theme" in localStorage) &&
+  window.matchMedia("(prefers-color-scheme: light)").matches)'>
+                                                  <img src="assets/img/Monester-logo.png" alt="Monster Logo"
+                                                       style="width:180px; height: 50px">
+                                             </template>
+                                        </div>
+                                   </div>
+                                   <div class="lg:basis-2/3 basis-full px-8">
+                                        <div>
+                                             <!-- Tab Button -->
+                                             <div
+                                                  class="flex items-center justify-center lg:justify-start space-x-4 mb-6">
+                                                  <button
+                                                       class="text-blue-800 dark:text-white hover:text-white hover:bg-blue-900 py-2 px-6 transition-all duration-300"
+                                                       @click="tab = 1"
+                                                       :class="tab === 1 ? 'bg-blue-800 !text-white' : 'bg-transparent'">Sign
+                                                       In</button>
+                                                  <button
+                                                       class="text-blue-800 dark:text-white hover:text-white hover:bg-blue-900 py-2 px-6 transition-all duration-300"
+                                                       @click="tab = 2"
+                                                       :class="tab === 2 ? 'bg-blue-800 !text-white' : 'bg-transparent'">Sign
+                                                       Up</button>
+                                             </div>
+
+                                             <!-- Sign Up -->
+                                             <form method="post" name="register-form" autocomplete="off"
+                                                  x-show="tab === 2" style="display: none;">
+                                                  <div class="mb-4">
+                                                       <div class="flex items-center space-x-2">
+                                                            <label
+                                                                 class="mb-1 text-sm text-neutral-500 dark:text-neutral-50 whitespace-nowrap"
+                                                                 for="email">Email
+                                                                 Address</label>
+                                                            <div class="w-full h-px">
+                                                                 <div
+                                                                      class="w-full h-full bg-gradient-to-l to-slate-200 from-slate-50 dark:bg-gradient-to-l dark:to-slate-600 dark:from-slate-500">
+                                                                 </div>
+                                                            </div>
+                                                       </div>
+                                                       <input type="email"
+                                                            class="block w-full py-2 px-3 text-sm text-neutral-500 border border-indigo-50 rounded placeholder:text-slate-300 dark:bg-slate-900 dark:border-slate-700 dark:text-white"
+                                                            id="email" name="email" placeholder="Email Address"
+                                                            required>
+                                                  </div>
+                                                  <div class="mb-4">
+                                                       <div class="flex items-center space-x-2">
+                                                            <label
+                                                                 class="mb-1 text-sm text-neutral-500 dark:text-neutral-50 whitespace-nowrap"
+                                                                 for="name">Username</label>
+                                                            <div class="w-full h-px">
+                                                                 <div
+                                                                      class="w-full h-full bg-gradient-to-l to-slate-200 from-slate-50 dark:bg-gradient-to-l dark:to-slate-600 dark:from-slate-500">
+                                                                 </div>
+                                                            </div>
+                                                       </div>
+                                                       <input type="text"
+                                                            class="block w-full py-2 px-3 text-sm text-neutral-500 border border-indigo-50 rounded placeholder:text-slate-300 dark:bg-slate-900 dark:border-slate-700 dark:text-white"
+                                                            id="name" name="name" placeholder="Username" required>
+                                                  </div>
+                                                  <div class="mb-6">
+                                                       <div class="flex items-center space-x-2">
+                                                            <label
+                                                                 class="mb-1 text-sm text-neutral-500 dark:text-neutral-50 whitespace-nowrap"
+                                                                 for="new_password">Password</label>
+                                                            <div class="w-full h-px">
+                                                                 <div
+                                                                      class="w-full h-full bg-gradient-to-l to-slate-200 from-slate-50 dark:bg-gradient-to-l dark:to-slate-600 dark:from-slate-500">
+                                                                 </div>
+                                                            </div>
+                                                       </div>
+                                                       <input type="password"
+                                                            class="block w-full py-2 px-3 text-sm text-neutral-500 border border-indigo-50 rounded placeholder:text-slate-300 dark:bg-slate-900 dark:border-slate-700 dark:text-white"
+                                                            id="new_password" name="new_password" placeholder="Password"
+                                                            required>
+                                                  </div>
+                                                  <div class="mb-6">
+                                                       <div class="flex items-center space-x-2">
+                                                            <label
+                                                                 class="mb-1 text-sm text-neutral-500 dark:text-neutral-50 whitespace-nowrap"
+                                                                 for="cpassword">Confirm
+                                                                 Password</label>
+                                                            <div class="w-full h-px">
+                                                                 <div
+                                                                      class="w-full h-full bg-gradient-to-l to-slate-200 from-slate-50 dark:bg-gradient-to-l dark:to-slate-600 dark:from-slate-500">
+                                                                 </div>
+                                                            </div>
+                                                       </div>
+                                                       <input type="password"
+                                                            class="block w-full py-2 px-3 text-sm text-neutral-500 border border-indigo-50 rounded placeholder:text-slate-300 dark:bg-slate-900 dark:border-slate-700 dark:text-white"
+                                                            id="cpassword" name="cpassword"
+                                                            placeholder="Confirm Password" required>
+                                                  </div>
+                                                  <div class="mb-6 flex space-x-2 items-start">
+                                                       <input
+                                                            class="form-check-input border border-gray-400 w-3.5 h-3.5 mt-1"
+                                                            type="checkbox" required value="" id="terms" name="terms">
+                                                       <label class="form-check-label text-sm dark:text-white"
+                                                            for="terms">
+                                                            <small class="text-sm">By signing up, you are agreeing
+                                                                 t our
+                                                                 <a class="text-blue-500 underline" href="#">Privacy
+                                                                      Policy</a> and <a class="text-blue-500 underline"
+                                                                      href="#">Term
+                                                                      of Service.</a></small>
+                                                       </label>
+                                                       <label for="terms" id="terms-error" style="display: none;"
+                                                            class="error"></label>
+                                                  </div>
+                                                  <div
+                                                       class="flex flex-row justify-center lg:justify-start items-start space-x-4 ">
+                                                       <div>
+                                                            <button
+                                                                 class="text-white bg-blue-800 hover:bg-blue-900 py-2 px-6 inline-block">Sign
+                                                                 Up</button>
+                                                       </div>
+
+                                                       <div
+                                                            class="flex flex-col items-center justify-center mb-4 h-full">
+                                                            <div class="w-0.5 h-3 bg-slate-200">
+                                                            </div>
+                                                            <p
+                                                                 class="text-sm text-slate-600 dark:text-gray-100 uppercase">
+                                                                 or</p>
+                                                            <div class="w-0.5 h-3 bg-slate-200">
+                                                            </div>
+                                                       </div>
+                                                       <div class="flex justify-between items-center">
+                                                            <a href="#"
+                                                                 class="w-full bg-slate-100 shadow-md py-2.5 md:py-2 px-3 flex items-center justify-center rounded-md">
+                                                                 <img src="./assets/img/google.png" alt="" class="w-20">
+                                                            </a>
+                                                       </div>
+                                                  </div>
+                                             </form>
+
+                                             <!-- Sign In -->
+                                             <form method="post" name="login-form" autocomplete="off" x-show="tab === 1"
+                                                  style="display: none;">
+                                                  <div class="mb-3">
+                                                       <div class="flex items-center space-x-2">
+                                                            <label
+                                                                 class="mb-1 text-sm text-neutral-500 dark:text-neutral-50 whitespace-nowrap"
+                                                                 for="email">Email
+                                                                 Address</label>
+                                                            <div class="w-full h-px">
+                                                                 <div
+                                                                      class="w-full h-full bg-gradient-to-l to-slate-200 from-slate-50 dark:bg-gradient-to-l dark:to-slate-600 dark:from-slate-500">
+                                                                 </div>
+                                                            </div>
+                                                       </div>
+                                                       <input type="email"
+                                                            class="block w-full py-2 px-3 text-sm text-neutral-500 border border-indigo-50 rounded placeholder:text-slate-300 dark:bg-slate-900 dark:border-slate-700 dark:text-white"
+                                                            id="email" name="email" placeholder="Email Address"
+                                                            required>
+                                                  </div>
+                                                  <div class="mb-4">
+                                                       <div class="flex items-center space-x-2">
+                                                            <label
+                                                                 class="mb-1 text-sm text-neutral-500 dark:text-neutral-50 whitespace-nowrap"
+                                                                 for="password">Password</label>
+                                                            <div class="w-full h-px">
+                                                                 <div
+                                                                      class="w-full h-full bg-gradient-to-l to-slate-200 from-slate-50 dark:bg-gradient-to-l dark:to-slate-600 dark:from-slate-500">
+                                                                 </div>
+                                                            </div>
+                                                       </div>
+                                                       <input type="password"
+                                                            class="block w-full py-2 px-3 text-sm text-neutral-500 border border-indigo-50 rounded placeholder:text-slate-300 dark:bg-slate-900 dark:border-slate-700 dark:text-white"
+                                                            id="password" name="password" placeholder="Password"
+                                                            required>
+                                                  </div>
+                                                  <p class="text-xs text-slate-500 mb-6 dark:text-white"> Forgot your
+                                                       password? <a
+                                                            onclick="blockToggle(resetModal); blockToggle(logModal)"
+                                                            class="text-blue-800 dark:text-blue-500 cursor-pointer">Click
+                                                            here to reset your password</a></p>
+                                                  <div
+                                                       class="flex flex-row justify-center lg:justify-start items-start space-x-4 ">
+                                                       <div>
+                                                            <button
+                                                                 class="text-white bg-blue-800 hover:bg-blue-900 py-2 px-6 inline-block">Sign
+                                                                 In</button>
+                                                       </div>
+
+                                                       <div
+                                                            class="flex flex-col items-center justify-center mb-4 h-full">
+                                                            <div class="w-0.5 h-3 bg-slate-200">
+                                                            </div>
+                                                            <p
+                                                                 class="text-sm text-slate-600 dark:text-gray-100 uppercase">
+                                                                 or</p>
+                                                            <div class="w-0.5 h-3 bg-slate-200">
+                                                            </div>
+                                                       </div>
+                                                       <div class="flex justify-between items-center">
+                                                            <a href="#"
+                                                                 class="w-full bg-slate-100 shadow-md py-2.5 md:py-2 px-3 flex items-center justify-center rounded-md">
+                                                                 <img src="./assets/img/google.png" alt="" class="w-20">
+                                                            </a>
+                                                       </div>
+                                                  </div>
+
+                                             </form>
+                                        </div>
+                                   </div>
+                              </div>
+                         </div>
+                    </div>
+               </div>
+          </div>
+     </div>
+     <!-- Login And Register Modal End -->
+
+     <!-- Forgot Password Modal Starts -->
+     <div class="fixed hidden top-0 left-0 z-50 w-full h-full overflow-x-hidden overflow-y-auto bg-[rgba(0,0,0,0.5)]"
+          id="forgotModal">
+          <div onclick="blockToggle(forgotModal)" class="overly fixed top-0 bottom-0 left-0 right-0 z-10"></div>
+          <div class="relative lg:w-[800px] md:w-[500px] w-full my-7 mx-auto z-50">
+               <div
+                    class="max-h-full overflow-hidden rounded-xl relative bg-white dark:bg-slate-800 border border-[rgba(0,0,0,.2)]">
+                    <div class="flex shrink-0 items-center justify-between p-4 rounded-tl-md rounded-tr-md">
+                         <button onclick="blockToggle(forgotModal)" class="p-2 -mt-2 -mr-2 -mb-2 ml-auto"><i
+                                   class="text-xl text-neutral-500 fas fa-times"></i></button>
+                    </div>
+                    <div class="overflow-y-auto relative flex-1 p-1">
+                         <div class="w-full">
+                              <div class="flex flex-wrap py-4">
+                                   <div
+                                        class="md:basis-1/3 basis-full px-4 border-r border-neutral-200 dark:border-neutral-500">
+                                        <div class="flex flex-col justify-center items-center h-full" x-data>
+                                             <h4 class="font-bold mb-4 text-2xl dark:text-white">Welcome to</h4>
+                                             <template x-if='localStorage.theme === "dark" ||
+      (!("theme" in localStorage) &&
+        window.matchMedia("(prefers-color-scheme: dark)").matches)'>
+                                                  <img src="assets/img/Logo-light.png" alt="Monster Logo"
+                                                       class="mx-auto" style="width:180px;">
+                                             </template>
+                                             <template x-if='localStorage.theme === "light" ||
+      (!("theme" in localStorage) &&
+        window.matchMedia("(prefers-color-scheme: light)").matches)'>
+                                                  <img src="assets/img/Monester-logo.png" alt="Monster Logo"
+                                                       class="mx-auto" style="width:180px; height: 50px">
+                                             </template>
+                                        </div>
+                                   </div>
+                                   <div class="md:basis-2/3 basis-full px-8">
+                                        <div>
+                                             <form method="post" name="login-form" id="forgot-form" autocomplete="off">
+                                                  <h3 class="font-bold text-3xl dark:text-white mb-6">Recover Password
+                                                  </h3>
+                                                  <div class="mb-4">
+                                                       <label class="mb-1" for="email_address">Email Address</label>
+                                                       <input type="email"
+                                                            class="block w-full py-1 px-3 text-base text-neutral-500 border border-indigo-50 rounded dark:bg-slate-900 dark:text-white dark:border-slate-700"
+                                                            id="email_address" name="email_address" required>
+                                                  </div>
+                                                  <div class="mb-4">
+                                                       <button
+                                                            class="text-white bg-blue-800 hover:bg-blue-900 py-1 px-3">Recover
+                                                            Password</button>
+                                                  </div>
+                                             </form>
+                                        </div>
+                                   </div>
+                              </div>
+                         </div>
+                    </div>
+               </div>
+          </div>
+     </div>
+     <!-- Forgot Password Modal Ends -->
+
+     <!-- Reset Password Modal Starts -->
+     <div class="fixed hidden top-0 left-0 z-50 w-full h-full overflow-x-hidden overflow-y-auto bg-[rgba(0,0,0,0.5)]"
+          id="resetModal">
+          <div onclick="blockToggle(resetModal)" class="overly fixed top-0 bottom-0 left-0 right-0 z-10"></div>
+          <div class="relative lg:w-[800px] md:w-[500px] w-full my-7 mx-auto z-50">
+               <div
+                    class="max-h-full overflow-hidden rounded-xl relative bg-white dark:bg-slate-800 border border-[rgba(0,0,0,.2)]">
+                    <div class="flex shrink-0 items-center justify-between p-4 rounded-tl-md rounded-tr-md">
+                         <button onclick="blockToggle(resetModal)" class="p-2 -mt-2 -mr-2 -mb-2 ml-auto"><i
+                                   class="text-xl text-neutral-500 dark:text-white fas fa-times"></i></button>
+                    </div>
+                    <div class="overflow-y-auto relative flex-1 p-1">
+                         <div class="w-full">
+                              <div class="flex flex-wrap py-4">
+                                   <div class="md:basis-1/3 basis-full px-4 border-r border-neutral-200">
+                                        <div class="flex flex-col justify-center items-center h-full" x-data>
+                                             <h4 class="font-bold mb-4 text-2xl">Welcome to</h4>
+                                             <template x-if='localStorage.theme === "dark" ||
+   (!("theme" in localStorage) &&
+     window.matchMedia("(prefers-color-scheme: dark)").matches)'>
+                                                  <img src="assets/img/Logo-light.png" alt="Monster Logo"
+                                                       class="mx-auto" style="width:180px;">
+                                             </template>
+                                             <template x-if='localStorage.theme === "light" ||
+   (!("theme" in localStorage) &&
+     window.matchMedia("(prefers-color-scheme: light)").matches)'>
+                                                  <img src="assets/img/Monester-logo.png" alt="Monster Logo"
+                                                       class="mx-auto" style="width:180px; height: 50px">
+                                             </template>
+                                        </div>
+                                   </div>
+                                   <div class="md:basis-2/3 basis-full px-8">
+                                        <div>
+                                             <form method="post" name="register-form" id="reset-form"
+                                                  autocomplete="off">
+                                                  <h3 class="font-bold text-3xl mb-6">Reset your Account Password</h3>
+                                                  <div class="mb-6">
+                                                       <label class="mb-1" for="new_password">Password</label>
+                                                       <input type="password"
+                                                            class="block w-full py-1 px-3 text-base text-neutral-500 border border-indigo-50 rounded dark:bg-slate-900 dark:text-white dark:border-slate-700"
+                                                            id="new_pass" name="new_password" required>
+                                                  </div>
+                                                  <div class="mb-6">
+                                                       <label class="mb-1" for="cpassword">Confirm Password</label>
+                                                       <input type="password"
+                                                            class="block w-full py-1 px-3 text-base text-neutral-500 border border-indigo-50 rounded dark:bg-slate-900 dark:text-white dark:border-slate-700"
+                                                            id="cpass" name="cpassword" required>
+                                                  </div>
+                                                  <div class="mb-4">
+                                                       <button
+                                                            class="text-white bg-blue-800 hover:bg-blue-900 py-1 px-3">Reset
+                                                            Password</button>
+                                                  </div>
+                                             </form>
+                                        </div>
+                                   </div>
+                              </div>
+                         </div>
+                    </div>
+               </div>
+          </div>
+     </div>
+     <!-- Reset Password Modal Ends -->
+
+     <!-- User Profile Modal Starts -->
+     <div class="fixed inset-0 z-50 w-full h-screen overflow-x-hidden overflow-y-auto bg-[rgba(0,0,0,0.5)] "
+          x-data="{openModal: false, tab: 1}" x-show="openModal" @user-profile-modal.window="openModal = true"
+          @tab.window="tab = $event.detail.tab" x-init="$watch('openModal', value =>{
+if(openModal){
+document.querySelector('body').classList.add('fixed', 'inset-0');
+document.querySelector('html').style.cssText = `
+position: fixed; 
+top: 0;
+bottom: 0;
+left: 0;
+right: 0;
+overflow: hidden;
+`;
+}else{
+document.querySelector('body').classList.remove('fixed', 'inset-0');
+document.querySelector('html').style.cssText = `
+position: static; 
+top: auto;
+bottom: auto;
+left: auto;
+right: auto;
+overflow: vissible;
+`;
+}
+})" style="display: none;">
+          <div class="flex items-center justify-center w-full h-full">
+               <div class="overly fixed inset-0 z-10" @click="openModal = false"></div>
+
+               <div
+                    class="max-w-xl w-full max-h-[680px] h-[calc(100vh-8.5rem)] lg:h-[calc(100vh-7rem)] bg-white dark:bg-slate-800 rounded-xl relative z-40 mb-4 lg:mb-0">
+                    <button @click.prevent="openModal = false"
+                         class="bg-blue-100 dark:bg-slate-700 w-8 h-8 rounded-full flex items-center justify-center absolute right-4 top-4 text-blue-700 dark:text-slate-100 z-10">
+                         <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" focusable="false"
+                              aria-hidden="true">
+                              <path xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd"
+                                   d="M16.07 17.673a1.097 1.097 0 0 0 1.583-.022 1.179 1.179 0 0 0-.02-1.631l-4.016-4.026 4.049-4.039a1.137 1.137 0 0 0-1.606-1.612l-4.05 4.04-4.038-4.048A1.137 1.137 0 0 0 6.36 7.94l4.04 4.05-4.073 4.063a1.097 1.097 0 0 0 .022 1.583 1.179 1.179 0 0 0 1.632-.019l4.026-4.017 4.063 4.073Z">
+                              </path>
+                         </svg>
+                    </button>
+
+                    <div class="w-full max-h-full  h-full overflow-y-auto px-4 py-8 lg:p-8 pb-8 lg:pb-0 relative">
+                         <div class="flex items-center space-x-6 mb-4">
+                              <img src="./assets/img/Ellipse 54.png" alt="" class="w-20 h-20 rounded-full object-cover">
+                              <div>
+                                   <p class="text-xs font-medium opacity-70 mb-1">
+                                        Joined a day ago
+                                   </p>
+                                   <h2 class="text-3xl font-bold">Jalen Buckley</h2>
+                                   <div class="flex items-center space-x-2">
+                                        <img src="./assets/img/us.svg" alt="" class="w-6">
+                                        <p class="text-sm opacity-70">United States</p>
+                                   </div>
+                              </div>
+                         </div>
+
+                         <div class="border-t border-b border-gray-300 dark:border-gray-700 py-4">
+                              <div class="flex items-center space-x-2 mb-4">
+                                   <svg class="text-slate-500" width="24" height="24" viewBox="0 0 24 24">
+                                        <path xmlns="http://www.w3.org/2000/svg"
+                                             d="M5 5.43c0-.48.6-.69.89-.32l2.54 3.17c.32.4.9.5 1.33.21l1.47-.97a1 1 0 0 1 1.34.21l2.46 3.16a1 1 0 0 0 1.18.3l2.1-.9c.32-.13.69.1.69.47V18H5V5.43Z"
+                                             fill="currentColor"></path>
+                                   </svg>
+                                   <h6 class="text-base font-bold">Stats</h6>
+                              </div>
+                              <div class="grid grid-cols-3 gap-4">
+                                   <div class="bg-indigo-200 dark:bg-slate-900 rounded-lg p-2 text-center">
+                                        <p class="text-xs font-medium opacity-70 mb-1">Offers Completed</p>
+                                        <p class="text-sm font-bold">9</p>
+                                   </div>
+                                   <div class="bg-indigo-200 dark:bg-slate-900 rounded-lg p-2 text-center">
+                                        <p class="text-xs font-medium opacity-70 mb-1">Points Earn</p>
+                                        <p class="text-sm font-bold">9342</p>
+                                   </div>
+                                   <div class="bg-indigo-200 dark:bg-slate-900 rounded-lg p-2 text-center">
+                                        <p class="text-xs font-medium opacity-70 mb-1">Users Referred</p>
+                                        <p class="text-sm font-bold">0</p>
+                                   </div>
+                              </div>
+                         </div>
+
+                         <div class="border-gray-300 dark:border-gray-700 py-4">
+                              <div class="flex items-center space-x-2">
+                                   <svg class="text-slate-500" width="18" height="18" viewBox="0 0 16 16">
+                                        <path xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd"
+                                             fill="currentColor"
+                                             d="M15.1988 1C15.1988 1 9.9565 0.987741 5.86961 5.07463C5.68061 5.26364 5.512 5.46646 5.36307 5.67939C4.63821 5.62264 3.53187 5.64592 2.96724 6.21093C1.64192 7.53625 1.19995 9.7455 1.19995 9.7455L4.12026 9.32832V10.329L5.87179 12.0806H6.87248L6.45542 15C6.45542 15 8.66468 14.558 9.99 13.2327C10.5556 12.6674 10.5783 11.5592 10.5213 10.8344C10.7336 10.6858 10.9357 10.5176 11.1242 10.3292C15.2111 6.24232 15.1988 1 15.1988 1ZM9.37266 5.65847C9.37266 5.01333 9.8952 4.49079 10.5403 4.49079C11.1855 4.49079 11.708 5.01333 11.708 5.65847C11.708 6.30362 11.1855 6.82616 10.5403 6.82616C9.8952 6.82616 9.37266 6.30362 9.37266 5.65847Z">
+                                        </path>
+                                   </svg>
+                                   <h6 class="text-base font-bold">Activity</h6>
+                              </div>
+                         </div>
+
+                         <div class="">
+                              <table class="table-auto w-full mb-6">
+                                   <thead>
+                                        <tr>
+                                             <th class="py-2 text-xs text-left opacity-70 font-medium">Name</th>
+                                             <th class="py-2 text-xs text-left opacity-70 font-medium">Time</th>
+                                             <th class="py-2 text-xs text-right opacity-70 font-medium">Reward</th>
+                                        </tr>
+                                   </thead>
+                                   <tbody>
+                                        <tr>
+                                             <td
+                                                  class="text-xs opacity-80 py-2 border-b border-gray-300 dark:border-gray-700">
+                                                  <div class=" truncate max-w-[100px]">
+                                                       Leaderboard
+                                                  </div>
+                                             </td>
+                                             <td
+                                                  class="text-xs opacity-80 font-medium py-2 border-b border-gray-300 dark:border-gray-700">
+                                                  12h ago</td>
+                                             <td
+                                                  class="text-xs font-medium py-2 border-b border-gray-300 dark:border-gray-700">
+                                                  <div class="flex items-center justify-end space-x-2">
+                                                       <p class="text-sm font-semibold">200</p>
+                                                       <img src="./assets/img/coin (1).png" alt="" class="w-3">
+                                                  </div>
+                                             </td>
+                                        </tr>
+                                        <tr>
+                                             <td
+                                                  class="text-xs opacity-80 py-2 border-b border-gray-300 dark:border-gray-700">
+                                                  <div class=" truncate max-w-[100px]">
+                                                       Flash Rewards: Earn Gift Cards
+
+                                                  </div>
+                                             </td>
+                                             <td
+                                                  class="text-xs opacity-80 font-medium py-2 border-b border-gray-300 dark:border-gray-700">
+                                                  12h ago</td>
+                                             <td
+                                                  class="text-xs font-medium py-2 border-b border-gray-300 dark:border-gray-700">
+                                                  <div class="flex items-center justify-end space-x-2">
+                                                       <p class="text-sm font-semibold">7,900</p>
+                                                       <img src="./assets/img/coin (1).png" alt="" class="w-3">
+                                                  </div>
+                                             </td>
+                                        </tr>
+                                        <tr>
+                                             <td
+                                                  class="text-xs opacity-80 py-2 border-b border-gray-300 dark:border-gray-700">
+                                                  <div class=" truncate max-w-[100px]">
+
+                                                       Fanduel - Android
+                                                  </div>
+                                             </td>
+                                             <td
+                                                  class="text-xs opacity-80 font-medium py-2 border-b border-gray-300 dark:border-gray-700">
+                                                  12h ago</td>
+                                             <td
+                                                  class="text-xs font-medium py-2 border-b border-gray-300 dark:border-gray-700">
+                                                  <div class="flex items-center justify-end space-x-2">
+                                                       <p class="text-sm font-semibold">50</p>
+                                                       <img src="./assets/img/coin (1).png" alt="" class="w-3">
+                                                  </div>
+                                             </td>
+                                        </tr>
+                                        <tr>
+                                             <td
+                                                  class="text-xs opacity-80 py-2 border-b border-gray-300 dark:border-gray-700">
+                                                  <div class=" truncate max-w-[100px]">
+                                                       Leaderboard
+                                                  </div>
+                                             </td>
+                                             <td
+                                                  class="text-xs opacity-80 font-medium py-2 border-b border-gray-300 dark:border-gray-700">
+                                                  12h ago</td>
+                                             <td
+                                                  class="text-xs font-medium py-2 border-b border-gray-300 dark:border-gray-700">
+                                                  <div class="flex items-center justify-end space-x-2">
+                                                       <p class="text-sm font-semibold">200</p>
+                                                       <img src="./assets/img/coin (1).png" alt="" class="w-3">
+                                                  </div>
+                                             </td>
+                                        </tr>
+                                        <tr>
+                                             <td
+                                                  class="text-xs opacity-80 py-2 border-b border-gray-300 dark:border-gray-700">
+                                                  <div class=" truncate max-w-[100px]">
+                                                       Flash Rewards: Earn Gift Cards
+
+                                                  </div>
+                                             </td>
+                                             <td
+                                                  class="text-xs opacity-80 font-medium py-2 border-b border-gray-300 dark:border-gray-700">
+                                                  12h ago</td>
+                                             <td
+                                                  class="text-xs font-medium py-2 border-b border-gray-300 dark:border-gray-700">
+                                                  <div class="flex items-center justify-end space-x-2">
+                                                       <p class="text-sm font-semibold">7,900</p>
+                                                       <img src="./assets/img/coin (1).png" alt="" class="w-3">
+                                                  </div>
+                                             </td>
+                                        </tr>
+                                        <tr>
+                                             <td
+                                                  class="text-xs opacity-80 py-2 border-b border-gray-300 dark:border-gray-700">
+                                                  <div class=" truncate max-w-[100px]">
+
+                                                       Fanduel - Android
+                                                  </div>
+                                             </td>
+                                             <td
+                                                  class="text-xs opacity-80 font-medium py-2 border-b border-gray-300 dark:border-gray-700">
+                                                  12h ago</td>
+                                             <td
+                                                  class="text-xs font-medium py-2 border-b border-gray-300 dark:border-gray-700">
+                                                  <div class="flex items-center justify-end space-x-2">
+                                                       <p class="text-sm font-semibold">50</p>
+                                                       <img src="./assets/img/coin (1).png" alt="" class="w-3">
+                                                  </div>
+                                             </td>
+                                        </tr>
+
+                                   </tbody>
+                              </table>
+
+                              <ul class="flex items-center justify-center space-x-1.5 leading-none">
+                                   <li class="min-h-[40px] max-h-[40px]">
+                                        <a href="#"
+                                             class="inline-block bg-indigo-200 dark:bg-slate-700 rounded-md px-3 py-3 min-w-[40px] min-h-[40px] max-h-[40px] text-xs hover:bg-blue-700 dark:hover:bg-blue-700 hover:text-white transition-all text-center">
+                                             <svg width="16" height="16" viewBox="0 0 24 22" fill="currentColor"
+                                                  style="transform: rotate(180deg);">
+                                                  <path xmlns="http://www.w3.org/2000/svg"
+                                                       d="M9.24 19.06a1.5 1.5 0 010-2.12L14.18 12 9.24 7.06a1.5 1.5 0 112.12-2.12l6 6a1.5 1.5 0 010 2.12l-6 6a1.5 1.5 0 01-2.12 0z">
+                                                  </path>
+                                             </svg>
+                                        </a>
+                                   </li>
+                                   <li class="min-h-[40px] max-h-[40px]">
+                                        <a href="#"
+                                             class="inline-block bg-blue-700 dark:bg-blue-700 text-white rounded-md px-3 py-3 min-w-[40px] min-h-[40px] max-h-[40px] text-xs transition-all text-center">
+                                             1
+                                        </a>
+                                   </li>
+                                   <li class="min-h-[40px] max-h-[40px]">
+                                        <a href="#"
+                                             class="inline-block bg-indigo-200 dark:bg-slate-700 rounded-md px-3 py-3 min-w-[40px] min-h-[40px] max-h-[40px] text-xs hover:bg-blue-700 dark:hover:bg-blue-700 hover:text-white transition-all text-center">
+                                             2
+                                        </a>
+                                   </li>
+                                   <li class="min-h-[40px] max-h-[40px]">
+                                        <a href="#"
+                                             class="inline-block bg-indigo-200 dark:bg-slate-700 rounded-md px-3 py-3 min-w-[40px] min-h-[40px] max-h-[40px] text-xs hover:bg-blue-700 dark:hover:bg-blue-700 hover:text-white transition-all text-center">
+                                             <svg width="16" height="16" viewBox="0 0 24 22" fill="currentColor">
+                                                  <path xmlns="http://www.w3.org/2000/svg"
+                                                       d="M9.24 19.06a1.5 1.5 0 010-2.12L14.18 12 9.24 7.06a1.5 1.5 0 112.12-2.12l6 6a1.5 1.5 0 010 2.12l-6 6a1.5 1.5 0 01-2.12 0z">
+                                                  </path>
+                                             </svg>
+                                        </a>
+                                   </li>
+                              </ul>
+                         </div>
+                    </div>
+               </div>
+          </div>
+     </div>
+
+     <!-- Private Profile -->
+     <div class="fixed inset-0 z-50 w-full h-screen overflow-x-hidden overflow-y-auto bg-[rgba(0,0,0,0.5)] "
+          x-data="{openModal: false, tab: 1}" x-show="openModal" @user-private-profile-modal.window="openModal = true"
+          @tab.window="tab = $event.detail.tab" x-init="$watch('openModal', value =>{
+if(openModal){
+document.querySelector('body').classList.add('fixed', 'inset-0');
+document.querySelector('html').style.cssText = `
+position: fixed; 
+top: 0;
+bottom: 0;
+left: 0;
+right: 0;
+overflow: hidden;
+`;
+}else{
+document.querySelector('body').classList.remove('fixed', 'inset-0');
+document.querySelector('html').style.cssText = `
+position: static; 
+top: auto;
+bottom: auto;
+left: auto;
+right: auto;
+overflow: vissible;
+`;
+}
+})" style="display: none;">
+          <div class="flex items-center justify-center w-full h-full">
+               <div class="overly fixed inset-0 z-10" @click="openModal = false"></div>
+
+               <div class="max-w-xl w-full bg-white dark:bg-slate-800 rounded-xl relative z-40 mb-4 lg:mb-0">
+                    <button @click.prevent="openModal = false"
+                         class="bg-blue-100 dark:bg-slate-700 w-8 h-8 rounded-full flex items-center justify-center absolute right-4 top-4 text-blue-700 dark:text-slate-100 z-10">
+                         <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" focusable="false"
+                              aria-hidden="true">
+                              <path xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd"
+                                   d="M16.07 17.673a1.097 1.097 0 0 0 1.583-.022 1.179 1.179 0 0 0-.02-1.631l-4.016-4.026 4.049-4.039a1.137 1.137 0 0 0-1.606-1.612l-4.05 4.04-4.038-4.048A1.137 1.137 0 0 0 6.36 7.94l4.04 4.05-4.073 4.063a1.097 1.097 0 0 0 .022 1.583 1.179 1.179 0 0 0 1.632-.019l4.026-4.017 4.063 4.073Z">
+                              </path>
+                         </svg>
+                    </button>
+
+                    <div class="w-full px-4 py-8 lg:p-8 relative">
+                         <div class="flex flex-col items-center">
+                              <div
+                                   class="w-20 h-20 rounded-full border-2 border-gray-300 dark:border-gray-500 flex items-center justify-center text-3xl text-blue-700 mb-4">
+                                   N</div>
+                              <h4 class="text-2xl font-bold mb-2">Natalia Jaromin</h4>
+                              <p class="text-base opacity-70">This is a private profile</p>
+                         </div>
+                    </div>
+               </div>
+          </div>
+     </div>
+     <!-- User Profile Ends -->
+
+     <!-- Promo Modal Starts -->
+     <div class="fixed hidden top-0 left-0 z-50 w-full h-full overflow-x-hidden overflow-y-auto bg-[rgba(0,0,0,0.5)]"
+          id="promoModal">
+          <div onclick="blockToggle(promoModal)" class="overly fixed top-0 bottom-0 left-0 right-0 z-10"></div>
+          <div class="relative lg:w-[800px] md:w-[500px] w-full my-7 mx-auto z-50">
+               <div
+                    class="max-h-full overflow-hidden rounded-xl relative bg-white dark:bg-slate-800 border border-[rgba(0,0,0,.2)]">
+                    <div class="flex shrink-0 items-center justify-between p-4 rounded-tl-md rounded-tr-md">
+                         <button onclick="blockToggle(promoModal)" class="p-2 -mt-2 -mr-2 -mb-2 ml-auto"><i
+                                   class="text-xl text-neutral-500 dark:text-white fas fa-times"></i></button>
+                    </div>
+                    <div class="overflow-y-auto relative flex-1 p-3">
+                         <div class="w-full">
+                              <div class="text-center">
+                                   <h4 class="text-black dark:text-white text-2xl">Promotional Code</h4>
+                                   <p class="my-3 dark:text-white">Follow our socials to find out when codes are shared
+                                   </p>
+                                   <form>
+                                        <div class="mb-4 w-10/12 mx-auto">
+                                             <input type="text" class="block  w-full py-2 px-3 text-base text-neutral-500
+                    dark:text-white dark:bg-slate-900 dark:border-slate-700 border border-indigo-50 rounded"
+                                                  placeholder="Enter Promocode" required>
+                                        </div>
+                                        <div class="mb-4">
+                                             <button
+                                                  class="text-white bg-blue-800 hover:bg-blue-900 py-2 px-6">Redeem</button>
+                                        </div>
+                                   </form>
+                              </div>
+                         </div>
+                    </div>
+               </div>
+          </div>
+     </div>
+     <!-- Promo Modal Ends -->
+     <!-- Jquery -->
+     <script src="assets/jquery/jquery-3.6.0.min.js"></script>
+     <!-- jQuery Validation -->
+     <script src="assets/jquery-validate/jquery.validate.min.js"></script>
+     <!--Slick JS-->
+     <script src="assets/slick/slick.js"></script>
+     <!-- Custom JS -->
+     <!-- Highcharts CDN -->
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/highcharts/10.0.0/highcharts.js"
+          integrity="sha512-//WD7Gq/302cFYMIeO2Y8ZCkrYDs/yOpZvSBjhc4QXeLuBChYmBDQg7ydKQLNAmJiuPZgccT85ZlL9s/ZghLBg=="
+          crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+     <script src="assets/js/main.js"></script>
+     <script src="assets/js/app.js"></script>
+</body>
+
+</html>

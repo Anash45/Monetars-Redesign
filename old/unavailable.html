@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Monetars">
+    <meta name="author" content="Monetars">
+    <meta name="generator" content="">
+    <!--  Favicons-->
+    <title>Monetars - Home</title>
+    <!-- Flickity CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
+
+    <!-- Fontawesome Icons -->
+    <link rel="stylesheet" href="assets/fontawesome/css/all.css">
+    <!-- Slick CSS-->
+    <link rel="stylesheet" href="assets/slick/slick.css">
+    <link rel="stylesheet" href="assets/slick/slick-theme.css">
+
+    <!-- GOOGLE FONTS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+
+    <!-- TAILWINDCSS OUTPUT -->
+    <link href="dist/output.css" rel="stylesheet">
+
+    <!-- Dark Mode Js -->
+    <script src="./darkmode.js"></script>
+
+    <!-- Flickity JavaScript -->
+    <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
+
+    <!-- Alpine JS -->
+    <script defer src="https://unpkg.com/alpinejs@3.10.5/dist/cdn.min.js"></script>
+</head>
+
+<body>
+    <!-- Desktop Dark Light Button -->
+    <div class="fixed z-50 bottom-32 md:bottom-10 left-1 md:left-10 w-10 h-10 bg-slate-900 hover:bg-blue-800 dark:bg-slate-50 rounded-lg hidden lg:flex items-center justify-center text-white dark:text-slate-900 transition-all duration-700 cursor-pointer"
+        x-data=""
+        @click="localStorage.theme === 'dark' ? localStorage.theme = 'light' : localStorage.theme = 'dark'; location.reload();">
+        <svg x-show="localStorage.theme === 'dark'" xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="w-7"
+            viewBox="0 0 16 16">
+            <path
+                d="M8 11a3 3 0 1 1 0-6 3 3 0 0 1 0 6zm0 1a4 4 0 1 0 0-8 4 4 0 0 0 0 8zm.5-9.5a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0zm0 11a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0zm5-5a.5.5 0 1 1 0-1 .5.5 0 0 1 0 1zm-11 0a.5.5 0 1 1 0-1 .5.5 0 0 1 0 1zm9.743-4.036a.5.5 0 1 1-.707-.707.5.5 0 0 1 .707.707zm-7.779 7.779a.5.5 0 1 1-.707-.707.5.5 0 0 1 .707.707zm7.072 0a.5.5 0 1 1 .707-.707.5.5 0 0 1-.707.707zM3.757 4.464a.5.5 0 1 1 .707-.707.5.5 0 0 1-.707.707z" />
+        </svg>
+        <svg x-show="localStorage.theme === 'light'" xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+            fill="currentColor" class="w-7" viewBox="0 0 16 16">
+            <path
+                d="M6 .278a.768.768 0 0 1 .08.858 7.208 7.208 0 0 0-.878 3.46c0 4.021 3.278 7.277 7.318 7.277.527 0 1.04-.055 1.533-.16a.787.787 0 0 1 .81.316.733.733 0 0 1-.031.893A8.349 8.349 0 0 1 8.344 16C3.734 16 0 12.286 0 7.71 0 4.266 2.114 1.312 5.124.06A.752.752 0 0 1 6 .278z" />
+        </svg>
+    </div>
+
+
+
+    <div class="w-full h-screen overflow-y-auto flex bg-indigo-50 dark:bg-slate-900 px-4 py-6 relative z-10">
+        <div class="w-full absolute inset-x-0 top-0 flex justify-center overflow-x-hidden">
+            <div
+                class="w-[900px] h-[900px] rounded-full bg-indigo-100/40 dark:bg-slate-800/20  mx-auto blur-lg -translate-y-[10%] shrink-0">
+            </div>
+        </div>
+        <div class="max-w-xl w-full m-auto relative">
+            <div class="text-center mb-8">
+                <a href="#" class="inline-block" x-data>
+                    <template x-if='localStorage.theme === "dark" ||
+             (!("theme" in localStorage) &&
+               window.matchMedia("(prefers-color-scheme: dark)").matches)'>
+                        <img src="assets/img/Logo-light.png" alt="Monster Logo" class="w-[250px] md:w-[300px]">
+                    </template>
+                    <template x-if='localStorage.theme === "light" ||
+             (!("theme" in localStorage) &&
+               window.matchMedia("(prefers-color-scheme: light)").matches)'>
+                        <img src="assets/img/Monester-logo.png" alt="Monster Logo" class="w-[250px] md:w-[300px]">
+                    </template>
+                </a>
+            </div>
+
+            <div class="bg-white dark:bg-slate-800 w-full rounded-lg p-10 mb-6">
+                <h1 class="text-2xl sm:text-3xl md:text-4xl text-center text-neutral-900 dark:text-white mb-2">
+                    SERVICE UNAVAILABLE
+                </h1>
+                <p class="text-sm md:text-base text-center text-neutral-400 dark:text-gray-200 mb-4">Our system
+                    detected that your user
+                    quality
+                    score does not meet minimum requirements to access our page. There might be several reasons
+                    why
+                    that
+                    happened:</p>
+
+                <div class="w-full bg-indigo-50 dark:bg-slate-900 rounded-lg">
+                    <ul
+                        class="text-center divide-y dark:divide-slate-700 text-xs md:text-sm text-neutral-800 dark:text-white">
+                        <li class="py-2">Multi Account</li>
+                        <li class="py-2">VPN or Proxy</li>
+                        <li class="py-2">Fake participations</li>
+                        <li class="py-2">Logged in from multiple countries</li>
+                        <li class="py-2">...</li>
+                    </ul>
+                </div>
+            </div>
+            <a href="#" class="w-full text-center bg-blue-800 py-3.5 rounded-md text-white block">Contact us</a>
+        </div>
+    </div>
+
+
+
+    <!-- Jquery -->
+    <script src="assets/jquery/jquery-3.6.0.min.js"></script>
+    <!-- jQuery Validation -->
+    <script src="assets/jquery-validate/jquery.validate.min.js"></script>
+    <!--Slick JS-->
+    <script src="assets/slick/slick.js"></script>
+    <!-- Custom JS -->
+    <!-- Highcharts CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highcharts/10.0.0/highcharts.js"
+        integrity="sha512-//WD7Gq/302cFYMIeO2Y8ZCkrYDs/yOpZvSBjhc4QXeLuBChYmBDQg7ydKQLNAmJiuPZgccT85ZlL9s/ZghLBg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/app.js"></script>
+</body>
+
+</html>
