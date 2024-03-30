@@ -150,6 +150,50 @@
                                         <p class="nc-badge mb-0"> 14 </p>
                                     </div>
                                 </a>
+                                <a href="#" class="nc-item">
+                                    <div class="d-flex h-100 gap-1">
+                                        <img src="./assets/img/blog-1.jpg" alt="NC Image" class="nc-img">
+                                        <div class="d-flex nc-text roboto flex-column justify-content-center">
+                                            <p class="nc-up mb-0">MONETARS</p>
+                                            <p class="nc-down mb-0">MONETARS</p>
+                                        </div>
+                                        <p class="nc-badge mb-0"> 14 </p>
+                                    </div>
+                                </a>
+                                <a href="#" class="nc-item">
+                                    <div class="d-flex h-100 gap-1">
+                                        <span class="nc-img">
+                                            <span>M</span>
+                                        </span>
+                                        <div class="d-flex nc-text roboto flex-column justify-content-center">
+                                            <p class="nc-up mb-0">MONETARS</p>
+                                            <p class="nc-down mb-0">MONETARS</p>
+                                        </div>
+                                        <p class="nc-badge mb-0"> 14 </p>
+                                    </div>
+                                </a>
+                                <a href="#" class="nc-item">
+                                    <div class="d-flex h-100 gap-1">
+                                        <img src="./assets/img/blog-1.jpg" alt="NC Image" class="nc-img">
+                                        <div class="d-flex nc-text roboto flex-column justify-content-center">
+                                            <p class="nc-up mb-0">MONETARS</p>
+                                            <p class="nc-down mb-0">MONETARS</p>
+                                        </div>
+                                        <p class="nc-badge mb-0"> 14 </p>
+                                    </div>
+                                </a>
+                                <a href="#" class="nc-item">
+                                    <div class="d-flex h-100 gap-1">
+                                        <span class="nc-img">
+                                            <span>M</span>
+                                        </span>
+                                        <div class="d-flex nc-text roboto flex-column justify-content-center">
+                                            <p class="nc-up mb-0">MONETARS</p>
+                                            <p class="nc-down mb-0">MONETARS</p>
+                                        </div>
+                                        <p class="nc-badge mb-0"> 14 </p>
+                                    </div>
+                                </a>
                             </div>
                         </div>
                     </div>
@@ -171,8 +215,8 @@
                 <div class="d-flex f-divs justify-content-between mb-4">
                     <div class="f-div">
                         <h3 class="fw-bold f-title mb-2 pb-1">Account</h3>
-                        <a href="#" class="d-block mb-2">Sign in</a>
-                        <a href="#" class="d-block mb-2">Register</a>
+                        <a href="#" class="d-block mb-2" onclick="openSigninSignup('signin')">Sign in</a>
+                        <a href="#" class="d-block mb-2" onclick="openSigninSignup('signup')">Register</a>
                         <a href="faq.html" class="d-block mb-2">FAQ</a>
                     </div>
                     <div class="f-div ps-4">
@@ -334,7 +378,8 @@
                                                                 password</a></small></label>
                                                 </div>
                                             </div>
-                                            <div class="ss-btns d-flex justify-content-lg-start justify-content-center gap-3">
+                                            <div
+                                                class="ss-btns d-flex justify-content-lg-start justify-content-center gap-3">
                                                 <button type="submit" class="btn btn-form-main px-4 py-2"> Sign In
                                                 </button>
                                                 <span class="ss-or"><span>OR</span></span>
@@ -381,19 +426,21 @@
                                                         <div class="label-line"></div>
                                                     </div>
                                                 </div>
-                                                <input type="password" placeholder="Confirm Password" class="form-control">
+                                                <input type="password" placeholder="Confirm Password"
+                                                    class="form-control">
                                             </div>
                                             <div class="form-group mb-4">
                                                 <div class="d-flex align-items-center w-100 gap-2">
                                                     <input type="checkbox" name="" id="agree-terms" required>
-                                                    <label class="accept-note" for="agree-terms">By signing up, you are agreeing to our <a
-                                                            class="text-decoration-underline"
+                                                    <label class="accept-note" for="agree-terms">By signing up, you are
+                                                        agreeing to our <a class="text-decoration-underline"
                                                             href="privacy.html">Privacy Policy</a> and <a
                                                             class="text-decoration-underline" href="terms.html">Term of
                                                             Service.</a></label>
                                                 </div>
                                             </div>
-                                            <div class="ss-btns d-flex justify-content-lg-start justify-content-center gap-3">
+                                            <div
+                                                class="ss-btns d-flex justify-content-lg-start justify-content-center gap-3">
                                                 <button type="submit" class="btn btn-form-main px-4 py-2"> Sign Up
                                                 </button>
                                                 <span class="ss-or"><span>OR</span></span>
@@ -409,6 +456,10 @@
                     </div>
                 </div>
             </div>
+        </div>
+        <aside class="chat-widget"></aside>
+        <div class="btn btn-switch btn-float" data-switch="dark">
+            <i class="fa fa-moon show-light"></i><i class="fa fa-sun show-dark"></i>
         </div>
     </body>
     <script src="./assets/dist/js/jquery.min.js"></script>
