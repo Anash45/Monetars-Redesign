@@ -12,6 +12,20 @@ $(document).ready(function () {
         infinite: true, // Infinite looping
         variableWidth: true // Variable width based on content width
     });
+    
+    // Initialize Slick carousel on Offers
+    $('.offers').slick({
+        slidesToShow: 1, // Show 1 slide at a time
+        slidesToScroll: 1, // Scroll 1 slide at a time
+        autoplay: true, // Autoplay enabled
+        autoplaySpeed: 2000, // Autoplay speed in milliseconds
+        prevArrow: '<button type="button" class="slick-arrows slick-prev"><i class="fa fa-chevron-left"></i></button>',
+        nextArrow: '<button type="button" class="slick-arrows slick-next"><i class="fa fa-chevron-right"></i></button>',
+        dots: false, // Hide navigation dots
+        draggable: true, // Enable dragging
+        infinite: true, // Infinite looping
+        variableWidth: true // Variable width based on content width
+    });
 
     // Hero carousel
     $('.hero-carousel').slick({
@@ -88,7 +102,20 @@ $('.btn-switch').on('click', function (params) {
     changeTheme(targetSwitch);
 });
 
-function openSigninSignup(target) {
-    $('.nav-' + target).tab('show');
-    $('#signinSignup').modal('show');
+function openModal(target) {
+    if (target == 'signin' || target == 'signup') {
+        $('.nav-' + target).tab('show');
+        $('#signinSignup').modal('show');
+    }else if(target == 'pay'){
+        $('#payModal').modal('show');
+    }
+}
+
+function selectPayCard() {
+    $('.pay-modal .pay-card').each(function () {
+        if ($(this).find('input:checked').length > 0) {
+            $('.pay-modal .pay-card').removeClass('card-selected');
+            $(this).addClass('card-selected');
+        }
+    });
 }
