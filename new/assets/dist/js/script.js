@@ -12,7 +12,7 @@ $(document).ready(function () {
         infinite: true, // Infinite looping
         variableWidth: true // Variable width based on content width
     });
-    
+
     // Initialize Slick carousel on Offers
     $('.offers').slick({
         slidesToShow: 1, // Show 1 slide at a time
@@ -106,7 +106,7 @@ function openModal(target) {
     if (target == 'signin' || target == 'signup') {
         $('.nav-' + target).tab('show');
         $('#signinSignup').modal('show');
-    }else if(target == 'pay'){
+    } else if (target == 'pay') {
         $('#payModal').modal('show');
     }
 }
@@ -119,3 +119,12 @@ function selectPayCard() {
         }
     });
 }
+
+$('.lb-tab-btn').on('shown.bs.tab', function (event) {
+    let target = $(this).attr('data-bs-target');
+    if (target == "#pills-daily") {
+        $('#lb-range').html("Daily");
+    } else {
+        $('#lb-range').html("Monthly");
+    }
+})
