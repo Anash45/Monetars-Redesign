@@ -208,27 +208,22 @@
                     </div>
                     <div class="px-3 mt-2 shadow-lg rounded-xl profile-card">
                         <div class="row mx-0">
-                            <div class="col-lg-5">
-                                <div class="d-flex align-items-center flex-column justify-content-center py-lg-0 py-3 text-center">
+                            <div class="col-lg-5 border-lg-end border-0">
+                                <div
+                                    class="d-flex align-items-center flex-column justify-content-center py-lg-0 py-3 text-center h-100">
                                     <img src="./assets/img/Ellipse 55.png" alt="Profile Image" class="p-img">
                                     <h3 class="py-3 f-24p mb-0">El Bronco VC CBE</h3>
                                     <div class="d-flex px-3 align-items-center gap-3">
                                         <div class="d-flex flex-column justify-content-center align-items-center">
-                                            <span class="f-16p p-counts">
-                                                142
-                                            </span>
+                                            <span class="f-16p p-counts"> 142 </span>
                                             <span class="f-14p p-text">Completed <br> Orders</span>
                                         </div>
                                         <div class="d-flex flex-column justify-content-center align-items-center">
-                                            <span class="f-16p p-counts">
-                                                142
-                                            </span>
+                                            <span class="f-16p p-counts"> 142 </span>
                                             <span class="f-14p p-text">Coins <br> Earned</span>
                                         </div>
                                         <div class="d-flex flex-column justify-content-center align-items-center">
-                                            <span class="f-16p p-counts">
-                                                142
-                                            </span>
+                                            <span class="f-16p p-counts"> 142 </span>
                                             <span class="f-14p p-text">Users <br> Referred</span>
                                         </div>
                                     </div>
@@ -239,10 +234,599 @@
                                     <h3 class="py-1 f-24p mb-0">Earnings</h3>
                                     <span class="py-1 f-14p p-text">7 Days</span>
                                 </div>
+                                <div class="py-2 px-lg-2 px-0">
+                                    <canvas id="lineGraph" height="400" class="w-100"></canvas>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
+                    <div class="pt-3">
+                        <ul class="nav nav-pills my-4 lb-tabs rounded-lg flex-row" id="pills-tab" role="tablist">
+                            <li class="nav-item flex-fill" role="presentation">
+                                <button class="nav-link w-100 fw-medium lb-tab-btn active" id="pills-general-tab"
+                                    data-bs-toggle="pill" data-bs-target="#pills-general" type="button" role="tab"
+                                    aria-controls="pills-general" aria-selected="true">General</button>
+                            </li>
+                            <li class="nav-item flex-fill" role="presentation">
+                                <button class="nav-link w-100 fw-medium lb-tab-btn" id="pills-earnings-tab"
+                                    data-bs-toggle="pill" data-bs-target="#pills-earnings" type="button" role="tab"
+                                    aria-controls="pills-earnings" aria-selected="false">Earnings</button>
+                            </li>
+                            <li class="nav-item flex-fill" role="presentation">
+                                <button class="nav-link w-100 fw-medium lb-tab-btn" id="pills-withdraw-tab"
+                                    data-bs-toggle="pill" data-bs-target="#pills-withdraw" type="button" role="tab"
+                                    aria-controls="pills-withdraw" aria-selected="false">Withdraw</button>
+                            </li>
+                            <li class="nav-item flex-fill" role="presentation">
+                                <button class="nav-link w-100 fw-medium lb-tab-btn" id="pills-referrals-tab"
+                                    data-bs-toggle="pill" data-bs-target="#pills-referrals" type="button" role="tab"
+                                    aria-controls="pills-referrals" aria-selected="false">Referrals</button>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="tab-content py-3" id="pills-tabContent">
+                        <div class="tab-pane fade show active" id="pills-general" role="tabpanel"
+                            aria-labelledby="pills-general-tab">
+                            <div class="rounded-lg p-sub py-3">
+                                <div class="row mx-0">
+                                    <div class="col-lg-6 px-3 pe-lg-4">
+                                        <div class="d-flex flex-column justify-content-between h-100">
+                                            <div class="w-100">
+                                                <h4 class="f-20p mb-3">General</h4>
+                                                <div class="ps-rows">
+                                                    <div
+                                                        class="d-flex justify-content-between align-items-center border-bottom py-2">
+                                                        <span class="fw-medium">Monetars ID</span>
+                                                        <span class="d-flex align-items-center"><i
+                                                                class="fa fa-copy icon-purple" data-bs-toggle="tooltip"
+                                                                title="Copy"></i><span
+                                                                class="ms-1">63727e20393c97d290171589</span></span>
+                                                    </div>
+                                                    <div
+                                                        class="d-flex justify-content-between align-items-center border-bottom py-1 mt-3">
+                                                        <span class="fw-medium">Date Joined</span>
+                                                        <span class="d-flex align-items-center"><span
+                                                                class="ms-1">2022-07-09</span></span>
+                                                    </div>
+                                                    <div
+                                                        class="d-flex justify-content-between align-items-center border-bottom py-1 mt-3">
+                                                        <span class="fw-medium">Balance</span>
+                                                        <span class="d-flex align-items-center"><span class="ms-1">50
+                                                                coins</span></span>
+                                                    </div>
+                                                    <div
+                                                        class="d-flex justify-content-between align-items-center border-bottom py-1 mt-3">
+                                                        <span class="fw-medium">Waiting Balance</span>
+                                                        <span class="d-flex align-items-center"><span
+                                                                class="ms-1">0</span></span>
+                                                    </div>
+                                                    <div
+                                                        class="d-flex justify-content-between align-items-center border-bottom py-1 mt-3">
+                                                        <span class="fw-medium">Referral Earnings</span>
+                                                        <span class="d-flex align-items-center"><span
+                                                                class="ms-1">0</span></span>
+                                                    </div>
+                                                    <div
+                                                        class="d-flex justify-content-between align-items-center border-bottom py-1 mt-3">
+                                                        <span class="fw-medium">Referrer</span>
+                                                        <span class="d-flex align-items-center"><span class="ms-1">! |
+                                                                iopipaj</span></span>
+                                                    </div>
+                                                    <div
+                                                        class="d-flex justify-content-between align-items-center border-bottom py-1 mt-3">
+                                                        <span class="fw-medium">Email</span>
+                                                        <span class="d-flex align-items-center"><span
+                                                                class="ms-1">xomanib171@sopulit.com</span></span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="mt-4">
+                                                <div class="ps-box rounded-md ps-2fa-box px-3 py-2">
+                                                    <div class="py-1">
+                                                        <h3 class="f-20p fw-medium mb-2 pb-1">Two-factor Authentication
+                                                        </h3>
+                                                        <p class="mb-3">Activate your 2FA to make your account <br> more
+                                                            secure. </p>
+                                                        <a href="#"
+                                                            class="btn fw-medium w-100 f-14p p-2 rounded-md"><span
+                                                                class="p-1">Activate</span></a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6 px-3 ps-lg-4">
+                                        <div class="d-flex flex-column justify-content-between h-100">
+                                            <div class="w-100">
+                                                <h4 class="f-20p mb-3">Display Name</h4>
+                                                <form method="post" class="mb-3">
+                                                    <div class="pb-1">
+                                                        <input type="text"
+                                                            class="d-block rounded-md ps-inp mb-2 psi-lg form-control"
+                                                            value="Your name is: MacMa">
+                                                    </div>
+                                                    <button
+                                                        class="btn btn-blue fw-medium w-100 f-14p p-2 rounded-md"><span
+                                                            class="p-1">Change</span></button>
+                                                </form>
+                                                <h4 class="f-20p mb-3">Profile Visibility</h4>
+                                                <div method="post" class="mb-3">
+                                                    <div
+                                                        class="form-check form-switch d-flex align-items-center justify-content-between">
+                                                        <input class="form-check-input" type="checkbox"
+                                                            onchange="changeVisibility()" id="flexSwitchCheckChecked"
+                                                            checked>
+                                                        <label class="form-check-label fw-medium" id="p-visibility"
+                                                            for="flexSwitchCheckChecked">Public</label>
+                                                    </div>
+                                                </div>
+                                                <h4 class="f-20p mb-3">Language</h4>
+                                                <form method="post" class="mb-3">
+                                                    <div class="pb-1">
+                                                        <select
+                                                            class="d-block rounded-md ps-inp mb-2 psi-lg form-control">
+                                                            <option value="" class="" disabled="" selected="">Select
+                                                                Language </option>
+                                                            <option value="English">English</option>
+                                                            <option value="Danish">Danish</option>
+                                                            <option value="German">German</option>
+                                                            <option value="Spanish">Spanish</option>
+                                                            <option value="French">French</option>
+                                                            <option value="Italian">Italian</option>
+                                                            <option value="Polish">Polish</option>
+                                                            <option value="Portuguese">Portuguese</option>
+                                                            <option value="Swedish">Swedish</option>
+                                                        </select>
+                                                    </div>
+                                                    <button
+                                                        class="btn btn-blue fw-medium w-100 f-14p p-2 rounded-md"><span
+                                                            class="p-1">Change</span></button>
+                                                </form>
+                                            </div>
+                                            <div class="mt-4">
+                                                <div class="ps-box rounded-md ps-danger-box px-3 py-2">
+                                                    <div class="py-1">
+                                                        <h3 class="f-20p fw-medium mb-2 pb-1">Danger Zone </h3>
+                                                        <p class="mb-3">Once you delete your account, there is no going
+                                                            back. <br>Please be certain.</p>
+                                                        <a href="#"
+                                                            class="btn fw-medium w-100 f-14p p-2 rounded-md"><span
+                                                                class="p-1">Delete Account</span></a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-pane fade" id="pills-earnings" role="tabpanel"
+                            aria-labelledby="pills-earnings-tab">
+                            <div class="p-sub">
+                                <ul class="nav nav-tabs tab-ul flex-wrap nav-justified mb-4" id="myTab" role="tablist">
+                                    <li class="nav-item" role="presentation">
+                                        <button class="nav-link active" id="earning1-tab" data-bs-toggle="tab"
+                                            data-bs-target="#earning1" type="button" role="tab" aria-controls="earning1"
+                                            aria-selected="true">EARNINGS</button>
+                                    </li>
+                                    <li class="nav-item" role="presentation">
+                                        <button class="nav-link" id="earning2-tab" data-bs-toggle="tab"
+                                            data-bs-target="#earning2" type="button" role="tab" aria-controls="earning2"
+                                            aria-selected="false">HELD OFFERS</button>
+                                    </li>
+                                    <li class="nav-item" role="presentation">
+                                        <button class="nav-link" id="earning3-tab" data-bs-toggle="tab"
+                                            data-bs-target="#earning3" type="button" role="tab" aria-controls="earning3"
+                                            aria-selected="false">CHARGEBACKS</button>
+                                    </li>
+                                </ul>
+                                <div class="tab-content" id="myTabContent1">
+                                    <div class="tab-pane fade show active px-2" id="earning1" role="tabpanel"
+                                        aria-labelledby="earning1-tab">
+                                        <div class="py-3">
+                                            <p class="fw-bold mb-0">Earnings</p>
+                                            <form class="d-flex table-filter">
+                                                <div class="tf-inp">
+                                                    <p class="mb-2 tf-label">Period from</p>
+                                                    <input type="date" class="form-control ps-inp psi-sm rounded">
+                                                </div>
+                                                <div class="tf-inp">
+                                                    <p class="mb-2 tf-label">Until</p>
+                                                    <input type="date" class="form-control ps-inp psi-sm rounded">
+                                                </div>
+                                                <div class="tf-inp">
+                                                    <p class="mb-2 tf-label">Offerwall</p>
+                                                    <select class="form-control ps-inp psi-sm rounded">
+                                                        <option value="">Show All</option>
+                                                    </select>
+                                                </div>
+                                                <div class="tf-inp">
+                                                    <p class="mb-2 tf-label">Entries per page</p>
+                                                    <select class="form-control ps-inp psi-sm rounded">
+                                                        <option value="">10 Entries</option>
+                                                    </select>
+                                                </div>
+                                                <div class="d-flex flex-column justify-content-end tf-btn">
+                                                    <button class="btn btn-blue px-2 py-1">
+                                                        <span class="px-1">Update</span>
+                                                    </button>
+                                                </div>
+                                            </form>
+                                            <div class="table-responsive">
+                                                <table class="table tf-table mb-3">
+                                                    <thead>
+                                                        <tr>
+                                                            <td class="fw-medium">Name</td>
+                                                            <td class="fw-medium">Coins</td>
+                                                            <td class="fw-medium">Bonus</td>
+                                                            <td class="fw-medium">Wall</td>
+                                                            <td class="fw-medium">Date</td>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr>
+                                                            <td class="fw-medium">Daily Bonus</td>
+                                                            <td class="fw-medium">1 - Coins</td>
+                                                            <td class="fw-medium">-</td>
+                                                            <td class="fw-medium">Lorem Ipsum</td>
+                                                            <td class="fw-medium">a day ago</td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                                <nav aria-label="Page navigation" class="tf-pagination">
+                                                    <ul class="pagination">
+                                                        <li class="page-item">
+                                                            <a class="page-link" href="#" aria-label="Previous">
+                                                                <span aria-hidden="true">&laquo;</span>
+                                                            </a>
+                                                        </li>
+                                                        <li class="page-item active"><a class="page-link" href="#">1</a>
+                                                        </li>
+                                                        <li class="page-item"><a class="page-link" href="#">2</a></li>
+                                                        <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                                        <li class="page-item">
+                                                            <a class="page-link" href="#" aria-label="Next">
+                                                                <span aria-hidden="true">&raquo;</span>
+                                                            </a>
+                                                        </li>
+                                                    </ul>
+                                                </nav>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="tab-pane fade px-2" id="earning2" role="tabpanel"
+                                        aria-labelledby="earning2-tab">
+                                        <div class="py-3">
+                                            <p class="fw-bold mb-0">Held Offers</p>
+                                            <form class="d-flex table-filter">
+                                                <div class="tf-inp">
+                                                    <p class="mb-2 tf-label">Period from</p>
+                                                    <input type="date" class="form-control ps-inp psi-sm rounded">
+                                                </div>
+                                                <div class="tf-inp">
+                                                    <p class="mb-2 tf-label">Until</p>
+                                                    <input type="date" class="form-control ps-inp psi-sm rounded">
+                                                </div>
+                                                <div class="tf-inp">
+                                                    <p class="mb-2 tf-label">Offerwall</p>
+                                                    <select class="form-control ps-inp psi-sm rounded">
+                                                        <option value="">Show All</option>
+                                                    </select>
+                                                </div>
+                                                <div class="tf-inp">
+                                                    <p class="mb-2 tf-label">Entries per page</p>
+                                                    <select class="form-control ps-inp psi-sm rounded">
+                                                        <option value="">10 Entries</option>
+                                                    </select>
+                                                </div>
+                                                <div class="d-flex flex-column justify-content-end tf-btn">
+                                                    <button class="btn btn-blue px-2 py-1">
+                                                        <span class="px-1">Update</span>
+                                                    </button>
+                                                </div>
+                                            </form>
+                                            <div class="table-responsive">
+                                                <table class="table tf-table mb-3">
+                                                    <thead>
+                                                        <tr>
+                                                            <td class="fw-medium">Name</td>
+                                                            <td class="fw-medium">Coins</td>
+                                                            <td class="fw-medium">Bonus</td>
+                                                            <td class="fw-medium">Wall</td>
+                                                            <td class="fw-medium">Date</td>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr>
+                                                            <td class="fw-medium">Daily Bonus</td>
+                                                            <td class="fw-medium">1 - Coins</td>
+                                                            <td class="fw-medium">-</td>
+                                                            <td class="fw-medium">Lorem Ipsum</td>
+                                                            <td class="fw-medium">a day ago</td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                                <nav aria-label="Page navigation" class="tf-pagination">
+                                                    <ul class="pagination">
+                                                        <li class="page-item">
+                                                            <a class="page-link" href="#" aria-label="Previous">
+                                                                <span aria-hidden="true">&laquo;</span>
+                                                            </a>
+                                                        </li>
+                                                        <li class="page-item active"><a class="page-link" href="#">1</a>
+                                                        </li>
+                                                        <li class="page-item"><a class="page-link" href="#">2</a></li>
+                                                        <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                                        <li class="page-item">
+                                                            <a class="page-link" href="#" aria-label="Next">
+                                                                <span aria-hidden="true">&raquo;</span>
+                                                            </a>
+                                                        </li>
+                                                    </ul>
+                                                </nav>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="tab-pane fade px-2" id="earning3" role="tabpanel"
+                                        aria-labelledby="earning3-tab">
+                                        <div class="py-3">
+                                            <p class="fw-bold mb-0">ChargeBacks</p>
+                                            <form class="d-flex table-filter">
+                                                <div class="tf-inp">
+                                                    <p class="mb-2 tf-label">Period from</p>
+                                                    <input type="date" class="form-control ps-inp psi-sm rounded">
+                                                </div>
+                                                <div class="tf-inp">
+                                                    <p class="mb-2 tf-label">Until</p>
+                                                    <input type="date" class="form-control ps-inp psi-sm rounded">
+                                                </div>
+                                                <div class="tf-inp">
+                                                    <p class="mb-2 tf-label">Offerwall</p>
+                                                    <select class="form-control ps-inp psi-sm rounded">
+                                                        <option value="">Show All</option>
+                                                    </select>
+                                                </div>
+                                                <div class="tf-inp">
+                                                    <p class="mb-2 tf-label">Entries per page</p>
+                                                    <select class="form-control ps-inp psi-sm rounded">
+                                                        <option value="">10 Entries</option>
+                                                    </select>
+                                                </div>
+                                                <div class="d-flex flex-column justify-content-end tf-btn">
+                                                    <button class="btn btn-blue px-2 py-1">
+                                                        <span class="px-1">Update</span>
+                                                    </button>
+                                                </div>
+                                            </form>
+                                            <div class="table-responsive">
+                                                <table class="table tf-table mb-3">
+                                                    <thead>
+                                                        <tr>
+                                                            <td class="fw-medium">Name</td>
+                                                            <td class="fw-medium">Coins</td>
+                                                            <td class="fw-medium">Bonus</td>
+                                                            <td class="fw-medium">Wall</td>
+                                                            <td class="fw-medium">Date</td>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr>
+                                                            <td class="fw-medium">Daily Bonus</td>
+                                                            <td class="fw-medium">1 - Coins</td>
+                                                            <td class="fw-medium">-</td>
+                                                            <td class="fw-medium">Lorem Ipsum</td>
+                                                            <td class="fw-medium">a day ago</td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                                <nav aria-label="Page navigation" class="tf-pagination">
+                                                    <ul class="pagination">
+                                                        <li class="page-item">
+                                                            <a class="page-link" href="#" aria-label="Previous">
+                                                                <span aria-hidden="true">&laquo;</span>
+                                                            </a>
+                                                        </li>
+                                                        <li class="page-item active"><a class="page-link" href="#">1</a>
+                                                        </li>
+                                                        <li class="page-item"><a class="page-link" href="#">2</a></li>
+                                                        <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                                        <li class="page-item">
+                                                            <a class="page-link" href="#" aria-label="Next">
+                                                                <span aria-hidden="true">&raquo;</span>
+                                                            </a>
+                                                        </li>
+                                                    </ul>
+                                                </nav>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-pane fade" id="pills-withdraw" role="tabpanel"
+                            aria-labelledby="pills-withdraw-tab">
+                            <div class="p-sub">
+                                <ul class="nav nav-tabs tab-ul flex-wrap nav-justified mb-4" id="myTab" role="tablist">
+                                    <li class="nav-item" role="presentation">
+                                        <button class="nav-link active" id="withdraw1-tab" data-bs-toggle="tab"
+                                            data-bs-target="#withdraw1" type="button" role="tab"
+                                            aria-controls="withdraw1" aria-selected="true">WITHDRAWLS</button>
+                                    </li>
+                                    <li class="nav-item" role="presentation">
+                                        <button class="nav-link" id="withdraw2-tab" data-bs-toggle="tab"
+                                            data-bs-target="#withdraw2" type="button" role="tab"
+                                            aria-controls="withdraw2" aria-selected="false">PENDING</button>
+                                    </li>
+                                </ul>
+                                <div class="tab-content" id="myTabContent2">
+                                    <div class="tab-pane fade show active px-2" id="withdraw1" role="tabpanel"
+                                        aria-labelledby="withdraw1-tab">
+                                        <div class="py-3">
+                                            <p class="fw-bold mb-0">Withdrawls</p>
+                                            <div class="table-responsive">
+                                                <table class="table tf-table mb-3">
+                                                    <thead>
+                                                        <tr>
+                                                            <td class="fw-medium">Date</td>
+                                                            <td class="fw-medium">Method</td>
+                                                            <td class="fw-medium">Amount</td>
+                                                            <td class="fw-medium">Invoice</td>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr>
+                                                            <td class="fw-medium">01-05-2022</td>
+                                                            <td class="fw-medium">Lorem Ipsum</td>
+                                                            <td class="fw-medium">Lorem Ipsum</td>
+                                                            <td class="fw-medium">
+                                                                <a href="#"
+                                                                    class="btn btn-blue py-1 px-2 w-fit rounded-lg d-flex align-items-center gap-2 justify-content-center">
+                                                                    <img src="./assets/img/arrow-down.png" alt="Arrow"
+                                                                        height="14">
+                                                                    <span class="fw-medium f-14p">Download</span>
+                                                                </a>
+                                                            </td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                                <nav aria-label="Page navigation" class="tf-pagination">
+                                                    <ul class="pagination">
+                                                        <li class="page-item">
+                                                            <a class="page-link" href="#" aria-label="Previous">
+                                                                <span aria-hidden="true">&laquo;</span>
+                                                            </a>
+                                                        </li>
+                                                        <li class="page-item active"><a class="page-link" href="#">1</a>
+                                                        </li>
+                                                        <li class="page-item"><a class="page-link" href="#">2</a></li>
+                                                        <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                                        <li class="page-item">
+                                                            <a class="page-link" href="#" aria-label="Next">
+                                                                <span aria-hidden="true">&raquo;</span>
+                                                            </a>
+                                                        </li>
+                                                    </ul>
+                                                </nav>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="tab-pane fade px-2" id="withdraw2" role="tabpanel"
+                                        aria-labelledby="withdraw2-tab">
+                                        <div class="py-3">
+                                            <p class="fw-bold mb-0">Pending</p>
+                                            <div class="table-responsive">
+                                                <table class="table tf-table mb-3">
+                                                    <thead>
+                                                        <tr>
+                                                            <td class="fw-medium">Date</td>
+                                                            <td class="fw-medium">Method</td>
+                                                            <td class="fw-medium">Amount</td>
+                                                            <td class="fw-medium">Invoice</td>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr>
+                                                            <td class="fw-medium">01-05-2022</td>
+                                                            <td class="fw-medium">Lorem Ipsum</td>
+                                                            <td class="fw-medium">Lorem Ipsum</td>
+                                                            <td class="fw-medium">
+                                                                <a href="#"
+                                                                    class="btn btn-red py-1 px-2 w-fit rounded-lg d-flex align-items-center gap-2 justify-content-center">
+                                                                    <i class="fa-regular fa-circle-xmark"></i>
+                                                                    <span class="fw-medium f-14p">Cancel</span>
+                                                                </a>
+                                                            </td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                                <nav aria-label="Page navigation" class="tf-pagination">
+                                                    <ul class="pagination">
+                                                        <li class="page-item">
+                                                            <a class="page-link" href="#" aria-label="Previous">
+                                                                <span aria-hidden="true">&laquo;</span>
+                                                            </a>
+                                                        </li>
+                                                        <li class="page-item active"><a class="page-link" href="#">1</a>
+                                                        </li>
+                                                        <li class="page-item"><a class="page-link" href="#">2</a></li>
+                                                        <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                                        <li class="page-item">
+                                                            <a class="page-link" href="#" aria-label="Next">
+                                                                <span aria-hidden="true">&raquo;</span>
+                                                            </a>
+                                                        </li>
+                                                    </ul>
+                                                </nav>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-pane fade" id="pills-referrals" role="tabpanel"
+                            aria-labelledby="pills-referrals-tab">
+                            <div class="rounded-xl p-sub p-3 text-center mb-3">
+                                <h4 class="fw-medium f-16p my-3">Refer & Earn</h4>
+                                <p class="mb-0 f-14p re-text">Earn unlimited rewards by referring your friends, family
+                                    and followers. You'll earn 10% of the confirmed payouts from your referred members.
+                                    Keep referring more friends and watch your earnings grow up!</p>
+                                <div
+                                    class="d-flex my-3 ref-link p-3 rounded-xl justify-content-between align-items-center">
+                                    <span class="f-14p"> https://monetars.com/refer/?refer=EYOPBR</span>
+                                    <i class="fa fa-copy"></i>
+                                </div>
+                                <p class="mb-0 f-14p re-text">Share above Referral link or Unique Referral Code to your
+                                    Friends & Family.</p>
+                                <div class="d-flex my-3 align-items-center justify-content-center gap-3 rf-sharer">
+                                    <a href="#" class="btn btn-fb px-3 py-2 rounded-md fw-bold">
+                                        <span class="p-1"><i class="fa-brands fa-facebook"></i></span>
+                                        <span class="p-1">SHARE</span>
+                                    </a>
+                                    <a href="#" class="btn btn-x px-3 py-2 rounded-md fw-bold">
+                                        <span class="p-1"><i class="fa-brands fa-twitter"></i></span>
+                                        <span class="p-1">SHARE</span>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="table-responsive mb-4 pb-4">
+                                <table class="table row-separated ref-table">
+                                    <thead class="bg-transparent">
+                                        <tr>
+                                            <td>Username</td>
+                                            <td>Registered</td>
+                                            <td>Coins</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td><div class="d-flex align-items-center gap-2">
+                                                <img src="./assets/img/2.png" alt="dp" class="rounded-circle" height="45">
+                                                <span>Registered</span>
+                                            </div></td>
+                                            <td>29-06-2022</td>
+                                            <td class="tb-earn fw-normal">$0.00</td>
+                                        </tr>
+                                        <tr>
+                                            <td><div class="d-flex align-items-center gap-2">
+                                                <img src="./assets/img/2.png" alt="dp" class="rounded-circle" height="45">
+                                                <span>Registered</span>
+                                            </div></td>
+                                            <td>29-06-2022</td>
+                                            <td class="tb-earn fw-normal">$0.00</td>
+                                        </tr>
+                                        <tr>
+                                            <td><div class="d-flex align-items-center gap-2">
+                                                <img src="./assets/img/2.png" alt="dp" class="rounded-circle" height="45">
+                                                <span>Registered</span>
+                                            </div></td>
+                                            <td>29-06-2022</td>
+                                            <td class="tb-earn fw-normal">$0.00</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
             </section>
         </main>
         <footer>
@@ -629,6 +1213,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/js/bootstrap.min.js"
         integrity="sha512-ykZ1QQr0Jy/4ZkvKuqWn4iF3lqPZyij9iRv6sGqLRdTPkY69YX6+7wvVGmsdBbiIfN/8OdsI7HABjvEok6ZopQ=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.0/chart.min.js"></script>
     <script src="./assets/dist/js/script.js"></script>
 
 </html>

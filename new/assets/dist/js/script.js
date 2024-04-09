@@ -128,3 +128,63 @@ $('.lb-tab-btn').on('shown.bs.tab', function (event) {
         $('#lb-range').html("Monthly");
     }
 })
+
+// Data for the line graph
+var data = {
+    labels: ['10', '11', '12', '13', '14'],
+    datasets: [{
+        label: 'Earning',
+        data: [3200, 2440, 6550, 4030, 2510],
+        borderColor: 'skyblue',
+        borderWidth: 2,
+        fill: false
+    }]
+};
+
+// Get the canvas element
+var ctx = document.getElementById('lineGraph').getContext('2d');
+
+// Create the line chart
+var lineChart = new Chart(ctx, {
+    type: 'line',
+    data: data,
+    options: {
+        scales: {
+            x: {
+                display: true,
+                title: {
+                    display: false,
+                    text: 'Month'
+                }
+            },
+            y: {
+                display: true,
+                title: {
+                    display: false,
+                    text: 'Value'
+                },
+                ticks: {
+                    callback: function (value, index, values) {
+                        return value / 1000 + 'k'; // Convert to thousands and append 'k'
+                    }
+                }
+            }
+        },
+        plugins: {
+            legend: {
+                position: 'bottom' // Position legend at the bottom
+            }
+        }
+    }
+});
+
+function changeVisibility() {
+    var checkbox = document.getElementById('flexSwitchCheckChecked');
+    var label = document.getElementById('p-visibility');
+
+    if (checkbox.checked) {
+        label.textContent = 'Public';
+    } else {
+        label.textContent = 'Private';
+    }
+}
