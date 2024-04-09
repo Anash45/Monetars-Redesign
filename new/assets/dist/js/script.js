@@ -196,7 +196,17 @@ function changeVisibility() {
 }
 function chatWindow() {
     $('.chat-widget').toggleClass('chat-shown');
+    if ($('.chat-widget').hasClass('chat-shown')) {
+        $('main').css({
+            'width': 'calc(100% - 300px)'
+        });
+    } else {
+        $('main').css({
+            'width': '100%'
+        });
+    }
 }
+
 
 $('#pills-chat-tab').click(function () {
     $('.cw-dropdown').toggle();
