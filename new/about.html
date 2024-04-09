@@ -72,7 +72,7 @@
                         </div>
                         <!-- Chat button -->
                         <div class="ps-2">
-                            <button class="btn btn-chat">
+                            <button class="btn btn-chat" onclick="chatWindow()">
                                 <i class="fa-regular fa-comment-dots"></i>
                             </button>
                         </div>
@@ -128,7 +128,7 @@
                         </div>
                         <div class="nav-carousel-container">
                             <div class="nav-carousel">
-                                <a href="#" class="nc-item">
+                                <a href="#" class="nc-item" onclick="openModal('user')">
                                     <div class="d-flex h-100 gap-1">
                                         <img src="./assets/img/blog-1.jpg" alt="NC Image" class="nc-img">
                                         <div class="d-flex nc-text roboto flex-column justify-content-center">
@@ -138,7 +138,7 @@
                                         <p class="nc-badge mb-0"> 14 </p>
                                     </div>
                                 </a>
-                                <a href="#" class="nc-item">
+                                <a href="#" class="nc-item" onclick="openModal('user')">
                                     <div class="d-flex h-100 gap-1">
                                         <span class="nc-img">
                                             <span>M</span>
@@ -150,7 +150,7 @@
                                         <p class="nc-badge mb-0"> 14 </p>
                                     </div>
                                 </a>
-                                <a href="#" class="nc-item">
+                                <a href="#" class="nc-item" onclick="openModal('user')">
                                     <div class="d-flex h-100 gap-1">
                                         <img src="./assets/img/blog-1.jpg" alt="NC Image" class="nc-img">
                                         <div class="d-flex nc-text roboto flex-column justify-content-center">
@@ -160,7 +160,7 @@
                                         <p class="nc-badge mb-0"> 14 </p>
                                     </div>
                                 </a>
-                                <a href="#" class="nc-item">
+                                <a href="#" class="nc-item" onclick="openModal('user')">
                                     <div class="d-flex h-100 gap-1">
                                         <span class="nc-img">
                                             <span>M</span>
@@ -172,7 +172,7 @@
                                         <p class="nc-badge mb-0"> 14 </p>
                                     </div>
                                 </a>
-                                <a href="#" class="nc-item">
+                                <a href="#" class="nc-item" onclick="openModal('user')">
                                     <div class="d-flex h-100 gap-1">
                                         <img src="./assets/img/blog-1.jpg" alt="NC Image" class="nc-img">
                                         <div class="d-flex nc-text roboto flex-column justify-content-center">
@@ -182,7 +182,7 @@
                                         <p class="nc-badge mb-0"> 14 </p>
                                     </div>
                                 </a>
-                                <a href="#" class="nc-item">
+                                <a href="#" class="nc-item" onclick="openModal('user')">
                                     <div class="d-flex h-100 gap-1">
                                         <span class="nc-img">
                                             <span>M</span>
@@ -437,7 +437,7 @@
                 <a class="m-nav-link py-2 px-1" href="./reward.html">
                     <i class="fa fa-gift"></i> <span>Reward</span>
                 </a>
-                <a class="m-nav-link py-2 px-1" href="./chat.html">
+                <a class="m-nav-link py-2 px-1" onclick="chatWindow()" href="#">
                     <i class="fa-regular fa-message"></i> <span>Chat</span>
                 </a>
             </div>
@@ -632,7 +632,283 @@
                 </div>
             </div>
         </div>
-        <aside class="chat-widget"></aside>
+<div class="modal fade user-modal" id="userModal" tabindex="-1" aria-labelledby="payModalLabel"
+            aria-modal="true" role="dialog">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="btn ms-auto btn-modal-close btn-circle-close"
+                            data-bs-dismiss="modal" aria-label="Close">
+                            <i class="fa fa-close"></i>
+                        </button>
+                    </div>
+                    <div class="modal-body p-lg-4 px-3 pb-4 pt-0 pb-lg-0 pt-lg-0 roboto">
+                        <div class="d-flex align-items-center gap-4 pb-3 border-bottom">
+                            <img src="./assets/img/2.png" alt="DP" height="80" width="80" class="rounded-circle">
+                            <div class="">
+                                <p class="mb-1 f-12p opacity-75">Joined a day ago</p>
+                                <h3 class="fw-bold f-30p mb-0 lh-sm">Jalen Buckley</h3>
+                                <div class="d-flex align-items-center gap-2">
+                                    <img src="./assets/img/united-states.png" alt="Flag" class="rounded-circle"
+                                        height="24" width="24">
+                                    <span class="f-14p opacity-75">United States</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="py-3 border-bottom">
+                            <div class="d-flex align-items-center gap-2 mb-3">
+                                <svg class="um-svg" width="24" height="24" viewBox="0 0 24 24">
+                                    <path xmlns="http://www.w3.org/2000/svg"
+                                        d="M5 5.43c0-.48.6-.69.89-.32l2.54 3.17c.32.4.9.5 1.33.21l1.47-.97a1 1 0 0 1 1.34.21l2.46 3.16a1 1 0 0 0 1.18.3l2.1-.9c.32-.13.69.1.69.47V18H5V5.43Z"
+                                        fill="currentColor"></path>
+                                </svg>
+                                <span class="fw-bold">Stats</span>
+                            </div>
+                            <div class="d-flex gap-3 stats text-center">
+                                <div
+                                    class="um-stat rounded-lg flex-grow-1 d-flex align-items-center flex-column justify-content-center p-2">
+                                    <span class="opacity-75 f-12p fw-medium"> Offers Completed </span>
+                                    <span class="f-14p fw-bold"> 9 </span>
+                                </div>
+                                <div
+                                    class="um-stat rounded-lg flex-grow-1 d-flex align-items-center flex-column justify-content-center p-2">
+                                    <span class="opacity-75 f-12p fw-medium"> Points Earn </span>
+                                    <span class="f-14p fw-bold"> 9432 </span>
+                                </div>
+                                <div
+                                    class="um-stat rounded-lg flex-grow-1 d-flex align-items-center flex-column justify-content-center p-2">
+                                    <span class="opacity-75 f-12p fw-medium"> Users Referred </span>
+                                    <span class="f-14p fw-bold"> 0 </span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="py-3">
+                            <div class="d-flex align-items-center gap-2 mb-3">
+                                <svg class="um-svg" width="18" height="18" viewBox="0 0 16 16">
+                                    <path xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd"
+                                        fill="currentColor"
+                                        d="M15.1988 1C15.1988 1 9.9565 0.987741 5.86961 5.07463C5.68061 5.26364 5.512 5.46646 5.36307 5.67939C4.63821 5.62264 3.53187 5.64592 2.96724 6.21093C1.64192 7.53625 1.19995 9.7455 1.19995 9.7455L4.12026 9.32832V10.329L5.87179 12.0806H6.87248L6.45542 15C6.45542 15 8.66468 14.558 9.99 13.2327C10.5556 12.6674 10.5783 11.5592 10.5213 10.8344C10.7336 10.6858 10.9357 10.5176 11.1242 10.3292C15.2111 6.24232 15.1988 1 15.1988 1ZM9.37266 5.65847C9.37266 5.01333 9.8952 4.49079 10.5403 4.49079C11.1855 4.49079 11.708 5.01333 11.708 5.65847C11.708 6.30362 11.1855 6.82616 10.5403 6.82616C9.8952 6.82616 9.37266 6.30362 9.37266 5.65847Z">
+                                    </path>
+                                </svg>
+                                <span class="fw-bold">Activity</span>
+                            </div>
+                            <div class="table-responsive">
+                                <table class="table bg-transparent um-table">
+                                    <thead>
+                                        <tr>
+                                            <td class="opacity-75">Name</td>
+                                            <td class="opacity-75">Time</td>
+                                            <td class="opacity-75">Reward</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td class="opacity-75">Leaderboard</td>
+                                            <td class="opacity-75">12h ago</td>
+                                            <td><span class="me-2">200</span><img src="./assets/img/coin (1).png"
+                                                    alt="Coin" height="12" width="12"></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="opacity-75">Leaderboard</td>
+                                            <td class="opacity-75">12h ago</td>
+                                            <td><span class="me-2">200</span><img src="./assets/img/coin (1).png"
+                                                    alt="Coin" height="12" width="12"></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="opacity-75">Leaderboard</td>
+                                            <td class="opacity-75">12h ago</td>
+                                            <td><span class="me-2">200</span><img src="./assets/img/coin (1).png"
+                                                    alt="Coin" height="12" width="12"></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="opacity-75">Leaderboard</td>
+                                            <td class="opacity-75">12h ago</td>
+                                            <td><span class="me-2">200</span><img src="./assets/img/coin (1).png"
+                                                    alt="Coin" height="12" width="12"></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="opacity-75">Leaderboard</td>
+                                            <td class="opacity-75">12h ago</td>
+                                            <td><span class="me-2">200</span><img src="./assets/img/coin (1).png"
+                                                    alt="Coin" height="12" width="12"></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <nav aria-label="Page navigation" class="um-pagination pb-0">
+                                    <ul class="pagination justify-content-center pb-0 mb-0">
+                                        <li class="page-item">
+                                            <a class="page-link" href="#" aria-label="Previous">
+                                                <span aria-hidden="true"><i class="fa fa-chevron-left"></i></span>
+                                            </a>
+                                        </li>
+                                        <li class="page-item active"><a class="page-link" href="#"><span>1</span></a>
+                                        </li>
+                                        <li class="page-item"><a class="page-link" href="#"><span>2</span></a></li>
+                                        <li class="page-item"><a class="page-link" href="#"><span>3</span></a></li>
+                                        <li class="page-item">
+                                            <a class="page-link" href="#" aria-label="Next">
+                                                <span aria-hidden="true"><i class="fa fa-chevron-right"></i></span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </nav>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <aside class="chat-widget roboto">
+            <div class="chat-opener" onclick="chatWindow()">
+                <i class="fa fa-arrow-left co-left"></i>
+                <i class="fa fa-arrow-right co-right"></i>
+            </div>
+            <div class="py-1 px-2 cw-head">
+                <ul class="nav nav-pills nav-justified cw-nav" id="pills-tabCW" role="tablist">
+                    <li class="nav-item flex-grow-1" role="presentation">
+                        <div class="dropdown">
+                            <button class="btn nav-link active" id="pills-chat-tab" data-bs-toggle="pill"
+                                data-bs-target="#pills-chat" type="button" role="tab" aria-controls="pills-chat"
+                                aria-selected="true">
+                                <div class="d-flex align-items-center justify-content-center gap-2 f-14p">
+                                    <i class="fa fa-globe"></i>
+                                    <span>General</span>
+                                    <i class="fa fa-chevron-down"></i>
+                                </div>
+                            </button>
+                            <ul class="dropdown-menu cw-dropdown p-2 f-12p" aria-labelledby="dropdownMenuButton">
+                                <li><a class="dropdown-item d-flex align-items-center gap-2" href="#"><i
+                                            class="fa fa-globe"></i><span>General (70)</span></a></li>
+                                <li><a class="dropdown-item d-flex align-items-center gap-2" href="#"><i
+                                            class="fa-regular fa-star"></i><span>VIP (170)</span></a></li>
+                                <li><a class="dropdown-item d-flex align-items-center gap-2" href="#"><img
+                                            src="./assets/img/germany.png" alt="Flag" width="17"><span>Germany
+                                            (170)</span></a></li>
+                                <li><a class="dropdown-item d-flex align-items-center gap-2" href="#"><img
+                                            src="./assets/img/france.png" alt="Flag" width="17"><span>France
+                                            (170)</span></a></li>
+                                <li><a class="dropdown-item d-flex align-items-center gap-2" href="#"><img
+                                            src="./assets/img/italy.png" alt="Flag" width="17"><span>Italy
+                                            (170)</span></a></li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li class="nav-item flex-grow-1 ms-2" role="presentation">
+                        <button class="btn nav-link" id="pills-support-tab" data-bs-toggle="pill"
+                            data-bs-target="#pills-support" type="button" role="tab" aria-controls="pills-support"
+                            aria-selected="false">
+                            <div class="d-flex align-items-center justify-content-center gap-2 f-14p">
+                                <span>Support</span>
+                            </div>
+                        </button>
+                    </li>
+                </ul>
+            </div>
+            <div class="p-2 flex-grow-1 overflow-auto">
+                <div class="tab-content" id="pills-tabContent">
+                    <div class="tab-pane fade show active" id="pills-chat" role="tabpanel"
+                        aria-labelledby="pills-chat-tab">
+                        <div class="d-flex gap-2 f-14p overflow-hidden align-items-center p-2 mb-1 chat-msg">
+                            <img src="./assets/img/2.png" alt="DP" class="img-circle me-1" height="40">
+                            <div class="d-flex flex-column lh-1 gap-1">
+                                <div class="d-flex align-items-center gap-2">
+                                    <span class="fw-bold">Rani Loxe</span>
+                                    <span class="f-10p cw-badge"> MOD </span>
+                                    <span class="f-12p cw-date">10:30</span>
+                                </div>
+                                <span class="cw-content">Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                                    Consequatur</span>
+                            </div>
+                        </div>
+                        <div class="d-flex gap-2 f-14p overflow-hidden align-items-center p-2 mb-1 chat-msg">
+                            <img src="./assets/img/2.png" alt="DP" class="img-circle me-1" height="40">
+                            <div class="d-flex flex-column lh-1 gap-1">
+                                <div class="d-flex align-items-center gap-2">
+                                    <span class="fw-bold">Rani Loxe</span>
+                                    <span class="f-10p cw-badge"> MOD </span>
+                                    <span class="f-12p cw-date">10:30</span>
+                                </div>
+                                <span class="cw-content">Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                                    Consequatur</span>
+                            </div>
+                        </div>
+                        <div class="d-flex gap-2 f-14p overflow-hidden align-items-center p-2 mb-1 chat-msg">
+                            <img src="./assets/img/2.png" alt="DP" class="img-circle me-1" height="40">
+                            <div class="d-flex flex-column lh-1 gap-1">
+                                <div class="d-flex align-items-center gap-2">
+                                    <span class="fw-bold">Rani Loxe</span>
+                                    <span class="f-12p cw-date">10:30</span>
+                                </div>
+                                <span class="cw-content">Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                                    Consequatur</span>
+                            </div>
+                        </div>
+                        <div class="d-flex gap-2 f-14p overflow-hidden align-items-center p-2 mb-1 chat-msg">
+                            <img src="./assets/img/2.png" alt="DP" class="img-circle me-1" height="40">
+                            <div class="d-flex flex-column lh-1 gap-1">
+                                <div class="d-flex align-items-center gap-2">
+                                    <span class="fw-bold">Rani Loxe</span>
+                                    <span class="f-12p cw-date">10:30</span>
+                                </div>
+                                <span class="cw-content">Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                                    Consequatur</span>
+                            </div>
+                        </div>
+                        <div class="d-flex gap-2 f-14p overflow-hidden align-items-center p-2 mb-1 chat-msg">
+                            <img src="./assets/img/2.png" alt="DP" class="img-circle me-1" height="40">
+                            <div class="d-flex flex-column lh-1 gap-1">
+                                <div class="d-flex align-items-center gap-2">
+                                    <span class="fw-bold">Rani Loxe</span>
+                                    <span class="f-12p cw-date">10:30</span>
+                                </div>
+                                <span class="cw-content">Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                                    Consequatur</span>
+                            </div>
+                        </div>
+                        <div class="d-flex gap-2 f-14p overflow-hidden align-items-center p-2 mb-1 chat-msg">
+                            <img src="./assets/img/2.png" alt="DP" class="img-circle me-1" height="40">
+                            <div class="d-flex flex-column lh-1 gap-1">
+                                <div class="d-flex align-items-center gap-2">
+                                    <span class="fw-bold">Rani Loxe</span>
+                                    <span class="f-12p cw-date">10:30</span>
+                                </div>
+                                <span class="cw-content">Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                                    Consequatur</span>
+                            </div>
+                        </div>
+                        <div class="d-flex gap-2 f-14p overflow-hidden align-items-center p-2 mb-1 chat-msg">
+                            <img src="./assets/img/2.png" alt="DP" class="img-circle me-1" height="40">
+                            <div class="d-flex flex-column lh-1 gap-1">
+                                <div class="d-flex align-items-center gap-2">
+                                    <span class="fw-bold">Rani Loxe</span>
+                                    <span class="f-10p cw-badge"> MOD </span>
+                                    <span class="f-12p cw-date">10:30</span>
+                                </div>
+                                <span class="cw-content">Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                                    Consequatur</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane fade" id="pills-support" role="tabpanel" aria-labelledby="pills-support-tab">
+                        <div class="p-2">
+                            <div class="d-flex align-items-center justify-content-between mb-2">
+                                <span class="fw-medium f-16p">@MonetarsUpoort</span>
+                                <span class="f-14p">09:23PM</span>
+                            </div>
+                            <p class="f-14p cws-text"> Send us a support message at any time and we'll get back to you
+                                as soon as possible! <br><br> Tip: If you are missing coins, please check the FAQ
+                                section before contacting support. </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="p-2 cw-foot">
+                <div class="px-1 position-relative">
+                    <input type="text" class="form-control" placeholder="Say Something">
+                    <i class="fa-regular fa-face-smile"></i>
+                </div>
+            </div>
+        </aside>
         <div class="btn btn-switch btn-float" data-switch="dark">
             <i class="fa fa-moon show-light"></i><i class="fa fa-sun show-dark"></i>
         </div>

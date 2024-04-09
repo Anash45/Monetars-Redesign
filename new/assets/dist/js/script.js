@@ -108,6 +108,10 @@ function openModal(target) {
         $('#signinSignup').modal('show');
     } else if (target == 'pay') {
         $('#payModal').modal('show');
+    } else if (target == 'user') {
+        $('#userModal').modal('show');
+    } else if (target == 'offer') {
+        $('#offerModal').modal('show');
     }
 }
 
@@ -141,43 +145,45 @@ var data = {
     }]
 };
 
-// Get the canvas element
-var ctx = document.getElementById('lineGraph').getContext('2d');
 
-// Create the line chart
-var lineChart = new Chart(ctx, {
-    type: 'line',
-    data: data,
-    options: {
-        scales: {
-            x: {
-                display: true,
-                title: {
-                    display: false,
-                    text: 'Month'
-                }
-            },
-            y: {
-                display: true,
-                title: {
-                    display: false,
-                    text: 'Value'
+if ($('#lineGraph').length > 0) {
+    // Get the canvas element
+    var ctx = document.getElementById('lineGraph').getContext('2d');
+    // Create the line chart
+    var lineChart = new Chart(ctx, {
+        type: 'line',
+        data: data,
+        options: {
+            scales: {
+                x: {
+                    display: true,
+                    title: {
+                        display: false,
+                        text: 'Month'
+                    }
                 },
-                ticks: {
-                    callback: function (value, index, values) {
-                        return value / 1000 + 'k'; // Convert to thousands and append 'k'
+                y: {
+                    display: true,
+                    title: {
+                        display: false,
+                        text: 'Value'
+                    },
+                    ticks: {
+                        callback: function (value, index, values) {
+                            return value / 1000 + 'k'; // Convert to thousands and append 'k'
+                        }
                     }
                 }
-            }
-        },
-        plugins: {
-            legend: {
-                position: 'bottom' // Position legend at the bottom
+            },
+            plugins: {
+                legend: {
+                    position: 'bottom' // Position legend at the bottom
+                }
             }
         }
-    }
-});
+    });
 
+}
 function changeVisibility() {
     var checkbox = document.getElementById('flexSwitchCheckChecked');
     var label = document.getElementById('p-visibility');
@@ -188,3 +194,10 @@ function changeVisibility() {
         label.textContent = 'Private';
     }
 }
+function chatWindow() {
+    $('.chat-widget').toggleClass('chat-shown');
+}
+
+$('#pills-chat-tab').click(function () {
+    $('.cw-dropdown').toggle();
+})
