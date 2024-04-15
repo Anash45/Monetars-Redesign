@@ -211,3 +211,117 @@ function chatWindow() {
 $('#pills-chat-tab').click(function () {
     $('.cw-dropdown').toggle();
 })
+
+$(document).ready(function () {
+    $('.os-dropdown .dropdown-item').on('click', function (e) {
+        e.preventDefault();
+        var checkbox = $(this).find('.item-checkbox');
+        checkbox.prop('checked', !checkbox.prop('checked'));
+        updateSelectedOS();
+        console.log($('#offers-main').hasClass('offers-filtered'));
+        if (!$('#offers-main').hasClass('offers-filtered-click')) {
+            $('#offers-main').addClass('offers-filtered');
+        }
+    });
+
+    // $('.os-dropdown .item-checkbox').on('change', function () {
+    //     console.log($('#offers-main').hasClass('offers-filtered'));
+    //     if (!$('#offers-main').hasClass('offers-filtered')) {
+    //         console.log('test');
+    //         $('#offers-main').addClass('offers-filtered');
+    //     }
+    //     updateSelectedOS();
+    // });
+
+    function updateSelectedOS() {
+        var selectedItems = [];
+        $('.os-dropdown .item-checkbox:checked').each(function () {
+            var itemText = $(this).siblings('.item-icon').html();
+            selectedItems.push(itemText);
+        });
+        var selectedText = selectedItems.join('');
+        $('.os-dropdown .btn.dropdown-toggle #os-icons').html(selectedText || '');
+    }
+
+    if ($('.os-dropdown')) {
+        updateSelectedOS();
+    }
+});
+
+$(document).ready(function () {
+    if ($.fn.select2) {
+        $('#cs1').select2({
+            templateResult: formatOption, // Customize the appearance of each option
+            templateSelection: formatSelection,
+            minimumResultsForSearch: Infinity // Disable search
+        });
+        $('#cs2').select2({
+            templateResult: formatOption, // Customize the appearance of each option
+            templateSelection: formatSelection,
+            minimumResultsForSearch: Infinity // Disable search
+        });
+    } else {
+        console.error("Select2 is not loaded.");
+    }
+
+    // Custom function to format each option
+    function formatOption(option) {
+        var $option = $(option.element);
+        var text = $option.text();
+        var value = $option.val();
+        var count = $option.attr('data-count');
+        var icon = $option.attr('data-icon');
+
+        var $formattedOption = $('<span class="selected-opt"></span>');
+        if (icon !== undefined) {
+            var $iconSpan = $(`<i class="fa ${icon}"></i>`);
+            $formattedOption.append($iconSpan);
+        }
+
+        $formattedOption.append('<span class="slct-text">' + text + '</span>');
+        if (count !== undefined) {
+            var $countSpan = $('<span class="slct-count">' + count + '</span>');
+            $formattedOption.append($countSpan);
+        }
+
+        $formattedOption.data('value', value);
+
+        return $formattedOption;
+    }
+    // Custom function to format the selected option
+    function formatSelection(selection) {
+        var $selectedOption = $('<span class="selected-opt"></span>'); // Use selection.text to get the text of the selected option
+
+        if (selection.element) {
+            var $option = $(selection.element);
+            var count = $option.attr('data-count');
+            var icon = $option.attr('data-icon');
+
+
+            if (icon !== undefined) {
+                var $iconSpan = $(`<i class="fa ${icon}"></i>`);
+                $selectedOption.append($iconSpan);
+            }
+
+            $selectedOption.append('<span class="slct-text">' + selection.text + '</span>');
+            if (count !== undefined) {
+                var $countSpan = $('<span class="slct-count">' + count + '</span>');
+                $selectedOption.append($countSpan);
+            }
+        }
+
+        return $selectedOption;
+    }
+
+    $('#cs1').on('select2:select', function (e) {
+        console.log(e.params.data.text);
+        if (e.params.data.text === "Home") {
+            $('#offers-main').removeClass('offers-filtered');
+        } else {
+            if (!$('#offers-main').hasClass('offers-filtered-click')) {
+                $('#offers-main').addClass('offers-filtered');
+            }
+        }
+    })
+});
+
