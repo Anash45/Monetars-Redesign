@@ -110,6 +110,9 @@ function openModal(target) {
         }else{
             $('#signinSignup').addClass('show');
             $('#signinSignup').show();
+            $('body').css({
+                'overflow':'hidden'
+            });
         }
     } else if (target == 'pay') {
         $('#payModal').modal('show');
@@ -121,7 +124,9 @@ function openModal(target) {
 }
 $('.ss-modal .btn-modal-close').on('click',function () {
     $('#signinSignup').removeClass('show');
-    $('#signinSignup').hide();
+    $('#signinSignup').hide();$('body').css({
+        'overflow':'auto'
+    });
 })
 function selectPayCard() {
     $('.pay-modal .pay-card').each(function () {
