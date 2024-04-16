@@ -3066,13 +3066,16 @@ span.select2-dropdown.select2-dropdown--below {
         width: calc((100% / 3) - (2rem / 3));
     }
 
-    .ss-modal .modal-dialog {
-        margin: 0 auto;
+    .ss-modal{
+        
         position: fixed;
         left: 0;
         top: 0;
         right: 0;
         bottom: 0;
+    }
+    .ss-modal .modal-dialog {
+        margin: 0 auto;
     }
 
     .ss-modal .modal-content {
