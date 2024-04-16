@@ -2739,15 +2739,95 @@ span.select2-dropdown.select2-dropdown--below {
     background-color: #334155;
     color: #ffffff99;
 }
-.ss-modal .modal-dialog{
-    height: calc(100vh - 20px);
-    margin: 10px auto;
+
+.navbar-dropdowns .dropdown-toggle::after {
+    display: none !important;
 }
 
-.ss-modal .modal-content{
-    height: 100%;
+.pending-balance {
+    display: none;
 }
 
+.balance-dropdown .balance-status {
+    font-size: 10px;
+    font-weight: 400;
+    color: #262626;
+}
+
+.balance-dropdown .form-switch .form-check-input {
+    height: 1.5rem;
+    width: 2.5rem;
+}
+
+.navbar-dropdowns .btn {
+    background-color: #C7D2FE;
+    border: 0;
+    color: #262626;
+}
+
+.navbar-dropdowns .dropdown-menu {
+    background-color: #C7D2FE;
+}
+
+.profile-dropdown .dropdown-menu {
+    color: #262626;
+}
+
+.profile-dropdown .dropdown-item {
+    border-radius: 0.25rem;
+    font-size: 14px;
+    margin-bottom: 4px;
+    color: #262626;
+}
+
+.profile-dropdown .dropdown-item:hover,
+.profile-dropdown .dropdown-item.active {
+    background-color: #EEF2FF !important;
+    color: #262626;
+}
+
+.bd-icon {
+    color: #262626;
+    height: 20px;
+}
+
+.nav-chat-icon {
+    color: #737373;
+    height: 22.5px;
+}
+
+.dark .nav-chat-icon {
+    color: #737373;
+    height: 22.5px;
+}
+
+.dark .nav-chat-icon {
+    color: #FFFFFF;
+}
+
+.dark .profile-dropdown .dropdown-item:hover,
+.dark .profile-dropdown .dropdown-item.active {
+    background-color: #334155 !important;
+    color: #FFFFFF;
+}
+
+.dark .navbar-dropdowns .btn {
+    background-color: #334155;
+    color: #FFFFFF;
+}
+
+.dark .navbar-dropdowns .dropdown-menu {
+    background-color: #334155;
+}
+
+.dark .bd-icon,
+.dark .navbar-dropdowns .dropdown-item, .dark .balance-status {
+    color: #FFFFFF;
+}
+
+.nci-show{
+    display: none;
+}
 
 @media (min-width: 1200px) {
     .container {
@@ -2830,7 +2910,8 @@ span.select2-dropdown.select2-dropdown--below {
     span.select2.select2-container.select2-container--default.select2-container--below.select2-container--focus {
         width: 100% !important;
     }
-    .earn-search{
+
+    .earn-search {
         max-width: 100%;
     }
 }
@@ -2983,5 +3064,14 @@ span.select2-dropdown.select2-dropdown--below {
 
     .grid-offers .offer-box {
         width: calc((100% / 3) - (2rem / 3));
+    }
+
+    .ss-modal .modal-dialog {
+        margin: 0 auto;
+    }
+
+    .ss-modal .modal-content {
+        min-height: 100vh;
+        border-radius: 0 !important;
     }
 }

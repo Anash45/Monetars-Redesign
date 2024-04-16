@@ -194,13 +194,32 @@ function changeVisibility() {
         label.textContent = 'Private';
     }
 }
+
+function changeBalance() {
+    var checkbox = document.getElementById('balanceSwitch');
+    var label = document.getElementById('balance-status');
+
+    if (checkbox.checked) {
+        $('.balance').hide();
+        $('.pending-balance').show();
+        label.textContent = 'Pending Balance';
+    } else {
+        label.textContent = 'Balance';
+        $('.balance').show();
+        $('.pending-balance').hide();
+    }
+}
 function chatWindow() {
     $('.chat-widget').toggleClass('chat-shown');
     if ($('.chat-widget').hasClass('chat-shown')) {
+        $('.nci-show').show();
+        $('.nci-hide').hide();
         $('main').css({
             'width': 'calc(100% - 300px)'
         });
     } else {
+        $('.nci-show').hide();
+        $('.nci-hide').show();
         $('main').css({
             'width': '100%'
         });
