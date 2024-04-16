@@ -209,17 +209,17 @@ function changeVisibility() {
 }
 
 function changeBalance() {
-    var checkbox = document.getElementById('balanceSwitch');
-    var label = document.getElementById('balance-status');
+    var checkbox = $('.balanceSwitch');
+    var label = $('.balance-status');
 
-    if (checkbox.checked) {
+    if (checkbox.is(':checked')) {
         $('.balance').hide();
         $('.pending-balance').show();
-        label.textContent = 'Pending Balance';
+        label.html('Pending Balance');
     } else {
-        label.textContent = 'Balance';
         $('.balance').show();
         $('.pending-balance').hide();
+        label.html('Balance');
     }
 }
 function chatWindow() {
