@@ -17,7 +17,7 @@ $(document).ready(function () {
     $('.offers').slick({
         slidesToShow: 1, // Show 1 slide at a time
         slidesToScroll: 1, // Scroll 1 slide at a time
-        autoplay: true, // Autoplay enabled
+        autoplay: false, // Autoplay enabled
         autoplaySpeed: 2000, // Autoplay speed in milliseconds
         prevArrow: '<button type="button" class="slick-arrows slick-prev"><i class="fa fa-chevron-left"></i></button>',
         nextArrow: '<button type="button" class="slick-arrows slick-next"><i class="fa fa-chevron-right"></i></button>',
@@ -356,8 +356,8 @@ $(document).ready(function () {
         }
     })
 
-    if($('.btn-bell')){
-        $('.btn-bell').tooltip();
+    if($('[data-bs-toggle="tooltip"]')){
+        $('[data-bs-toggle="tooltip"]').tooltip();
     }
 
     $('.navbar-dropdowns .dropdown-item').on('click', function (e) {
