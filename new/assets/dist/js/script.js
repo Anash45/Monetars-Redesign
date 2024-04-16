@@ -359,5 +359,9 @@ $(document).ready(function () {
     if($('.btn-bell')){
         $('.btn-bell').tooltip();
     }
+
+    $('.navbar-dropdowns .dropdown-item').on('click', function (e) {
+        e.stopPropagation();
+    })
 });
 
