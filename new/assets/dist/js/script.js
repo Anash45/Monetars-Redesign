@@ -105,7 +105,12 @@ $('.btn-switch').on('click', function (params) {
 function openModal(target) {
     if (target == 'signin' || target == 'signup') {
         $('.nav-' + target).tab('show');
-        $('#signinSignup').modal('show');
+        if($('body').width() > 576){
+            $('#signinSignup').modal('show');
+        }else{
+            $('#signinSignup').addClass('show');
+            $('#signinSignup').show();
+        }
     } else if (target == 'pay') {
         $('#payModal').modal('show');
     } else if (target == 'user') {
@@ -114,7 +119,10 @@ function openModal(target) {
         $('#offerModal').modal('show');
     }
 }
-
+$('.ss-modal .btn-modal-close').on('click',function () {
+    $('#signinSignup').removeClass('show');
+    $('#signinSignup').hide();
+})
 function selectPayCard() {
     $('.pay-modal .pay-card').each(function () {
         if ($(this).find('input:checked').length > 0) {
