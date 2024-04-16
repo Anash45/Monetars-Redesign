@@ -70,13 +70,12 @@
                                 </button>
                                 <div class="dropdown-menu shadow-lg p-2" aria-labelledby="dropdownMenuButton">
                                     <a class="dropdown-item p-1 bg-transparent" href="#" data-value="item1">
-                                        <div
+                                        <label
                                             class="form-check form-switch balance-switch d-flex align-items-center justify-content-between">
-                                            <input class="form-check-input balanceSwitch" type="checkbox" onchange="changeBalance()"
-                                                id="balanceSwitch">
-                                            <label class="form-check-label fw-medium balance-status" id="balance-status"
-                                                for="balanceSwitch">Balance</label>
-                                        </div>
+                                            <input class="form-check-input balanceSwitch" type="checkbox"
+                                                onchange="changeBalance()" id="balanceSwitch">
+                                            <span class="form-check-label fw-medium balance-status">Balance</span>
+                                        </label>
                                     </a>
                                 </div>
                             </div>
@@ -143,6 +142,12 @@
                         </div>
                         <!-- Chat button -->
                         <div class="ps-2">
+                            <button class="btn btn-bell" data-bs-toggle="tooltip" title="Notifications">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                                    <path xmlns="http://www.w3.org/2000/svg" d="M4.05 17.98c.25.43.68.68 1.18.68h13.4c.49 0 .98-.25 1.17-.68.25-.43.19-.92-.06-1.34l-.68-1.04a9.77 9.77 0 0 1-1.68-5.51A5.42 5.42 0 0 0 13.72 5a2.01 2.01 0 0 0-1.8-1.04c-.74 0-1.42.37-1.8 1.04a5.42 5.42 0 0 0-3.65 5.08c0 1.96-.56 3.85-1.67 5.5l-.69 1.05c-.24.42-.3.91-.06 1.34ZM11.93 22.33a3.1 3.1 0 0 1-3.04-2.45h6.07a3.1 3.1 0 0 1-3.03 2.45Z">
+                                    </path>
+                               </svg>
+                            </button>
                             <button class="btn btn-chat" onclick="chatWindow()">
                                 <svg aria-hidden="true" focusable="false" data-prefix="fal" data-icon="message"
                                     class="nav-chat-icon nci-hide" role="img" xmlns="http://www.w3.org/2000/svg"
@@ -152,8 +157,8 @@
                                     </path>
                                 </svg>
                                 <svg aria-hidden="true" focusable="false" data-prefix="fal" data-icon="message-dots"
-                                    class="nav-chat-icon nci-show" role="img"
-                                    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                                    class="nav-chat-icon nci-show" role="img" xmlns="http://www.w3.org/2000/svg"
+                                    viewBox="0 0 512 512">
                                     <path fill="currentColor"
                                         d="M447.1 0h-384c-35.25 0-64 28.75-64 63.1v287.1c0 35.25 28.75 63.1 64 63.1h96v83.1c0 9.838 11.03 15.55 19.12 9.7l124.9-93.7h144c35.25 0 64-28.75 64-63.1V63.1C511.1 28.75 483.2 0 447.1 0zM480 352c0 17.6-14.4 32-32 32h-144.1c-6.928 0-13.67 2.248-19.21 6.406L192 460v-60c0-8.838-7.164-16-16-16H64c-17.6 0-32-14.4-32-32V64c0-17.6 14.4-32 32-32h384c17.6 0 32 14.4 32 32V352zM128 184c-13.25 0-24 10.74-24 24c0 13.25 10.75 24 24 24S152 221.3 152 208C152 194.7 141.3 184 128 184zM384 184c-13.25 0-24 10.74-24 24c0 13.25 10.75 24 24 24s24-10.75 24-24C408 194.7 397.3 184 384 184zM256 184c-13.25 0-24 10.74-24 24c0 13.25 10.75 24 24 24s24-10.75 24-24C280 194.7 269.3 184 256 184z">
                                     </path>
@@ -161,8 +166,7 @@
                             </button>
                         </div>
                     </div>
-                    
-                    <div class="d-flex align-items-center gap-3">
+                    <div class="d-flex d-lg-none align-items-center gap-3">
                         <div class="dropdown balance-dropdown navbar-dropdowns">
                             <button class="btn btn-secondary dropdown-toggle w-100 px-3 py-2" type="button"
                                 id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
@@ -178,13 +182,12 @@
                             </button>
                             <div class="dropdown-menu shadow-lg p-2" aria-labelledby="dropdownMenuButton">
                                 <a class="dropdown-item p-1 bg-transparent" href="#" data-value="item1">
-                                    <div
+                                    <label
                                         class="form-check form-switch balance-switch d-flex align-items-center justify-content-between">
-                                        <input class="form-check-input balanceSwitch" type="checkbox" onchange="changeBalance()"
-                                            id="balanceSwitch">
-                                        <label class="form-check-label fw-medium balance-status" id="balance-status"
-                                            for="balanceSwitch">Balance</label>
-                                    </div>
+                                        <input class="form-check-input balanceSwitch" type="checkbox"
+                                            onchange="changeBalance()" id="balanceSwitch">
+                                        <span class="form-check-label fw-medium balance-status">Balance</span>
+                                    </label>
                                 </a>
                             </div>
                         </div>
@@ -207,8 +210,7 @@
                                         <span>Moloy Pal</span>
                                     </div>
                                 </a>
-                                <a class="dropdown-item p-2 bg-transparent" href="./profile.html"
-                                    data-value="item1">
+                                <a class="dropdown-item p-2 bg-transparent" href="./profile.html" data-value="item1">
                                     <div class="d-flex align-items-center justify-content-start gap-2">
                                         <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bd-icon"
                                             viewBox="0 0 16 16">
@@ -221,9 +223,8 @@
                                 </a>
                                 <a class="dropdown-item p-2 bg-transparent" href="#" data-value="item1">
                                     <div class="d-flex align-items-center justify-content-start gap-2">
-                                        <svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve"
-                                            fill="currentColor" class="bd-icon" style="height: 14px;"
-                                            viewBox="0 0 47 47">
+                                        <svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" fill="currentColor"
+                                            class="bd-icon" style="height: 14px;" viewBox="0 0 47 47">
                                             <path
                                                 d="m17.567 15.938-2.859-2.702a4.19 4.19 0 0 0 .539-2.029 4.238 4.238 0 0 0-4.24-4.239 4.24 4.24 0 1 0 0 8.48 4.21 4.21 0 0 0 2.242-.654l2.855 2.699a9.71 9.71 0 0 1 1.463-1.555zM29.66 15.6l3.799-6.393c.374.107.762.184 1.169.184a4.24 4.24 0 1 0 0-8.48 4.237 4.237 0 0 0-3.012 7.22l-3.787 6.375A9.488 9.488 0 0 1 29.66 15.6zM42.762 20.952a4.236 4.236 0 0 0-3.968 2.775l-5.278-.521c0 .04.006.078.006.117a9.72 9.72 0 0 1-.213 2.009l5.276.521A4.232 4.232 0 0 0 47 25.191a4.238 4.238 0 0 0-4.238-4.239zM28.197 37.624l-1.18-5.156a9.662 9.662 0 0 1-2.082.481l1.182 5.157c-1.355.709-2.29 2.11-2.29 3.746a4.236 4.236 0 0 0 4.243 4.237 4.236 4.236 0 0 0 4.238-4.237 4.229 4.229 0 0 0-4.111-4.228zM14.357 25.37l-6.57 2.201A4.236 4.236 0 0 0 0 29.884a4.242 4.242 0 1 0 8.481 0c0-.098-.021-.188-.029-.284l6.591-2.207a9.682 9.682 0 0 1-.686-2.023z">
                                             </path>

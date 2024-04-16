@@ -355,5 +355,9 @@ $(document).ready(function () {
             }
         }
     })
+
+    if($('.btn-bell')){
+        $('.btn-bell').tooltip();
+    }
 });
 

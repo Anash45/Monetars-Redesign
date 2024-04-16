@@ -2832,6 +2832,13 @@ span.select2-dropdown.select2-dropdown--below {
     left: unset;
     right: 0;
 }
+.btn-bell{
+    color: #334155;
+}
+
+.dark .btn-bell{
+    color: #FFFFFF;
+}
 @media (min-width: 1200px) {
     .container {
         max-width: 1152px;
