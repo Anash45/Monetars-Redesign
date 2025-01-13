@@ -81,6 +81,10 @@ body {
     background-color: var(--lighterpurple-darkblue);
 }
 
+main{
+    min-height: calc(100vh - (129px + 332px));
+}
+
 .show-light {
     display: block;
 }
