@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Monetars &mdash; Page Gallery</title>
+<style>
+  :root {
+    --bg: #f4f6fb;
+    --card-bg: #ffffff;
+    --text: #1a1f36;
+    --muted: #6b7280;
+    --accent: #2f4bff;
+    --border: #e5e8f0;
+    --shadow: 0 1px 3px rgba(16, 24, 40, 0.08), 0 1px 2px rgba(16, 24, 40, 0.06);
+    --shadow-hover: 0 8px 20px rgba(16, 24, 40, 0.12);
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+  }
+
+  header {
+    padding: 48px 24px 24px;
+    text-align: center;
+  }
+
+  header h1 {
+    margin: 0 0 8px;
+    font-size: 2rem;
+    font-weight: 700;
+  }
+
+  header p {
+    margin: 0;
+    color: var(--muted);
+    font-size: 1rem;
+  }
+
+  main {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 24px 24px 64px;
+  }
+
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 24px;
+  }
+
+  a.card {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+  }
+
+  a.card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-hover);
+  }
+
+  .thumb-wrap {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    overflow: hidden;
+    background: #eef0f6;
+  }
+
+  .thumb-wrap img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top;
+    display: block;
+  }
+
+  .card-body {
+    padding: 14px 16px 16px;
+  }
+
+  .card-title {
+    font-size: 1rem;
+    font-weight: 600;
+    margin: 0 0 4px;
+  }
+
+  .card-file {
+    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    font-size: 0.8rem;
+    color: var(--muted);
+  }
+
+  footer {
+    text-align: center;
+    padding: 24px;
+    color: var(--muted);
+    font-size: 0.85rem;
+  }
+</style>
+</head>
+<body>
+  <header>
+    <h1>Monetars &mdash; Page Gallery</h1>
+    <p>Every page in this project, with a live preview thumbnail. Click a card to open the page.</p>
+  </header>
+  <main>
+    <div class="grid">
+      <a class="card" href="index.html" target="_blank" rel="noopener">
+        <div class="thumb-wrap"><img src="thumbnails/index.png" alt="Home thumbnail" loading="lazy"></div>
+        <div class="card-body">
+          <p class="card-title">Home</p>
+          <p class="card-file">index.html</p>
+        </div>
+      </a>
+      <a class="card" href="about.html" target="_blank" rel="noopener">
+        <div class="thumb-wrap"><img src="thumbnails/about.png" alt="About thumbnail" loading="lazy"></div>
+        <div class="card-body">
+          <p class="card-title">About</p>
+          <p class="card-file">about.html</p>
+        </div>
+      </a>
+      <a class="card" href="earn.html" target="_blank" rel="noopener">
+        <div class="thumb-wrap"><img src="thumbnails/earn.png" alt="Earn thumbnail" loading="lazy"></div>
+        <div class="card-body">
+          <p class="card-title">Earn</p>
+          <p class="card-file">earn.html</p>
+        </div>
+      </a>
+      <a class="card" href="withdraw.html" target="_blank" rel="noopener">
+        <div class="thumb-wrap"><img src="thumbnails/withdraw.png" alt="Withdraw thumbnail" loading="lazy"></div>
+        <div class="card-body">
+          <p class="card-title">Withdraw</p>
+          <p class="card-file">withdraw.html</p>
+        </div>
+      </a>
+      <a class="card" href="reward.html" target="_blank" rel="noopener">
+        <div class="thumb-wrap"><img src="thumbnails/reward.png" alt="Reward thumbnail" loading="lazy"></div>
+        <div class="card-body">
+          <p class="card-title">Reward</p>
+          <p class="card-file">reward.html</p>
+        </div>
+      </a>
+      <a class="card" href="leaders.html" target="_blank" rel="noopener">
+        <div class="thumb-wrap"><img src="thumbnails/leaders.png" alt="Leaders thumbnail" loading="lazy"></div>
+        <div class="card-body">
+          <p class="card-title">Leaders</p>
+          <p class="card-file">leaders.html</p>
+        </div>
+      </a>
+      <a class="card" href="profile.html" target="_blank" rel="noopener">
+        <div class="thumb-wrap"><img src="thumbnails/profile.png" alt="Profile thumbnail" loading="lazy"></div>
+        <div class="card-body">
+          <p class="card-title">Profile</p>
+          <p class="card-file">profile.html</p>
+        </div>
+      </a>
+      <a class="card" href="blog.html" target="_blank" rel="noopener">
+        <div class="thumb-wrap"><img src="thumbnails/blog.png" alt="Blog thumbnail" loading="lazy"></div>
+        <div class="card-body">
+          <p class="card-title">Blog</p>
+          <p class="card-file">blog.html</p>
+        </div>
+      </a>
+      <a class="card" href="blog-detail.html" target="_blank" rel="noopener">
+        <div class="thumb-wrap"><img src="thumbnails/blog-detail.png" alt="Blog Detail thumbnail" loading="lazy"></div>
+        <div class="card-body">
+          <p class="card-title">Blog Detail</p>
+          <p class="card-file">blog-detail.html</p>
+        </div>
+      </a>
+      <a class="card" href="faq.html" target="_blank" rel="noopener">
+        <div class="thumb-wrap"><img src="thumbnails/faq.png" alt="FAQ thumbnail" loading="lazy"></div>
+        <div class="card-body">
+          <p class="card-title">FAQ</p>
+          <p class="card-file">faq.html</p>
+        </div>
+      </a>
+      <a class="card" href="contact.html" target="_blank" rel="noopener">
+        <div class="thumb-wrap"><img src="thumbnails/contact.png" alt="Contact thumbnail" loading="lazy"></div>
+        <div class="card-body">
+          <p class="card-title">Contact</p>
+          <p class="card-file">contact.html</p>
+        </div>
+      </a>
+      <a class="card" href="privacy.html" target="_blank" rel="noopener">
+        <div class="thumb-wrap"><img src="thumbnails/privacy.png" alt="Privacy Policy thumbnail" loading="lazy"></div>
+        <div class="card-body">
+          <p class="card-title">Privacy Policy</p>
+          <p class="card-file">privacy.html</p>
+        </div>
+      </a>
+      <a class="card" href="terms.html" target="_blank" rel="noopener">
+        <div class="thumb-wrap"><img src="thumbnails/terms.png" alt="Terms thumbnail" loading="lazy"></div>
+        <div class="card-body">
+          <p class="card-title">Terms</p>
+          <p class="card-file">terms.html</p>
+        </div>
+      </a>
+      <a class="card" href="imprint.html" target="_blank" rel="noopener">
+        <div class="thumb-wrap"><img src="thumbnails/imprint.png" alt="Imprint thumbnail" loading="lazy"></div>
+        <div class="card-body">
+          <p class="card-title">Imprint</p>
+          <p class="card-file">imprint.html</p>
+        </div>
+      </a>
+      <a class="card" href="unavailable.html" target="_blank" rel="noopener">
+        <div class="thumb-wrap"><img src="thumbnails/unavailable.png" alt="Unavailable thumbnail" loading="lazy"></div>
+        <div class="card-body">
+          <p class="card-title">Unavailable</p>
+          <p class="card-file">unavailable.html</p>
+        </div>
+      </a>
+      <a class="card" href="blank.html" target="_blank" rel="noopener">
+        <div class="thumb-wrap"><img src="thumbnails/blank.png" alt="Blank thumbnail" loading="lazy"></div>
+        <div class="card-body">
+          <p class="card-title">Blank</p>
+          <p class="card-file">blank.html</p>
+        </div>
+      </a>
+    </div>
+  </main>
+  <footer>
+    <p>Generated gallery &mdash; <span class="card-file">pages.html</span></p>
+  </footer>
+</body>
+</html>
