@@ -1,3 +1,12 @@
+const ACTIVITY_FEED = [
+  { name: "Alex_92", action: "Just cashed out", amount: 42, avatar: "/assets/img/9.png" },
+  { name: "Jordan_K", action: "Completed an offer", amount: 128, initial: "J" },
+  { name: "Priya.M", action: "Just cashed out", amount: 15, avatar: "/assets/img/2.png" },
+  { name: "Sam_R", action: "Finished a survey", amount: 76, initial: "S" },
+  { name: "WeiChen88", action: "Just cashed out", amount: 203, avatar: "/assets/img/403197.jpg" },
+  { name: "Lena_B", action: "Completed an offer", amount: 9, initial: "L" },
+];
+
 export default function Header({ variant = "guest", active = null }) {
   return (
   <header>
@@ -306,114 +315,24 @@ export default function Header({ variant = "guest", active = null }) {
           </div>
           <div className="nav-carousel-container">
             <div className="nav-carousel">
-              <a href="#" className="nc-item" onClick={() => { openModal('user') }}>
-                <div className="d-flex h-100 gap-1">
-                  <img src="/assets/img/blog-1.jpg" alt="NC Image" className="nc-img" />
-                  <div className="d-flex nc-text roboto flex-column justify-content-center">
-                    <p className="nc-up mb-0">
-                      MONETARS
-                    </p>
-                    <p className="nc-down mb-0">
-                      MONETARS
-                    </p>
+              {ACTIVITY_FEED.map((item) => (
+                <a href="#" className="nc-item" onClick={() => { openModal('user') }} key={item.name}>
+                  <div className="d-flex h-100 gap-1">
+                    {item.avatar ? (
+                      <img src={item.avatar} alt="NC Image" className="nc-img" />
+                    ) : (
+                      <span className="nc-img">
+                        <span>{item.initial}</span>
+                      </span>
+                    )}
+                    <div className="d-flex nc-text roboto flex-column justify-content-center">
+                      <p className="nc-up mb-0">{item.name}</p>
+                      <p className="nc-down mb-0">{item.action}</p>
+                    </div>
+                    <p className="nc-badge mb-0">{item.amount}</p>
                   </div>
-                  <p className="nc-badge mb-0">
-                    14
-                  </p>
-                </div>
-              </a>
-              <a href="#" className="nc-item" onClick={() => { openModal('user') }}>
-                <div className="d-flex h-100 gap-1">
-                  <span className="nc-img">
-                    <span>
-                      M
-                    </span>
-                  </span>
-                  <div className="d-flex nc-text roboto flex-column justify-content-center">
-                    <p className="nc-up mb-0">
-                      MONETARS
-                    </p>
-                    <p className="nc-down mb-0">
-                      MONETARS
-                    </p>
-                  </div>
-                  <p className="nc-badge mb-0">
-                    14
-                  </p>
-                </div>
-              </a>
-              <a href="#" className="nc-item" onClick={() => { openModal('user') }}>
-                <div className="d-flex h-100 gap-1">
-                  <img src="/assets/img/blog-1.jpg" alt="NC Image" className="nc-img" />
-                  <div className="d-flex nc-text roboto flex-column justify-content-center">
-                    <p className="nc-up mb-0">
-                      MONETARS
-                    </p>
-                    <p className="nc-down mb-0">
-                      MONETARS
-                    </p>
-                  </div>
-                  <p className="nc-badge mb-0">
-                    14
-                  </p>
-                </div>
-              </a>
-              <a href="#" className="nc-item" onClick={() => { openModal('user') }}>
-                <div className="d-flex h-100 gap-1">
-                  <span className="nc-img">
-                    <span>
-                      M
-                    </span>
-                  </span>
-                  <div className="d-flex nc-text roboto flex-column justify-content-center">
-                    <p className="nc-up mb-0">
-                      MONETARS
-                    </p>
-                    <p className="nc-down mb-0">
-                      MONETARS
-                    </p>
-                  </div>
-                  <p className="nc-badge mb-0">
-                    14
-                  </p>
-                </div>
-              </a>
-              <a href="#" className="nc-item" onClick={() => { openModal('user') }}>
-                <div className="d-flex h-100 gap-1">
-                  <img src="/assets/img/blog-1.jpg" alt="NC Image" className="nc-img" />
-                  <div className="d-flex nc-text roboto flex-column justify-content-center">
-                    <p className="nc-up mb-0">
-                      MONETARS
-                    </p>
-                    <p className="nc-down mb-0">
-                      MONETARS
-                    </p>
-                  </div>
-                  <p className="nc-badge mb-0">
-                    14
-                  </p>
-                </div>
-              </a>
-              <a href="#" className="nc-item" onClick={() => { openModal('user') }}>
-                <div className="d-flex h-100 gap-1">
-                  <span className="nc-img">
-                    <span>
-                      M
-                    </span>
-                  </span>
-                  <div className="d-flex nc-text roboto flex-column justify-content-center">
-                    <p className="nc-up mb-0">
-                      MONETARS
-                    </p>
-                    <p className="nc-down mb-0">
-                      MONETARS
-                    </p>
-                  </div>
-                  <p className="nc-badge mb-0">
-                    14
-                  </p>
-                </div>
-              </a>
+                </a>
+              ))}
             </div>
           </div>
         </div>
