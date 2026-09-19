@@ -1,5 +1,50 @@
 import Layout from "../../components/dashboard/Layout";
 
+const EARNINGS_ALL = [
+  { type: "Referral Earnings", offerwall: "Dolares", coins: 500, date: "06 Oct 2024", time: "2 days ago" },
+  { type: "Offer Completed", offerwall: "AdGateMedia", coins: 1500, date: "05 Oct 2024", time: "3 days ago" },
+  { type: "Offer Completed", offerwall: "Lootably", coins: 640, date: "03 Oct 2024", time: "5 days ago" },
+  { type: "Survey Completed", offerwall: "TheoremReach", coins: 320, date: "01 Oct 2024", time: "1 week ago" },
+  { type: "Referral Earnings", offerwall: "Dolares", coins: 900, date: "28 Sep 2024", time: "1 week ago" },
+  { type: "Offer Completed", offerwall: "Monlix", coins: 275, date: "24 Sep 2024", time: "2 weeks ago" },
+];
+
+const EARNINGS_HELD = [
+  { type: "Offer Completed", offerwall: "AdGateMedia", coins: 1500, date: "06 Oct 2024", time: "2 days ago" },
+  { type: "Offer Completed", offerwall: "Lootably", coins: 640, date: "05 Oct 2024", time: "3 days ago" },
+  { type: "Offer Completed", offerwall: "TimeWall", coins: 412, date: "03 Oct 2024", time: "5 days ago" },
+  { type: "Offer Completed", offerwall: "Monlix", coins: 275, date: "01 Oct 2024", time: "1 week ago" },
+  { type: "Offer Completed", offerwall: "Notik", coins: 156, date: "28 Sep 2024", time: "1 week ago" },
+  { type: "Offer Completed", offerwall: "Revlum", coins: 620, date: "24 Sep 2024", time: "2 weeks ago" },
+];
+
+const EARNINGS_CHARGEBACKS = [
+  { type: "Offer Reversed", offerwall: "AdGateMedia", coins: -500, date: "02 Oct 2024", time: "4 days ago" },
+  { type: "Offer Reversed", offerwall: "Lootably", coins: -320, date: "29 Sep 2024", time: "1 week ago" },
+  { type: "Offer Reversed", offerwall: "Notik", coins: -150, date: "22 Sep 2024", time: "2 weeks ago" },
+  { type: "Offer Reversed", offerwall: "Monlix", coins: -275, date: "15 Sep 2024", time: "3 weeks ago" },
+  { type: "Offer Reversed", offerwall: "Revlum", coins: -180, date: "08 Sep 2024", time: "1 month ago" },
+  { type: "Offer Reversed", offerwall: "TimeWall", coins: -412, date: "01 Sep 2024", time: "1 month ago" },
+];
+
+const EARNINGS_WITHDRAW = [
+  { type: "Cashout Requested", offerwall: "PayPal", coins: -2000, date: "06 Oct 2024", time: "2 days ago" },
+  { type: "Cashout Requested", offerwall: "Amazon", coins: -900, date: "30 Sep 2024", time: "1 week ago" },
+  { type: "Cashout Requested", offerwall: "Spotify", coins: -500, date: "20 Sep 2024", time: "2 weeks ago" },
+  { type: "Cashout Requested", offerwall: "Visa", coins: -1200, date: "10 Sep 2024", time: "3 weeks ago" },
+  { type: "Cashout Requested", offerwall: "Xbox Live", coins: -750, date: "01 Sep 2024", time: "1 month ago" },
+  { type: "Cashout Requested", offerwall: "Nintendo", coins: -600, date: "20 Aug 2024", time: "1 month ago" },
+];
+
+const EARNINGS_PENDING = [
+  { type: "Offer Pending", offerwall: "AdGateMedia", coins: 1500, date: "07 Oct 2024", time: "1 day ago" },
+  { type: "Offer Pending", offerwall: "Lootably", coins: 640, date: "06 Oct 2024", time: "2 days ago" },
+  { type: "Survey Pending", offerwall: "TheoremReach", coins: 320, date: "05 Oct 2024", time: "3 days ago" },
+  { type: "Offer Pending", offerwall: "Monlix", coins: 275, date: "04 Oct 2024", time: "4 days ago" },
+  { type: "Offer Pending", offerwall: "Notik", coins: 156, date: "03 Oct 2024", time: "5 days ago" },
+  { type: "Offer Pending", offerwall: "Revlum", coins: 620, date: "02 Oct 2024", time: "6 days ago" },
+];
+
 const EARNINGS_CHART_SCRIPT = `
 $(document).ready(function () {
   const labels = ['Sep 01', 'Sep 02', 'Sep 03', 'Sep 04', 'Sep 05', 'Sep 06', 'Sep 07',
@@ -366,186 +411,28 @@ export default function Page() {
                             </tr>
                           </thead>
                           <tbody>
-                            <tr>
+                            {EARNINGS_ALL.map((row, i) => (
+                            <tr key={i}>
                               <td>
-                                <div className="tpe-td fw-medoim f-16p">
-                                  Referral Earnings
-                                </div>
+                                <div className="tpe-td fw-medoim f-16p">{row.type}</div>
                               </td>
                               <td>
-                                <div className="tpe-td">
-                                  Dolares
-                                </div>
+                                <div className="tpe-td">{row.offerwall}</div>
                               </td>
                               <td>
                                 <div className="d-flex gap-1 align-items-center tpe-td">
                                   <img src="/dashboard-assets/img/coin.svg" height="16" alt="Coin" />
-                                  <span>
-                                    500
-                                  </span>
+                                  <span>{row.coins}</span>
                                 </div>
                               </td>
                               <td>
-                                <div className="tpe-td">
-                                  06 Oct 2024
-                                </div>
+                                <div className="tpe-td">{row.date}</div>
                               </td>
                               <td>
-                                <div className="tpe-td">
-                                  2 days ago
-                                </div>
+                                <div className="tpe-td">{row.time}</div>
                               </td>
                             </tr>
-                            <tr>
-                              <td>
-                                <div className="tpe-td fw-medoim f-16p">
-                                  Referral Earnings
-                                </div>
-                              </td>
-                              <td>
-                                <div className="tpe-td">
-                                  Dolares
-                                </div>
-                              </td>
-                              <td>
-                                <div className="d-flex gap-1 align-items-center tpe-td">
-                                  <img src="/dashboard-assets/img/coin.svg" height="16" alt="Coin" />
-                                  <span>
-                                    500
-                                  </span>
-                                </div>
-                              </td>
-                              <td>
-                                <div className="tpe-td">
-                                  06 Oct 2024
-                                </div>
-                              </td>
-                              <td>
-                                <div className="tpe-td">
-                                  2 days ago
-                                </div>
-                              </td>
-                            </tr>
-                            <tr>
-                              <td>
-                                <div className="tpe-td fw-medoim f-16p">
-                                  Referral Earnings
-                                </div>
-                              </td>
-                              <td>
-                                <div className="tpe-td">
-                                  Dolares
-                                </div>
-                              </td>
-                              <td>
-                                <div className="d-flex gap-1 align-items-center tpe-td">
-                                  <img src="/dashboard-assets/img/coin.svg" height="16" alt="Coin" />
-                                  <span>
-                                    500
-                                  </span>
-                                </div>
-                              </td>
-                              <td>
-                                <div className="tpe-td">
-                                  06 Oct 2024
-                                </div>
-                              </td>
-                              <td>
-                                <div className="tpe-td">
-                                  2 days ago
-                                </div>
-                              </td>
-                            </tr>
-                            <tr>
-                              <td>
-                                <div className="tpe-td fw-medoim f-16p">
-                                  Referral Earnings
-                                </div>
-                              </td>
-                              <td>
-                                <div className="tpe-td">
-                                  Dolares
-                                </div>
-                              </td>
-                              <td>
-                                <div className="d-flex gap-1 align-items-center tpe-td">
-                                  <img src="/dashboard-assets/img/coin.svg" height="16" alt="Coin" />
-                                  <span>
-                                    500
-                                  </span>
-                                </div>
-                              </td>
-                              <td>
-                                <div className="tpe-td">
-                                  06 Oct 2024
-                                </div>
-                              </td>
-                              <td>
-                                <div className="tpe-td">
-                                  2 days ago
-                                </div>
-                              </td>
-                            </tr>
-                            <tr>
-                              <td>
-                                <div className="tpe-td fw-medoim f-16p">
-                                  Referral Earnings
-                                </div>
-                              </td>
-                              <td>
-                                <div className="tpe-td">
-                                  Dolares
-                                </div>
-                              </td>
-                              <td>
-                                <div className="d-flex gap-1 align-items-center tpe-td">
-                                  <img src="/dashboard-assets/img/coin.svg" height="16" alt="Coin" />
-                                  <span>
-                                    500
-                                  </span>
-                                </div>
-                              </td>
-                              <td>
-                                <div className="tpe-td">
-                                  06 Oct 2024
-                                </div>
-                              </td>
-                              <td>
-                                <div className="tpe-td">
-                                  2 days ago
-                                </div>
-                              </td>
-                            </tr>
-                            <tr>
-                              <td>
-                                <div className="tpe-td fw-medoim f-16p">
-                                  Referral Earnings
-                                </div>
-                              </td>
-                              <td>
-                                <div className="tpe-td">
-                                  Dolares
-                                </div>
-                              </td>
-                              <td>
-                                <div className="d-flex gap-1 align-items-center tpe-td">
-                                  <img src="/dashboard-assets/img/coin.svg" height="16" alt="Coin" />
-                                  <span>
-                                    500
-                                  </span>
-                                </div>
-                              </td>
-                              <td>
-                                <div className="tpe-td">
-                                  06 Oct 2024
-                                </div>
-                              </td>
-                              <td>
-                                <div className="tpe-td">
-                                  2 days ago
-                                </div>
-                              </td>
-                            </tr>
+                            ))}
                           </tbody>
                         </table>
                       </div>
@@ -579,186 +466,28 @@ export default function Page() {
                             </tr>
                           </thead>
                           <tbody>
-                            <tr>
+                            {EARNINGS_HELD.map((row, i) => (
+                            <tr key={i}>
                               <td>
-                                <div className="tpe-td fw-medoim f-16p">
-                                  Referral Earnings
-                                </div>
+                                <div className="tpe-td fw-medoim f-16p">{row.type}</div>
                               </td>
                               <td>
-                                <div className="tpe-td">
-                                  Dolares
-                                </div>
+                                <div className="tpe-td">{row.offerwall}</div>
                               </td>
                               <td>
                                 <div className="d-flex gap-1 align-items-center tpe-td">
                                   <img src="/dashboard-assets/img/coin.svg" height="16" alt="Coin" />
-                                  <span>
-                                    500
-                                  </span>
+                                  <span>{row.coins}</span>
                                 </div>
                               </td>
                               <td>
-                                <div className="tpe-td">
-                                  06 Oct 2024
-                                </div>
+                                <div className="tpe-td">{row.date}</div>
                               </td>
                               <td>
-                                <div className="tpe-td">
-                                  2 days ago
-                                </div>
+                                <div className="tpe-td">{row.time}</div>
                               </td>
                             </tr>
-                            <tr>
-                              <td>
-                                <div className="tpe-td fw-medoim f-16p">
-                                  Referral Earnings
-                                </div>
-                              </td>
-                              <td>
-                                <div className="tpe-td">
-                                  Dolares
-                                </div>
-                              </td>
-                              <td>
-                                <div className="d-flex gap-1 align-items-center tpe-td">
-                                  <img src="/dashboard-assets/img/coin.svg" height="16" alt="Coin" />
-                                  <span>
-                                    500
-                                  </span>
-                                </div>
-                              </td>
-                              <td>
-                                <div className="tpe-td">
-                                  06 Oct 2024
-                                </div>
-                              </td>
-                              <td>
-                                <div className="tpe-td">
-                                  2 days ago
-                                </div>
-                              </td>
-                            </tr>
-                            <tr>
-                              <td>
-                                <div className="tpe-td fw-medoim f-16p">
-                                  Referral Earnings
-                                </div>
-                              </td>
-                              <td>
-                                <div className="tpe-td">
-                                  Dolares
-                                </div>
-                              </td>
-                              <td>
-                                <div className="d-flex gap-1 align-items-center tpe-td">
-                                  <img src="/dashboard-assets/img/coin.svg" height="16" alt="Coin" />
-                                  <span>
-                                    500
-                                  </span>
-                                </div>
-                              </td>
-                              <td>
-                                <div className="tpe-td">
-                                  06 Oct 2024
-                                </div>
-                              </td>
-                              <td>
-                                <div className="tpe-td">
-                                  2 days ago
-                                </div>
-                              </td>
-                            </tr>
-                            <tr>
-                              <td>
-                                <div className="tpe-td fw-medoim f-16p">
-                                  Referral Earnings
-                                </div>
-                              </td>
-                              <td>
-                                <div className="tpe-td">
-                                  Dolares
-                                </div>
-                              </td>
-                              <td>
-                                <div className="d-flex gap-1 align-items-center tpe-td">
-                                  <img src="/dashboard-assets/img/coin.svg" height="16" alt="Coin" />
-                                  <span>
-                                    500
-                                  </span>
-                                </div>
-                              </td>
-                              <td>
-                                <div className="tpe-td">
-                                  06 Oct 2024
-                                </div>
-                              </td>
-                              <td>
-                                <div className="tpe-td">
-                                  2 days ago
-                                </div>
-                              </td>
-                            </tr>
-                            <tr>
-                              <td>
-                                <div className="tpe-td fw-medoim f-16p">
-                                  Referral Earnings
-                                </div>
-                              </td>
-                              <td>
-                                <div className="tpe-td">
-                                  Dolares
-                                </div>
-                              </td>
-                              <td>
-                                <div className="d-flex gap-1 align-items-center tpe-td">
-                                  <img src="/dashboard-assets/img/coin.svg" height="16" alt="Coin" />
-                                  <span>
-                                    500
-                                  </span>
-                                </div>
-                              </td>
-                              <td>
-                                <div className="tpe-td">
-                                  06 Oct 2024
-                                </div>
-                              </td>
-                              <td>
-                                <div className="tpe-td">
-                                  2 days ago
-                                </div>
-                              </td>
-                            </tr>
-                            <tr>
-                              <td>
-                                <div className="tpe-td fw-medoim f-16p">
-                                  Referral Earnings
-                                </div>
-                              </td>
-                              <td>
-                                <div className="tpe-td">
-                                  Dolares
-                                </div>
-                              </td>
-                              <td>
-                                <div className="d-flex gap-1 align-items-center tpe-td">
-                                  <img src="/dashboard-assets/img/coin.svg" height="16" alt="Coin" />
-                                  <span>
-                                    500
-                                  </span>
-                                </div>
-                              </td>
-                              <td>
-                                <div className="tpe-td">
-                                  06 Oct 2024
-                                </div>
-                              </td>
-                              <td>
-                                <div className="tpe-td">
-                                  2 days ago
-                                </div>
-                              </td>
-                            </tr>
+                            ))}
                           </tbody>
                         </table>
                       </div>
@@ -792,186 +521,28 @@ export default function Page() {
                             </tr>
                           </thead>
                           <tbody>
-                            <tr>
+                            {EARNINGS_CHARGEBACKS.map((row, i) => (
+                            <tr key={i}>
                               <td>
-                                <div className="tpe-td fw-medoim f-16p">
-                                  Referral Earnings
-                                </div>
+                                <div className="tpe-td fw-medoim f-16p">{row.type}</div>
                               </td>
                               <td>
-                                <div className="tpe-td">
-                                  Dolares
-                                </div>
+                                <div className="tpe-td">{row.offerwall}</div>
                               </td>
                               <td>
                                 <div className="d-flex gap-1 align-items-center tpe-td">
                                   <img src="/dashboard-assets/img/coin.svg" height="16" alt="Coin" />
-                                  <span>
-                                    500
-                                  </span>
+                                  <span>{row.coins}</span>
                                 </div>
                               </td>
                               <td>
-                                <div className="tpe-td">
-                                  06 Oct 2024
-                                </div>
+                                <div className="tpe-td">{row.date}</div>
                               </td>
                               <td>
-                                <div className="tpe-td">
-                                  2 days ago
-                                </div>
+                                <div className="tpe-td">{row.time}</div>
                               </td>
                             </tr>
-                            <tr>
-                              <td>
-                                <div className="tpe-td fw-medoim f-16p">
-                                  Referral Earnings
-                                </div>
-                              </td>
-                              <td>
-                                <div className="tpe-td">
-                                  Dolares
-                                </div>
-                              </td>
-                              <td>
-                                <div className="d-flex gap-1 align-items-center tpe-td">
-                                  <img src="/dashboard-assets/img/coin.svg" height="16" alt="Coin" />
-                                  <span>
-                                    500
-                                  </span>
-                                </div>
-                              </td>
-                              <td>
-                                <div className="tpe-td">
-                                  06 Oct 2024
-                                </div>
-                              </td>
-                              <td>
-                                <div className="tpe-td">
-                                  2 days ago
-                                </div>
-                              </td>
-                            </tr>
-                            <tr>
-                              <td>
-                                <div className="tpe-td fw-medoim f-16p">
-                                  Referral Earnings
-                                </div>
-                              </td>
-                              <td>
-                                <div className="tpe-td">
-                                  Dolares
-                                </div>
-                              </td>
-                              <td>
-                                <div className="d-flex gap-1 align-items-center tpe-td">
-                                  <img src="/dashboard-assets/img/coin.svg" height="16" alt="Coin" />
-                                  <span>
-                                    500
-                                  </span>
-                                </div>
-                              </td>
-                              <td>
-                                <div className="tpe-td">
-                                  06 Oct 2024
-                                </div>
-                              </td>
-                              <td>
-                                <div className="tpe-td">
-                                  2 days ago
-                                </div>
-                              </td>
-                            </tr>
-                            <tr>
-                              <td>
-                                <div className="tpe-td fw-medoim f-16p">
-                                  Referral Earnings
-                                </div>
-                              </td>
-                              <td>
-                                <div className="tpe-td">
-                                  Dolares
-                                </div>
-                              </td>
-                              <td>
-                                <div className="d-flex gap-1 align-items-center tpe-td">
-                                  <img src="/dashboard-assets/img/coin.svg" height="16" alt="Coin" />
-                                  <span>
-                                    500
-                                  </span>
-                                </div>
-                              </td>
-                              <td>
-                                <div className="tpe-td">
-                                  06 Oct 2024
-                                </div>
-                              </td>
-                              <td>
-                                <div className="tpe-td">
-                                  2 days ago
-                                </div>
-                              </td>
-                            </tr>
-                            <tr>
-                              <td>
-                                <div className="tpe-td fw-medoim f-16p">
-                                  Referral Earnings
-                                </div>
-                              </td>
-                              <td>
-                                <div className="tpe-td">
-                                  Dolares
-                                </div>
-                              </td>
-                              <td>
-                                <div className="d-flex gap-1 align-items-center tpe-td">
-                                  <img src="/dashboard-assets/img/coin.svg" height="16" alt="Coin" />
-                                  <span>
-                                    500
-                                  </span>
-                                </div>
-                              </td>
-                              <td>
-                                <div className="tpe-td">
-                                  06 Oct 2024
-                                </div>
-                              </td>
-                              <td>
-                                <div className="tpe-td">
-                                  2 days ago
-                                </div>
-                              </td>
-                            </tr>
-                            <tr>
-                              <td>
-                                <div className="tpe-td fw-medoim f-16p">
-                                  Referral Earnings
-                                </div>
-                              </td>
-                              <td>
-                                <div className="tpe-td">
-                                  Dolares
-                                </div>
-                              </td>
-                              <td>
-                                <div className="d-flex gap-1 align-items-center tpe-td">
-                                  <img src="/dashboard-assets/img/coin.svg" height="16" alt="Coin" />
-                                  <span>
-                                    500
-                                  </span>
-                                </div>
-                              </td>
-                              <td>
-                                <div className="tpe-td">
-                                  06 Oct 2024
-                                </div>
-                              </td>
-                              <td>
-                                <div className="tpe-td">
-                                  2 days ago
-                                </div>
-                              </td>
-                            </tr>
+                            ))}
                           </tbody>
                         </table>
                       </div>
@@ -1025,186 +596,28 @@ export default function Page() {
                             </tr>
                           </thead>
                           <tbody>
-                            <tr>
+                            {EARNINGS_WITHDRAW.map((row, i) => (
+                            <tr key={i}>
                               <td>
-                                <div className="tpe-td fw-medoim f-16p">
-                                  Referral Earnings
-                                </div>
+                                <div className="tpe-td fw-medoim f-16p">{row.type}</div>
                               </td>
                               <td>
-                                <div className="tpe-td">
-                                  Dolares
-                                </div>
+                                <div className="tpe-td">{row.offerwall}</div>
                               </td>
                               <td>
                                 <div className="d-flex gap-1 align-items-center tpe-td">
                                   <img src="/dashboard-assets/img/coin.svg" height="16" alt="Coin" />
-                                  <span>
-                                    500
-                                  </span>
+                                  <span>{row.coins}</span>
                                 </div>
                               </td>
                               <td>
-                                <div className="tpe-td">
-                                  06 Oct 2024
-                                </div>
+                                <div className="tpe-td">{row.date}</div>
                               </td>
                               <td>
-                                <div className="tpe-td">
-                                  2 days ago
-                                </div>
+                                <div className="tpe-td">{row.time}</div>
                               </td>
                             </tr>
-                            <tr>
-                              <td>
-                                <div className="tpe-td fw-medoim f-16p">
-                                  Referral Earnings
-                                </div>
-                              </td>
-                              <td>
-                                <div className="tpe-td">
-                                  Dolares
-                                </div>
-                              </td>
-                              <td>
-                                <div className="d-flex gap-1 align-items-center tpe-td">
-                                  <img src="/dashboard-assets/img/coin.svg" height="16" alt="Coin" />
-                                  <span>
-                                    500
-                                  </span>
-                                </div>
-                              </td>
-                              <td>
-                                <div className="tpe-td">
-                                  06 Oct 2024
-                                </div>
-                              </td>
-                              <td>
-                                <div className="tpe-td">
-                                  2 days ago
-                                </div>
-                              </td>
-                            </tr>
-                            <tr>
-                              <td>
-                                <div className="tpe-td fw-medoim f-16p">
-                                  Referral Earnings
-                                </div>
-                              </td>
-                              <td>
-                                <div className="tpe-td">
-                                  Dolares
-                                </div>
-                              </td>
-                              <td>
-                                <div className="d-flex gap-1 align-items-center tpe-td">
-                                  <img src="/dashboard-assets/img/coin.svg" height="16" alt="Coin" />
-                                  <span>
-                                    500
-                                  </span>
-                                </div>
-                              </td>
-                              <td>
-                                <div className="tpe-td">
-                                  06 Oct 2024
-                                </div>
-                              </td>
-                              <td>
-                                <div className="tpe-td">
-                                  2 days ago
-                                </div>
-                              </td>
-                            </tr>
-                            <tr>
-                              <td>
-                                <div className="tpe-td fw-medoim f-16p">
-                                  Referral Earnings
-                                </div>
-                              </td>
-                              <td>
-                                <div className="tpe-td">
-                                  Dolares
-                                </div>
-                              </td>
-                              <td>
-                                <div className="d-flex gap-1 align-items-center tpe-td">
-                                  <img src="/dashboard-assets/img/coin.svg" height="16" alt="Coin" />
-                                  <span>
-                                    500
-                                  </span>
-                                </div>
-                              </td>
-                              <td>
-                                <div className="tpe-td">
-                                  06 Oct 2024
-                                </div>
-                              </td>
-                              <td>
-                                <div className="tpe-td">
-                                  2 days ago
-                                </div>
-                              </td>
-                            </tr>
-                            <tr>
-                              <td>
-                                <div className="tpe-td fw-medoim f-16p">
-                                  Referral Earnings
-                                </div>
-                              </td>
-                              <td>
-                                <div className="tpe-td">
-                                  Dolares
-                                </div>
-                              </td>
-                              <td>
-                                <div className="d-flex gap-1 align-items-center tpe-td">
-                                  <img src="/dashboard-assets/img/coin.svg" height="16" alt="Coin" />
-                                  <span>
-                                    500
-                                  </span>
-                                </div>
-                              </td>
-                              <td>
-                                <div className="tpe-td">
-                                  06 Oct 2024
-                                </div>
-                              </td>
-                              <td>
-                                <div className="tpe-td">
-                                  2 days ago
-                                </div>
-                              </td>
-                            </tr>
-                            <tr>
-                              <td>
-                                <div className="tpe-td fw-medoim f-16p">
-                                  Referral Earnings
-                                </div>
-                              </td>
-                              <td>
-                                <div className="tpe-td">
-                                  Dolares
-                                </div>
-                              </td>
-                              <td>
-                                <div className="d-flex gap-1 align-items-center tpe-td">
-                                  <img src="/dashboard-assets/img/coin.svg" height="16" alt="Coin" />
-                                  <span>
-                                    500
-                                  </span>
-                                </div>
-                              </td>
-                              <td>
-                                <div className="tpe-td">
-                                  06 Oct 2024
-                                </div>
-                              </td>
-                              <td>
-                                <div className="tpe-td">
-                                  2 days ago
-                                </div>
-                              </td>
-                            </tr>
+                            ))}
                           </tbody>
                         </table>
                       </div>
@@ -1238,186 +651,28 @@ export default function Page() {
                             </tr>
                           </thead>
                           <tbody>
-                            <tr>
+                            {EARNINGS_PENDING.map((row, i) => (
+                            <tr key={i}>
                               <td>
-                                <div className="tpe-td fw-medoim f-16p">
-                                  Referral Earnings
-                                </div>
+                                <div className="tpe-td fw-medoim f-16p">{row.type}</div>
                               </td>
                               <td>
-                                <div className="tpe-td">
-                                  Dolares
-                                </div>
+                                <div className="tpe-td">{row.offerwall}</div>
                               </td>
                               <td>
                                 <div className="d-flex gap-1 align-items-center tpe-td">
                                   <img src="/dashboard-assets/img/coin.svg" height="16" alt="Coin" />
-                                  <span>
-                                    500
-                                  </span>
+                                  <span>{row.coins}</span>
                                 </div>
                               </td>
                               <td>
-                                <div className="tpe-td">
-                                  06 Oct 2024
-                                </div>
+                                <div className="tpe-td">{row.date}</div>
                               </td>
                               <td>
-                                <div className="tpe-td">
-                                  2 days ago
-                                </div>
+                                <div className="tpe-td">{row.time}</div>
                               </td>
                             </tr>
-                            <tr>
-                              <td>
-                                <div className="tpe-td fw-medoim f-16p">
-                                  Referral Earnings
-                                </div>
-                              </td>
-                              <td>
-                                <div className="tpe-td">
-                                  Dolares
-                                </div>
-                              </td>
-                              <td>
-                                <div className="d-flex gap-1 align-items-center tpe-td">
-                                  <img src="/dashboard-assets/img/coin.svg" height="16" alt="Coin" />
-                                  <span>
-                                    500
-                                  </span>
-                                </div>
-                              </td>
-                              <td>
-                                <div className="tpe-td">
-                                  06 Oct 2024
-                                </div>
-                              </td>
-                              <td>
-                                <div className="tpe-td">
-                                  2 days ago
-                                </div>
-                              </td>
-                            </tr>
-                            <tr>
-                              <td>
-                                <div className="tpe-td fw-medoim f-16p">
-                                  Referral Earnings
-                                </div>
-                              </td>
-                              <td>
-                                <div className="tpe-td">
-                                  Dolares
-                                </div>
-                              </td>
-                              <td>
-                                <div className="d-flex gap-1 align-items-center tpe-td">
-                                  <img src="/dashboard-assets/img/coin.svg" height="16" alt="Coin" />
-                                  <span>
-                                    500
-                                  </span>
-                                </div>
-                              </td>
-                              <td>
-                                <div className="tpe-td">
-                                  06 Oct 2024
-                                </div>
-                              </td>
-                              <td>
-                                <div className="tpe-td">
-                                  2 days ago
-                                </div>
-                              </td>
-                            </tr>
-                            <tr>
-                              <td>
-                                <div className="tpe-td fw-medoim f-16p">
-                                  Referral Earnings
-                                </div>
-                              </td>
-                              <td>
-                                <div className="tpe-td">
-                                  Dolares
-                                </div>
-                              </td>
-                              <td>
-                                <div className="d-flex gap-1 align-items-center tpe-td">
-                                  <img src="/dashboard-assets/img/coin.svg" height="16" alt="Coin" />
-                                  <span>
-                                    500
-                                  </span>
-                                </div>
-                              </td>
-                              <td>
-                                <div className="tpe-td">
-                                  06 Oct 2024
-                                </div>
-                              </td>
-                              <td>
-                                <div className="tpe-td">
-                                  2 days ago
-                                </div>
-                              </td>
-                            </tr>
-                            <tr>
-                              <td>
-                                <div className="tpe-td fw-medoim f-16p">
-                                  Referral Earnings
-                                </div>
-                              </td>
-                              <td>
-                                <div className="tpe-td">
-                                  Dolares
-                                </div>
-                              </td>
-                              <td>
-                                <div className="d-flex gap-1 align-items-center tpe-td">
-                                  <img src="/dashboard-assets/img/coin.svg" height="16" alt="Coin" />
-                                  <span>
-                                    500
-                                  </span>
-                                </div>
-                              </td>
-                              <td>
-                                <div className="tpe-td">
-                                  06 Oct 2024
-                                </div>
-                              </td>
-                              <td>
-                                <div className="tpe-td">
-                                  2 days ago
-                                </div>
-                              </td>
-                            </tr>
-                            <tr>
-                              <td>
-                                <div className="tpe-td fw-medoim f-16p">
-                                  Referral Earnings
-                                </div>
-                              </td>
-                              <td>
-                                <div className="tpe-td">
-                                  Dolares
-                                </div>
-                              </td>
-                              <td>
-                                <div className="d-flex gap-1 align-items-center tpe-td">
-                                  <img src="/dashboard-assets/img/coin.svg" height="16" alt="Coin" />
-                                  <span>
-                                    500
-                                  </span>
-                                </div>
-                              </td>
-                              <td>
-                                <div className="tpe-td">
-                                  06 Oct 2024
-                                </div>
-                              </td>
-                              <td>
-                                <div className="tpe-td">
-                                  2 days ago
-                                </div>
-                              </td>
-                            </tr>
+                            ))}
                           </tbody>
                         </table>
                       </div>

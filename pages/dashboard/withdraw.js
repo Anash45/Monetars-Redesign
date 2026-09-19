@@ -263,91 +263,91 @@ export default function Page() {
                           <div className="d-flex flex-column pt-5 pb-4 px-3 text-center align-items-center">
                             <img src="/dashboard-assets/img/gift-card-providers/paypal.svg" alt="Provider" className="gcr-icon mb-2" height="43" />
                             <span className="text-white fw-semibold f-22p">
-                              $5
+                              $10
                             </span>
                             <span className="gcr-name fw-semibold f-16p">
                               PayPal
                             </span>
                           </div>
-                          <input type="radio" name="gift-card-amount" value="$5" className="d-none" />
+                          <input type="radio" name="gift-card-amount" value="$10" className="d-none" />
                         </label>
                         <label className="gc-radio">
                           <img src="/dashboard-assets/img/flags/de.png" alt="Flags" style={{height: '22px', width: '22px', objectFit: 'cover'}} className="rounded-circle gcr-flag" />
                           <div className="d-flex flex-column pt-5 pb-4 px-3 text-center align-items-center">
                             <img src="/dashboard-assets/img/gift-card-providers/paypal.svg" alt="Provider" className="gcr-icon mb-2" height="43" />
                             <span className="text-white fw-semibold f-22p">
-                              $5
+                              $25
                             </span>
                             <span className="gcr-name fw-semibold f-16p">
                               PayPal
                             </span>
                           </div>
-                          <input type="radio" name="gift-card-amount" value="$5" className="d-none" />
+                          <input type="radio" name="gift-card-amount" value="$25" className="d-none" />
                         </label>
                         <label className="gc-radio">
                           <img src="/dashboard-assets/img/flags/de.png" alt="Flags" style={{height: '22px', width: '22px', objectFit: 'cover'}} className="rounded-circle gcr-flag" />
                           <div className="d-flex flex-column pt-5 pb-4 px-3 text-center align-items-center">
                             <img src="/dashboard-assets/img/gift-card-providers/paypal.svg" alt="Provider" className="gcr-icon mb-2" height="43" />
                             <span className="text-white fw-semibold f-22p">
-                              $5
+                              $50
                             </span>
                             <span className="gcr-name fw-semibold f-16p">
                               PayPal
                             </span>
                           </div>
-                          <input type="radio" name="gift-card-amount" value="$5" className="d-none" />
+                          <input type="radio" name="gift-card-amount" value="$50" className="d-none" />
                         </label>
                         <label className="gc-radio">
                           <img src="/dashboard-assets/img/flags/de.png" alt="Flags" style={{height: '22px', width: '22px', objectFit: 'cover'}} className="rounded-circle gcr-flag" />
                           <div className="d-flex flex-column pt-5 pb-4 px-3 text-center align-items-center">
                             <img src="/dashboard-assets/img/gift-card-providers/paypal.svg" alt="Provider" className="gcr-icon mb-2" height="43" />
                             <span className="text-white fw-semibold f-22p">
-                              $5
+                              $100
                             </span>
                             <span className="gcr-name fw-semibold f-16p">
                               PayPal
                             </span>
                           </div>
-                          <input type="radio" name="gift-card-amount" value="$5" className="d-none" />
+                          <input type="radio" name="gift-card-amount" value="$100" className="d-none" />
                         </label>
                         <label className="gc-radio">
                           <img src="/dashboard-assets/img/flags/de.png" alt="Flags" style={{height: '22px', width: '22px', objectFit: 'cover'}} className="rounded-circle gcr-flag" />
                           <div className="d-flex flex-column pt-5 pb-4 px-3 text-center align-items-center">
                             <img src="/dashboard-assets/img/gift-card-providers/paypal.svg" alt="Provider" className="gcr-icon mb-2" height="43" />
                             <span className="text-white fw-semibold f-22p">
-                              $5
+                              $150
                             </span>
                             <span className="gcr-name fw-semibold f-16p">
                               PayPal
                             </span>
                           </div>
-                          <input type="radio" name="gift-card-amount" value="$5" className="d-none" />
+                          <input type="radio" name="gift-card-amount" value="$150" className="d-none" />
                         </label>
                         <label className="gc-radio">
                           <img src="/dashboard-assets/img/flags/de.png" alt="Flags" style={{height: '22px', width: '22px', objectFit: 'cover'}} className="rounded-circle gcr-flag" />
                           <div className="d-flex flex-column pt-5 pb-4 px-3 text-center align-items-center">
                             <img src="/dashboard-assets/img/gift-card-providers/paypal.svg" alt="Provider" className="gcr-icon mb-2" height="43" />
                             <span className="text-white fw-semibold f-22p">
-                              $5
+                              $200
                             </span>
                             <span className="gcr-name fw-semibold f-16p">
                               PayPal
                             </span>
                           </div>
-                          <input type="radio" name="gift-card-amount" value="$5" className="d-none" />
+                          <input type="radio" name="gift-card-amount" value="$200" className="d-none" />
                         </label>
                         <label className="gc-radio">
                           <img src="/dashboard-assets/img/flags/de.png" alt="Flags" style={{height: '22px', width: '22px', objectFit: 'cover'}} className="rounded-circle gcr-flag" />
                           <div className="d-flex flex-column pt-5 pb-4 px-3 text-center align-items-center">
                             <img src="/dashboard-assets/img/gift-card-providers/paypal.svg" alt="Provider" className="gcr-icon mb-2" height="43" />
                             <span className="text-white fw-semibold f-22p">
-                              $5
+                              $250
                             </span>
                             <span className="gcr-name fw-semibold f-16p">
                               PayPal
                             </span>
                           </div>
-                          <input type="radio" name="gift-card-amount" value="$5" className="d-none" />
+                          <input type="radio" name="gift-card-amount" value="$250" className="d-none" />
                         </label>
                       </div>
                     </div>
@@ -436,91 +436,91 @@ export default function Page() {
                           <div className="d-flex flex-column pt-5 pb-4 px-3 text-center align-items-center">
                             <img src="/dashboard-assets/img/gift-card-providers/amazon.svg" alt="Provider" className="gcr-icon mb-2" height="43" />
                             <span className="text-white fw-semibold f-22p">
-                              $5
+                              $10
                             </span>
                             <span className="gcr-name fw-semibold f-16p">
                               amazon
                             </span>
                           </div>
-                          <input type="radio" name="gift-card-amount" value="$5" className="d-none" />
+                          <input type="radio" name="gift-card-amount" value="$10" className="d-none" />
                         </label>
                         <label className="gc-radio">
                           <img src="/dashboard-assets/img/flags/de.png" alt="Flags" style={{height: '22px', width: '22px', objectFit: 'cover'}} className="rounded-circle gcr-flag" />
                           <div className="d-flex flex-column pt-5 pb-4 px-3 text-center align-items-center">
                             <img src="/dashboard-assets/img/gift-card-providers/amazon.svg" alt="Provider" className="gcr-icon mb-2" height="43" />
                             <span className="text-white fw-semibold f-22p">
-                              $5
+                              $25
                             </span>
                             <span className="gcr-name fw-semibold f-16p">
                               amazon
                             </span>
                           </div>
-                          <input type="radio" name="gift-card-amount" value="$5" className="d-none" />
+                          <input type="radio" name="gift-card-amount" value="$25" className="d-none" />
                         </label>
                         <label className="gc-radio">
                           <img src="/dashboard-assets/img/flags/de.png" alt="Flags" style={{height: '22px', width: '22px', objectFit: 'cover'}} className="rounded-circle gcr-flag" />
                           <div className="d-flex flex-column pt-5 pb-4 px-3 text-center align-items-center">
                             <img src="/dashboard-assets/img/gift-card-providers/amazon.svg" alt="Provider" className="gcr-icon mb-2" height="43" />
                             <span className="text-white fw-semibold f-22p">
-                              $5
+                              $50
                             </span>
                             <span className="gcr-name fw-semibold f-16p">
                               amazon
                             </span>
                           </div>
-                          <input type="radio" name="gift-card-amount" value="$5" className="d-none" />
+                          <input type="radio" name="gift-card-amount" value="$50" className="d-none" />
                         </label>
                         <label className="gc-radio">
                           <img src="/dashboard-assets/img/flags/de.png" alt="Flags" style={{height: '22px', width: '22px', objectFit: 'cover'}} className="rounded-circle gcr-flag" />
                           <div className="d-flex flex-column pt-5 pb-4 px-3 text-center align-items-center">
                             <img src="/dashboard-assets/img/gift-card-providers/amazon.svg" alt="Provider" className="gcr-icon mb-2" height="43" />
                             <span className="text-white fw-semibold f-22p">
-                              $5
+                              $100
                             </span>
                             <span className="gcr-name fw-semibold f-16p">
                               amazon
                             </span>
                           </div>
-                          <input type="radio" name="gift-card-amount" value="$5" className="d-none" />
+                          <input type="radio" name="gift-card-amount" value="$100" className="d-none" />
                         </label>
                         <label className="gc-radio">
                           <img src="/dashboard-assets/img/flags/de.png" alt="Flags" style={{height: '22px', width: '22px', objectFit: 'cover'}} className="rounded-circle gcr-flag" />
                           <div className="d-flex flex-column pt-5 pb-4 px-3 text-center align-items-center">
                             <img src="/dashboard-assets/img/gift-card-providers/amazon.svg" alt="Provider" className="gcr-icon mb-2" height="43" />
                             <span className="text-white fw-semibold f-22p">
-                              $5
+                              $150
                             </span>
                             <span className="gcr-name fw-semibold f-16p">
                               amazon
                             </span>
                           </div>
-                          <input type="radio" name="gift-card-amount" value="$5" className="d-none" />
+                          <input type="radio" name="gift-card-amount" value="$150" className="d-none" />
                         </label>
                         <label className="gc-radio">
                           <img src="/dashboard-assets/img/flags/de.png" alt="Flags" style={{height: '22px', width: '22px', objectFit: 'cover'}} className="rounded-circle gcr-flag" />
                           <div className="d-flex flex-column pt-5 pb-4 px-3 text-center align-items-center">
                             <img src="/dashboard-assets/img/gift-card-providers/amazon.svg" alt="Provider" className="gcr-icon mb-2" height="43" />
                             <span className="text-white fw-semibold f-22p">
-                              $5
+                              $200
                             </span>
                             <span className="gcr-name fw-semibold f-16p">
                               amazon
                             </span>
                           </div>
-                          <input type="radio" name="gift-card-amount" value="$5" className="d-none" />
+                          <input type="radio" name="gift-card-amount" value="$200" className="d-none" />
                         </label>
                         <label className="gc-radio">
                           <img src="/dashboard-assets/img/flags/de.png" alt="Flags" style={{height: '22px', width: '22px', objectFit: 'cover'}} className="rounded-circle gcr-flag" />
                           <div className="d-flex flex-column pt-5 pb-4 px-3 text-center align-items-center">
                             <img src="/dashboard-assets/img/gift-card-providers/amazon.svg" alt="Provider" className="gcr-icon mb-2" height="43" />
                             <span className="text-white fw-semibold f-22p">
-                              $5
+                              $250
                             </span>
                             <span className="gcr-name fw-semibold f-16p">
                               amazon
                             </span>
                           </div>
-                          <input type="radio" name="gift-card-amount" value="$5" className="d-none" />
+                          <input type="radio" name="gift-card-amount" value="$250" className="d-none" />
                         </label>
                       </div>
                     </div>
@@ -601,91 +601,91 @@ export default function Page() {
                           <div className="d-flex flex-column pt-5 pb-4 px-3 text-center align-items-center">
                             <img src="/dashboard-assets/img/gift-card-providers/zolando.svg" alt="Provider" className="gcr-icon mb-2" height="43" />
                             <span className="text-white fw-semibold f-22p">
-                              $5
+                              $10
                             </span>
                             <span className="gcr-name fw-semibold f-16p">
                               zolando
                             </span>
                           </div>
-                          <input type="radio" name="gift-card-amount" value="$5" className="d-none" />
+                          <input type="radio" name="gift-card-amount" value="$10" className="d-none" />
                         </label>
                         <label className="gc-radio">
                           <img src="/dashboard-assets/img/flags/de.png" alt="Flags" style={{height: '22px', width: '22px', objectFit: 'cover'}} className="rounded-circle gcr-flag" />
                           <div className="d-flex flex-column pt-5 pb-4 px-3 text-center align-items-center">
                             <img src="/dashboard-assets/img/gift-card-providers/zolando.svg" alt="Provider" className="gcr-icon mb-2" height="43" />
                             <span className="text-white fw-semibold f-22p">
-                              $5
+                              $25
                             </span>
                             <span className="gcr-name fw-semibold f-16p">
                               zolando
                             </span>
                           </div>
-                          <input type="radio" name="gift-card-amount" value="$5" className="d-none" />
+                          <input type="radio" name="gift-card-amount" value="$25" className="d-none" />
                         </label>
                         <label className="gc-radio">
                           <img src="/dashboard-assets/img/flags/de.png" alt="Flags" style={{height: '22px', width: '22px', objectFit: 'cover'}} className="rounded-circle gcr-flag" />
                           <div className="d-flex flex-column pt-5 pb-4 px-3 text-center align-items-center">
                             <img src="/dashboard-assets/img/gift-card-providers/zolando.svg" alt="Provider" className="gcr-icon mb-2" height="43" />
                             <span className="text-white fw-semibold f-22p">
-                              $5
+                              $50
                             </span>
                             <span className="gcr-name fw-semibold f-16p">
                               zolando
                             </span>
                           </div>
-                          <input type="radio" name="gift-card-amount" value="$5" className="d-none" />
+                          <input type="radio" name="gift-card-amount" value="$50" className="d-none" />
                         </label>
                         <label className="gc-radio">
                           <img src="/dashboard-assets/img/flags/de.png" alt="Flags" style={{height: '22px', width: '22px', objectFit: 'cover'}} className="rounded-circle gcr-flag" />
                           <div className="d-flex flex-column pt-5 pb-4 px-3 text-center align-items-center">
                             <img src="/dashboard-assets/img/gift-card-providers/zolando.svg" alt="Provider" className="gcr-icon mb-2" height="43" />
                             <span className="text-white fw-semibold f-22p">
-                              $5
+                              $100
                             </span>
                             <span className="gcr-name fw-semibold f-16p">
                               zolando
                             </span>
                           </div>
-                          <input type="radio" name="gift-card-amount" value="$5" className="d-none" />
+                          <input type="radio" name="gift-card-amount" value="$100" className="d-none" />
                         </label>
                         <label className="gc-radio">
                           <img src="/dashboard-assets/img/flags/de.png" alt="Flags" style={{height: '22px', width: '22px', objectFit: 'cover'}} className="rounded-circle gcr-flag" />
                           <div className="d-flex flex-column pt-5 pb-4 px-3 text-center align-items-center">
                             <img src="/dashboard-assets/img/gift-card-providers/zolando.svg" alt="Provider" className="gcr-icon mb-2" height="43" />
                             <span className="text-white fw-semibold f-22p">
-                              $5
+                              $150
                             </span>
                             <span className="gcr-name fw-semibold f-16p">
                               zolando
                             </span>
                           </div>
-                          <input type="radio" name="gift-card-amount" value="$5" className="d-none" />
+                          <input type="radio" name="gift-card-amount" value="$150" className="d-none" />
                         </label>
                         <label className="gc-radio">
                           <img src="/dashboard-assets/img/flags/de.png" alt="Flags" style={{height: '22px', width: '22px', objectFit: 'cover'}} className="rounded-circle gcr-flag" />
                           <div className="d-flex flex-column pt-5 pb-4 px-3 text-center align-items-center">
                             <img src="/dashboard-assets/img/gift-card-providers/zolando.svg" alt="Provider" className="gcr-icon mb-2" height="43" />
                             <span className="text-white fw-semibold f-22p">
-                              $5
+                              $200
                             </span>
                             <span className="gcr-name fw-semibold f-16p">
                               zolando
                             </span>
                           </div>
-                          <input type="radio" name="gift-card-amount" value="$5" className="d-none" />
+                          <input type="radio" name="gift-card-amount" value="$200" className="d-none" />
                         </label>
                         <label className="gc-radio">
                           <img src="/dashboard-assets/img/flags/de.png" alt="Flags" style={{height: '22px', width: '22px', objectFit: 'cover'}} className="rounded-circle gcr-flag" />
                           <div className="d-flex flex-column pt-5 pb-4 px-3 text-center align-items-center">
                             <img src="/dashboard-assets/img/gift-card-providers/zolando.svg" alt="Provider" className="gcr-icon mb-2" height="43" />
                             <span className="text-white fw-semibold f-22p">
-                              $5
+                              $250
                             </span>
                             <span className="gcr-name fw-semibold f-16p">
                               zolando
                             </span>
                           </div>
-                          <input type="radio" name="gift-card-amount" value="$5" className="d-none" />
+                          <input type="radio" name="gift-card-amount" value="$250" className="d-none" />
                         </label>
                       </div>
                     </div>
@@ -773,91 +773,91 @@ export default function Page() {
                           <div className="d-flex flex-column pt-5 pb-4 px-3 text-center align-items-center">
                             <img src="/dashboard-assets/img/gift-card-providers/xbox live.svg" alt="Provider" className="gcr-icon mb-2" height="43" />
                             <span className="text-white fw-semibold f-22p">
-                              $5
+                              $10
                             </span>
                             <span className="gcr-name fw-semibold f-16p">
                               xbox live
                             </span>
                           </div>
-                          <input type="radio" name="gift-card-amount" value="$5" className="d-none" />
+                          <input type="radio" name="gift-card-amount" value="$10" className="d-none" />
                         </label>
                         <label className="gc-radio">
                           <img src="/dashboard-assets/img/flags/de.png" alt="Flags" style={{height: '22px', width: '22px', objectFit: 'cover'}} className="rounded-circle gcr-flag" />
                           <div className="d-flex flex-column pt-5 pb-4 px-3 text-center align-items-center">
                             <img src="/dashboard-assets/img/gift-card-providers/xbox live.svg" alt="Provider" className="gcr-icon mb-2" height="43" />
                             <span className="text-white fw-semibold f-22p">
-                              $5
+                              $25
                             </span>
                             <span className="gcr-name fw-semibold f-16p">
                               xbox live
                             </span>
                           </div>
-                          <input type="radio" name="gift-card-amount" value="$5" className="d-none" />
+                          <input type="radio" name="gift-card-amount" value="$25" className="d-none" />
                         </label>
                         <label className="gc-radio">
                           <img src="/dashboard-assets/img/flags/de.png" alt="Flags" style={{height: '22px', width: '22px', objectFit: 'cover'}} className="rounded-circle gcr-flag" />
                           <div className="d-flex flex-column pt-5 pb-4 px-3 text-center align-items-center">
                             <img src="/dashboard-assets/img/gift-card-providers/xbox live.svg" alt="Provider" className="gcr-icon mb-2" height="43" />
                             <span className="text-white fw-semibold f-22p">
-                              $5
+                              $50
                             </span>
                             <span className="gcr-name fw-semibold f-16p">
                               xbox live
                             </span>
                           </div>
-                          <input type="radio" name="gift-card-amount" value="$5" className="d-none" />
+                          <input type="radio" name="gift-card-amount" value="$50" className="d-none" />
                         </label>
                         <label className="gc-radio">
                           <img src="/dashboard-assets/img/flags/de.png" alt="Flags" style={{height: '22px', width: '22px', objectFit: 'cover'}} className="rounded-circle gcr-flag" />
                           <div className="d-flex flex-column pt-5 pb-4 px-3 text-center align-items-center">
                             <img src="/dashboard-assets/img/gift-card-providers/xbox live.svg" alt="Provider" className="gcr-icon mb-2" height="43" />
                             <span className="text-white fw-semibold f-22p">
-                              $5
+                              $100
                             </span>
                             <span className="gcr-name fw-semibold f-16p">
                               xbox live
                             </span>
                           </div>
-                          <input type="radio" name="gift-card-amount" value="$5" className="d-none" />
+                          <input type="radio" name="gift-card-amount" value="$100" className="d-none" />
                         </label>
                         <label className="gc-radio">
                           <img src="/dashboard-assets/img/flags/de.png" alt="Flags" style={{height: '22px', width: '22px', objectFit: 'cover'}} className="rounded-circle gcr-flag" />
                           <div className="d-flex flex-column pt-5 pb-4 px-3 text-center align-items-center">
                             <img src="/dashboard-assets/img/gift-card-providers/xbox live.svg" alt="Provider" className="gcr-icon mb-2" height="43" />
                             <span className="text-white fw-semibold f-22p">
-                              $5
+                              $150
                             </span>
                             <span className="gcr-name fw-semibold f-16p">
                               xbox live
                             </span>
                           </div>
-                          <input type="radio" name="gift-card-amount" value="$5" className="d-none" />
+                          <input type="radio" name="gift-card-amount" value="$150" className="d-none" />
                         </label>
                         <label className="gc-radio">
                           <img src="/dashboard-assets/img/flags/de.png" alt="Flags" style={{height: '22px', width: '22px', objectFit: 'cover'}} className="rounded-circle gcr-flag" />
                           <div className="d-flex flex-column pt-5 pb-4 px-3 text-center align-items-center">
                             <img src="/dashboard-assets/img/gift-card-providers/xbox live.svg" alt="Provider" className="gcr-icon mb-2" height="43" />
                             <span className="text-white fw-semibold f-22p">
-                              $5
+                              $200
                             </span>
                             <span className="gcr-name fw-semibold f-16p">
                               xbox live
                             </span>
                           </div>
-                          <input type="radio" name="gift-card-amount" value="$5" className="d-none" />
+                          <input type="radio" name="gift-card-amount" value="$200" className="d-none" />
                         </label>
                         <label className="gc-radio">
                           <img src="/dashboard-assets/img/flags/de.png" alt="Flags" style={{height: '22px', width: '22px', objectFit: 'cover'}} className="rounded-circle gcr-flag" />
                           <div className="d-flex flex-column pt-5 pb-4 px-3 text-center align-items-center">
                             <img src="/dashboard-assets/img/gift-card-providers/xbox live.svg" alt="Provider" className="gcr-icon mb-2" height="43" />
                             <span className="text-white fw-semibold f-22p">
-                              $5
+                              $250
                             </span>
                             <span className="gcr-name fw-semibold f-16p">
                               xbox live
                             </span>
                           </div>
-                          <input type="radio" name="gift-card-amount" value="$5" className="d-none" />
+                          <input type="radio" name="gift-card-amount" value="$250" className="d-none" />
                         </label>
                       </div>
                     </div>
@@ -952,91 +952,91 @@ export default function Page() {
                           <div className="d-flex flex-column pt-5 pb-4 px-3 text-center align-items-center">
                             <img src="/dashboard-assets/img/gift-card-providers/google play.svg" alt="Provider" className="gcr-icon mb-2" height="43" />
                             <span className="text-white fw-semibold f-22p">
-                              $5
+                              $10
                             </span>
                             <span className="gcr-name fw-semibold f-16p">
                               Google Play
                             </span>
                           </div>
-                          <input type="radio" name="gift-card-amount" value="$5" className="d-none" />
+                          <input type="radio" name="gift-card-amount" value="$10" className="d-none" />
                         </label>
                         <label className="gc-radio">
                           <img src="/dashboard-assets/img/flags/de.png" alt="Flags" style={{height: '22px', width: '22px', objectFit: 'cover'}} className="rounded-circle gcr-flag" />
                           <div className="d-flex flex-column pt-5 pb-4 px-3 text-center align-items-center">
                             <img src="/dashboard-assets/img/gift-card-providers/google play.svg" alt="Provider" className="gcr-icon mb-2" height="43" />
                             <span className="text-white fw-semibold f-22p">
-                              $5
+                              $25
                             </span>
                             <span className="gcr-name fw-semibold f-16p">
                               Google Play
                             </span>
                           </div>
-                          <input type="radio" name="gift-card-amount" value="$5" className="d-none" />
+                          <input type="radio" name="gift-card-amount" value="$25" className="d-none" />
                         </label>
                         <label className="gc-radio">
                           <img src="/dashboard-assets/img/flags/de.png" alt="Flags" style={{height: '22px', width: '22px', objectFit: 'cover'}} className="rounded-circle gcr-flag" />
                           <div className="d-flex flex-column pt-5 pb-4 px-3 text-center align-items-center">
                             <img src="/dashboard-assets/img/gift-card-providers/google play.svg" alt="Provider" className="gcr-icon mb-2" height="43" />
                             <span className="text-white fw-semibold f-22p">
-                              $5
+                              $50
                             </span>
                             <span className="gcr-name fw-semibold f-16p">
                               Google Play
                             </span>
                           </div>
-                          <input type="radio" name="gift-card-amount" value="$5" className="d-none" />
+                          <input type="radio" name="gift-card-amount" value="$50" className="d-none" />
                         </label>
                         <label className="gc-radio">
                           <img src="/dashboard-assets/img/flags/de.png" alt="Flags" style={{height: '22px', width: '22px', objectFit: 'cover'}} className="rounded-circle gcr-flag" />
                           <div className="d-flex flex-column pt-5 pb-4 px-3 text-center align-items-center">
                             <img src="/dashboard-assets/img/gift-card-providers/google play.svg" alt="Provider" className="gcr-icon mb-2" height="43" />
                             <span className="text-white fw-semibold f-22p">
-                              $5
+                              $100
                             </span>
                             <span className="gcr-name fw-semibold f-16p">
                               Google Play
                             </span>
                           </div>
-                          <input type="radio" name="gift-card-amount" value="$5" className="d-none" />
+                          <input type="radio" name="gift-card-amount" value="$100" className="d-none" />
                         </label>
                         <label className="gc-radio">
                           <img src="/dashboard-assets/img/flags/de.png" alt="Flags" style={{height: '22px', width: '22px', objectFit: 'cover'}} className="rounded-circle gcr-flag" />
                           <div className="d-flex flex-column pt-5 pb-4 px-3 text-center align-items-center">
                             <img src="/dashboard-assets/img/gift-card-providers/google play.svg" alt="Provider" className="gcr-icon mb-2" height="43" />
                             <span className="text-white fw-semibold f-22p">
-                              $5
+                              $150
                             </span>
                             <span className="gcr-name fw-semibold f-16p">
                               Google Play
                             </span>
                           </div>
-                          <input type="radio" name="gift-card-amount" value="$5" className="d-none" />
+                          <input type="radio" name="gift-card-amount" value="$150" className="d-none" />
                         </label>
                         <label className="gc-radio">
                           <img src="/dashboard-assets/img/flags/de.png" alt="Flags" style={{height: '22px', width: '22px', objectFit: 'cover'}} className="rounded-circle gcr-flag" />
                           <div className="d-flex flex-column pt-5 pb-4 px-3 text-center align-items-center">
                             <img src="/dashboard-assets/img/gift-card-providers/google play.svg" alt="Provider" className="gcr-icon mb-2" height="43" />
                             <span className="text-white fw-semibold f-22p">
-                              $5
+                              $200
                             </span>
                             <span className="gcr-name fw-semibold f-16p">
                               Google Play
                             </span>
                           </div>
-                          <input type="radio" name="gift-card-amount" value="$5" className="d-none" />
+                          <input type="radio" name="gift-card-amount" value="$200" className="d-none" />
                         </label>
                         <label className="gc-radio">
                           <img src="/dashboard-assets/img/flags/de.png" alt="Flags" style={{height: '22px', width: '22px', objectFit: 'cover'}} className="rounded-circle gcr-flag" />
                           <div className="d-flex flex-column pt-5 pb-4 px-3 text-center align-items-center">
                             <img src="/dashboard-assets/img/gift-card-providers/google play.svg" alt="Provider" className="gcr-icon mb-2" height="43" />
                             <span className="text-white fw-semibold f-22p">
-                              $5
+                              $250
                             </span>
                             <span className="gcr-name fw-semibold f-16p">
                               Google Play
                             </span>
                           </div>
-                          <input type="radio" name="gift-card-amount" value="$5" className="d-none" />
+                          <input type="radio" name="gift-card-amount" value="$250" className="d-none" />
                         </label>
                       </div>
                     </div>
@@ -1118,91 +1118,91 @@ export default function Page() {
                           <div className="d-flex flex-column pt-5 pb-4 px-3 text-center align-items-center">
                             <img src="/dashboard-assets/img/gift-card-providers/apple.svg" alt="Provider" className="gcr-icon mb-2" height="43" />
                             <span className="text-white fw-semibold f-22p">
-                              $5
+                              $10
                             </span>
                             <span className="gcr-name fw-semibold f-16p">
                               apple
                             </span>
                           </div>
-                          <input type="radio" name="gift-card-amount" value="$5" className="d-none" />
+                          <input type="radio" name="gift-card-amount" value="$10" className="d-none" />
                         </label>
                         <label className="gc-radio">
                           <img src="/dashboard-assets/img/flags/de.png" alt="Flags" style={{height: '22px', width: '22px', objectFit: 'cover'}} className="rounded-circle gcr-flag" />
                           <div className="d-flex flex-column pt-5 pb-4 px-3 text-center align-items-center">
                             <img src="/dashboard-assets/img/gift-card-providers/apple.svg" alt="Provider" className="gcr-icon mb-2" height="43" />
                             <span className="text-white fw-semibold f-22p">
-                              $5
+                              $25
                             </span>
                             <span className="gcr-name fw-semibold f-16p">
                               apple
                             </span>
                           </div>
-                          <input type="radio" name="gift-card-amount" value="$5" className="d-none" />
+                          <input type="radio" name="gift-card-amount" value="$25" className="d-none" />
                         </label>
                         <label className="gc-radio">
                           <img src="/dashboard-assets/img/flags/de.png" alt="Flags" style={{height: '22px', width: '22px', objectFit: 'cover'}} className="rounded-circle gcr-flag" />
                           <div className="d-flex flex-column pt-5 pb-4 px-3 text-center align-items-center">
                             <img src="/dashboard-assets/img/gift-card-providers/apple.svg" alt="Provider" className="gcr-icon mb-2" height="43" />
                             <span className="text-white fw-semibold f-22p">
-                              $5
+                              $50
                             </span>
                             <span className="gcr-name fw-semibold f-16p">
                               apple
                             </span>
                           </div>
-                          <input type="radio" name="gift-card-amount" value="$5" className="d-none" />
+                          <input type="radio" name="gift-card-amount" value="$50" className="d-none" />
                         </label>
                         <label className="gc-radio">
                           <img src="/dashboard-assets/img/flags/de.png" alt="Flags" style={{height: '22px', width: '22px', objectFit: 'cover'}} className="rounded-circle gcr-flag" />
                           <div className="d-flex flex-column pt-5 pb-4 px-3 text-center align-items-center">
                             <img src="/dashboard-assets/img/gift-card-providers/apple.svg" alt="Provider" className="gcr-icon mb-2" height="43" />
                             <span className="text-white fw-semibold f-22p">
-                              $5
+                              $100
                             </span>
                             <span className="gcr-name fw-semibold f-16p">
                               apple
                             </span>
                           </div>
-                          <input type="radio" name="gift-card-amount" value="$5" className="d-none" />
+                          <input type="radio" name="gift-card-amount" value="$100" className="d-none" />
                         </label>
                         <label className="gc-radio">
                           <img src="/dashboard-assets/img/flags/de.png" alt="Flags" style={{height: '22px', width: '22px', objectFit: 'cover'}} className="rounded-circle gcr-flag" />
                           <div className="d-flex flex-column pt-5 pb-4 px-3 text-center align-items-center">
                             <img src="/dashboard-assets/img/gift-card-providers/apple.svg" alt="Provider" className="gcr-icon mb-2" height="43" />
                             <span className="text-white fw-semibold f-22p">
-                              $5
+                              $150
                             </span>
                             <span className="gcr-name fw-semibold f-16p">
                               apple
                             </span>
                           </div>
-                          <input type="radio" name="gift-card-amount" value="$5" className="d-none" />
+                          <input type="radio" name="gift-card-amount" value="$150" className="d-none" />
                         </label>
                         <label className="gc-radio">
                           <img src="/dashboard-assets/img/flags/de.png" alt="Flags" style={{height: '22px', width: '22px', objectFit: 'cover'}} className="rounded-circle gcr-flag" />
                           <div className="d-flex flex-column pt-5 pb-4 px-3 text-center align-items-center">
                             <img src="/dashboard-assets/img/gift-card-providers/apple.svg" alt="Provider" className="gcr-icon mb-2" height="43" />
                             <span className="text-white fw-semibold f-22p">
-                              $5
+                              $200
                             </span>
                             <span className="gcr-name fw-semibold f-16p">
                               apple
                             </span>
                           </div>
-                          <input type="radio" name="gift-card-amount" value="$5" className="d-none" />
+                          <input type="radio" name="gift-card-amount" value="$200" className="d-none" />
                         </label>
                         <label className="gc-radio">
                           <img src="/dashboard-assets/img/flags/de.png" alt="Flags" style={{height: '22px', width: '22px', objectFit: 'cover'}} className="rounded-circle gcr-flag" />
                           <div className="d-flex flex-column pt-5 pb-4 px-3 text-center align-items-center">
                             <img src="/dashboard-assets/img/gift-card-providers/apple.svg" alt="Provider" className="gcr-icon mb-2" height="43" />
                             <span className="text-white fw-semibold f-22p">
-                              $5
+                              $250
                             </span>
                             <span className="gcr-name fw-semibold f-16p">
                               apple
                             </span>
                           </div>
-                          <input type="radio" name="gift-card-amount" value="$5" className="d-none" />
+                          <input type="radio" name="gift-card-amount" value="$250" className="d-none" />
                         </label>
                       </div>
                     </div>
@@ -1290,91 +1290,91 @@ export default function Page() {
                           <div className="d-flex flex-column pt-5 pb-4 px-3 text-center align-items-center">
                             <img src="/dashboard-assets/img/gift-card-providers/spotify.svg" alt="Provider" className="gcr-icon mb-2" height="43" />
                             <span className="text-white fw-semibold f-22p">
-                              $5
+                              $10
                             </span>
                             <span className="gcr-name fw-semibold f-16p">
                               spotify
                             </span>
                           </div>
-                          <input type="radio" name="gift-card-amount" value="$5" className="d-none" />
+                          <input type="radio" name="gift-card-amount" value="$10" className="d-none" />
                         </label>
                         <label className="gc-radio">
                           <img src="/dashboard-assets/img/flags/de.png" alt="Flags" style={{height: '22px', width: '22px', objectFit: 'cover'}} className="rounded-circle gcr-flag" />
                           <div className="d-flex flex-column pt-5 pb-4 px-3 text-center align-items-center">
                             <img src="/dashboard-assets/img/gift-card-providers/spotify.svg" alt="Provider" className="gcr-icon mb-2" height="43" />
                             <span className="text-white fw-semibold f-22p">
-                              $5
+                              $25
                             </span>
                             <span className="gcr-name fw-semibold f-16p">
                               spotify
                             </span>
                           </div>
-                          <input type="radio" name="gift-card-amount" value="$5" className="d-none" />
+                          <input type="radio" name="gift-card-amount" value="$25" className="d-none" />
                         </label>
                         <label className="gc-radio">
                           <img src="/dashboard-assets/img/flags/de.png" alt="Flags" style={{height: '22px', width: '22px', objectFit: 'cover'}} className="rounded-circle gcr-flag" />
                           <div className="d-flex flex-column pt-5 pb-4 px-3 text-center align-items-center">
                             <img src="/dashboard-assets/img/gift-card-providers/spotify.svg" alt="Provider" className="gcr-icon mb-2" height="43" />
                             <span className="text-white fw-semibold f-22p">
-                              $5
+                              $50
                             </span>
                             <span className="gcr-name fw-semibold f-16p">
                               spotify
                             </span>
                           </div>
-                          <input type="radio" name="gift-card-amount" value="$5" className="d-none" />
+                          <input type="radio" name="gift-card-amount" value="$50" className="d-none" />
                         </label>
                         <label className="gc-radio">
                           <img src="/dashboard-assets/img/flags/de.png" alt="Flags" style={{height: '22px', width: '22px', objectFit: 'cover'}} className="rounded-circle gcr-flag" />
                           <div className="d-flex flex-column pt-5 pb-4 px-3 text-center align-items-center">
                             <img src="/dashboard-assets/img/gift-card-providers/spotify.svg" alt="Provider" className="gcr-icon mb-2" height="43" />
                             <span className="text-white fw-semibold f-22p">
-                              $5
+                              $100
                             </span>
                             <span className="gcr-name fw-semibold f-16p">
                               spotify
                             </span>
                           </div>
-                          <input type="radio" name="gift-card-amount" value="$5" className="d-none" />
+                          <input type="radio" name="gift-card-amount" value="$100" className="d-none" />
                         </label>
                         <label className="gc-radio">
                           <img src="/dashboard-assets/img/flags/de.png" alt="Flags" style={{height: '22px', width: '22px', objectFit: 'cover'}} className="rounded-circle gcr-flag" />
                           <div className="d-flex flex-column pt-5 pb-4 px-3 text-center align-items-center">
                             <img src="/dashboard-assets/img/gift-card-providers/spotify.svg" alt="Provider" className="gcr-icon mb-2" height="43" />
                             <span className="text-white fw-semibold f-22p">
-                              $5
+                              $150
                             </span>
                             <span className="gcr-name fw-semibold f-16p">
                               spotify
                             </span>
                           </div>
-                          <input type="radio" name="gift-card-amount" value="$5" className="d-none" />
+                          <input type="radio" name="gift-card-amount" value="$150" className="d-none" />
                         </label>
                         <label className="gc-radio">
                           <img src="/dashboard-assets/img/flags/de.png" alt="Flags" style={{height: '22px', width: '22px', objectFit: 'cover'}} className="rounded-circle gcr-flag" />
                           <div className="d-flex flex-column pt-5 pb-4 px-3 text-center align-items-center">
                             <img src="/dashboard-assets/img/gift-card-providers/spotify.svg" alt="Provider" className="gcr-icon mb-2" height="43" />
                             <span className="text-white fw-semibold f-22p">
-                              $5
+                              $200
                             </span>
                             <span className="gcr-name fw-semibold f-16p">
                               spotify
                             </span>
                           </div>
-                          <input type="radio" name="gift-card-amount" value="$5" className="d-none" />
+                          <input type="radio" name="gift-card-amount" value="$200" className="d-none" />
                         </label>
                         <label className="gc-radio">
                           <img src="/dashboard-assets/img/flags/de.png" alt="Flags" style={{height: '22px', width: '22px', objectFit: 'cover'}} className="rounded-circle gcr-flag" />
                           <div className="d-flex flex-column pt-5 pb-4 px-3 text-center align-items-center">
                             <img src="/dashboard-assets/img/gift-card-providers/spotify.svg" alt="Provider" className="gcr-icon mb-2" height="43" />
                             <span className="text-white fw-semibold f-22p">
-                              $5
+                              $250
                             </span>
                             <span className="gcr-name fw-semibold f-16p">
                               spotify
                             </span>
                           </div>
-                          <input type="radio" name="gift-card-amount" value="$5" className="d-none" />
+                          <input type="radio" name="gift-card-amount" value="$250" className="d-none" />
                         </label>
                       </div>
                     </div>
@@ -1463,91 +1463,91 @@ export default function Page() {
                           <div className="d-flex flex-column pt-5 pb-4 px-3 text-center align-items-center">
                             <img src="/dashboard-assets/img/gift-card-providers/nintendo.svg" alt="Provider" className="gcr-icon mb-2" height="43" />
                             <span className="text-white fw-semibold f-22p">
-                              $5
+                              $10
                             </span>
                             <span className="gcr-name fw-semibold f-16p">
                               nintendo
                             </span>
                           </div>
-                          <input type="radio" name="gift-card-amount" value="$5" className="d-none" />
+                          <input type="radio" name="gift-card-amount" value="$10" className="d-none" />
                         </label>
                         <label className="gc-radio">
                           <img src="/dashboard-assets/img/flags/de.png" alt="Flags" style={{height: '22px', width: '22px', objectFit: 'cover'}} className="rounded-circle gcr-flag" />
                           <div className="d-flex flex-column pt-5 pb-4 px-3 text-center align-items-center">
                             <img src="/dashboard-assets/img/gift-card-providers/nintendo.svg" alt="Provider" className="gcr-icon mb-2" height="43" />
                             <span className="text-white fw-semibold f-22p">
-                              $5
+                              $25
                             </span>
                             <span className="gcr-name fw-semibold f-16p">
                               nintendo
                             </span>
                           </div>
-                          <input type="radio" name="gift-card-amount" value="$5" className="d-none" />
+                          <input type="radio" name="gift-card-amount" value="$25" className="d-none" />
                         </label>
                         <label className="gc-radio">
                           <img src="/dashboard-assets/img/flags/de.png" alt="Flags" style={{height: '22px', width: '22px', objectFit: 'cover'}} className="rounded-circle gcr-flag" />
                           <div className="d-flex flex-column pt-5 pb-4 px-3 text-center align-items-center">
                             <img src="/dashboard-assets/img/gift-card-providers/nintendo.svg" alt="Provider" className="gcr-icon mb-2" height="43" />
                             <span className="text-white fw-semibold f-22p">
-                              $5
+                              $50
                             </span>
                             <span className="gcr-name fw-semibold f-16p">
                               nintendo
                             </span>
                           </div>
-                          <input type="radio" name="gift-card-amount" value="$5" className="d-none" />
+                          <input type="radio" name="gift-card-amount" value="$50" className="d-none" />
                         </label>
                         <label className="gc-radio">
                           <img src="/dashboard-assets/img/flags/de.png" alt="Flags" style={{height: '22px', width: '22px', objectFit: 'cover'}} className="rounded-circle gcr-flag" />
                           <div className="d-flex flex-column pt-5 pb-4 px-3 text-center align-items-center">
                             <img src="/dashboard-assets/img/gift-card-providers/nintendo.svg" alt="Provider" className="gcr-icon mb-2" height="43" />
                             <span className="text-white fw-semibold f-22p">
-                              $5
+                              $100
                             </span>
                             <span className="gcr-name fw-semibold f-16p">
                               nintendo
                             </span>
                           </div>
-                          <input type="radio" name="gift-card-amount" value="$5" className="d-none" />
+                          <input type="radio" name="gift-card-amount" value="$100" className="d-none" />
                         </label>
                         <label className="gc-radio">
                           <img src="/dashboard-assets/img/flags/de.png" alt="Flags" style={{height: '22px', width: '22px', objectFit: 'cover'}} className="rounded-circle gcr-flag" />
                           <div className="d-flex flex-column pt-5 pb-4 px-3 text-center align-items-center">
                             <img src="/dashboard-assets/img/gift-card-providers/nintendo.svg" alt="Provider" className="gcr-icon mb-2" height="43" />
                             <span className="text-white fw-semibold f-22p">
-                              $5
+                              $150
                             </span>
                             <span className="gcr-name fw-semibold f-16p">
                               nintendo
                             </span>
                           </div>
-                          <input type="radio" name="gift-card-amount" value="$5" className="d-none" />
+                          <input type="radio" name="gift-card-amount" value="$150" className="d-none" />
                         </label>
                         <label className="gc-radio">
                           <img src="/dashboard-assets/img/flags/de.png" alt="Flags" style={{height: '22px', width: '22px', objectFit: 'cover'}} className="rounded-circle gcr-flag" />
                           <div className="d-flex flex-column pt-5 pb-4 px-3 text-center align-items-center">
                             <img src="/dashboard-assets/img/gift-card-providers/nintendo.svg" alt="Provider" className="gcr-icon mb-2" height="43" />
                             <span className="text-white fw-semibold f-22p">
-                              $5
+                              $200
                             </span>
                             <span className="gcr-name fw-semibold f-16p">
                               nintendo
                             </span>
                           </div>
-                          <input type="radio" name="gift-card-amount" value="$5" className="d-none" />
+                          <input type="radio" name="gift-card-amount" value="$200" className="d-none" />
                         </label>
                         <label className="gc-radio">
                           <img src="/dashboard-assets/img/flags/de.png" alt="Flags" style={{height: '22px', width: '22px', objectFit: 'cover'}} className="rounded-circle gcr-flag" />
                           <div className="d-flex flex-column pt-5 pb-4 px-3 text-center align-items-center">
                             <img src="/dashboard-assets/img/gift-card-providers/nintendo.svg" alt="Provider" className="gcr-icon mb-2" height="43" />
                             <span className="text-white fw-semibold f-22p">
-                              $5
+                              $250
                             </span>
                             <span className="gcr-name fw-semibold f-16p">
                               nintendo
                             </span>
                           </div>
-                          <input type="radio" name="gift-card-amount" value="$5" className="d-none" />
+                          <input type="radio" name="gift-card-amount" value="$250" className="d-none" />
                         </label>
                       </div>
                     </div>
