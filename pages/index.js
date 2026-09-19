@@ -1,5 +1,12 @@
 import Layout from "../components/Layout";
 
+const TESTIMONIALS = [
+  { name: "Marcus H.", stars: 5, date: "June 14", text: "I was skeptical at first, but I've cashed out three times now via PayPal and every payout landed within a few minutes. The offer variety keeps things interesting too." },
+  { name: "Priya S.", stars: 5, date: "May 29", text: "Been using Monetars for about two months to fund my Steam wallet. The surveys pay better than most other sites I've tried, and support actually responds fast." },
+  { name: "Daniel K.", stars: 4, date: "July 3", text: "Solid platform overall. A couple offers took longer to credit than expected, but the support team sorted it out quickly once I opened a ticket." },
+  { name: "Aiko T.", stars: 5, date: "April 21", text: "The daily streak rewards are a nice touch -- I log in just for that now, but the app-testing offers are what really add up over a week." },
+];
+
 export default function Page() {
   return (
     <Layout showSidebarNav>
@@ -306,94 +313,28 @@ export default function Page() {
         <div className="row">
           <div className="col-lg-10 col-12 mx-auto">
             <div className="testimonials px-4">
-              <div className="pt-3 pb-4 px-3">
-                <div className="t-box">
-                  <div className="d-flex justify-content-between align-items-center mb-2">
-                    <div className="d-flex align-items-center t-stars">
-                      <i className="fa fa-star"></i>
-                      <i className="fa fa-star"></i>
-                      <i className="fa fa-star"></i>
-                      <i className="fa fa-star"></i>
-                      <i className="fa fa-star"></i>
+              {TESTIMONIALS.map((item) => (
+                <div className="pt-3 pb-4 px-3" key={item.name}>
+                  <div className="t-box">
+                    <div className="d-flex justify-content-between align-items-center mb-2">
+                      <div className="d-flex align-items-center t-stars">
+                        {Array.from({ length: item.stars }).map((_, i) => (
+                          <i className="fa fa-star" key={i}></i>
+                        ))}
+                      </div>
+                      <span className="t-date">
+                        {item.date}
+                      </span>
                     </div>
-                    <span className="t-date">
-                      June 14
-                    </span>
+                    <h4 className="t-name mb-0">
+                      {item.name}
+                    </h4>
+                    <p className="t-desc mb-0">
+                      {item.text}
+                    </p>
                   </div>
-                  <h4 className="t-name mb-0">
-                    Good Site 1
-                  </h4>
-                  <p className="t-desc mb-0">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto minus natus vitae ut culpa dignissimos doloremque architecto, eligendi minima id magnam! Laudantium molestias voluptatum itaque, blanditiis perspiciatis ab ea dicta!
-                  </p>
                 </div>
-              </div>
-              <div className="pt-3 pb-4 px-3">
-                <div className="t-box">
-                  <div className="d-flex justify-content-between align-items-center mb-2">
-                    <div className="d-flex align-items-center t-stars">
-                      <i className="fa fa-star"></i>
-                      <i className="fa fa-star"></i>
-                      <i className="fa fa-star"></i>
-                      <i className="fa fa-star"></i>
-                      <i className="fa fa-star"></i>
-                    </div>
-                    <span className="t-date">
-                      June 14
-                    </span>
-                  </div>
-                  <h4 className="t-name mb-0">
-                    Good Site 1
-                  </h4>
-                  <p className="t-desc mb-0">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto minus natus vitae ut culpa dignissimos doloremque architecto, eligendi minima id magnam! Laudantium molestias voluptatum itaque, blanditiis perspiciatis ab ea dicta!
-                  </p>
-                </div>
-              </div>
-              <div className="pt-3 pb-4 px-3">
-                <div className="t-box">
-                  <div className="d-flex justify-content-between align-items-center mb-2">
-                    <div className="d-flex align-items-center t-stars">
-                      <i className="fa fa-star"></i>
-                      <i className="fa fa-star"></i>
-                      <i className="fa fa-star"></i>
-                      <i className="fa fa-star"></i>
-                      <i className="fa fa-star"></i>
-                    </div>
-                    <span className="t-date">
-                      June 14
-                    </span>
-                  </div>
-                  <h4 className="t-name mb-0">
-                    Good Site 1
-                  </h4>
-                  <p className="t-desc mb-0">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto minus natus vitae ut culpa dignissimos doloremque architecto, eligendi minima id magnam! Laudantium molestias voluptatum itaque, blanditiis perspiciatis ab ea dicta!
-                  </p>
-                </div>
-              </div>
-              <div className="pt-3 pb-4 px-3">
-                <div className="t-box">
-                  <div className="d-flex justify-content-between align-items-center mb-2">
-                    <div className="d-flex align-items-center t-stars">
-                      <i className="fa fa-star"></i>
-                      <i className="fa fa-star"></i>
-                      <i className="fa fa-star"></i>
-                      <i className="fa fa-star"></i>
-                      <i className="fa fa-star"></i>
-                    </div>
-                    <span className="t-date">
-                      June 14
-                    </span>
-                  </div>
-                  <h4 className="t-name mb-0">
-                    Good Site 1
-                  </h4>
-                  <p className="t-desc mb-0">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto minus natus vitae ut culpa dignissimos doloremque architecto, eligendi minima id magnam! Laudantium molestias voluptatum itaque, blanditiis perspiciatis ab ea dicta!
-                  </p>
-                </div>
-              </div>
+              ))}
             </div>
           </div>
         </div>
