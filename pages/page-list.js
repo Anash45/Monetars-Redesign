@@ -23,6 +23,11 @@ function slug(href) {
   return href === "/" ? "homepage" : href.replace(/^\//, "");
 }
 
+function withTheme(href, theme) {
+  const separator = href.includes("?") ? "&" : "?";
+  return `${href}${separator}theme=${theme}`;
+}
+
 const THEME_COLORS = {
   light: { sectionBg: "#EEF2FF", cardBg: "#FFFFFF", title: "#262626", route: "#737373" },
   dark: { sectionBg: "#0F172A", cardBg: "#1E293B", title: "#FFFFFF", route: "#FFFFFF" },
@@ -41,7 +46,7 @@ function ThemeGallery({ theme, title }) {
       <div className="row g-3">
         {links.map(({ href, label }) => (
           <div className="col-lg-3 col-md-4 col-6 py-2 px-2" key={`${theme}-${href}`}>
-            <a href={href} className="d-block text-decoration-none roboto">
+            <a href={withTheme(href, theme)} className="d-block text-decoration-none roboto">
               <div
                 className="rounded-xl shadow-lg overflow-hidden h-100"
                 style={{ backgroundColor: colors.cardBg }}
