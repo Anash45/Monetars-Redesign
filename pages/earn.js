@@ -1,5 +1,44 @@
 import Layout from "../components/Layout";
 
+const GRID_OFFERS = [
+  { img: "19-37923.webp", title: "Prison Escape", desc: "Pin the pulls in the correct order to help Andy overcome obstacles and get free from prison! Help Andy to escape prison by solving complex pin puzzles.", coins: 41000 },
+  { img: "Nfelng9URrYx0dN.gif", title: "Coin Master Rush", desc: "Spin the wheel, raid villages, and build your own coin empire in this addictive slot adventure.", coins: 35500 },
+  { img: "19-37923.webp", title: "Merge Mansion", desc: "Merge items to restore Grandma's mansion and uncover the secrets hidden inside its walls.", coins: 28750 },
+  { img: "Nfelng9URrYx0dN.gif", title: "Block Puzzle Jam", desc: "Slide and stack blocks to clear the board before time runs out in this brain-teasing puzzle.", coins: 19800 },
+  { img: "19-37923.webp", title: "Zombie Survival Camp", desc: "Build defenses, craft weapons, and survive waves of zombies in this action-packed shooter.", coins: 52000 },
+  { img: "Nfelng9URrYx0dN.gif", title: "Bubble Pop Safari", desc: "Match and pop colorful bubbles to rescue cute jungle animals across 200+ levels.", coins: 12300 },
+  { img: "19-37923.webp", title: "Dragon City Builder", desc: "Hatch, raise, and battle dragons while building the ultimate floating city in the sky.", coins: 46700 },
+  { img: "Nfelng9URrYx0dN.gif", title: "Word Connect Legends", desc: "Swipe letters to form words and unlock legendary rewards in this addictive word game.", coins: 15400 },
+  { img: "19-37923.webp", title: "Idle Miner Tycoon", desc: "Dig deep, upgrade your mines, and become the richest tycoon in this idle strategy game.", coins: 33200 },
+  { img: "Nfelng9URrYx0dN.gif", title: "Solitaire Grand Harvest", desc: "Clear classic solitaire boards to grow your farm and harvest big rewards.", coins: 21900 },
+  { img: "19-37923.webp", title: "Township Adventure", desc: "Grow crops, run factories, and build the town of your dreams in this relaxing sim.", coins: 27600 },
+  { img: "Nfelng9URrYx0dN.gif", title: "Tile Match Mania", desc: "Clear the board by matching identical tiles in threes before you run out of moves.", coins: 9800 },
+];
+
+const FEATURED_OFFERS = [
+  { img: "19-37923.webp", title: "Royal Match Kingdom", desc: "Match colorful pieces to renovate the royal castle in this match-3 puzzle adventure.", coins: 38400 },
+  { img: "Nfelng9URrYx0dN.gif", title: "Fishdom Deep Dive", desc: "Solve match-3 puzzles to design your very own aquarium full of exotic fish.", coins: 17250 },
+  { img: "19-37923.webp", title: "Homescapes Renovation", desc: "Help Austin renovate his family home by completing fun match-3 levels.", coins: 24900 },
+  { img: "Nfelng9URrYx0dN.gif", title: "Candy Blast Fiesta", desc: "Blast candies in fast-paced rounds to unlock new worlds and sweet rewards.", coins: 13600 },
+  { img: "19-37923.webp", title: "Puzzle Survival Isle", desc: "Solve puzzles to gather resources and survive on a mysterious deserted island.", coins: 31200 },
+  { img: "Nfelng9URrYx0dN.gif", title: "Farm Merge Story", desc: "Merge crops and animals to grow the most bountiful farm in the valley.", coins: 20100 },
+];
+
+const OFFER_WALL_PROVIDERS = [
+  { name: "Ayet Studios", logo: "Ayet Studios.svg", percent: 30, color: "rgb(211 109 0 / 1)" },
+  { name: "Adscend Media", logo: "Adscendmedia.svg", percent: 45, color: "rgb(37 99 235 / 1)" },
+  { name: "MMWall", logo: "MMWall.svg", percent: 35, color: "rgb(124 58 237 / 1)" },
+  { name: "Wannads", logo: "Wannads.svg", percent: 60, color: "rgb(219 39 119 / 1)" },
+  { name: "Polfish", logo: "Polfish.svg", percent: 50, color: "rgb(220 38 38 / 1)" },
+  { name: "Loot.tv", logo: "Loot.tv.svg", percent: 20, color: "rgb(13 148 136 / 1)" },
+];
+
+const SURVEY_PROVIDERS = [
+  { name: "Theoremreach", logo: "Theoremreach.svg", percent: 25, color: "rgb(5 150 105 / 1)" },
+  { name: "inBrain", logo: "inBrain.svg", percent: 40, color: "rgb(8 145 178 / 1)" },
+];
+
+
 export default function Page() {
   return (
     <Layout headerVariant={"account"} active={"earn"} showPayModal payModalVariant={"empty"} showOfferModal scriptsVariant={"earn"}>
@@ -156,285 +195,39 @@ export default function Page() {
               <div className="offers-container">
                 <div className="py-2">
                   <div className="d-flex grid-offers mt-2">
-                    <div onClick={() => { openModal('offer') }} className="offer-box ob-first ob-hvr">
-                      <div className="ob-img">
-                        <div className="show-pop text-white">
-                          <span className="eye-circle">
-                            <i className="fa-solid fa-eye"></i>
-                          </span>
-                          <p className="mb-0">
-                            Show Offers
+                    {GRID_OFFERS.map((offer) => (
+                      <div onClick={() => { openModal('offer') }} className="offer-box ob-first ob-hvr" key={offer.title}>
+                        <div className="ob-img">
+                          <div className="show-pop text-white">
+                            <span className="eye-circle">
+                              <i className="fa-solid fa-eye"></i>
+                            </span>
+                            <p className="mb-0">
+                              Show Offers
+                            </p>
+                          </div>
+                          <img src={`/assets/img/${offer.img}`} alt="Offer" />
+                          <div className="os-flex">
+                            <i className="fa-brands fa-apple"></i>
+                            <img src="/assets/img/android-white.svg" alt="OS" />
+                          </div>
+                        </div>
+                        <div className="ob-text">
+                          <h5 className="ob-title">
+                            {offer.title}
+                          </h5>
+                          <p className="mb-2 ob-desc">
+                            {offer.desc}
                           </p>
                         </div>
-                        <img src="/assets/img/19-37923.webp" alt="Offer" />
-                        <div className="os-flex">
-                          <i className="fa-brands fa-apple"></i>
-                          <img src="/assets/img/android-white.svg" alt="OS" />
-                        </div>
-                      </div>
-                      <div className="ob-text">
-                        <h5 className="ob-title">
-                          Prison Escapeeeee
-                        </h5>
-                        <p className="mb-2 ob-desc">
-                          Pin the pulls in the correct order to help Andy overcome obstacles and get free from prison! Help Andy to escape prison by solving complex pin puzzles.
-                        </p>
-                      </div>
-                      <div className="d-flex ob-coins align-items-center justify-content-center gap-1">
-                        <img src="/assets/img/coin (1).png" alt="Coin" height="12" />
-                        <span>
-                          41,000
-                        </span>
-                      </div>
-                    </div>
-                    <div onClick={() => { openModal('offer') }} className="offer-box ob-first ob-hvr">
-                      <div className="ob-img">
-                        <div className="show-pop text-white">
-                          <span className="eye-circle">
-                            <i className="fa-solid fa-eye"></i>
+                        <div className="d-flex ob-coins align-items-center justify-content-center gap-1">
+                          <img src="/assets/img/coin (1).png" alt="Coin" height="12" />
+                          <span>
+                            {offer.coins.toLocaleString()}
                           </span>
-                          <p className="mb-0">
-                            Show Offers
-                          </p>
-                        </div>
-                        <img src="/assets/img/Nfelng9URrYx0dN.gif" alt="Offer" />
-                        <div className="os-flex">
-                          <i className="fa-brands fa-apple"></i>
-                          <img src="/assets/img/android-white.svg" alt="OS" />
                         </div>
                       </div>
-                      <div className="ob-text">
-                        <h5 className="ob-title">
-                          Prison Escapeeeee
-                        </h5>
-                        <p className="mb-2 ob-desc">
-                          Pin the pulls in the correct order to help Andy overcome obstacles and get free from prison! Help Andy to escape prison by solving complex pin puzzles.
-                        </p>
-                      </div>
-                      <div className="d-flex ob-coins align-items-center justify-content-center gap-1">
-                        <img src="/assets/img/coin (1).png" alt="Coin" height="12" />
-                        <span>
-                          41,000
-                        </span>
-                      </div>
-                    </div>
-                    <div onClick={() => { openModal('offer') }} className="offer-box ob-first ob-hvr">
-                      <div className="ob-img">
-                        <div className="show-pop text-white">
-                          <span className="eye-circle">
-                            <i className="fa-solid fa-eye"></i>
-                          </span>
-                          <p className="mb-0">
-                            Show Offers
-                          </p>
-                        </div>
-                        <img src="/assets/img/19-37923.webp" alt="Offer" />
-                        <div className="os-flex">
-                          <i className="fa-brands fa-apple"></i>
-                          <img src="/assets/img/android-white.svg" alt="OS" />
-                        </div>
-                      </div>
-                      <div className="ob-text">
-                        <h5 className="ob-title">
-                          Prison Escapeeeee
-                        </h5>
-                        <p className="mb-2 ob-desc">
-                          Pin the pulls in the correct order to help Andy overcome obstacles and get free from prison! Help Andy to escape prison by solving complex pin puzzles.
-                        </p>
-                      </div>
-                      <div className="d-flex ob-coins align-items-center justify-content-center gap-1">
-                        <img src="/assets/img/coin (1).png" alt="Coin" height="12" />
-                        <span>
-                          41,000
-                        </span>
-                      </div>
-                    </div>
-                    <div onClick={() => { openModal('offer') }} className="offer-box ob-first ob-hvr">
-                      <div className="ob-img">
-                        <div className="show-pop text-white">
-                          <span className="eye-circle">
-                            <i className="fa-solid fa-eye"></i>
-                          </span>
-                          <p className="mb-0">
-                            Show Offers
-                          </p>
-                        </div>
-                        <img src="/assets/img/Nfelng9URrYx0dN.gif" alt="Offer" />
-                        <div className="os-flex">
-                          <i className="fa-brands fa-apple"></i>
-                          <img src="/assets/img/android-white.svg" alt="OS" />
-                        </div>
-                      </div>
-                      <div className="ob-text">
-                        <h5 className="ob-title">
-                          Prison Escapeeeee
-                        </h5>
-                        <p className="mb-2 ob-desc">
-                          Pin the pulls in the correct order to help Andy overcome obstacles and get free from prison! Help Andy to escape prison by solving complex pin puzzles.
-                        </p>
-                      </div>
-                      <div className="d-flex ob-coins align-items-center justify-content-center gap-1">
-                        <img src="/assets/img/coin (1).png" alt="Coin" height="12" />
-                        <span>
-                          41,000
-                        </span>
-                      </div>
-                    </div>
-                    <div onClick={() => { openModal('offer') }} className="offer-box ob-first ob-hvr">
-                      <div className="ob-img">
-                        <div className="show-pop text-white">
-                          <span className="eye-circle">
-                            <i className="fa-solid fa-eye"></i>
-                          </span>
-                          <p className="mb-0">
-                            Show Offers
-                          </p>
-                        </div>
-                        <img src="/assets/img/19-37923.webp" alt="Offer" />
-                        <div className="os-flex">
-                          <i className="fa-brands fa-apple"></i>
-                          <img src="/assets/img/android-white.svg" alt="OS" />
-                        </div>
-                      </div>
-                      <div className="ob-text">
-                        <h5 className="ob-title">
-                          Prison Escapeeeee
-                        </h5>
-                        <p className="mb-2 ob-desc">
-                          Pin the pulls in the correct order to help Andy overcome obstacles and get free from prison! Help Andy to escape prison by solving complex pin puzzles.
-                        </p>
-                      </div>
-                      <div className="d-flex ob-coins align-items-center justify-content-center gap-1">
-                        <img src="/assets/img/coin (1).png" alt="Coin" height="12" />
-                        <span>
-                          41,000
-                        </span>
-                      </div>
-                    </div>
-                    <div onClick={() => { openModal('offer') }} className="offer-box ob-first ob-hvr">
-                      <div className="ob-img">
-                        <div className="show-pop text-white">
-                          <span className="eye-circle">
-                            <i className="fa-solid fa-eye"></i>
-                          </span>
-                          <p className="mb-0">
-                            Show Offers
-                          </p>
-                        </div>
-                        <img src="/assets/img/Nfelng9URrYx0dN.gif" alt="Offer" />
-                        <div className="os-flex">
-                          <i className="fa-brands fa-apple"></i>
-                          <img src="/assets/img/android-white.svg" alt="OS" />
-                        </div>
-                      </div>
-                      <div className="ob-text">
-                        <h5 className="ob-title">
-                          Prison Escapeeeee
-                        </h5>
-                        <p className="mb-2 ob-desc">
-                          Pin the pulls in the correct order to help Andy overcome obstacles and get free from prison! Help Andy to escape prison by solving complex pin puzzles.
-                        </p>
-                      </div>
-                      <div className="d-flex ob-coins align-items-center justify-content-center gap-1">
-                        <img src="/assets/img/coin (1).png" alt="Coin" height="12" />
-                        <span>
-                          41,000
-                        </span>
-                      </div>
-                    </div>
-                    <div onClick={() => { openModal('offer') }} className="offer-box ob-first ob-hvr">
-                      <div className="ob-img">
-                        <div className="show-pop text-white">
-                          <span className="eye-circle">
-                            <i className="fa-solid fa-eye"></i>
-                          </span>
-                          <p className="mb-0">
-                            Show Offers
-                          </p>
-                        </div>
-                        <img src="/assets/img/19-37923.webp" alt="Offer" />
-                        <div className="os-flex">
-                          <i className="fa-brands fa-apple"></i>
-                          <img src="/assets/img/android-white.svg" alt="OS" />
-                        </div>
-                      </div>
-                      <div className="ob-text">
-                        <h5 className="ob-title">
-                          Prison Escapeeeee
-                        </h5>
-                        <p className="mb-2 ob-desc">
-                          Pin the pulls in the correct order to help Andy overcome obstacles and get free from prison! Help Andy to escape prison by solving complex pin puzzles.
-                        </p>
-                      </div>
-                      <div className="d-flex ob-coins align-items-center justify-content-center gap-1">
-                        <img src="/assets/img/coin (1).png" alt="Coin" height="12" />
-                        <span>
-                          41,000
-                        </span>
-                      </div>
-                    </div>
-                    <div onClick={() => { openModal('offer') }} className="offer-box ob-first ob-hvr">
-                      <div className="ob-img">
-                        <div className="show-pop text-white">
-                          <span className="eye-circle">
-                            <i className="fa-solid fa-eye"></i>
-                          </span>
-                          <p className="mb-0">
-                            Show Offers
-                          </p>
-                        </div>
-                        <img src="/assets/img/Nfelng9URrYx0dN.gif" alt="Offer" />
-                        <div className="os-flex">
-                          <i className="fa-brands fa-apple"></i>
-                          <img src="/assets/img/android-white.svg" alt="OS" />
-                        </div>
-                      </div>
-                      <div className="ob-text">
-                        <h5 className="ob-title">
-                          Prison Escapeeeee
-                        </h5>
-                        <p className="mb-2 ob-desc">
-                          Pin the pulls in the correct order to help Andy overcome obstacles and get free from prison! Help Andy to escape prison by solving complex pin puzzles.
-                        </p>
-                      </div>
-                      <div className="d-flex ob-coins align-items-center justify-content-center gap-1">
-                        <img src="/assets/img/coin (1).png" alt="Coin" height="12" />
-                        <span>
-                          41,000
-                        </span>
-                      </div>
-                    </div>
-                    <div onClick={() => { openModal('offer') }} className="offer-box ob-first ob-hvr">
-                      <div className="ob-img">
-                        <div className="show-pop text-white">
-                          <span className="eye-circle">
-                            <i className="fa-solid fa-eye"></i>
-                          </span>
-                          <p className="mb-0">
-                            Show Offers
-                          </p>
-                        </div>
-                        <img src="/assets/img/19-37923.webp" alt="Offer" />
-                        <div className="os-flex">
-                          <i className="fa-brands fa-apple"></i>
-                          <img src="/assets/img/android-white.svg" alt="OS" />
-                        </div>
-                      </div>
-                      <div className="ob-text">
-                        <h5 className="ob-title">
-                          Prison Escapeeeee
-                        </h5>
-                        <p className="mb-2 ob-desc">
-                          Pin the pulls in the correct order to help Andy overcome obstacles and get free from prison! Help Andy to escape prison by solving complex pin puzzles.
-                        </p>
-                      </div>
-                      <div className="d-flex ob-coins align-items-center justify-content-center gap-1">
-                        <img src="/assets/img/coin (1).png" alt="Coin" height="12" />
-                        <span>
-                          41,000
-                        </span>
-                      </div>
-                    </div>
+                    ))}
                   </div>
                 </div>
               </div>
@@ -443,285 +236,39 @@ export default function Page() {
               <div className="offers-container">
                 <div className="py-2">
                   <div className="d-flex list-offers mt-2">
-                    <div onClick={() => { openModal('offer') }} className="offer-box ob-first ob-hvr">
-                      <div className="ob-img">
-                        <div className="show-pop text-white">
-                          <span className="eye-circle">
-                            <i className="fa-solid fa-eye"></i>
-                          </span>
-                          <p className="mb-0">
-                            Show Offers
+                    {GRID_OFFERS.map((offer) => (
+                      <div onClick={() => { openModal('offer') }} className="offer-box ob-first ob-hvr" key={offer.title}>
+                        <div className="ob-img">
+                          <div className="show-pop text-white">
+                            <span className="eye-circle">
+                              <i className="fa-solid fa-eye"></i>
+                            </span>
+                            <p className="mb-0">
+                              Show Offers
+                            </p>
+                          </div>
+                          <img src={`/assets/img/${offer.img}`} alt="Offer" />
+                          <div className="os-flex">
+                            <i className="fa-brands fa-apple"></i>
+                            <img src="/assets/img/android-white.svg" alt="OS" />
+                          </div>
+                        </div>
+                        <div className="ob-text">
+                          <h5 className="ob-title">
+                            {offer.title}
+                          </h5>
+                          <p className="mb-2 ob-desc">
+                            {offer.desc}
                           </p>
                         </div>
-                        <img src="/assets/img/19-37923.webp" alt="Offer" />
-                      </div>
-                      <div className="ob-text">
-                        <h5 className="ob-title">
-                          Prison Escapeeeee
-                        </h5>
-                        <p className="mb-2 ob-desc">
-                          Pin the pulls in the correct order to help Andy overcome obstacles and get free from prison! Help Andy to escape prison by solving complex pin puzzles.
-                        </p>
-                        <div className="os-flex">
-                          <i className="fa-brands fa-apple"></i>
-                          <img src="/assets/img/android-white.svg" alt="OS" />
-                        </div>
-                      </div>
-                      <div className="d-flex ob-coins align-items-center justify-content-center gap-1">
-                        <img src="/assets/img/coin (1).png" alt="Coin" height="12" />
-                        <span>
-                          41,000
-                        </span>
-                      </div>
-                    </div>
-                    <div onClick={() => { openModal('offer') }} className="offer-box ob-first ob-hvr">
-                      <div className="ob-img">
-                        <div className="show-pop text-white">
-                          <span className="eye-circle">
-                            <i className="fa-solid fa-eye"></i>
+                        <div className="d-flex ob-coins align-items-center justify-content-center gap-1">
+                          <img src="/assets/img/coin (1).png" alt="Coin" height="12" />
+                          <span>
+                            {offer.coins.toLocaleString()}
                           </span>
-                          <p className="mb-0">
-                            Show Offers
-                          </p>
-                        </div>
-                        <img src="/assets/img/Nfelng9URrYx0dN.gif" alt="Offer" />
-                      </div>
-                      <div className="ob-text">
-                        <h5 className="ob-title">
-                          Prison Escapeeeee
-                        </h5>
-                        <p className="mb-2 ob-desc">
-                          Pin the pulls in the correct order to help Andy overcome obstacles and get free from prison! Help Andy to escape prison by solving complex pin puzzles.
-                        </p>
-                        <div className="os-flex">
-                          <i className="fa-brands fa-apple"></i>
-                          <img src="/assets/img/android-white.svg" alt="OS" />
                         </div>
                       </div>
-                      <div className="d-flex ob-coins align-items-center justify-content-center gap-1">
-                        <img src="/assets/img/coin (1).png" alt="Coin" height="12" />
-                        <span>
-                          41,000
-                        </span>
-                      </div>
-                    </div>
-                    <div onClick={() => { openModal('offer') }} className="offer-box ob-first ob-hvr">
-                      <div className="ob-img">
-                        <div className="show-pop text-white">
-                          <span className="eye-circle">
-                            <i className="fa-solid fa-eye"></i>
-                          </span>
-                          <p className="mb-0">
-                            Show Offers
-                          </p>
-                        </div>
-                        <img src="/assets/img/19-37923.webp" alt="Offer" />
-                      </div>
-                      <div className="ob-text">
-                        <h5 className="ob-title">
-                          Prison Escapeeeee
-                        </h5>
-                        <p className="mb-2 ob-desc">
-                          Pin the pulls in the correct order to help Andy overcome obstacles and get free from prison! Help Andy to escape prison by solving complex pin puzzles.
-                        </p>
-                        <div className="os-flex">
-                          <i className="fa-brands fa-apple"></i>
-                          <img src="/assets/img/android-white.svg" alt="OS" />
-                        </div>
-                      </div>
-                      <div className="d-flex ob-coins align-items-center justify-content-center gap-1">
-                        <img src="/assets/img/coin (1).png" alt="Coin" height="12" />
-                        <span>
-                          41,000
-                        </span>
-                      </div>
-                    </div>
-                    <div onClick={() => { openModal('offer') }} className="offer-box ob-first ob-hvr">
-                      <div className="ob-img">
-                        <div className="show-pop text-white">
-                          <span className="eye-circle">
-                            <i className="fa-solid fa-eye"></i>
-                          </span>
-                          <p className="mb-0">
-                            Show Offers
-                          </p>
-                        </div>
-                        <img src="/assets/img/Nfelng9URrYx0dN.gif" alt="Offer" />
-                      </div>
-                      <div className="ob-text">
-                        <h5 className="ob-title">
-                          Prison Escapeeeee
-                        </h5>
-                        <p className="mb-2 ob-desc">
-                          Pin the pulls in the correct order to help Andy overcome obstacles and get free from prison! Help Andy to escape prison by solving complex pin puzzles.
-                        </p>
-                        <div className="os-flex">
-                          <i className="fa-brands fa-apple"></i>
-                          <img src="/assets/img/android-white.svg" alt="OS" />
-                        </div>
-                      </div>
-                      <div className="d-flex ob-coins align-items-center justify-content-center gap-1">
-                        <img src="/assets/img/coin (1).png" alt="Coin" height="12" />
-                        <span>
-                          41,000
-                        </span>
-                      </div>
-                    </div>
-                    <div onClick={() => { openModal('offer') }} className="offer-box ob-first ob-hvr">
-                      <div className="ob-img">
-                        <div className="show-pop text-white">
-                          <span className="eye-circle">
-                            <i className="fa-solid fa-eye"></i>
-                          </span>
-                          <p className="mb-0">
-                            Show Offers
-                          </p>
-                        </div>
-                        <img src="/assets/img/19-37923.webp" alt="Offer" />
-                      </div>
-                      <div className="ob-text">
-                        <h5 className="ob-title">
-                          Prison Escapeeeee
-                        </h5>
-                        <p className="mb-2 ob-desc">
-                          Pin the pulls in the correct order to help Andy overcome obstacles and get free from prison! Help Andy to escape prison by solving complex pin puzzles.
-                        </p>
-                        <div className="os-flex">
-                          <i className="fa-brands fa-apple"></i>
-                          <img src="/assets/img/android-white.svg" alt="OS" />
-                        </div>
-                      </div>
-                      <div className="d-flex ob-coins align-items-center justify-content-center gap-1">
-                        <img src="/assets/img/coin (1).png" alt="Coin" height="12" />
-                        <span>
-                          41,000
-                        </span>
-                      </div>
-                    </div>
-                    <div onClick={() => { openModal('offer') }} className="offer-box ob-first ob-hvr">
-                      <div className="ob-img">
-                        <div className="show-pop text-white">
-                          <span className="eye-circle">
-                            <i className="fa-solid fa-eye"></i>
-                          </span>
-                          <p className="mb-0">
-                            Show Offers
-                          </p>
-                        </div>
-                        <img src="/assets/img/Nfelng9URrYx0dN.gif" alt="Offer" />
-                      </div>
-                      <div className="ob-text">
-                        <h5 className="ob-title">
-                          Prison Escapeeeee
-                        </h5>
-                        <p className="mb-2 ob-desc">
-                          Pin the pulls in the correct order to help Andy overcome obstacles and get free from prison! Help Andy to escape prison by solving complex pin puzzles.
-                        </p>
-                        <div className="os-flex">
-                          <i className="fa-brands fa-apple"></i>
-                          <img src="/assets/img/android-white.svg" alt="OS" />
-                        </div>
-                      </div>
-                      <div className="d-flex ob-coins align-items-center justify-content-center gap-1">
-                        <img src="/assets/img/coin (1).png" alt="Coin" height="12" />
-                        <span>
-                          41,000
-                        </span>
-                      </div>
-                    </div>
-                    <div onClick={() => { openModal('offer') }} className="offer-box ob-first ob-hvr">
-                      <div className="ob-img">
-                        <div className="show-pop text-white">
-                          <span className="eye-circle">
-                            <i className="fa-solid fa-eye"></i>
-                          </span>
-                          <p className="mb-0">
-                            Show Offers
-                          </p>
-                        </div>
-                        <img src="/assets/img/19-37923.webp" alt="Offer" />
-                      </div>
-                      <div className="ob-text">
-                        <h5 className="ob-title">
-                          Prison Escapeeeee
-                        </h5>
-                        <p className="mb-2 ob-desc">
-                          Pin the pulls in the correct order to help Andy overcome obstacles and get free from prison! Help Andy to escape prison by solving complex pin puzzles.
-                        </p>
-                        <div className="os-flex">
-                          <i className="fa-brands fa-apple"></i>
-                          <img src="/assets/img/android-white.svg" alt="OS" />
-                        </div>
-                      </div>
-                      <div className="d-flex ob-coins align-items-center justify-content-center gap-1">
-                        <img src="/assets/img/coin (1).png" alt="Coin" height="12" />
-                        <span>
-                          41,000
-                        </span>
-                      </div>
-                    </div>
-                    <div onClick={() => { openModal('offer') }} className="offer-box ob-first ob-hvr">
-                      <div className="ob-img">
-                        <div className="show-pop text-white">
-                          <span className="eye-circle">
-                            <i className="fa-solid fa-eye"></i>
-                          </span>
-                          <p className="mb-0">
-                            Show Offers
-                          </p>
-                        </div>
-                        <img src="/assets/img/Nfelng9URrYx0dN.gif" alt="Offer" />
-                      </div>
-                      <div className="ob-text">
-                        <h5 className="ob-title">
-                          Prison Escapeeeee
-                        </h5>
-                        <p className="mb-2 ob-desc">
-                          Pin the pulls in the correct order to help Andy overcome obstacles and get free from prison! Help Andy to escape prison by solving complex pin puzzles.
-                        </p>
-                        <div className="os-flex">
-                          <i className="fa-brands fa-apple"></i>
-                          <img src="/assets/img/android-white.svg" alt="OS" />
-                        </div>
-                      </div>
-                      <div className="d-flex ob-coins align-items-center justify-content-center gap-1">
-                        <img src="/assets/img/coin (1).png" alt="Coin" height="12" />
-                        <span>
-                          41,000
-                        </span>
-                      </div>
-                    </div>
-                    <div onClick={() => { openModal('offer') }} className="offer-box ob-first ob-hvr">
-                      <div className="ob-img">
-                        <div className="show-pop text-white">
-                          <span className="eye-circle">
-                            <i className="fa-solid fa-eye"></i>
-                          </span>
-                          <p className="mb-0">
-                            Show Offers
-                          </p>
-                        </div>
-                        <img src="/assets/img/19-37923.webp" alt="Offer" />
-                      </div>
-                      <div className="ob-text">
-                        <h5 className="ob-title">
-                          Prison Escapeeeee
-                        </h5>
-                        <p className="mb-2 ob-desc">
-                          Pin the pulls in the correct order to help Andy overcome obstacles and get free from prison! Help Andy to escape prison by solving complex pin puzzles.
-                        </p>
-                        <div className="os-flex">
-                          <i className="fa-brands fa-apple"></i>
-                          <img src="/assets/img/android-white.svg" alt="OS" />
-                        </div>
-                      </div>
-                      <div className="d-flex ob-coins align-items-center justify-content-center gap-1">
-                        <img src="/assets/img/coin (1).png" alt="Coin" height="12" />
-                        <span>
-                          41,000
-                        </span>
-                      </div>
-                    </div>
+                    ))}
                   </div>
                 </div>
               </div>
@@ -741,303 +288,41 @@ export default function Page() {
             </div>
             <div className="py-2">
               <div className="d-flex offers mt-2">
-                <div className="mx-2">
-                  <div onClick={() => { openModal('offer') }} className="offer-box ob-first ob-hvr">
-                    <div className="ob-img">
-                      <div className="show-pop text-white">
-                        <span className="eye-circle">
-                          <i className="fa-solid fa-eye"></i>
-                        </span>
-                        <p className="mb-0">
-                          Show Offers
+                {FEATURED_OFFERS.map((offer) => (
+                  <div className="mx-2" key={offer.title}>
+                    <div onClick={() => { openModal('offer') }} className="offer-box ob-first ob-hvr">
+                      <div className="ob-img">
+                        <div className="show-pop text-white">
+                          <span className="eye-circle">
+                            <i className="fa-solid fa-eye"></i>
+                          </span>
+                          <p className="mb-0">
+                            Show Offers
+                          </p>
+                        </div>
+                        <img src={`/assets/img/${offer.img}`} alt="Offer" />
+                        <div className="os-flex">
+                          <i className="fa-brands fa-apple"></i>
+                          <img src="/assets/img/android-white.svg" alt="OS" />
+                        </div>
+                      </div>
+                      <div className="ob-text">
+                        <h5 className="ob-title">
+                          {offer.title}
+                        </h5>
+                        <p className="mb-2 ob-desc">
+                          {offer.desc}
                         </p>
                       </div>
-                      <img src="/assets/img/19-37923.webp" alt="Offer" />
-                      <div className="os-flex">
-                        <i className="fa-brands fa-apple"></i>
-                        <img src="/assets/img/android-white.svg" alt="OS" />
-                      </div>
-                    </div>
-                    <div className="ob-text">
-                      <h5 className="ob-title">
-                        Prison Escapeeeee
-                      </h5>
-                      <p className="mb-2 ob-desc">
-                        Pin the pulls in the correct order to help Andy overcome obstacles and get free from prison! Help Andy to escape prison by solving complex pin puzzles.
-                      </p>
-                    </div>
-                    <div className="d-flex ob-coins align-items-center justify-content-center gap-1">
-                      <img src="/assets/img/coin (1).png" alt="Coin" height="12" />
-                      <span>
-                        41,000
-                      </span>
-                    </div>
-                  </div>
-                </div>
-                <div className="mx-2">
-                  <div onClick={() => { openModal('offer') }} className="offer-box ob-first ob-hvr">
-                    <div className="ob-img">
-                      <div className="show-pop text-white">
-                        <span className="eye-circle">
-                          <i className="fa-solid fa-eye"></i>
+                      <div className="d-flex ob-coins align-items-center justify-content-center gap-1">
+                        <img src="/assets/img/coin (1).png" alt="Coin" height="12" />
+                        <span>
+                          {offer.coins.toLocaleString()}
                         </span>
-                        <p className="mb-0">
-                          Show Offers
-                        </p>
                       </div>
-                      <img src="/assets/img/Nfelng9URrYx0dN.gif" alt="Offer" />
-                      <div className="os-flex">
-                        <i className="fa-brands fa-apple"></i>
-                        <img src="/assets/img/android-white.svg" alt="OS" />
-                      </div>
-                    </div>
-                    <div className="ob-text">
-                      <h5 className="ob-title">
-                        Prison Escapeeeee
-                      </h5>
-                      <p className="mb-2 ob-desc">
-                        Pin the pulls in the correct order to help Andy overcome obstacles and get free from prison! Help Andy to escape prison by solving complex pin puzzles.
-                      </p>
-                    </div>
-                    <div className="d-flex ob-coins align-items-center justify-content-center gap-1">
-                      <img src="/assets/img/coin (1).png" alt="Coin" height="12" />
-                      <span>
-                        41,000
-                      </span>
                     </div>
                   </div>
-                </div>
-                <div className="mx-2">
-                  <div onClick={() => { openModal('offer') }} className="offer-box ob-first ob-hvr">
-                    <div className="ob-img">
-                      <div className="show-pop text-white">
-                        <span className="eye-circle">
-                          <i className="fa-solid fa-eye"></i>
-                        </span>
-                        <p className="mb-0">
-                          Show Offers
-                        </p>
-                      </div>
-                      <img src="/assets/img/19-37923.webp" alt="Offer" />
-                      <div className="os-flex">
-                        <i className="fa-brands fa-apple"></i>
-                        <img src="/assets/img/android-white.svg" alt="OS" />
-                      </div>
-                    </div>
-                    <div className="ob-text">
-                      <h5 className="ob-title">
-                        Prison Escapeeeee
-                      </h5>
-                      <p className="mb-2 ob-desc">
-                        Pin the pulls in the correct order to help Andy overcome obstacles and get free from prison! Help Andy to escape prison by solving complex pin puzzles.
-                      </p>
-                    </div>
-                    <div className="d-flex ob-coins align-items-center justify-content-center gap-1">
-                      <img src="/assets/img/coin (1).png" alt="Coin" height="12" />
-                      <span>
-                        41,000
-                      </span>
-                    </div>
-                  </div>
-                </div>
-                <div className="mx-2">
-                  <div onClick={() => { openModal('offer') }} className="offer-box ob-first ob-hvr">
-                    <div className="ob-img">
-                      <div className="show-pop text-white">
-                        <span className="eye-circle">
-                          <i className="fa-solid fa-eye"></i>
-                        </span>
-                        <p className="mb-0">
-                          Show Offers
-                        </p>
-                      </div>
-                      <img src="/assets/img/Nfelng9URrYx0dN.gif" alt="Offer" />
-                      <div className="os-flex">
-                        <i className="fa-brands fa-apple"></i>
-                        <img src="/assets/img/android-white.svg" alt="OS" />
-                      </div>
-                    </div>
-                    <div className="ob-text">
-                      <h5 className="ob-title">
-                        Prison Escapeeeee
-                      </h5>
-                      <p className="mb-2 ob-desc">
-                        Pin the pulls in the correct order to help Andy overcome obstacles and get free from prison! Help Andy to escape prison by solving complex pin puzzles.
-                      </p>
-                    </div>
-                    <div className="d-flex ob-coins align-items-center justify-content-center gap-1">
-                      <img src="/assets/img/coin (1).png" alt="Coin" height="12" />
-                      <span>
-                        41,000
-                      </span>
-                    </div>
-                  </div>
-                </div>
-                <div className="mx-2">
-                  <div onClick={() => { openModal('offer') }} className="offer-box ob-first ob-hvr">
-                    <div className="ob-img">
-                      <div className="show-pop text-white">
-                        <span className="eye-circle">
-                          <i className="fa-solid fa-eye"></i>
-                        </span>
-                        <p className="mb-0">
-                          Show Offers
-                        </p>
-                      </div>
-                      <img src="/assets/img/19-37923.webp" alt="Offer" />
-                      <div className="os-flex">
-                        <i className="fa-brands fa-apple"></i>
-                        <img src="/assets/img/android-white.svg" alt="OS" />
-                      </div>
-                    </div>
-                    <div className="ob-text">
-                      <h5 className="ob-title">
-                        Prison Escapeeeee
-                      </h5>
-                      <p className="mb-2 ob-desc">
-                        Pin the pulls in the correct order to help Andy overcome obstacles and get free from prison! Help Andy to escape prison by solving complex pin puzzles.
-                      </p>
-                    </div>
-                    <div className="d-flex ob-coins align-items-center justify-content-center gap-1">
-                      <img src="/assets/img/coin (1).png" alt="Coin" height="12" />
-                      <span>
-                        41,000
-                      </span>
-                    </div>
-                  </div>
-                </div>
-                <div className="mx-2">
-                  <div onClick={() => { openModal('offer') }} className="offer-box ob-first ob-hvr">
-                    <div className="ob-img">
-                      <div className="show-pop text-white">
-                        <span className="eye-circle">
-                          <i className="fa-solid fa-eye"></i>
-                        </span>
-                        <p className="mb-0">
-                          Show Offers
-                        </p>
-                      </div>
-                      <img src="/assets/img/Nfelng9URrYx0dN.gif" alt="Offer" />
-                      <div className="os-flex">
-                        <i className="fa-brands fa-apple"></i>
-                        <img src="/assets/img/android-white.svg" alt="OS" />
-                      </div>
-                    </div>
-                    <div className="ob-text">
-                      <h5 className="ob-title">
-                        Prison Escapeeeee
-                      </h5>
-                      <p className="mb-2 ob-desc">
-                        Pin the pulls in the correct order to help Andy overcome obstacles and get free from prison! Help Andy to escape prison by solving complex pin puzzles.
-                      </p>
-                    </div>
-                    <div className="d-flex ob-coins align-items-center justify-content-center gap-1">
-                      <img src="/assets/img/coin (1).png" alt="Coin" height="12" />
-                      <span>
-                        41,000
-                      </span>
-                    </div>
-                  </div>
-                </div>
-                <div className="mx-2">
-                  <div onClick={() => { openModal('offer') }} className="offer-box ob-first ob-hvr">
-                    <div className="ob-img">
-                      <div className="show-pop text-white">
-                        <span className="eye-circle">
-                          <i className="fa-solid fa-eye"></i>
-                        </span>
-                        <p className="mb-0">
-                          Show Offers
-                        </p>
-                      </div>
-                      <img src="/assets/img/19-37923.webp" alt="Offer" />
-                      <div className="os-flex">
-                        <i className="fa-brands fa-apple"></i>
-                        <img src="/assets/img/android-white.svg" alt="OS" />
-                      </div>
-                    </div>
-                    <div className="ob-text">
-                      <h5 className="ob-title">
-                        Prison Escapeeeee
-                      </h5>
-                      <p className="mb-2 ob-desc">
-                        Pin the pulls in the correct order to help Andy overcome obstacles and get free from prison! Help Andy to escape prison by solving complex pin puzzles.
-                      </p>
-                    </div>
-                    <div className="d-flex ob-coins align-items-center justify-content-center gap-1">
-                      <img src="/assets/img/coin (1).png" alt="Coin" height="12" />
-                      <span>
-                        41,000
-                      </span>
-                    </div>
-                  </div>
-                </div>
-                <div className="mx-2">
-                  <div onClick={() => { openModal('offer') }} className="offer-box ob-first ob-hvr">
-                    <div className="ob-img">
-                      <div className="show-pop text-white">
-                        <span className="eye-circle">
-                          <i className="fa-solid fa-eye"></i>
-                        </span>
-                        <p className="mb-0">
-                          Show Offers
-                        </p>
-                      </div>
-                      <img src="/assets/img/Nfelng9URrYx0dN.gif" alt="Offer" />
-                      <div className="os-flex">
-                        <i className="fa-brands fa-apple"></i>
-                        <img src="/assets/img/android-white.svg" alt="OS" />
-                      </div>
-                    </div>
-                    <div className="ob-text">
-                      <h5 className="ob-title">
-                        Prison Escapeeeee
-                      </h5>
-                      <p className="mb-2 ob-desc">
-                        Pin the pulls in the correct order to help Andy overcome obstacles and get free from prison! Help Andy to escape prison by solving complex pin puzzles.
-                      </p>
-                    </div>
-                    <div className="d-flex ob-coins align-items-center justify-content-center gap-1">
-                      <img src="/assets/img/coin (1).png" alt="Coin" height="12" />
-                      <span>
-                        41,000
-                      </span>
-                    </div>
-                  </div>
-                </div>
-                <div className="mx-2">
-                  <div onClick={() => { openModal('offer') }} className="offer-box ob-first ob-hvr">
-                    <div className="ob-img">
-                      <div className="show-pop text-white">
-                        <span className="eye-circle">
-                          <i className="fa-solid fa-eye"></i>
-                        </span>
-                        <p className="mb-0">
-                          Show Offers
-                        </p>
-                      </div>
-                      <img src="/assets/img/19-37923.webp" alt="Offer" />
-                      <div className="os-flex">
-                        <i className="fa-brands fa-apple"></i>
-                        <img src="/assets/img/android-white.svg" alt="OS" />
-                      </div>
-                    </div>
-                    <div className="ob-text">
-                      <h5 className="ob-title">
-                        Prison Escapeeeee
-                      </h5>
-                      <p className="mb-2 ob-desc">
-                        Pin the pulls in the correct order to help Andy overcome obstacles and get free from prison! Help Andy to escape prison by solving complex pin puzzles.
-                      </p>
-                    </div>
-                    <div className="d-flex ob-coins align-items-center justify-content-center gap-1">
-                      <img src="/assets/img/coin (1).png" alt="Coin" height="12" />
-                      <span>
-                        41,000
-                      </span>
-                    </div>
-                  </div>
-                </div>
+                ))}
               </div>
             </div>
           </div>
@@ -1053,70 +338,24 @@ export default function Page() {
             </div>
             <div className="py-2">
               <div className="d-flex offers mt-2">
-                <div className="mx-2">
-                  <div onClick={() => { openModal('offer') }} className="offer-box ob-first ob-simple" style={{backgroundColor: 'rgb(211 109 0 / 1) !important'}}>
-                    <img src="/assets/img/providers/Ayet Studios.svg" alt="Ob Image" className="ob-main-img" />
-                    <span className="ob-name text-white">
-                      Ayet Studios
-                    </span>
-                    <span className="ob-percent text-white">
-                      30%
-                    </span>
-                    <span className="show-pop">
-                      <span className="eye-circle">
-                        <i className="fa-solid fa-eye"></i>
+                {OFFER_WALL_PROVIDERS.map((provider) => (
+                  <div className="mx-2" key={provider.name}>
+                    <div onClick={() => { openModal('offer') }} className="offer-box ob-first ob-simple" style={{backgroundColor: provider.color}}>
+                      <img src={`/assets/img/providers/${provider.logo}`} alt="Ob Image" className="ob-main-img" />
+                      <span className="ob-name text-white">
+                        {provider.name}
                       </span>
-                    </span>
-                  </div>
-                </div>
-                <div className="mx-2">
-                  <div onClick={() => { openModal('offer') }} className="offer-box ob-first ob-simple" style={{backgroundColor: 'rgb(211 109 0 / 1) !important'}}>
-                    <img src="/assets/img/providers/Ayet Studios.svg" alt="Ob Image" className="ob-main-img" />
-                    <span className="ob-name text-white">
-                      Ayet Studios
-                    </span>
-                    <span className="ob-percent text-white">
-                      30%
-                    </span>
-                    <span className="show-pop">
-                      <span className="eye-circle">
-                        <i className="fa-solid fa-eye"></i>
+                      <span className="ob-percent text-white">
+                        {provider.percent}%
                       </span>
-                    </span>
-                  </div>
-                </div>
-                <div className="mx-2">
-                  <div onClick={() => { openModal('offer') }} className="offer-box ob-first ob-simple" style={{backgroundColor: 'rgb(211 109 0 / 1) !important'}}>
-                    <img src="/assets/img/providers/Ayet Studios.svg" alt="Ob Image" className="ob-main-img" />
-                    <span className="ob-name text-white">
-                      Ayet Studios
-                    </span>
-                    <span className="ob-percent text-white">
-                      30%
-                    </span>
-                    <span className="show-pop">
-                      <span className="eye-circle">
-                        <i className="fa-solid fa-eye"></i>
+                      <span className="show-pop">
+                        <span className="eye-circle">
+                          <i className="fa-solid fa-eye"></i>
+                        </span>
                       </span>
-                    </span>
+                    </div>
                   </div>
-                </div>
-                <div className="mx-2">
-                  <div onClick={() => { openModal('offer') }} className="offer-box ob-first ob-simple" style={{backgroundColor: 'rgb(211 109 0 / 1) !important'}}>
-                    <img src="/assets/img/providers/Ayet Studios.svg" alt="Ob Image" className="ob-main-img" />
-                    <span className="ob-name text-white">
-                      Ayet Studios
-                    </span>
-                    <span className="ob-percent text-white">
-                      30%
-                    </span>
-                    <span className="show-pop">
-                      <span className="eye-circle">
-                        <i className="fa-solid fa-eye"></i>
-                      </span>
-                    </span>
-                  </div>
-                </div>
+                ))}
               </div>
             </div>
           </div>
@@ -1132,38 +371,24 @@ export default function Page() {
             </div>
             <div className="py-2">
               <div className="d-flex offers mt-2">
-                <div className="mx-2">
-                  <div onClick={() => { openModal('offer') }} className="offer-box ob-first ob-simple" style={{backgroundColor: 'rgb(211 109 0 / 1) !important'}}>
-                    <img src="/assets/img/providers/Ayet Studios.svg" alt="Ob Image" className="ob-main-img" />
-                    <span className="ob-name text-white">
-                      Ayet Studios
-                    </span>
-                    <span className="ob-percent text-white">
-                      30%
-                    </span>
-                    <span className="show-pop">
-                      <span className="eye-circle">
-                        <i className="fa-solid fa-eye"></i>
+                {SURVEY_PROVIDERS.map((provider) => (
+                  <div className="mx-2" key={provider.name}>
+                    <div onClick={() => { openModal('offer') }} className="offer-box ob-first ob-simple" style={{backgroundColor: provider.color}}>
+                      <img src={`/assets/img/providers/${provider.logo}`} alt="Ob Image" className="ob-main-img" />
+                      <span className="ob-name text-white">
+                        {provider.name}
                       </span>
-                    </span>
-                  </div>
-                </div>
-                <div className="mx-2">
-                  <div onClick={() => { openModal('offer') }} className="offer-box ob-first ob-simple" style={{backgroundColor: 'rgb(211 109 0 / 1) !important'}}>
-                    <img src="/assets/img/providers/Ayet Studios.svg" alt="Ob Image" className="ob-main-img" />
-                    <span className="ob-name text-white">
-                      Ayet Studios
-                    </span>
-                    <span className="ob-percent text-white">
-                      30%
-                    </span>
-                    <span className="show-pop">
-                      <span className="eye-circle">
-                        <i className="fa-solid fa-eye"></i>
+                      <span className="ob-percent text-white">
+                        {provider.percent}%
                       </span>
-                    </span>
+                      <span className="show-pop">
+                        <span className="eye-circle">
+                          <i className="fa-solid fa-eye"></i>
+                        </span>
+                      </span>
+                    </div>
                   </div>
-                </div>
+                ))}
               </div>
             </div>
           </div>
