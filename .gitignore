@@ -6,4 +6,6 @@ extras/
 /out/
 npm-debug.log*
 .env*.local
+/AGENTS.md
+/CLAUDE.md
 

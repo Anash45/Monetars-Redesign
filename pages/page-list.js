@@ -1,6 +1,67 @@
 import Head from "next/head";
 import Scripts from "../components/Scripts";
 
+const links = [
+  { href: "/", label: "Homepage" },
+  { href: "/about", label: "About" },
+  { href: "/blog-detail", label: "Blog Details" },
+  { href: "/blog", label: "Blogs" },
+  { href: "/contact", label: "Contact" },
+  { href: "/earn", label: "Earn" },
+  { href: "/faq", label: "FAQ" },
+  { href: "/imprint", label: "Imprint" },
+  { href: "/leaders", label: "Leaders" },
+  { href: "/privacy", label: "Privacy" },
+  { href: "/profile", label: "Profile" },
+  { href: "/reward", label: "Reward" },
+  { href: "/terms", label: "Terms" },
+  { href: "/unavailable", label: "Unavailable" },
+  { href: "/withdraw", label: "Withdraw" },
+];
+
+function slug(href) {
+  return href === "/" ? "homepage" : href.replace(/^\//, "");
+}
+
+function ThemeGallery({ theme, title }) {
+  return (
+    <div className="mb-5">
+      <h2 className="page-title mb-3 fw-medium">{title}</h2>
+      <div className="row g-3">
+        {links.map(({ href, label }) => (
+          <div className="col-lg-3 col-md-4 col-6 py-2 px-2" key={`${theme}-${href}`}>
+            <a href={href} className="d-block text-decoration-none roboto">
+              <div className="rounded-xl shadow-lg ps-card overflow-hidden h-100">
+                <div
+                  className="w-100"
+                  style={{ aspectRatio: "4 / 3", overflow: "hidden" }}
+                >
+                  <img
+                    src={`/gallery-thumbnails/${theme}/${slug(href)}.png`}
+                    alt={`${label} (${title})`}
+                    className="w-100 h-100 object-fit-cover"
+                    style={{ objectPosition: "top" }}
+                    loading="lazy"
+                  />
+                </div>
+                <div className="p-3">
+                  <h3 className="f-16p fw-bold mb-1">{label}</h3>
+                  <p
+                    className="font-monospace mb-0 opacity-75"
+                    style={{ fontSize: "0.8rem" }}
+                  >
+                    {href}
+                  </p>
+                </div>
+              </div>
+            </a>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
 export default function Page() {
   return (
     <>
@@ -16,23 +77,10 @@ export default function Page() {
         <link rel="stylesheet" href="/assets/dist/css/style.css" />
       </Head>
       <main className="py-5">
-        <ol className="roboto px-0 page-list gap-2 mb-0 f-20p d-flex flex-column align-items-center justify-content-center py-4 h-100">
-          <li><a href="/">Homepage</a></li>
-          <li><a href="/about">About</a></li>
-          <li><a href="/blog-detail">Blog Details</a></li>
-          <li><a href="/blog">Blogs</a></li>
-          <li><a href="/contact">Contact</a></li>
-          <li><a href="/earn">Earn</a></li>
-          <li><a href="/faq">FAQ</a></li>
-          <li><a href="/imprint">Imprint</a></li>
-          <li><a href="/leaders">Leaders</a></li>
-          <li><a href="/privacy">Privacy</a></li>
-          <li><a href="/profile">Profile</a></li>
-          <li><a href="/reward">Reward</a></li>
-          <li><a href="/terms">Terms</a></li>
-          <li><a href="/unavailable">Unavailable</a></li>
-          <li><a href="/withdraw">Withdraw</a></li>
-        </ol>
+        <div className="container">
+          <ThemeGallery theme="light" title="Light Theme" />
+          <ThemeGallery theme="dark" title="Dark Theme" />
+        </div>
       </main>
       <Scripts />
     </>
