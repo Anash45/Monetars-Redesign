@@ -1,5 +1,20 @@
 import Layout from "../components/Layout";
 
+const ARTICLE_SECTIONS = [
+  {
+    heading: "Why Testing Apps Pay You in UC",
+    body: "Game studios pay for real feedback before a launch, and Monetars passes a cut of that budget straight to you as PUBG UC. No purchases, no subscriptions -- just install, play for a few minutes, and collect your reward.",
+  },
+  {
+    heading: "How Long Until Your UC Arrives",
+    body: "Most testing offers credit your account within minutes of completing the required in-app milestone. Larger reward tiers that need a few days of play still post automatically once our tracking partner confirms completion.",
+  },
+  {
+    heading: "Getting the Most Out of Every Offer",
+    body: "Stick to one testing app at a time so tracking doesn't get confused, keep notifications on so you don't miss a milestone, and check the Offer Wall daily since new PUBG UC campaigns rotate in often.",
+  },
+];
+
 export default function Page() {
   return (
     <Layout showSidebarNav>
@@ -42,30 +57,16 @@ export default function Page() {
         </div>
         <div className="row pb-3 pt-4 roboto">
           <div className="col-md-7 pb-md-0 pb-3">
-            <div className="bd-down-left">
-              <h5 className="fw-medium py-4 extra-heading mb-0">
-                Heading 123
-              </h5>
-              <p className="extra-desc">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum, sit officia non hic optio maxime dicta consequuntur odio possimus quos ut, ducimus quae molestias enim nulla, a natus! Reprehenderit, ipsa?
-              </p>
-            </div>
-            <div className="bd-down-left">
-              <h5 className="fw-medium py-4 extra-heading mb-0">
-                Heading 123
-              </h5>
-              <p className="extra-desc">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum, sit officia non hic optio maxime dicta consequuntur odio possimus quos ut, ducimus quae molestias enim nulla, a natus! Reprehenderit, ipsa?
-              </p>
-            </div>
-            <div className="bd-down-left">
-              <h5 className="fw-medium py-4 extra-heading mb-0">
-                Heading 123
-              </h5>
-              <p className="extra-desc">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum, sit officia non hic optio maxime dicta consequuntur odio possimus quos ut, ducimus quae molestias enim nulla, a natus! Reprehenderit, ipsa?
-              </p>
-            </div>
+            {ARTICLE_SECTIONS.map((section) => (
+              <div className="bd-down-left" key={section.heading}>
+                <h5 className="fw-medium py-4 extra-heading mb-0">
+                  {section.heading}
+                </h5>
+                <p className="extra-desc">
+                  {section.body}
+                </p>
+              </div>
+            ))}
           </div>
           <div className="col-md-5">
             <div className="bd-down-right">

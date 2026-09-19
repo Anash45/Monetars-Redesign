@@ -18,42 +18,42 @@ export default function Page() {
           <div className="px-2">
             <div>
               <h2 className="f-24p py-4 ps-title mb-0">
-                Heading 1
+                Acceptance of Terms
               </h2>
               <p className="ps-desc mb-0">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eius magni quae odio corporis distinctio architecto! Voluptates magnam animi iste molestias minus quam expedita odio voluptate repellendus deserunt quaerat, quasi cupiditate! Lorem ipsum dolor sit, amet consectetur adipisicing elit. Veniam, sapiente quisquam nihil, quibusdam sint a eligendi animi cupiditate dolores voluptas harum ullam sit, inventore reiciendis quis quam excepturi odio sequi.
+                By creating an account or using any part of the Monetars platform, you agree to be bound by these Terms of Service and our Privacy Policy. If you do not agree, please discontinue use of the site.
               </p>
             </div>
             <div>
               <h2 className="f-24p py-4 ps-title mb-0">
-                Heading 2
+                Eligibility
               </h2>
               <p className="ps-desc mb-0">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eius magni quae odio corporis distinctio architecto! Voluptates magnam animi iste molestias minus quam expedita odio voluptate repellendus deserunt quaerat, quasi cupiditate! Lorem ipsum dolor sit, amet consectetur adipisicing elit. Veniam, sapiente quisquam nihil, quibusdam sint a eligendi animi cupiditate dolores voluptas harum ullam sit, inventore reiciendis quis quam excepturi odio sequi.
+                You must be at least 16 years old to create a Monetars account. Users under 18 should have parental consent before participating in paid offers or withdrawing funds.
               </p>
             </div>
             <div>
               <h2 className="f-24p py-4 ps-title mb-0">
-                Heading 3
+                Earning and Payouts
               </h2>
               <p className="ps-desc mb-0">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eius magni quae odio corporis distinctio architecto! Voluptates magnam animi iste molestias minus quam expedita odio voluptate repellendus deserunt quaerat, quasi cupiditate! Lorem ipsum dolor sit, amet consectetur adipisicing elit. Veniam, sapiente quisquam nihil, quibusdam sint a eligendi animi cupiditate dolores voluptas harum ullam sit, inventore reiciendis quis quam excepturi odio sequi.
+                Coins are credited once a partner confirms an offer, survey, or app install is complete. Monetars is not responsible for delays caused by third-party advertisers, but we work to resolve missing-reward tickets quickly.
               </p>
             </div>
             <div>
               <h2 className="f-24p py-4 ps-title mb-0">
-                Heading 4
+                Prohibited Conduct
               </h2>
               <p className="ps-desc mb-0">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eius magni quae odio corporis distinctio architecto! Voluptates magnam animi iste molestias minus quam expedita odio voluptate repellendus deserunt quaerat, quasi cupiditate! Lorem ipsum dolor sit, amet consectetur adipisicing elit. Veniam, sapiente quisquam nihil, quibusdam sint a eligendi animi cupiditate dolores voluptas harum ullam sit, inventore reiciendis quis quam excepturi odio sequi.
+                Creating multiple accounts, using VPNs or emulators to fake device signals, or submitting false survey responses will result in an account suspension and forfeiture of pending coins.
               </p>
             </div>
             <div>
               <h2 className="f-24p py-4 ps-title mb-0">
-                Heading 5
+                Changes to These Terms
               </h2>
               <p className="ps-desc mb-0">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eius magni quae odio corporis distinctio architecto! Voluptates magnam animi iste molestias minus quam expedita odio voluptate repellendus deserunt quaerat, quasi cupiditate! Lorem ipsum dolor sit, amet consectetur adipisicing elit. Veniam, sapiente quisquam nihil, quibusdam sint a eligendi animi cupiditate dolores voluptas harum ullam sit, inventore reiciendis quis quam excepturi odio sequi.
+                We may update these Terms from time to time to reflect new features or legal requirements. Continued use of Monetars after a change is posted means you accept the revised Terms.
               </p>
             </div>
           </div>

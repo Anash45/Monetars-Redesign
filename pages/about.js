@@ -15,42 +15,42 @@ export default function Page() {
           <div className="px-2">
             <div>
               <h2 className="f-24p py-4 ps-title mb-0">
-                Heading 1
+                Who We Are
               </h2>
               <p className="ps-desc mb-0">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eius magni quae odio corporis distinctio architecto! Voluptates magnam animi iste molestias minus quam expedita odio voluptate repellendus deserunt quaerat, quasi cupiditate! Lorem ipsum dolor sit, amet consectetur adipisicing elit. Veniam, sapiente quisquam nihil, quibusdam sint a eligendi animi cupiditate dolores voluptas harum ullam sit, inventore reiciendis quis quam excepturi odio sequi.
+                Monetars is a rewards platform that pays real people to test apps, complete surveys, and try out new games. Since launching, we've paid out hundreds of thousands of dollars to a community that spans over 30 countries.
               </p>
             </div>
             <div>
               <h2 className="f-24p py-4 ps-title mb-0">
-                Heading 2
+                Our Mission
               </h2>
               <p className="ps-desc mb-0">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eius magni quae odio corporis distinctio architecto! Voluptates magnam animi iste molestias minus quam expedita odio voluptate repellendus deserunt quaerat, quasi cupiditate! Lorem ipsum dolor sit, amet consectetur adipisicing elit. Veniam, sapiente quisquam nihil, quibusdam sint a eligendi animi cupiditate dolores voluptas harum ullam sit, inventore reiciendis quis quam excepturi odio sequi.
+                We believe your time and opinions are worth something. Our mission is to connect everyday users with brands that want honest feedback, and to make sure that feedback is rewarded fairly and paid out fast.
               </p>
             </div>
             <div>
               <h2 className="f-24p py-4 ps-title mb-0">
-                Heading 3
+                How It Works
               </h2>
               <p className="ps-desc mb-0">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eius magni quae odio corporis distinctio architecto! Voluptates magnam animi iste molestias minus quam expedita odio voluptate repellendus deserunt quaerat, quasi cupiditate! Lorem ipsum dolor sit, amet consectetur adipisicing elit. Veniam, sapiente quisquam nihil, quibusdam sint a eligendi animi cupiditate dolores voluptas harum ullam sit, inventore reiciendis quis quam excepturi odio sequi.
+                Browse the Earn page for offers that match your device and interests, complete the task as described, and watch your coin balance update in real time. Once you hit the minimum threshold, cash out instantly.
               </p>
             </div>
             <div>
               <h2 className="f-24p py-4 ps-title mb-0">
-                Heading 4
+                Why Users Trust Us
               </h2>
               <p className="ps-desc mb-0">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eius magni quae odio corporis distinctio architecto! Voluptates magnam animi iste molestias minus quam expedita odio voluptate repellendus deserunt quaerat, quasi cupiditate! Lorem ipsum dolor sit, amet consectetur adipisicing elit. Veniam, sapiente quisquam nihil, quibusdam sint a eligendi animi cupiditate dolores voluptas harum ullam sit, inventore reiciendis quis quam excepturi odio sequi.
+                Every offer on Monetars is vetted by our team before it goes live, and our support team responds to tickets within 24 hours. We also publish real payout proof from our community every week.
               </p>
             </div>
             <div>
               <h2 className="f-24p py-4 ps-title mb-0">
-                Heading 5
+                Get In Touch
               </h2>
               <p className="ps-desc mb-0">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eius magni quae odio corporis distinctio architecto! Voluptates magnam animi iste molestias minus quam expedita odio voluptate repellendus deserunt quaerat, quasi cupiditate! Lorem ipsum dolor sit, amet consectetur adipisicing elit. Veniam, sapiente quisquam nihil, quibusdam sint a eligendi animi cupiditate dolores voluptas harum ullam sit, inventore reiciendis quis quam excepturi odio sequi.
+                Have a question, a partnership idea, or feedback on an offer? Reach out through our Contact page and a real member of our team will get back to you.
               </p>
             </div>
           </div>

@@ -1,5 +1,20 @@
 import Layout from "../components/Layout";
 
+const FAQ_ITEMS = [
+  {
+    question: "How to make money on Monetars?",
+    answer: "Complete offers, surveys, and app tests from the Earn page to collect coins. Once you've built up a balance, head to Withdraw to cash out via PayPal, gift cards, or crypto.",
+  },
+  {
+    question: "How long does it take for coins to arrive?",
+    answer: "Most offers credit your account within a few minutes of completion. Some survey and offer-wall partners can take up to 24-48 hours to confirm and post your reward.",
+  },
+  {
+    question: "Is there a minimum amount I need to earn before cashing out?",
+    answer: "Yes, most payout methods require a small minimum balance -- usually a few thousand coins -- so we can cover processing fees. You can see the exact minimum for each method on the Withdraw page.",
+  },
+];
+
 export default function Page() {
   return (
     <Layout showSidebarNav>
@@ -37,63 +52,27 @@ export default function Page() {
           <div className="tab-content" id="nav-tabContent">
             <div className="tab-pane fade show active" id="nav-1" role="tabpanel" aria-labelledby="nav-1-tab">
               <div className="accordion" id="accordionExample">
-                <div className="accordion-item">
-                  <h2 className="accordion-header" id="heading1">
-                    <button className="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse1" aria-expanded="true" aria-controls="collapse1">
-                      <span className="ac-down">
-                        <i className="fa fa-arrow-down"></i>
-                      </span>
-                      <span>
-                        How to make money on Monetars?
-                      </span>
-                    </button>
-                  </h2>
-                  <div id="collapse1" className="accordion-collapse collapse show" aria-labelledby="heading1" data-bs-parent="#accordionExample">
-                    <div className="accordion-body">
-                      <p className="mb-0">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore eligendi suscipit reiciendis aut nulla quasi. Fuga, minima voluptatibus totam distinctio debitis eos nobis saepe exercitationem nihil atque natus, minus commodi?
-                      </p>
+                {FAQ_ITEMS.map((item, index) => (
+                  <div className="accordion-item" key={item.question}>
+                    <h2 className="accordion-header" id={`heading${index + 1}`}>
+                      <button className="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target={`#collapse${index + 1}`} aria-expanded={index === 0} aria-controls={`collapse${index + 1}`}>
+                        <span className="ac-down">
+                          <i className="fa fa-arrow-down"></i>
+                        </span>
+                        <span>
+                          {item.question}
+                        </span>
+                      </button>
+                    </h2>
+                    <div id={`collapse${index + 1}`} className={`accordion-collapse collapse${index === 0 ? " show" : ""}`} aria-labelledby={`heading${index + 1}`} data-bs-parent="#accordionExample">
+                      <div className="accordion-body">
+                        <p className="mb-0">
+                          {item.answer}
+                        </p>
+                      </div>
                     </div>
                   </div>
-                </div>
-                <div className="accordion-item">
-                  <h2 className="accordion-header" id="heading2">
-                    <button className="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse2" aria-expanded="false" aria-controls="collapse2">
-                      <span className="ac-down">
-                        <i className="fa fa-arrow-down"></i>
-                      </span>
-                      <span>
-                        How to make money on Monetars?
-                      </span>
-                    </button>
-                  </h2>
-                  <div id="collapse2" className="accordion-collapse collapse" aria-labelledby="heading2" data-bs-parent="#accordionExample">
-                    <div className="accordion-body">
-                      <p className="mb-0">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore eligendi suscipit reiciendis aut nulla quasi. Fuga, minima voluptatibus totam distinctio debitis eos nobis saepe exercitationem nihil atque natus, minus commodi?
-                      </p>
-                    </div>
-                  </div>
-                </div>
-                <div className="accordion-item">
-                  <h2 className="accordion-header" id="heading2">
-                    <button className="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse2" aria-expanded="false" aria-controls="collapse2">
-                      <span className="ac-down">
-                        <i className="fa fa-arrow-down"></i>
-                      </span>
-                      <span>
-                        How to make money on Monetars?
-                      </span>
-                    </button>
-                  </h2>
-                  <div id="collapse2" className="accordion-collapse collapse" aria-labelledby="heading2" data-bs-parent="#accordionExample">
-                    <div className="accordion-body">
-                      <p className="mb-0">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore eligendi suscipit reiciendis aut nulla quasi. Fuga, minima voluptatibus totam distinctio debitis eos nobis saepe exercitationem nihil atque natus, minus commodi?
-                      </p>
-                    </div>
-                  </div>
-                </div>
+                ))}
               </div>
             </div>
             <div className="tab-pane fade" id="nav-2" role="tabpanel" aria-labelledby="nav-2-tab">
