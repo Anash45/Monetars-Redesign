@@ -386,13 +386,13 @@ export default function Page() {
                               Daily Bonus
                             </td>
                             <td className="fw-medium">
-                              1 - Coins
+                              50 Coins
                             </td>
                             <td className="fw-medium">
                               -
                             </td>
                             <td className="fw-medium">
-                              Lorem Ipsum
+                              Bonus
                             </td>
                             <td className="fw-medium">
                               a day ago
@@ -506,19 +506,19 @@ export default function Page() {
                         <tbody>
                           <tr>
                             <td className="fw-medium">
-                              Daily Bonus
+                              CPX Research Survey
                             </td>
                             <td className="fw-medium">
-                              1 - Coins
+                              1,250 Coins
                             </td>
                             <td className="fw-medium">
-                              -
+                              +125
                             </td>
                             <td className="fw-medium">
-                              Lorem Ipsum
+                              CPX Research
                             </td>
                             <td className="fw-medium">
-                              a day ago
+                              2 days ago
                             </td>
                           </tr>
                         </tbody>
@@ -629,19 +629,19 @@ export default function Page() {
                         <tbody>
                           <tr>
                             <td className="fw-medium">
-                              Daily Bonus
+                              AdGate Media Offer
                             </td>
                             <td className="fw-medium">
-                              1 - Coins
+                              3,400 Coins
                             </td>
                             <td className="fw-medium">
-                              -
+                              +340
                             </td>
                             <td className="fw-medium">
-                              Lorem Ipsum
+                              AdGate Media
                             </td>
                             <td className="fw-medium">
-                              a day ago
+                              3 days ago
                             </td>
                           </tr>
                         </tbody>
@@ -729,10 +729,10 @@ export default function Page() {
                               01-05-2022
                             </td>
                             <td className="fw-medium">
-                              Lorem Ipsum
+                              PayPal
                             </td>
                             <td className="fw-medium">
-                              Lorem Ipsum
+                              $25.00
                             </td>
                             <td className="fw-medium">
                               <a href="#" className="btn btn-blue py-1 px-2 w-fit rounded-lg d-flex align-items-center gap-2 justify-content-center">
@@ -810,10 +810,10 @@ export default function Page() {
                               01-05-2022
                             </td>
                             <td className="fw-medium">
-                              Lorem Ipsum
+                              Amazon Gift Card
                             </td>
                             <td className="fw-medium">
-                              Lorem Ipsum
+                              $10.00
                             </td>
                             <td className="fw-medium">
                               <a href="#" className="btn btn-red py-1 px-2 w-fit rounded-lg d-flex align-items-center gap-2 justify-content-center">
