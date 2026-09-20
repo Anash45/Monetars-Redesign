@@ -283,6 +283,12 @@ footer {
     padding-left: 10px;
 }
 
+.nav-carousel {
+    display: flex;
+    align-items: center;
+    height: 46px;
+}
+
 .nc-item {
     display: flex;
     flex-direction: column;
@@ -290,8 +296,13 @@ footer {
     padding: 6px;
     border-radius: 0.5rem;
     width: fit-content;
+    flex-shrink: 0;
     height: 46px;
     background-color: var(--blue-lightdark) !important;
+}
+
+.nav-carousel > .nc-item {
+    margin-right: 8px;
 }
 
 .nc-img {

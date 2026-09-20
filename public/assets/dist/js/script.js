@@ -1,17 +1,28 @@
+function initNavCarousel() {
+    var $navCarousel = $('.nav-carousel');
+    if ($navCarousel.length && !$navCarousel.hasClass('slick-initialized')) {
+        $navCarousel.slick({
+            slidesToShow: 1, // Show 1 slide at a time
+            slidesToScroll: 1, // Scroll 1 slide at a time
+            autoplay: true, // Autoplay enabled
+            autoplaySpeed: 2000, // Autoplay speed in milliseconds
+            prevArrow: false, // Hide previous arrow
+            nextArrow: false, // Hide next arrow
+            dots: false, // Hide navigation dots
+            draggable: true, // Enable dragging
+            infinite: true, // Infinite looping
+            variableWidth: true // Variable width based on content width
+        });
+    }
+}
+
 $(document).ready(function () {
     // Initialize Slick carousel on Navbar
-    $('.nav-carousel').slick({
-        slidesToShow: 1, // Show 1 slide at a time
-        slidesToScroll: 1, // Scroll 1 slide at a time
-        autoplay: true, // Autoplay enabled
-        autoplaySpeed: 2000, // Autoplay speed in milliseconds
-        prevArrow: false, // Hide previous arrow
-        nextArrow: false, // Hide next arrow
-        dots: false, // Hide navigation dots
-        draggable: true, // Enable dragging
-        infinite: true, // Infinite looping
-        variableWidth: true // Variable width based on content width
-    });
+    initNavCarousel();
+    // Widths of variableWidth slides can be miscalculated if fonts/images
+    // are still loading at document-ready time (common on mobile); retry
+    // once everything has fully loaded.
+    $(window).on('load', initNavCarousel);
 
     // Initialize Slick carousel on Offers
     $('.offers').slick({
