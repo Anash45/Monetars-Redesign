@@ -1,4 +1,7 @@
+import { useEffect, useState } from "react";
+import toast from "react-hot-toast";
 import Layout from "../../components/dashboard/Layout";
+import { useAuth } from "../../context/AuthContext";
 
 const TIERS = [
   { tier: "Tire 1", earning: "$0 Affilliate earning", commission: "0% Commission", done: true },
@@ -53,6 +56,41 @@ function SocialIcons({ color = "#7C77B4" }) {
 }
 
 function ReferralLinkCard({ withSocials }) {
+  const { user, profile, updateProfile } = useAuth();
+  const defaultLink = "https://dolares.app/refer/s4rQOiVhQHNeu4vMBjaJXkJt";
+  const [link, setLink] = useState(profile?.referralLink || defaultLink);
+  const [saving, setSaving] = useState(false);
+
+  useEffect(() => {
+    setLink(profile?.referralLink || defaultLink);
+  }, [profile?.referralLink]);
+
+  async function handleCopy() {
+    try {
+      await navigator.clipboard.writeText(link);
+      toast.success("Referral link copied to clipboard.");
+    } catch {
+      toast.error("Could not copy the link — copy it manually.");
+    }
+  }
+
+  async function handleSave(e) {
+    e.preventDefault();
+    if (!user) {
+      toast.error("Sign in to save a custom referral link.");
+      return;
+    }
+    setSaving(true);
+    try {
+      await updateProfile("referralLink", link);
+      toast.success("Referral link saved.");
+    } catch (err) {
+      toast.error(err.message);
+    } finally {
+      setSaving(false);
+    }
+  }
+
   return (
     <div className="site-card">
       <div className="bg-transparent pt-4 px-md-5 px-4">
@@ -69,11 +107,17 @@ function ReferralLinkCard({ withSocials }) {
         </div>
       </div>
       <div className="sc-bottom px-md-5 px-4">
-        <form className="d-flex align-items-center gap-3 flex-xl-row flex-column">
-          <input type="text" className="sc-inp flex-grow-1 form-control" placeholder="Link..." value="https://dolares.app/refer/s4rQOiVhQHNeu4vMBjaJXkJt" />
+        <form className="d-flex align-items-center gap-3 flex-xl-row flex-column" onSubmit={handleSave}>
+          <input
+            type="text"
+            className="sc-inp flex-grow-1 form-control"
+            placeholder="Link..."
+            value={link}
+            onChange={(e) => setLink(e.target.value)}
+          />
           <div className="d-flex gap-2 flex-xl-grow-0 flex-grow-1 col-xl col-12 px-0">
-            <button className="btn sc-btn sc-btn-normal flex-xl-grow-0 flex-grow-1 lh-1">Copy</button>
-            <button className="btn sc-btn flex-xl-grow-0 flex-grow-1 lh-1">Save</button>
+            <button type="button" className="btn sc-btn sc-btn-normal flex-xl-grow-0 flex-grow-1 lh-1" onClick={handleCopy}>Copy</button>
+            <button type="submit" className="btn sc-btn flex-xl-grow-0 flex-grow-1 lh-1" disabled={saving}>{saving ? "Saving…" : "Save"}</button>
           </div>
         </form>
       </div>

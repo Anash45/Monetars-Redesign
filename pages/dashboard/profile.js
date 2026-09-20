@@ -1,4 +1,5 @@
 import Layout from "../../components/dashboard/Layout";
+import { useAuth } from "../../context/AuthContext";
 
 const EARNINGS_ALL = [
   { type: "Referral Earnings", offerwall: "Dolares", coins: 500, date: "06 Oct 2024", time: "2 days ago" },
@@ -98,6 +99,12 @@ $(document).ready(function () {
 `;
 
 export default function Page() {
+  const { user, profile } = useAuth();
+  const displayName = profile?.displayName || "Adeel Raza";
+  const email = user?.email || "asiadeel9@gmail.com";
+  const balance = profile?.balance ?? 0;
+  const joined = user?.createdAt ? new Date(user.createdAt).toISOString().slice(0, 10) : "2024-09-28";
+
   return (
     <Layout scriptsVariant={"profile"} extraScript={EARNINGS_CHART_SCRIPT}>
   <section className="profile-sec pb-5">
@@ -107,7 +114,7 @@ export default function Page() {
           <img src="/dashboard-assets/img/smiley-man-relaxing-outdoors1.png" alt="Person" className="rounded-circle" style={{height: '115px', width: '115px', objectFit: 'cover'}} />
           <div className="d-flex flex-column gap-2 align-items-center w-100">
             <h3 className="mb-0 text-white fw-semibold f-32p">
-              Adeel Raza
+              {displayName}
             </h3>
             <div className="ui-box">
               <div className="uii-box">
@@ -229,7 +236,7 @@ export default function Page() {
                         </td>
                         <td>
                           <div className="tpg-value fw-semibold f-16p pe-lg-4 text-orange">
-                            2024-09-28
+                            {joined}
                           </div>
                         </td>
                       </tr>
@@ -241,7 +248,7 @@ export default function Page() {
                         </td>
                         <td>
                           <div className="tpg-value fw-semibold f-16p pe-lg-4 text-orange">
-                            0 Coins
+                            {balance} Coins
                           </div>
                         </td>
                       </tr>
@@ -289,7 +296,7 @@ export default function Page() {
                         </td>
                         <td>
                           <div className="tpg-value fw-semibold f-16p pe-lg-4 text-orange">
-                            asiadeel9@
+                            {email}
                           </div>
                         </td>
                       </tr>

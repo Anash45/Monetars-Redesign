@@ -1,0 +1,61 @@
+{
+  "users": [
+    {
+      "id": "u_demo",
+      "email": "asiadeel9@gmail.com",
+      "username": "Adeel Raza",
+      "password": "demo1234",
+      "createdAt": "2024-09-01T00:00:00.000Z"
+    }
+  ],
+  "profiles": {
+    "u_demo": {
+      "displayName": "Adeel Raza",
+      "email": "asiadeel9@gmail.com",
+      "visibility": "Private",
+      "language": "English",
+      "balance": 4621,
+      "referralLink": "https://dolares.app/refer/s4rQOiVhQHNeu4vMBjaJXkJt",
+      "claimedRewardDays": [],
+      "twoFactorEnabled": false
+    }
+  },
+  "leaderboard": {
+    "Weekly": [
+      { "badge": "/dashboard-assets/img/first.svg", "height": 48, "name": "Adeel Raza", "coins": 2343, "prize": 1500 },
+      { "badge": "/dashboard-assets/img/second.svg", "height": 48, "name": "Mia Chen", "coins": 1998, "prize": 1200 },
+      { "badge": "/dashboard-assets/img/third.svg", "height": 48, "name": "Ryan Okafor", "coins": 1650, "prize": 900 },
+      { "rank": 4, "name": "Jasmine Lowe", "coins": 1120, "prize": 500 }
+    ],
+    "Monthly": [
+      { "badge": "/dashboard-assets/img/first.svg", "height": 48, "name": "Wayne Gordon", "coins": 9840, "prize": 4000 },
+      { "badge": "/dashboard-assets/img/second.svg", "height": 48, "name": "Keisha Nolan", "coins": 8120, "prize": 3000 },
+      { "badge": "/dashboard-assets/img/third.svg", "height": 48, "name": "Devon Parker", "coins": 6440, "prize": 1800 },
+      { "rank": 4, "name": "Mia Hendricks", "coins": 5590, "prize": 1200 }
+    ],
+    "Affiliate": [
+      { "badge": "/dashboard-assets/img/first.svg", "height": 48, "name": "Jasmine Lowe", "coins": 2478, "prize": 1000 },
+      { "badge": "/dashboard-assets/img/second.svg", "height": 48, "name": "Devon Parker", "coins": 1832, "prize": 500 },
+      { "badge": "/dashboard-assets/img/third.svg", "height": 48, "name": "Ryan Okafor", "coins": 1604, "prize": 350 },
+      { "rank": 4, "name": "Adeel Raza", "coins": 980, "prize": 150 }
+    ]
+  },
+  "activity": {
+    "All": [
+      { "name": "Offer Completed", "user": "Adeel Raza", "provider": "Dolares", "time": "Now", "prize": 1500 },
+      { "name": "Cashout Requested", "user": "Mia Chen", "provider": "PayPal", "time": "3m ago", "prize": 900 },
+      { "name": "Survey Completed", "user": "Ryan Okafor", "provider": "TheoremReach", "time": "12m ago", "prize": 320 }
+    ],
+    "Offers": [
+      { "name": "Offer Completed", "user": "Adeel Raza", "provider": "AdGateMedia", "time": "Now", "prize": 1500 },
+      { "name": "Offer Completed", "user": "Jasmine Lowe", "provider": "Lootably", "time": "8m ago", "prize": 640 },
+      { "name": "Offer Completed", "user": "Devon Parker", "provider": "Monlix", "time": "20m ago", "prize": 275 }
+    ],
+    "Withdrawls": [
+      { "name": "Cashout Requested", "user": "Keisha Nolan", "provider": "Amazon", "time": "2m ago", "prize": 2000 },
+      { "name": "Cashout Requested", "user": "Mia Chen", "provider": "PayPal", "time": "15m ago", "prize": 900 },
+      { "name": "Cashout Requested", "user": "Wayne Gordon", "provider": "Spotify", "time": "1h ago", "prize": 500 }
+    ]
+  },
+  "withdrawals": []
+}

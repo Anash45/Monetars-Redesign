@@ -1,4 +1,9 @@
+import { useState } from "react";
+import toast from "react-hot-toast";
 import Layout from "../../components/dashboard/Layout";
+import { useAuth } from "../../context/AuthContext";
+
+const VALID_BONUS_CODES = { MONETARS10: 1.0, WELCOME5: 0.5 };
 
 const STREAK_DAYS = [
   { day: "Day 1", price: "$0.30", active: true },
@@ -16,7 +21,85 @@ const STREAK_DAY_ICON = (
   </svg>
 );
 
+function BonusCodeForm({ user, applyProfilePatch }) {
+  const [code, setCode] = useState("");
+  const [submitting, setSubmitting] = useState(false);
+
+  async function handleSubmit(e) {
+    e.preventDefault();
+    if (!user) {
+      toast.error("Sign in to redeem a bonus code.");
+      return;
+    }
+    const trimmed = code.trim().toUpperCase();
+    if (!trimmed) {
+      toast.error("Enter a bonus code first.");
+      return;
+    }
+    setSubmitting(true);
+    try {
+      const res = await fetch("/api/profile", {
+        method: "PUT",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ userId: user.id, field: "__bonusCode", value: trimmed }),
+      });
+      const data = await res.json();
+      if (!res.ok) throw new Error(data.message || "Could not redeem that code.");
+      applyProfilePatch(data.profile);
+      toast.success(data.message || "Bonus code redeemed!");
+      setCode("");
+    } catch (err) {
+      toast.error(err.message);
+    } finally {
+      setSubmitting(false);
+    }
+  }
+
+  return (
+    <form className="d-flex align-items-center gap-4 flex-lg-row flex-column" onSubmit={handleSubmit}>
+      <input
+        type="text"
+        className="sc-inp flex-grow-1 form-control"
+        placeholder="Enter bonous code here..."
+        value={code}
+        onChange={(e) => setCode(e.target.value)}
+      />
+      <button className="btn sc-btn flex-lg-grow-0 flex-grow-1" disabled={submitting}>
+        {submitting ? "Checking…" : "Claim"}
+      </button>
+    </form>
+  );
+}
+
 export default function Page() {
+  const { user, profile, applyProfilePatch } = useAuth();
+  const claimedDays = profile?.claimedRewardDays || [];
+  const nextClaimableIndex = STREAK_DAYS.findIndex((d) => !claimedDays.includes(d.day));
+  const [claiming, setClaiming] = useState(null);
+
+  async function handleClaim(day) {
+    if (!user) {
+      toast.error("Sign in to claim your streak reward.");
+      return;
+    }
+    setClaiming(day);
+    try {
+      const res = await fetch("/api/rewards/claim", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ userId: user.id, day }),
+      });
+      const data = await res.json();
+      if (!res.ok) throw new Error(data.message || "Could not claim this reward.");
+      applyProfilePatch(data.profile);
+      toast.success(`Claimed ${day}: +$${data.payout.toFixed(2)}`);
+    } catch (err) {
+      toast.error(err.message);
+    } finally {
+      setClaiming(null);
+    }
+  }
+
   return (
     <Layout>
   <section className="rewards-sec py-0">
@@ -55,12 +138,7 @@ export default function Page() {
             </div>
           </div>
           <div className="sc-bottom px-md-5 px-4">
-            <form className="d-flex align-items-center gap-4 flex-lg-row flex-column">
-              <input type="text" className="sc-inp flex-grow-1 form-control" placeholder="Enter bonous code here..." />
-              <button className="btn sc-btn flex-lg-grow-0 flex-grow-1">
-                Claim
-              </button>
-            </form>
+            <BonusCodeForm user={user} applyProfilePatch={applyProfilePatch} />
           </div>
         </div>
         <div className="mt-4">
@@ -104,18 +182,29 @@ export default function Page() {
           <div className="sc-bottom px-md-5 px-4">
             <div className="d-flex flex-column gap-4">
               <div className="reward-days d-flex flex-wrap">
-                {STREAK_DAYS.map((d, i) => (
-                  <div className={`r-day p-2 ${d.active ? "active" : ""}`} key={i}>
-                    <div className="d-flex flex-column justify-content-end align-items-center mt-4 pt-2 gap-2 text-center">
-                      {STREAK_DAY_ICON}
-                      <div className="d-flex align-items-center gap-0 flex-column">
-                        <span className="f-18p rd-day fw-semibold">{d.day}</span>
-                        <span className="f-18p rd-price fw-semibold">{d.price}</span>
+                {STREAK_DAYS.map((d, i) => {
+                  const isClaimed = claimedDays.includes(d.day);
+                  const isNext = i === nextClaimableIndex;
+                  return (
+                    <div className={`r-day p-2 ${isNext ? "active" : ""}`} key={i}>
+                      <div className="d-flex flex-column justify-content-end align-items-center mt-4 pt-2 gap-2 text-center">
+                        {STREAK_DAY_ICON}
+                        <div className="d-flex align-items-center gap-0 flex-column">
+                          <span className="f-18p rd-day fw-semibold">{d.day}</span>
+                          <span className="f-18p rd-price fw-semibold">{d.price}</span>
+                        </div>
+                        <button
+                          type="button"
+                          className="btn rd-btn lh-1"
+                          disabled={isClaimed || !isNext || claiming === d.day}
+                          onClick={() => handleClaim(d.day)}
+                        >
+                          {isClaimed ? "Claimed" : claiming === d.day ? "Claiming…" : "Claim"}
+                        </button>
                       </div>
-                      <a href="#" className="btn rd-btn lh-1">Claim</a>
                     </div>
-                  </div>
-                ))}
+                  );
+                })}
               </div>
             </div>
           </div>

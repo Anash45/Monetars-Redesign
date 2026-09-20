@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import Layout from "../../components/dashboard/Layout";
 
 const PODIUMS = {
@@ -18,7 +19,7 @@ const PODIUMS = {
   ],
 };
 
-const RANK_TABLES = {
+const FALLBACK_RANK_TABLES = {
   Weekly: [
     { badge: "/dashboard-assets/img/first.svg", height: 48, name: "Adeel Raza", coins: 2343, prize: 1500 },
     { badge: "/dashboard-assets/img/second.svg", height: 48, name: "Mia Chen", coins: 1998, prize: 1200 },
@@ -160,6 +161,17 @@ function EarnedPills() {
 }
 
 export default function Page() {
+  const [rankTables, setRankTables] = useState(FALLBACK_RANK_TABLES);
+
+  useEffect(() => {
+    fetch("/api/dashboard/leaderboard")
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.leaderboard) setRankTables(data.leaderboard);
+      })
+      .catch(() => {});
+  }, []);
+
   return (
     <Layout>
       <section className="affiliate-sec py-5">
@@ -218,21 +230,21 @@ export default function Page() {
                 <Podium members={PODIUMS.Weekly} />
               </div>
               <EarnedPills />
-              <RankTable rows={RANK_TABLES.Weekly} />
+              <RankTable rows={rankTables.Weekly} />
             </div>
             <div className="tab-pane fade" id="tab-1" role="tabpanel" aria-labelledby="pills-tab-1">
               <div className="leaderboard-standings">
                 <Podium members={PODIUMS.Monthly} />
               </div>
               <EarnedPills />
-              <RankTable rows={RANK_TABLES.Monthly} />
+              <RankTable rows={rankTables.Monthly} />
             </div>
             <div className="tab-pane fade" id="tab-3" role="tabpanel" aria-labelledby="pills-tab-3">
               <div className="leaderboard-standings">
                 <Podium members={PODIUMS.Affiliate} />
               </div>
               <EarnedPills />
-              <RankTable rows={RANK_TABLES.Affiliate} />
+              <RankTable rows={rankTables.Affiliate} />
             </div>
           </div>
         </div>

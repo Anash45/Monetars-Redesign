@@ -1,4 +1,60 @@
+import { useState } from "react";
+import toast from "react-hot-toast";
+import { useAuth } from "../context/AuthContext";
+
+function closeSigninSignupModal() {
+  document.querySelector("#signinSignup .btn-modal-close")?.click();
+}
+
 export default function SigninSignupModal() {
+  const { login, signup } = useAuth();
+
+  const [signinValues, setSigninValues] = useState({ email: "", password: "" });
+  const [signinError, setSigninError] = useState("");
+  const [signinSubmitting, setSigninSubmitting] = useState(false);
+
+  const [signupValues, setSignupValues] = useState({ email: "", username: "", password: "", confirmPassword: "" });
+  const [signupError, setSignupError] = useState("");
+  const [signupSubmitting, setSignupSubmitting] = useState(false);
+
+  async function handleSignin(e) {
+    e.preventDefault();
+    setSigninError("");
+    setSigninSubmitting(true);
+    try {
+      const { user } = await login(signinValues);
+      toast.success(`Welcome back, ${user.username}!`);
+      closeSigninSignupModal();
+      window.location.href = "/dashboard/lobby";
+    } catch (err) {
+      setSigninError(err.message);
+      toast.error(err.message);
+    } finally {
+      setSigninSubmitting(false);
+    }
+  }
+
+  async function handleSignup(e) {
+    e.preventDefault();
+    setSignupError("");
+    if (signupValues.password !== signupValues.confirmPassword) {
+      setSignupError("Passwords do not match.");
+      return;
+    }
+    setSignupSubmitting(true);
+    try {
+      const { user } = await signup(signupValues);
+      toast.success(`Account created — welcome, ${user.username}!`);
+      closeSigninSignupModal();
+      window.location.href = "/dashboard/lobby";
+    } catch (err) {
+      setSignupError(err.message);
+      toast.error(err.message);
+    } finally {
+      setSignupSubmitting(false);
+    }
+  }
+
   return (
   <div className="modal fade ss-modal" id="signinSignup" tabIndex="-1" aria-labelledby="signinSignupLabel" aria-hidden="true">
     <div className="modal-dialog">
@@ -25,7 +81,7 @@ export default function SigninSignupModal() {
               </ul>
               <div className="tab-content form-tabs" id="pills-tabContent">
                 <div className="tab-pane fade show active" id="pills-signin" role="tabpanel" aria-labelledby="pills-signin-tab">
-                  <form action="" method="post">
+                  <form onSubmit={handleSignin}>
                     <div className="form-group mb-3">
                       <div className="d-flex align-items-center w-100 mb-1">
                         <label className="nowrap">
@@ -35,7 +91,14 @@ export default function SigninSignupModal() {
                           <div className="label-line"></div>
                         </div>
                       </div>
-                      <input type="email" placeholder="Email Address" className="form-control" />
+                      <input
+                        type="email"
+                        placeholder="Email Address"
+                        className="form-control"
+                        required
+                        value={signinValues.email}
+                        onChange={(e) => setSigninValues((v) => ({ ...v, email: e.target.value }))}
+                      />
                     </div>
                     <div className="form-group mb-3">
                       <div className="d-flex align-items-center w-100 mb-1">
@@ -46,8 +109,20 @@ export default function SigninSignupModal() {
                           <div className="label-line"></div>
                         </div>
                       </div>
-                      <input type="password" placeholder="Password" className="form-control" />
+                      <input
+                        type="password"
+                        placeholder="Password"
+                        className="form-control"
+                        required
+                        value={signinValues.password}
+                        onChange={(e) => setSigninValues((v) => ({ ...v, password: e.target.value }))}
+                      />
                     </div>
+                    {signinError && (
+                      <div className="form-group mb-3">
+                        <small className="text-danger">{signinError}</small>
+                      </div>
+                    )}
                     <div className="form-group mb-4">
                       <div className="d-flex align-items-center w-100 gap-2">
                         <label className="accept-note">
@@ -61,8 +136,8 @@ export default function SigninSignupModal() {
                       </div>
                     </div>
                     <div className="ss-btns d-flex justify-content-lg-start justify-content-center gap-3">
-                      <button type="submit" className="btn btn-form-main px-4 py-2">
-                        Sign In
+                      <button type="submit" className="btn btn-form-main px-4 py-2" disabled={signinSubmitting}>
+                        {signinSubmitting ? "Signing In…" : "Sign In"}
                       </button>
                       <span className="ss-or">
                         <span>
@@ -76,7 +151,7 @@ export default function SigninSignupModal() {
                   </form>
                 </div>
                 <div className="tab-pane fade" id="pills-signup" role="tabpanel" aria-labelledby="pills-signup-tab">
-                  <form action="" method="post">
+                  <form onSubmit={handleSignup}>
                     <div className="form-group mb-3">
                       <div className="d-flex align-items-center w-100 mb-1">
                         <label className="nowrap">
@@ -86,7 +161,14 @@ export default function SigninSignupModal() {
                           <div className="label-line"></div>
                         </div>
                       </div>
-                      <input type="email" placeholder="Email Address" className="form-control" />
+                      <input
+                        type="email"
+                        placeholder="Email Address"
+                        className="form-control"
+                        required
+                        value={signupValues.email}
+                        onChange={(e) => setSignupValues((v) => ({ ...v, email: e.target.value }))}
+                      />
                     </div>
                     <div className="form-group mb-3">
                       <div className="d-flex align-items-center w-100 mb-1">
@@ -97,7 +179,14 @@ export default function SigninSignupModal() {
                           <div className="label-line"></div>
                         </div>
                       </div>
-                      <input type="text" placeholder="Username" className="form-control" />
+                      <input
+                        type="text"
+                        placeholder="Username"
+                        className="form-control"
+                        required
+                        value={signupValues.username}
+                        onChange={(e) => setSignupValues((v) => ({ ...v, username: e.target.value }))}
+                      />
                     </div>
                     <div className="form-group mb-3">
                       <div className="d-flex align-items-center w-100 mb-1">
@@ -108,7 +197,15 @@ export default function SigninSignupModal() {
                           <div className="label-line"></div>
                         </div>
                       </div>
-                      <input type="password" placeholder="Password" className="form-control" />
+                      <input
+                        type="password"
+                        placeholder="Password"
+                        className="form-control"
+                        required
+                        minLength={6}
+                        value={signupValues.password}
+                        onChange={(e) => setSignupValues((v) => ({ ...v, password: e.target.value }))}
+                      />
                     </div>
                     <div className="form-group mb-3">
                       <div className="d-flex align-items-center w-100 mb-1">
@@ -119,8 +216,20 @@ export default function SigninSignupModal() {
                           <div className="label-line"></div>
                         </div>
                       </div>
-                      <input type="password" placeholder="Confirm Password" className="form-control" />
+                      <input
+                        type="password"
+                        placeholder="Confirm Password"
+                        className="form-control"
+                        required
+                        value={signupValues.confirmPassword}
+                        onChange={(e) => setSignupValues((v) => ({ ...v, confirmPassword: e.target.value }))}
+                      />
                     </div>
+                    {signupError && (
+                      <div className="form-group mb-3">
+                        <small className="text-danger">{signupError}</small>
+                      </div>
+                    )}
                     <div className="form-group mb-4">
                       <div className="d-flex align-items-center w-100 gap-2">
                         <input type="checkbox" name="" id="agree-terms" required />
@@ -137,8 +246,8 @@ export default function SigninSignupModal() {
                       </div>
                     </div>
                     <div className="ss-btns d-flex justify-content-lg-start justify-content-center gap-3">
-                      <button type="submit" className="btn btn-form-main px-4 py-2">
-                        Sign Up
+                      <button type="submit" className="btn btn-form-main px-4 py-2" disabled={signupSubmitting}>
+                        {signupSubmitting ? "Creating Account…" : "Sign Up"}
                       </button>
                       <span className="ss-or">
                         <span>

@@ -1,4 +1,13 @@
+import { useAuth } from "../../context/AuthContext";
+
+function formatBalance(balance) {
+  return Number(balance || 0).toLocaleString("en-US").replace(/,/g, ".");
+}
+
 export default function Header() {
+  const { profile, logout } = useAuth();
+  const balance = formatBalance(profile?.balance ?? 4621);
+
   return (
   <header>
     <nav className="navbar navbar-expand-lg px-0">
@@ -43,7 +52,7 @@ export default function Header() {
                     <img src="/dashboard-assets/img/coin.svg" alt="Coin" height="32" className="balance" />
                     <img src="/dashboard-assets/img/icons8-lock-94.png" alt="Lock" height="32" className="pending-balance" />
                     <span>
-                      4.621
+                      {balance}
                     </span>
                   </div>
                   <i className="fa fa-chevron-down"></i>
@@ -108,7 +117,7 @@ export default function Header() {
                     </span>
                   </div>
                 </a>
-                <a className="dropdown-item p-2 bg-transparent" href="#" data-value="item1">
+                <a className="dropdown-item p-2 bg-transparent" href="/" data-value="item1" onClick={(e) => { e.preventDefault(); logout(); window.location.href = "/"; }}>
                   <div className="d-flex align-items-center justify-content-start gap-2">
                     <svg width="13" height="12" viewBox="0 0 13 12" fill="none" xmlns="http://www.w3.org/2000/svg">
                       <path d="M7.77772 8.61471C7.57462 8.61471 7.37983 8.69537 7.23619 8.83895C7.09254 8.98253 7.01179 9.17728 7.01169 9.38038C7.01169 9.66882 6.89711 9.94546 6.69315 10.1494C6.48918 10.3534 6.21255 10.468 5.9241 10.468H2.61964C2.3312 10.468 2.05456 10.3534 1.8506 10.1494C1.64664 9.94546 1.53205 9.66882 1.53205 9.38038V2.62245C1.53205 2.33401 1.64664 2.05737 1.8506 1.85341C2.05456 1.64945 2.3312 1.53486 2.61964 1.53486H5.92447C6.21291 1.53486 6.48955 1.64945 6.69351 1.85341C6.89747 2.05737 7.01206 2.33401 7.01206 2.62245C7.01206 2.82562 7.09276 3.02046 7.23642 3.16412C7.38008 3.30777 7.57492 3.38848 7.77808 3.38848C7.98124 3.38848 8.17609 3.30777 8.31975 3.16412C8.4634 3.02046 8.54411 2.82562 8.54411 2.62245C8.54334 1.92801 8.26714 1.26223 7.77609 0.771191C7.28505 0.280147 6.61927 0.00394148 5.92483 0.00317383H2.61964C1.92514 0.00384553 1.25927 0.280009 0.768145 0.771063C0.277023 1.26212 0.000767825 1.92795 0 2.62245V9.38038C0.000671867 10.0749 0.276885 10.7409 0.768017 11.232C1.25915 11.7231 1.92508 11.9993 2.61964 12H5.92447C6.61897 11.9992 7.2848 11.723 7.77586 11.2319C8.26691 10.7408 8.54307 10.0749 8.54375 9.38038C8.54365 9.17728 8.4629 8.98253 8.31925 8.83895C8.17561 8.69537 7.98082 8.61471 7.77772 8.61471Z" fill="#A7A8B9"></path>

@@ -1,4 +1,10 @@
+import { useAuth } from "../../context/AuthContext";
+
 export default function UserModal() {
+  const { profile } = useAuth();
+  const displayName = profile?.displayName || "Adeel Raza";
+  const balance = profile?.balance ?? 9432;
+
   return (
   <div className="modal fade user-modal" id="userModal" tabIndex="-1" aria-labelledby="payModalLabel" aria-modal="true" role="dialog">
     <div className="modal-dialog modal-dialog-centered modal-lg">
@@ -14,7 +20,7 @@ export default function UserModal() {
               <img src="/dashboard-assets/img/smiley-man-relaxing-outdoors1.png" alt="Person" className="rounded-circle" style={{height: '115px', width: '115px', objectFit: 'cover'}} />
               <div className="d-flex flex-column gap-2 align-items-center w-100">
                 <h3 className="mb-0 text-white fw-semibold f-32p">
-                  Adeel Raza
+                  {displayName}
                 </h3>
                 <div className="ui-box">
                   <div className="ui-box">
@@ -65,7 +71,7 @@ export default function UserModal() {
                 <span className="f-20p fw-semibold text-white">
                   <img src="/dashboard-assets/img/coin.svg" alt="Coin" height="20" />
                   <span>
-                    9432
+                    {balance}
                   </span>
                 </span>
               </div>

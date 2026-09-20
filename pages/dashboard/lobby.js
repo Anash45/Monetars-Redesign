@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import Layout from "../../components/dashboard/Layout";
 
 const LOBBY_CARDS = [
@@ -24,7 +25,7 @@ const OFFER_WALLS = [
   { name: "Adscend Media", img: "https://dolares.app/public/storage/network_logos/XyBGXJL1Hhm58er80iwYPHz5blQ2wWN6hRtnjaSl.png", bg: "#ffbc42" },
 ];
 
-const ACTIVITY_ROWS = {
+const FALLBACK_ACTIVITY_ROWS = {
   All: [
     { name: "Offer Completed", user: "Adeel Raza", provider: "Dolares", time: "Now", prize: 1500 },
     { name: "Cashout Requested", user: "Mia Chen", provider: "PayPal", time: "3m ago", prize: 900 },
@@ -97,6 +98,17 @@ function ActivityTable({ rows }) {
 }
 
 export default function Page() {
+  const [activityRows, setActivityRows] = useState(FALLBACK_ACTIVITY_ROWS);
+
+  useEffect(() => {
+    fetch("/api/dashboard/activity")
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.activity) setActivityRows(data.activity);
+      })
+      .catch(() => {});
+  }, []);
+
   return (
     <Layout>
       <section className="affiliate-sec py-5">
@@ -194,13 +206,13 @@ export default function Page() {
           </div>
           <div className="tab-content py-md-4 py-2" id="pills-tabContent">
             <div className="tab-pane fade show active" id="tab-2" role="tabpanel" aria-labelledby="pills-tab-2">
-              <ActivityTable rows={ACTIVITY_ROWS.All} />
+              <ActivityTable rows={activityRows.All} />
             </div>
             <div className="tab-pane fade" id="tab-1" role="tabpanel" aria-labelledby="pills-tab-1">
-              <ActivityTable rows={ACTIVITY_ROWS.Offers} />
+              <ActivityTable rows={activityRows.Offers} />
             </div>
             <div className="tab-pane fade" id="tab-3" role="tabpanel" aria-labelledby="pills-tab-3">
-              <ActivityTable rows={ACTIVITY_ROWS.Withdrawls} />
+              <ActivityTable rows={activityRows.Withdrawls} />
             </div>
           </div>
         </div>

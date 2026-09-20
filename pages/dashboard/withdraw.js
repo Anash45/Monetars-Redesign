@@ -1,6 +1,73 @@
+import { useState } from "react";
+import toast from "react-hot-toast";
 import Layout from "../../components/dashboard/Layout";
+import { useAuth } from "../../context/AuthContext";
 
 export default function Page() {
+  const { user, profile, applyProfilePatch } = useAuth();
+  const [cashSubmitting, setCashSubmitting] = useState(false);
+  const [giftCardSubmitting, setGiftCardSubmitting] = useState(false);
+
+  async function submitWithdrawal({ method, amount, destination }, setSubmitting, formEl) {
+    if (!user) {
+      toast.error("Sign in to request a withdrawal.");
+      return;
+    }
+    if (!method) {
+      toast.error("Choose a withdrawal method.");
+      return;
+    }
+    if (!amount) {
+      toast.error("Choose or enter an amount.");
+      return;
+    }
+    setSubmitting(true);
+    try {
+      const res = await fetch("/api/withdraw", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ userId: user.id, method, amount: Number(String(amount).replace(/[^0-9.]/g, "")), destination }),
+      });
+      const data = await res.json();
+      if (!res.ok) throw new Error(data.message || "Could not submit this withdrawal.");
+      applyProfilePatch(data.profile);
+      toast.success(data.message || "Withdrawal request submitted.");
+      formEl?.reset();
+    } catch (err) {
+      toast.error(err.message);
+    } finally {
+      setSubmitting(false);
+    }
+  }
+
+  function handleCashSubmit(e) {
+    e.preventDefault();
+    const fd = new FormData(e.target);
+    submitWithdrawal(
+      {
+        method: fd.get("withdraw-type"),
+        amount: fd.get("amount"),
+        destination: fd.get("paypalEmail") || null,
+      },
+      setCashSubmitting,
+      e.target
+    );
+  }
+
+  function handleGiftCardSubmit(e) {
+    e.preventDefault();
+    const fd = new FormData(e.target);
+    submitWithdrawal(
+      {
+        method: fd.get("gift-card-type") ? `${fd.get("gift-card-type")} Gift Card` : null,
+        amount: fd.get("gift-card-amount"),
+        destination: fd.get("gift-card-type"),
+      },
+      setGiftCardSubmitting,
+      e.target
+    );
+  }
+
   return (
     <Layout>
   <section className="settings-sec py-5">
@@ -17,7 +84,7 @@ export default function Page() {
               </p>
             </div>
             <div className="pt-4">
-              <form action="" method="post" className="withdraw-cash-form hidden-radio-form">
+              <form className="withdraw-cash-form hidden-radio-form" onSubmit={handleCashSubmit}>
                 <div className="er-cont py-3">
                   <div className="mx-2 px-md-4 px-3">
                     <div className="expandable-radio px-4">
@@ -33,7 +100,7 @@ export default function Page() {
                               Paypal
                             </span>
                           </div>
-                          <input className="form-check-input m-0" type="radio" name="withdraw-type" id="withdraw-type" />
+                          <input className="form-check-input m-0" type="radio" name="withdraw-type" id="withdraw-type" value="PayPal" defaultChecked />
                         </label>
                       </div>
                     </div>
@@ -42,7 +109,7 @@ export default function Page() {
                     <div className="px-md-4 px-3 py-3 mx-2">
                       <div className="form-group mb-3">
                         <div className="position-relative">
-                          <input type="text" className="form-control er-inp" placeholder="Your Paypal Email Address" />
+                          <input type="email" name="paypalEmail" className="form-control er-inp" placeholder="Your Paypal Email Address" />
                           <button type="button" className="f-12p er-inp-btn btn text-orange fw-semibold">
                             <span>
                               Save
@@ -60,7 +127,7 @@ export default function Page() {
                       </div>
                       <div className="form-group mb-0">
                         <div className="position-relative">
-                          <input type="text" className="form-control er-inp" placeholder="$ Amount (USD)" />
+                          <input type="number" name="amount" min="5" step="0.01" className="form-control er-inp" placeholder="$ Amount (USD)" />
                         </div>
                         <div className="d-flex align-items-center gap-1 px-4 er-help">
                           <span className="f-14p">
@@ -89,8 +156,8 @@ export default function Page() {
                             </span>
                           </div>
                         </div>
-                        <button type="submit" className="btn erf-btn">
-                          Withdraw
+                        <button type="submit" className="btn erf-btn" disabled={cashSubmitting}>
+                          {cashSubmitting ? "Submitting…" : "Withdraw"}
                         </button>
                       </div>
                     </div>
@@ -127,7 +194,7 @@ export default function Page() {
                     <div className="px-md-4 px-3 py-3 mx-2">
                       <div className="form-group mb-3">
                         <div className="position-relative">
-                          <input type="text" className="form-control er-inp" placeholder="Card Number" />
+                          <input type="text" name="cardNumber" className="form-control er-inp" placeholder="Card Number" />
                           <button type="button" className="f-12p er-inp-btn btn text-orange fw-semibold">
                             <span>
                               Save
@@ -147,7 +214,7 @@ export default function Page() {
                         <div className="col-6">
                           <div className="form-group mb-0">
                             <div className="position-relative">
-                              <input type="text" className="form-control er-inp" placeholder="01/29" />
+                              <input type="text" name="expiry" className="form-control er-inp" placeholder="01/29" />
                             </div>
                             <div className="d-flex align-items-center gap-1 px-4 er-help">
                               <span className="f-14p">
@@ -159,7 +226,7 @@ export default function Page() {
                         <div className="col-6">
                           <div className="form-group mb-0">
                             <div className="position-relative">
-                              <input type="text" className="form-control er-inp" placeholder="***" />
+                              <input type="text" name="cvv" className="form-control er-inp" placeholder="***" />
                             </div>
                             <div className="d-flex align-items-center gap-1 px-4 er-help">
                               <span className="f-14p">
@@ -167,6 +234,16 @@ export default function Page() {
                               </span>
                             </div>
                           </div>
+                        </div>
+                      </div>
+                      <div className="form-group mb-0">
+                        <div className="position-relative">
+                          <input type="number" name="amount" min="5" step="0.01" className="form-control er-inp" placeholder="$ Amount (USD)" />
+                        </div>
+                        <div className="d-flex align-items-center gap-1 px-4 er-help">
+                          <span className="f-14p">
+                            Minimum: $5.8
+                          </span>
                         </div>
                       </div>
                     </div>
@@ -190,8 +267,8 @@ export default function Page() {
                             </span>
                           </div>
                         </div>
-                        <button type="submit" className="btn erf-btn">
-                          Withdraw
+                        <button type="submit" className="btn erf-btn" disabled={cashSubmitting}>
+                          {cashSubmitting ? "Submitting…" : "Withdraw"}
                         </button>
                       </div>
                     </div>
@@ -210,7 +287,7 @@ export default function Page() {
               </p>
             </div>
             <div className="pt-4">
-              <form action="" method="post" className="gift-card-form hidden-radio-form">
+              <form className="gift-card-form hidden-radio-form" onSubmit={handleGiftCardSubmit}>
                 <div className="er-cont py-3">
                   <div className="mx-2 px-md-4 px-3">
                     <div className="expandable-radio px-4">
@@ -371,8 +448,8 @@ export default function Page() {
                             </span>
                           </div>
                         </div>
-                        <button type="submit" className="btn erf-btn">
-                          Payout
+                        <button type="submit" className="btn erf-btn" disabled={giftCardSubmitting}>
+                          {giftCardSubmitting ? "Submitting…" : "Payout"}
                         </button>
                       </div>
                     </div>
@@ -544,8 +621,8 @@ export default function Page() {
                             </span>
                           </div>
                         </div>
-                        <button type="submit" className="btn erf-btn">
-                          Payout
+                        <button type="submit" className="btn erf-btn" disabled={giftCardSubmitting}>
+                          {giftCardSubmitting ? "Submitting…" : "Payout"}
                         </button>
                       </div>
                     </div>
@@ -709,8 +786,8 @@ export default function Page() {
                             </span>
                           </div>
                         </div>
-                        <button type="submit" className="btn erf-btn">
-                          Payout
+                        <button type="submit" className="btn erf-btn" disabled={giftCardSubmitting}>
+                          {giftCardSubmitting ? "Submitting…" : "Payout"}
                         </button>
                       </div>
                     </div>
@@ -881,8 +958,8 @@ export default function Page() {
                             </span>
                           </div>
                         </div>
-                        <button type="submit" className="btn erf-btn">
-                          Payout
+                        <button type="submit" className="btn erf-btn" disabled={giftCardSubmitting}>
+                          {giftCardSubmitting ? "Submitting…" : "Payout"}
                         </button>
                       </div>
                     </div>
@@ -1060,8 +1137,8 @@ export default function Page() {
                             </span>
                           </div>
                         </div>
-                        <button type="submit" className="btn erf-btn">
-                          Payout
+                        <button type="submit" className="btn erf-btn" disabled={giftCardSubmitting}>
+                          {giftCardSubmitting ? "Submitting…" : "Payout"}
                         </button>
                       </div>
                     </div>
@@ -1226,8 +1303,8 @@ export default function Page() {
                             </span>
                           </div>
                         </div>
-                        <button type="submit" className="btn erf-btn">
-                          Payout
+                        <button type="submit" className="btn erf-btn" disabled={giftCardSubmitting}>
+                          {giftCardSubmitting ? "Submitting…" : "Payout"}
                         </button>
                       </div>
                     </div>
@@ -1398,8 +1475,8 @@ export default function Page() {
                             </span>
                           </div>
                         </div>
-                        <button type="submit" className="btn erf-btn">
-                          Payout
+                        <button type="submit" className="btn erf-btn" disabled={giftCardSubmitting}>
+                          {giftCardSubmitting ? "Submitting…" : "Payout"}
                         </button>
                       </div>
                     </div>
@@ -1571,8 +1648,8 @@ export default function Page() {
                             </span>
                           </div>
                         </div>
-                        <button type="submit" className="btn erf-btn">
-                          Payout
+                        <button type="submit" className="btn erf-btn" disabled={giftCardSubmitting}>
+                          {giftCardSubmitting ? "Submitting…" : "Payout"}
                         </button>
                       </div>
                     </div>

@@ -1,6 +1,125 @@
+import { useEffect, useState } from "react";
+import toast from "react-hot-toast";
 import Layout from "../../components/dashboard/Layout";
+import { useAuth } from "../../context/AuthContext";
+
+const DEFAULT_PROFILE = {
+  displayName: "Adeel Raza",
+  email: "asiadeel9@gmail.com",
+  visibility: "Private",
+  language: "English",
+  twoFactorEnabled: false,
+};
+
+function ChangeField({ label, type = "text", field, value, options, onSave }) {
+  const [draft, setDraft] = useState(value);
+  const [saving, setSaving] = useState(false);
+
+  useEffect(() => {
+    setDraft(value);
+  }, [value]);
+
+  async function handleChange() {
+    if (draft === value) return;
+    setSaving(true);
+    try {
+      await onSave(field, draft);
+      toast.success(`${label} updated.`);
+    } catch (err) {
+      toast.error(err.message);
+      setDraft(value);
+    } finally {
+      setSaving(false);
+    }
+  }
+
+  return (
+    <div className="row px-sm-4 align-items-center">
+      <div className="col-lg-3">
+        <label className="sb-label d-block mb-lg-0 mb-2 ps-2">{label}</label>
+      </div>
+      <div className="col-lg-9">
+        <div className="position-relative">
+          {options ? (
+            <select
+              name={field}
+              id={field}
+              className="sbi-inp form-control"
+              value={draft}
+              onChange={(e) => setDraft(e.target.value)}
+            >
+              {options.map((opt) => (
+                <option value={opt} key={opt}>
+                  {opt}
+                </option>
+              ))}
+            </select>
+          ) : (
+            <input
+              type={type}
+              name={field}
+              id={field}
+              className="sbi-inp form-control"
+              value={draft}
+              onChange={(e) => setDraft(e.target.value)}
+            />
+          )}
+          <button type="button" className="btn sb-btn" onClick={handleChange} disabled={saving || draft === value}>
+            {saving ? "Saving…" : "Change"}
+          </button>
+        </div>
+      </div>
+    </div>
+  );
+}
 
 export default function Page() {
+  const { user, profile, updateProfile, deleteAccount } = useAuth();
+  const activeProfile = profile || DEFAULT_PROFILE;
+  const [twoFactorSaving, setTwoFactorSaving] = useState(false);
+  const [deleting, setDeleting] = useState(false);
+
+  async function handleFieldSave(field, value) {
+    if (!user) {
+      throw new Error("Sign in to save your account settings.");
+    }
+    await updateProfile(field, value);
+  }
+
+  async function handleToggle2FA() {
+    if (!user) {
+      toast.error("Sign in to manage two-factor authentication.");
+      return;
+    }
+    setTwoFactorSaving(true);
+    try {
+      await updateProfile("twoFactorEnabled", !activeProfile.twoFactorEnabled);
+      toast.success(activeProfile.twoFactorEnabled ? "Two-factor authentication disabled." : "Two-factor authentication activated.");
+    } catch (err) {
+      toast.error(err.message);
+    } finally {
+      setTwoFactorSaving(false);
+    }
+  }
+
+  async function handleDeleteAccount() {
+    if (!user) {
+      toast.error("Sign in first to delete an account.");
+      return;
+    }
+    if (!window.confirm("This will permanently delete your account. Continue?")) return;
+    setDeleting(true);
+    try {
+      await deleteAccount();
+      toast.success("Account deleted.");
+      window.location.href = "/";
+    } catch (err) {
+      toast.error(err.message);
+    } finally {
+      setDeleting(false);
+    }
+  }
+
   return (
     <Layout>
   <section className="settings-sec py-5">
@@ -26,80 +145,10 @@ export default function Page() {
       </div>
       <div className="settings-boxes">
         <div className="setting-box sb-1 d-flex flex-column gap-3">
-          <div className="row px-sm-4 align-items-center">
-            <div className="col-lg-3">
-              <label className="sb-label d-block mb-lg-0 mb-2 ps-2">
-                Display Name
-              </label>
-            </div>
-            <div className="col-lg-9">
-              <div className="position-relative">
-                <input type="text" name="name" id="name" className="sbi-inp form-control" value="Adeel Raza" />
-                <button type="button" className="btn sb-btn">
-                  Change
-                </button>
-              </div>
-            </div>
-          </div>
-          <div className="row px-sm-4 align-items-center">
-            <div className="col-lg-3">
-              <label className="sb-label d-block mb-lg-0 mb-2 ps-2">
-                Email Address
-              </label>
-            </div>
-            <div className="col-lg-9">
-              <div className="position-relative">
-                <input type="text" name="email" id="email" className="sbi-inp form-control" value="asiadeel9@gmail.com" />
-                <button type="button" className="btn sb-btn">
-                  Change
-                </button>
-              </div>
-            </div>
-          </div>
-          <div className="row px-sm-4 align-items-center">
-            <div className="col-lg-3">
-              <label className="sb-label d-block mb-lg-0 mb-2 ps-2">
-                Profile Visibility
-              </label>
-            </div>
-            <div className="col-lg-9">
-              <div className="position-relative">
-                <select name="visibility" id="visibility" className="sbi-inp form-control">
-                  <option value="Private">
-                    Private
-                  </option>
-                  <option value="Public">
-                    Public
-                  </option>
-                </select>
-                <button type="button" className="btn sb-btn">
-                  Change
-                </button>
-              </div>
-            </div>
-          </div>
-          <div className="row px-sm-4 align-items-center">
-            <div className="col-lg-3">
-              <label className="sb-label d-block mb-lg-0 mb-2 ps-2">
-                Language
-              </label>
-            </div>
-            <div className="col-lg-9">
-              <div className="position-relative">
-                <select name="language" id="language" className="sbi-inp form-control">
-                  <option value="English">
-                    English
-                  </option>
-                  <option value="German">
-                    German
-                  </option>
-                </select>
-                <button type="button" className="btn sb-btn">
-                  Change
-                </button>
-              </div>
-            </div>
-          </div>
+          <ChangeField label="Display Name" field="displayName" value={activeProfile.displayName} onSave={handleFieldSave} />
+          <ChangeField label="Email Address" field="email" type="email" value={activeProfile.email} onSave={handleFieldSave} />
+          <ChangeField label="Profile Visibility" field="visibility" value={activeProfile.visibility} options={["Private", "Public"]} onSave={handleFieldSave} />
+          <ChangeField label="Language" field="language" value={activeProfile.language} options={["English", "German"]} onSave={handleFieldSave} />
         </div>
         <div className="setting-box sb-2 gap-4 d-flex flex-column">
           <div className="d-flex flex-column">
@@ -110,8 +159,13 @@ export default function Page() {
               Activate your 2FA to make your account more secure.
             </p>
           </div>
-          <button className="btn fw-semibold sb-btn-primary text-white p-md-4 px-4 py-3 rounded-pill w-100" type="button">
-            Activate
+          <button
+            className="btn fw-semibold sb-btn-primary text-white p-md-4 px-4 py-3 rounded-pill w-100"
+            type="button"
+            onClick={handleToggle2FA}
+            disabled={twoFactorSaving}
+          >
+            {twoFactorSaving ? "Saving…" : activeProfile.twoFactorEnabled ? "Deactivate" : "Activate"}
           </button>
         </div>
         <div className="setting-box sb-3 gap-4 d-flex flex-column">
@@ -123,8 +177,13 @@ export default function Page() {
               Once you delete your account, there is no going back. Please be certain.
             </p>
           </div>
-          <button className="btn fw-semibold sb-btn-danger text-white p-md-4 px-4 py-3 rounded-pill w-100" type="button">
-            Delete Account
+          <button
+            className="btn fw-semibold sb-btn-danger text-white p-md-4 px-4 py-3 rounded-pill w-100"
+            type="button"
+            onClick={handleDeleteAccount}
+            disabled={deleting}
+          >
+            {deleting ? "Deleting…" : "Delete Account"}
           </button>
         </div>
       </div>
