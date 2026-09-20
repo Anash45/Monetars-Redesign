@@ -19,6 +19,17 @@ const links = [
   { href: "/withdraw", label: "Withdraw" },
 ];
 
+const dashboardLinks = [
+  { href: "/dashboard/lobby", label: "Lobby" },
+  { href: "/dashboard/profile", label: "Profile" },
+  { href: "/dashboard/leaderboard", label: "Leaderboard" },
+  { href: "/dashboard/offers", label: "Offers" },
+  { href: "/dashboard/affiliate", label: "Affiliate" },
+  { href: "/dashboard/rewards", label: "Rewards" },
+  { href: "/dashboard/settings", label: "Settings" },
+  { href: "/dashboard/withdraw", label: "Withdraw" },
+];
+
 function slug(href) {
   return href === "/" ? "homepage" : href.replace(/^\//, "");
 }
@@ -83,6 +94,56 @@ function ThemeGallery({ theme, title }) {
   );
 }
 
+function DashboardGallery() {
+  const colors = THEME_COLORS.dark;
+  return (
+    <div
+      className="rounded-xl p-4 p-md-5 mb-5"
+      style={{ backgroundColor: colors.sectionBg }}
+    >
+      <h2 className="mb-4 fw-medium" style={{ color: colors.title }}>
+        Dashboard
+      </h2>
+      <div className="row g-3">
+        {dashboardLinks.map(({ href, label }) => (
+          <div className="col-lg-3 col-md-4 col-6 py-2 px-2" key={href}>
+            <a href={href} className="d-block text-decoration-none roboto">
+              <div
+                className="rounded-xl shadow-lg overflow-hidden h-100"
+                style={{ backgroundColor: colors.cardBg }}
+              >
+                <div
+                  className="w-100"
+                  style={{ aspectRatio: "4 / 3", overflow: "hidden" }}
+                >
+                  <img
+                    src={`/gallery-thumbnails/dashboard/${slug(href).replace(/^dashboard\//, "")}.png`}
+                    alt={`${label} (Dashboard)`}
+                    className="w-100 h-100 object-fit-cover"
+                    style={{ objectPosition: "top" }}
+                    loading="lazy"
+                  />
+                </div>
+                <div className="p-3">
+                  <h3 className="f-16p fw-bold mb-1" style={{ color: colors.title }}>
+                    {label}
+                  </h3>
+                  <p
+                    className="font-monospace mb-0 opacity-75"
+                    style={{ fontSize: "0.8rem", color: colors.route }}
+                  >
+                    {href}
+                  </p>
+                </div>
+              </div>
+            </a>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
 export default function Page() {
   return (
     <>
@@ -101,6 +162,7 @@ export default function Page() {
         <div className="container">
           <ThemeGallery theme="light" title="Light Theme" />
           <ThemeGallery theme="dark" title="Dark Theme" />
+          <DashboardGallery />
         </div>
       </main>
       <Scripts />
