@@ -194,7 +194,7 @@ export default function Page() {
             <div className="tab-pane fade show active" id="tab-2" role="tabpanel" aria-labelledby="pills-tab-2">
               <div className="leaderboard-standings">
                 <div className="position-relative">
-                  <button className="btn btn-dark d-flex align-items-center toggle-btn ms-auto" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample" onClick={() => { toggleIcon(this) }}>
+                  <button className="btn btn-dark d-flex align-items-center toggle-btn ms-auto" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample" onClick={(e) => { toggleIcon(e.currentTarget) }}>
                     <i className="fa fa-chevron-down"></i>
                   </button>
                   <div className="mt-3">
