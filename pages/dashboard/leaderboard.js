@@ -3,19 +3,19 @@ import Layout from "../../components/dashboard/Layout";
 
 const PODIUMS = {
   Weekly: [
-    { place: "mc-2nd", crown: "/dashboard-assets/img/crown-silver.svg", badge: "/dashboard-assets/img/second.svg", badgeHeight: 35, avatar: "https://ui-avatars.com/api/?name=gilmilli7&color=7F9CF5&background=EBF4FF", name: "gilmilli7", points: "52.530", prizeColor: "#E1E1E1", prize: "12.500" },
-    { place: "mc-1st", crown: "/dashboard-assets/img/crown-1st.svg", badge: "/dashboard-assets/img/first.svg", badgeHeight: 48, avatar: "https://dolares.app/public/storage/users/uaWtToDVg1VtplAmk48vfXJQyEkuyRybyfInRnT5EGN8uEakgO.jpg", topCrown: true, name: "moramondolina", points: "52.530", prizeColor: "#EF7C16", prize: "25.000" },
-    { place: "mc-3rd", crown: "/dashboard-assets/img/crown-silver.svg", badge: "/dashboard-assets/img/third.svg", badgeHeight: 35, avatar: "https://dolares.app/public/storage/users/XawBCIAkdVOfFxC8KexwuTx8rNWLCpzfFCMlQS4kMUIaDLVWph.jpg", name: "Jeremy", points: "42.075", prizeColor: "#403E51", prize: "7.500" },
+    { place: "mc-2nd", crown: "/dashboard-assets/img/crown-silver.svg", badge: "/dashboard-assets/img/second.svg", badgeHeight: 35, avatar: "/dashboard-assets/img/403197.jpg", name: "gilmilli7", points: "52.530", prizeColor: "#E1E1E1", prize: "12.500" },
+    { place: "mc-1st", crown: "/dashboard-assets/img/crown-1st.svg", badge: "/dashboard-assets/img/first.svg", badgeHeight: 48, avatar: "/dashboard-assets/img/smiley-man-relaxing-outdoors1.png", topCrown: true, name: "moramondolina", points: "52.530", prizeColor: "#EF7C16", prize: "25.000" },
+    { place: "mc-3rd", crown: "/dashboard-assets/img/crown-silver.svg", badge: "/dashboard-assets/img/third.svg", badgeHeight: 35, avatar: "/dashboard-assets/img/26176.jpg", name: "Jeremy", points: "42.075", prizeColor: "#403E51", prize: "7.500" },
   ],
   Monthly: [
-    { place: "mc-2nd", crown: "/dashboard-assets/img/crown-silver.svg", badge: "/dashboard-assets/img/second.svg", badgeHeight: 35, avatar: "https://ui-avatars.com/api/?name=kdunlop&color=7F9CF5&background=EBF4FF", name: "kdunlop", points: "61.210", prizeColor: "#E1E1E1", prize: "15.000" },
-    { place: "mc-1st", crown: "/dashboard-assets/img/crown-1st.svg", badge: "/dashboard-assets/img/first.svg", badgeHeight: 48, avatar: "https://dolares.app/public/storage/users/XawBCIAkdVOfFxC8KexwuTx8rNWLCpzfFCMlQS4kMUIaDLVWph.jpg", topCrown: true, name: "wayne_gordon", points: "98.400", prizeColor: "#EF7C16", prize: "40.000" },
-    { place: "mc-3rd", crown: "/dashboard-assets/img/crown-silver.svg", badge: "/dashboard-assets/img/third.svg", badgeHeight: 35, avatar: "https://dolares.app/public/storage/users/uaWtToDVg1VtplAmk48vfXJQyEkuyRybyfInRnT5EGN8uEakgO.jpg", name: "mia_hendricks", points: "55.900", prizeColor: "#403E51", prize: "12.000" },
+    { place: "mc-2nd", crown: "/dashboard-assets/img/crown-silver.svg", badge: "/dashboard-assets/img/second.svg", badgeHeight: 35, avatar: "/dashboard-assets/img/9.png", name: "kdunlop", points: "61.210", prizeColor: "#E1E1E1", prize: "15.000" },
+    { place: "mc-1st", crown: "/dashboard-assets/img/crown-1st.svg", badge: "/dashboard-assets/img/first.svg", badgeHeight: 48, avatar: "/dashboard-assets/img/blog-1.jpg", topCrown: true, name: "wayne_gordon", points: "98.400", prizeColor: "#EF7C16", prize: "40.000" },
+    { place: "mc-3rd", crown: "/dashboard-assets/img/crown-silver.svg", badge: "/dashboard-assets/img/third.svg", badgeHeight: 35, avatar: "/dashboard-assets/img/2.png", name: "mia_hendricks", points: "55.900", prizeColor: "#403E51", prize: "12.000" },
   ],
   Affiliate: [
-    { place: "mc-2nd", crown: "/dashboard-assets/img/crown-silver.svg", badge: "/dashboard-assets/img/second.svg", badgeHeight: 35, avatar: "https://ui-avatars.com/api/?name=devonp&color=7F9CF5&background=EBF4FF", name: "devon.parker", points: "18.320", prizeColor: "#E1E1E1", prize: "5.000" },
-    { place: "mc-1st", crown: "/dashboard-assets/img/crown-1st.svg", badge: "/dashboard-assets/img/first.svg", badgeHeight: 48, avatar: "https://dolares.app/public/storage/users/uaWtToDVg1VtplAmk48vfXJQyEkuyRybyfInRnT5EGN8uEakgO.jpg", topCrown: true, name: "jasmine_lowe", points: "24.780", prizeColor: "#EF7C16", prize: "10.000" },
-    { place: "mc-3rd", crown: "/dashboard-assets/img/crown-silver.svg", badge: "/dashboard-assets/img/third.svg", badgeHeight: 35, avatar: "https://dolares.app/public/storage/users/XawBCIAkdVOfFxC8KexwuTx8rNWLCpzfFCMlQS4kMUIaDLVWph.jpg", name: "ryan_okafor", points: "16.045", prizeColor: "#403E51", prize: "3.500" },
+    { place: "mc-2nd", crown: "/dashboard-assets/img/crown-silver.svg", badge: "/dashboard-assets/img/second.svg", badgeHeight: 35, avatar: "/dashboard-assets/img/blog-2.jpg", name: "devon.parker", points: "18.320", prizeColor: "#E1E1E1", prize: "5.000" },
+    { place: "mc-1st", crown: "/dashboard-assets/img/crown-1st.svg", badge: "/dashboard-assets/img/first.svg", badgeHeight: 48, avatar: "/dashboard-assets/img/403197.jpg", topCrown: true, name: "jasmine_lowe", points: "24.780", prizeColor: "#EF7C16", prize: "10.000" },
+    { place: "mc-3rd", crown: "/dashboard-assets/img/crown-silver.svg", badge: "/dashboard-assets/img/third.svg", badgeHeight: 35, avatar: "/dashboard-assets/img/smiley-man-relaxing-outdoors1.png", name: "ryan_okafor", points: "16.045", prizeColor: "#403E51", prize: "3.500" },
   ],
 };
 
@@ -52,7 +52,7 @@ function Podium({ members }) {
             </span>
             <div className="position-static">
               <a href="javascript:void(0)" onClick={() => { openModal('user') }}>
-                {m.topCrown && <img src="https://dolares.app/assets/img/crown.png" alt="Crown" className="mc-crown" />}
+                {m.topCrown && <img src="/dashboard-assets/img/crown.png" alt="Crown" className="mc-crown" />}
                 <img src={m.avatar} className="mc-img cursor-pointer" />
               </a>
             </div>
@@ -69,7 +69,7 @@ function Podium({ members }) {
                 </svg>
                 Prize
               </span>
-              <img src="https://dolares.app/assets/img/coin (1).png" height="10" alt="coin" className="mcp-img" />
+              <img src="/dashboard-assets/img/coin (1).png" height="10" alt="coin" className="mcp-img" />
               <span className="mcp">{m.prize}</span>
             </div>
           </div>

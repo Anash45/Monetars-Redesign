@@ -14,15 +14,15 @@ const RECENT_OFFERS = [
 ];
 
 const OFFER_WALLS = [
-  { name: "AdGateMedia", img: "https://dolares.app/public/storage/network_logos/e9s89EWbQKnLLaHu8OXPSGQZ6CX3LPkIEahVaWOP.png", bg: "#45b6f2", percent: "+30%" },
-  { name: "Lootably", img: "https://dolares.app/public/storage/network_logos/VCnYX2a3ClbSPcR0BwrduB4aolIG1AlzPWuLXttf.png", bg: "#1c2531" },
-  { name: "Revenue Universe", img: "https://dolares.app/public/storage/network_logos/7jutdyflnKyoYSeUOYnecYcfiGpSmtytebjRLJsL.png", bg: "#33485d" },
-  { name: "Monlix", img: "https://dolares.app/public/storage/network_logos/PYP76CcXPYfoW6l5gYxGBokAWzlw2PrBcKLWxGKn.png", bg: "#4bb170" },
-  { name: "TimeWall", img: "https://dolares.app/public/storage/network_logos/36eNroaRox5OYDPGCP39nUsThcbhqQSEZUQFMiZb.png", bg: "#2563eb" },
-  { name: "Make Money", img: "https://dolares.app/public/storage/network_logos/kXaeBKiq8TwF39aoJ0nzi8VhdNFb8yDaPelotDBE.png", bg: "#ff7707" },
-  { name: "Notik", img: "https://dolares.app/public/storage/network_logos/7tq88rj01q84kb8rGsLcc8IyYI26Olu7p3x9iw91.png", bg: "#AADBD6" },
-  { name: "Revlum", img: "https://dolares.app/public/storage/network_logos/4p7IQPnWoRDjtlzwHu6WBadlI3wo5s9obxvOsp9H.png", bg: "#16202b" },
-  { name: "Adscend Media", img: "https://dolares.app/public/storage/network_logos/XyBGXJL1Hhm58er80iwYPHz5blQ2wWN6hRtnjaSl.png", bg: "#ffbc42" },
+  { name: "AdGateMedia", img: "/dashboard-assets/img/adgateIcon.png", bg: "#45b6f2", percent: "+30%" },
+  { name: "Lootably", img: "/dashboard-assets/img/network_logos/lootably.svg", bg: "#1c2531" },
+  { name: "Revenue Universe", img: "/dashboard-assets/img/providers/RevU.png", bg: "#33485d" },
+  { name: "Monlix", img: "/dashboard-assets/img/monlixIcon.png", bg: "#4bb170" },
+  { name: "TimeWall", img: "/dashboard-assets/img/timewallIcon.png", bg: "#2563eb" },
+  { name: "Make Money", img: "/dashboard-assets/img/network_logos/make-money.svg", bg: "#ff7707" },
+  { name: "Notik", img: "/dashboard-assets/img/network_logos/notik.svg", bg: "#AADBD6" },
+  { name: "Revlum", img: "/dashboard-assets/img/network_logos/revlum.svg", bg: "#16202b" },
+  { name: "Adscend Media", img: "/dashboard-assets/img/network_logos/adscend-media.svg", bg: "#ffbc42" },
 ];
 
 const FALLBACK_ACTIVITY_ROWS = {

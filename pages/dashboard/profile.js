@@ -120,7 +120,7 @@ export default function Page() {
               <div className="uii-box">
                 <div className="d-flex justify-content-center align-items-center p-3 uib-row fw-medium">
                   <div className="d-flex gap-2 align-items-center f-21p uib-value">
-                    <img src="https://www.countryflags.com/wp-content/uploads/germany-flag-png-large.png" alt="Flag" className="rounded-circle" style={{height: '18px', width: '18px', objectFit: 'cover'}} />
+                    <img src="/dashboard-assets/img/flags/de.png" alt="Flag" className="rounded-circle" style={{height: '18px', width: '18px', objectFit: 'cover'}} />
                     <span>
                       Germany
                     </span>
